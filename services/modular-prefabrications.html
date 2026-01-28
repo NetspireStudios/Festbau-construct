@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Festbau | Modular &amp; Prefabrication</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply font-display;
+            }
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1152d4",
+                        "accent-yellow": "#FFD700",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                        "industrial-gray": "#2d3442",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-gray-900 dark:text-gray-100 overflow-x-hidden">
+<header class="sticky top-0 z-50 w-full bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<a href="../home.html" class="flex items-center gap-3">
+<div class="bg-primary p-1.5 rounded-sm">
+<svg class="size-6 text-white" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M39.5563 34.1455V13.8546C39.5563 15.708 36.8773 17.3437 32.7927 18.3189C30.2914 18.916 27.263 19.2655 24 19.2655C20.737 19.2655 17.7086 18.916 15.2073 18.3189C11.1227 17.3437 8.44365 15.708 8.44365 13.8546V34.1455C8.44365 35.9988 11.1227 37.6346 15.2073 38.6098C17.7086 39.2069 20.737 39.5564 24 39.5564C27.1288 39.5564 30.2914 39.2069 32.7927 38.6098C36.8773 37.6346 39.5563 35.9988 39.5563 34.1455Z" fill="currentColor"></path>
+<path clip-rule="evenodd" d="M10.4485 13.8519C10.4749 13.9271 10.6203 14.246 11.379 14.7361C12.298 15.3298 13.7492 15.9145 15.6717 16.3735C18.0007 16.9296 20.8712 17.2655 24 17.2655C27.1288 17.2655 29.9993 16.9296 32.3283 16.3735C34.2508 15.9145 35.702 15.3298 36.621 14.7361C37.3796 14.246 37.5251 13.9271 37.5515 13.8519C37.5287 13.7876 37.4333 13.5973 37.0635 13.2931C36.5266 12.8516 35.6288 12.3647 34.343 11.9175C31.79 11.0295 28.1333 10.4437 24 10.4437C19.8667 10.4437 16.2099 11.0295 13.657 11.9175C12.3712 12.3647 11.4734 12.8516 10.9365 13.2931C10.5667 13.5973 10.4713 13.7876 10.4485 13.8519ZM37.5563 18.7877C36.3176 19.3925 34.8502 19.8839 33.2571 20.2642C30.5836 20.9025 27.3973 21.2655 24 21.2655C20.6027 21.2655 17.4164 20.9025 14.7429 20.2642C13.1498 19.8839 11.6824 19.3925 10.4436 18.7877V34.1275C10.4515 34.1545 10.5427 34.4867 11.379 35.027C12.298 35.6207 13.7492 36.2054 15.6717 36.6644C18.0007 37.2205 20.8712 37.5564 24 37.5564C27.1288 37.5564 29.9993 37.2205 32.3283 36.6644C34.2508 36.2054 35.702 35.6207 36.621 35.027C37.4573 34.4867 37.5485 34.1546 37.5563 34.1275V18.7877ZM41.5563 13.8546V34.1455C41.5563 36.1078 40.158 37.5042 38.7915 38.3869C37.3498 39.3182 35.4192 40.0389 33.2571 40.5551C30.5836 41.1934 27.3973 41.5564 24 41.5564C20.6027 41.5564 17.4164 41.1934 14.7429 40.5551C12.5808 40.0389 10.6502 39.3182 9.20848 38.3869C7.84205 37.5042 6.44365 36.1078 6.44365 34.1455L6.44365 13.8546C6.44365 12.2684 7.37223 11.0454 8.39581 10.2036C9.43325 9.3505 10.8137 8.67141 12.343 8.13948C15.4203 7.06909 19.5418 6.44366 24 6.44366C28.4582 6.44366 32.5797 7.06909 35.657 8.13948C37.1863 8.67141 38.5667 9.3505 39.6042 10.2036C40.6278 11.0454 41.5563 12.2684 41.5563 13.8546Z" fill="white" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-xl font-extrabold tracking-tighter uppercase">Festbau</h2>
+</a>
+<nav class="hidden md:flex items-center gap-8">
+<div class="relative group">
+<button class="text-sm font-semibold uppercase tracking-widest text-primary hover:text-primary transition-colors flex items-center gap-1">
+Services
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+<div class="absolute top-full left-0 mt-2 w-64 bg-white dark:bg-industrial-gray shadow-xl border border-gray-200 dark:border-gray-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+<a href="design-build.html" class="block px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors border-b border-gray-100 dark:border-gray-700">Design Build</a>
+<a href="general-contracting.html" class="block px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors border-b border-gray-100 dark:border-gray-700">General Contracting</a>
+<a href="project-management.html" class="block px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors border-b border-gray-100 dark:border-gray-700">Project Management</a>
+<a href="modular-prefabrications.html" class="block px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors">Modular Prefabrications</a>
+</div>
+</div>
+<a class="text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors" href="../project-portfolio.html">Projects</a>
+<a class="text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors" href="../qualifications.html">Qualifications</a>
+<a class="text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors" href="../about-us.html">About Us</a>
+<a href="../contact.html" class="bg-primary text-white px-6 py-2 text-sm font-bold uppercase tracking-widest rounded-sm hover:brightness-110 transition-all">
+Contact
+</a>
+</nav>
+<button id="mobile-menu-btn" class="md:hidden text-gray-900 dark:text-white">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</div>
+<div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 right-0 bg-white dark:bg-industrial-gray border-b border-gray-200 dark:border-gray-700 shadow-xl">
+<div class="px-6 py-4 space-y-4">
+<a href="../home.html" class="block text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors">Home</a>
+<div>
+<button id="mobile-services-btn" class="w-full flex items-center justify-between text-sm font-semibold uppercase tracking-widest text-primary">
+Services
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+<div id="mobile-services-menu" class="hidden mt-2 ml-4 space-y-2">
+<a href="design-build.html" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-primary py-2">Design Build</a>
+<a href="general-contracting.html" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-primary py-2">General Contracting</a>
+<a href="project-management.html" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-primary py-2">Project Management</a>
+<a href="modular-prefabrications.html" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-primary py-2">Modular Prefabrications</a>
+</div>
+</div>
+<a href="../project-portfolio.html" class="block text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors">Projects</a>
+<a href="../qualifications.html" class="block text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors">Qualifications</a>
+<a href="../about-us.html" class="block text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors">About Us</a>
+<a href="../contact.html" class="block bg-primary text-white px-6 py-3 text-sm font-bold uppercase tracking-widest rounded-sm hover:brightness-110 transition-all text-center">Contact</a>
+</div>
+</div>
+</header>
+<script src="../assets/js/navigation.js"></script>
+<main>
+</div>
+</header>
+<main>
+<section class="relative h-[85vh] flex items-center bg-background-dark overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-background-dark/40 z-10"></div>
+<img alt="Completed residential modular complex" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVozHJtzO2Yn0I94XOM0UBWBAs6aGjkzcPBPuKlUrR8cQnFhezuKqLXQ5DsqYg2bEr0SGX6dY2zs8j-ls5dakThLnIkBvMCUxrmDEG6gJbgz9GuP0MvwF2bMYEXptp9kWhiqECTkA3dqObyTysRDg6qWIaNKpvciVNVfX2VPtDcL2iIiFQhHiSZvKyU2Wzz3mngk9n6FS7MwsyRzDHIf5OISHQWenorpTaqIGNAURpuS4QB5qh4mn55r-1R7QkLdFtX5St-TqORPg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent"></div>
+</div>
+<div class="relative z-20 max-w-7xl mx-auto px-6 w-full">
+<div class="max-w-4xl">
+<div class="flex items-center gap-3 mb-6">
+<span class="h-[2px] w-12 bg-accent-yellow"></span>
+<span class="text-accent-yellow font-black uppercase tracking-[0.3em] text-sm">Affordable Housing Solutions</span>
+</div>
+<h1 class="text-6xl md:text-8xl font-black text-white leading-[0.9] tracking-tighter mb-8 uppercase">
+                        Modular &amp;<br/>
+<span class="text-primary italic">Prefabrication</span>
+</h1>
+<p class="text-xl text-gray-200 max-w-2xl mb-10 border-l-4 border-accent-yellow pl-6 leading-relaxed">
+                        Redefining urban living through high-quality, factory-precision modular construction. Scalable housing delivered at a fraction of traditional timelines.
+                    </p>
+<div class="flex flex-wrap gap-4">
+<a class="bg-primary text-white px-8 py-4 text-sm font-black uppercase tracking-widest hover:bg-white hover:text-primary transition-all shadow-xl" href="#excellence">Modular Excellence</a>
+<a class="bg-white/10 backdrop-blur-md text-white border border-white/30 px-8 py-4 text-sm font-black uppercase tracking-widest hover:bg-white/20 transition-all" href="#guide">Download Guide</a>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-accent-yellow py-10">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-center">
+<div class="flex items-center gap-6">
+<span class="text-5xl font-black text-background-dark tracking-tighter">40%</span>
+<div>
+<p class="font-black uppercase text-xs tracking-widest text-background-dark/60">Metric 01</p>
+<p class="text-lg font-bold text-background-dark leading-tight uppercase">Faster Delivery<br/>Timelines</p>
+</div>
+</div>
+<div class="flex items-center gap-6 border-l-0 md:border-l border-background-dark/10 md:pl-8">
+<span class="text-5xl font-black text-background-dark tracking-tighter">20%</span>
+<div>
+<p class="font-black uppercase text-xs tracking-widest text-background-dark/60">Metric 02</p>
+<p class="text-lg font-bold text-background-dark leading-tight uppercase">Waste Reduction<br/>On-Site</p>
+</div>
+</div>
+<div class="lg:flex hidden items-center gap-6 border-l border-background-dark/10 pl-8">
+<span class="text-5xl font-black text-background-dark tracking-tighter">100%</span>
+<div>
+<p class="font-black uppercase text-xs tracking-widest text-background-dark/60">Metric 03</p>
+<p class="text-lg font-bold text-background-dark leading-tight uppercase">Factory-Controlled<br/>Quality Assurance</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-white dark:bg-background-dark" id="excellence">
+<div class="max-w-7xl mx-auto px-6">
+<div class="mb-16 text-center lg:text-left">
+<h2 class="text-primary font-black uppercase tracking-[0.4em] text-sm mb-4">Precision Housing</h2>
+<h3 class="text-4xl md:text-5xl font-black tracking-tighter text-gray-900 dark:text-white uppercase">Modular Excellence</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="group relative aspect-[4/5] bg-industrial-gray overflow-hidden">
+<img alt="Modular residential unit" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVozHJtzO2Yn0I94XOM0UBWBAs6aGjkzcPBPuKlUrR8cQnFhezuKqLXQ5DsqYg2bEr0SGX6dY2zs8j-ls5dakThLnIkBvMCUxrmDEG6gJbgz9GuP0MvwF2bMYEXptp9kWhiqECTkA3dqObyTysRDg6qWIaNKpvciVNVfX2VPtDcL2iIiFQhHiSZvKyU2Wzz3mngk9n6FS7MwsyRzDHIf5OISHQWenorpTaqIGNAURpuS4QB5qh4mn55r-1R7QkLdFtX5St-TqORPg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/20 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8 w-full translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+<div class="bg-accent-yellow text-black text-[10px] font-black uppercase px-2 py-0.5 inline-block mb-3">Residential</div>
+<h4 class="text-2xl font-black text-white uppercase tracking-tight mb-2 leading-none">Munich Urban Hive</h4>
+<p class="text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-500">120 modular units assembled in 8 weeks.</p>
+</div>
+</div>
+<div class="group relative aspect-[4/5] bg-industrial-gray overflow-hidden">
+<img alt="Public modular facility" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgAksz6v4SME5rV26SsOHfwFQyololFAwyniWUkVy2osv4qb7pxEK7B1b9rz1hGus0jjno_TCLHRSe7C9zGyxC_T3OSBN4Gx-2VYRAKpxoXaAmVilv0UPCOfjLF6783ysrXdyhFw6lvFAS1ee8fu9RtmpdD2_wA2a1zR59VdBTnQpyu06aXzEsAB3P06SuuQ1PaI56xQ74IYlN2eKS4EQUJTl4nEcerWs2zSEE1kdAPBsMusOIgGW1pxHLGvgckeQHIe20ZQbnx_g"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/20 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8 w-full translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+<div class="bg-primary text-white text-[10px] font-black uppercase px-2 py-0.5 inline-block mb-3">Public Facility</div>
+<h4 class="text-2xl font-black text-white uppercase tracking-tight mb-2 leading-none">Community Hub 04</h4>
+<p class="text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-500">Rapid deployment center for municipal services.</p>
+</div>
+</div>
+<div class="group relative aspect-[4/5] bg-industrial-gray overflow-hidden">
+<img alt="Modular affordable housing" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVozHJtzO2Yn0I94XOM0UBWBAs6aGjkzcPBPuKlUrR8cQnFhezuKqLXQ5DsqYg2bEr0SGX6dY2zs8j-ls5dakThLnIkBvMCUxrmDEG6gJbgz9GuP0MvwF2bMYEXptp9kWhiqECTkA3dqObyTysRDg6qWIaNKpvciVNVfX2VPtDcL2iIiFQhHiSZvKyU2Wzz3mngk9n6FS7MwsyRzDHIf5OISHQWenorpTaqIGNAURpuS4QB5qh4mn55r-1R7QkLdFtX5St-TqORPg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/20 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8 w-full translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+<div class="bg-accent-yellow text-black text-[10px] font-black uppercase px-2 py-0.5 inline-block mb-3">Affordable Housing</div>
+<h4 class="text-2xl font-black text-white uppercase tracking-tight mb-2 leading-none">Berlin Prime Lofts</h4>
+<p class="text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-500">Sustainable modular living with net-zero features.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-industrial-gray text-white overflow-hidden relative" id="guide">
+<div class="absolute right-0 top-0 h-full w-1/3 bg-primary/20 -skew-x-12 translate-x-20"></div>
+<div class="max-w-7xl mx-auto px-6 relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div>
+<h2 class="text-accent-yellow font-black uppercase tracking-[0.4em] text-sm mb-4">Technical Resources</h2>
+<h3 class="text-4xl md:text-5xl font-black tracking-tighter uppercase mb-6 leading-tight">Understand the<br/>Modular Method</h3>
+<p class="text-gray-400 text-lg mb-8 max-w-lg leading-relaxed">
+                            Our comprehensive technical guide outlines the structural advantages, insulation standards, and assembly logistics of our prefabrication process.
+                        </p>
+<div class="space-y-4 mb-10">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-accent-yellow">description</span>
+<span class="text-sm font-bold uppercase tracking-wider">Modular Structural Integrity Report (PDF)</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-accent-yellow">energy_savings_leaf</span>
+<span class="text-sm font-bold uppercase tracking-wider">Thermal Efficiency &amp; Sustainability Whitepaper</span>
+</div>
+</div>
+<button class="flex items-center gap-4 bg-primary text-white px-10 py-5 text-sm font-black uppercase tracking-widest hover:brightness-110 transition-all shadow-2xl">
+<span class="material-symbols-outlined">download</span>
+                            Download Technical Guide
+                        </button>
+</div>
+<div class="relative hidden lg:block">
+<div class="border-8 border-accent-yellow/20 p-4">
+<img alt="Prefabrication blueprints" class="w-full shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgAksz6v4SME5rV26SsOHfwFQyololFAwyniWUkVy2osv4qb7pxEK7B1b9rz1hGus0jjno_TCLHRSe7C9zGyxC_T3OSBN4Gx-2VYRAKpxoXaAmVilv0UPCOfjLF6783ysrXdyhFw6lvFAS1ee8fu9RtmpdD2_wA2a1zR59VdBTnQpyu06aXzEsAB3P06SuuQ1PaI56xQ74IYlN2eKS4EQUJTl4nEcerWs2zSEE1kdAPBsMusOIgGW1pxHLGvgckeQHIe20ZQbnx_g"/>
+</div>
+<div class="absolute -bottom-6 -left-6 bg-accent-yellow text-black p-6 font-black text-xl uppercase tracking-tighter">
+                            2024 V.2 Edition
+                        </div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-32 bg-background-dark border-t-8 border-primary">
+<div class="max-w-7xl mx-auto px-6 text-center">
+<h2 class="text-white text-5xl md:text-7xl font-black tracking-tighter uppercase mb-8 leading-none">
+                    Build Faster.<br/><span class="text-accent-yellow italic">Build Smarter.</span>
+</h2>
+<p class="text-gray-400 text-xl max-w-2xl mx-auto mb-12">
+                    Consult with our modular specialists to discover how we can accelerate your next residential development project.
+                </p>
+<div class="flex flex-col sm:flex-row gap-6 justify-center">
+<button class="bg-primary text-white px-12 py-5 text-sm font-black uppercase tracking-widest hover:scale-105 transition-transform shadow-2xl">
+                        Request Modular Proposal
+                    </button>
+<button class="bg-transparent text-white px-12 py-5 text-sm font-black uppercase tracking-widest border border-white/20 hover:bg-white/10 transition-colors">
+                        Tour Our Factory
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-background-dark text-white pt-24 pb-12 border-t border-gray-800">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
+<div class="md:col-span-1">
+<div class="flex items-center gap-3 mb-8">
+<div class="bg-white p-1 rounded-sm">
+<svg class="size-6 text-background-dark" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M39.5563 34.1455V13.8546C39.5563 15.708 36.8773 17.3437 32.7927 18.3189C30.2914 18.916 27.263 19.2655 24 19.2655C20.737 19.2655 17.7086 18.916 15.2073 18.3189C11.1227 17.3437 8.44365 15.708 8.44365 13.8546V34.1455C8.44365 35.9988 11.1227 37.6346 15.2073 38.6098C17.7086 39.2069 20.737 39.5564 24 39.5564C27.1288 39.5564 30.2914 39.2069 32.7927 38.6098C36.8773 37.6346 39.5563 35.9988 39.5563 34.1455Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-xl font-extrabold tracking-tighter uppercase">Festbau</h2>
+</div>
+<p class="text-gray-400 text-sm leading-relaxed mb-8">
+                        Delivering the foundations of modern infrastructure since 1974. Factory precision, global delivery.
+                    </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 border border-gray-700 flex items-center justify-center hover:bg-primary hover:border-primary transition-all rounded-sm" href="#"><span class="material-symbols-outlined text-sm">hub</span></a>
+<a class="w-10 h-10 border border-gray-700 flex items-center justify-center hover:bg-primary hover:border-primary transition-all rounded-sm" href="#"><span class="material-symbols-outlined text-sm">alternate_email</span></a>
+</div>
+</div>
+<div>
+<h5 class="text-sm font-black uppercase tracking-[0.2em] text-accent-yellow mb-8">Modular Services</h5>
+<ul class="space-y-4">
+<li><a class="text-sm text-gray-400 hover:text-white transition-colors" href="#">Affordable Housing</a></li>
+<li><a class="text-sm text-gray-400 hover:text-white transition-colors" href="#">Public Facilities</a></li>
+<li><a class="text-sm text-gray-400 hover:text-white transition-colors" href="#">Temporary Structures</a></li>
+<li><a class="text-sm text-gray-400 hover:text-white transition-colors" href="#">System Components</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-sm font-black uppercase tracking-[0.2em] text-accent-yellow mb-8">Headquarters</h5>
+<p class="text-sm text-gray-400 leading-relaxed">
+                        Bauallee 12-14<br/>
+                        80331 Munich, Germany<br/>
+                        T: +49 (0) 89 234 567 89<br/>
+                        E: modular@festbau.de
+                    </p>
+</div>
+<div>
+<h5 class="text-sm font-black uppercase tracking-[0.2em] text-accent-yellow mb-8">Newsletter</h5>
+<p class="text-xs text-gray-400 mb-6 uppercase tracking-widest">Housing insights &amp; news</p>
+<div class="flex">
+<input class="bg-gray-800 border-none px-4 py-3 text-sm focus:ring-1 focus:ring-primary w-full rounded-l-sm" placeholder="Your Email" type="email"/>
+<button class="bg-primary px-4 py-3 rounded-r-sm hover:brightness-110 transition-all">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</div>
+<div class="pt-12 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="text-xs text-gray-500 uppercase tracking-widest">© 2024 Festbau GmbH. Modular Division.</p>
+<div class="flex gap-8">
+<a class="text-[10px] text-gray-500 hover:text-white uppercase tracking-widest" href="#">Imprint</a>
+<a class="text-[10px] text-gray-500 hover:text-white uppercase tracking-widest" href="#">Privacy Policy</a>
+</div>
+</div>
+</div>
+</footer>
+
+</body></html>

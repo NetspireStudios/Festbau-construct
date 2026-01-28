@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Festbau | Project Filmstrip Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply font-display;
+            }
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .filmstrip-scroll::-webkit-scrollbar {
+            height: 4px;
+        }
+        .filmstrip-scroll::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .filmstrip-scroll::-webkit-scrollbar-thumb {
+            background: #FFD700;
+        }
+        .filmstrip-scroll {
+            scrollbar-width: thin;
+            scrollbar-color: #FFD700 #f1f1f1;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1152d4",
+                        "accent-yellow": "#FFD700",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                        "industrial-gray": "#2d3442",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-white dark:bg-background-dark text-gray-900 dark:text-gray-100 overflow-x-hidden">
+<header class="sticky top-0 z-50 w-full bg-white/95 dark:bg-background-dark/95 backdrop-blur-md border-b border-gray-100 dark:border-gray-800">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<a href="home.html" class="flex items-center gap-3">
+<div class="bg-primary p-1.5 rounded-sm">
+<svg class="size-6 text-white" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M39.5563 34.1455V13.8546C39.5563 15.708 36.8773 17.3437 32.7927 18.3189C30.2914 18.916 27.263 19.2655 24 19.2655C20.737 19.2655 17.7086 18.916 15.2073 18.3189C11.1227 17.3437 8.44365 15.708 8.44365 13.8546V34.1455C8.44365 35.9988 11.1227 37.6346 15.2073 38.6098C17.7086 39.2069 20.737 39.5564 24 39.5564C27.1288 39.5564 30.2914 39.2069 32.7927 38.6098C36.8773 37.6346 39.5563 35.9988 39.5563 34.1455Z" fill="currentColor"></path>
+<path clip-rule="evenodd" d="M10.4485 13.8519C10.4749 13.9271 10.6203 14.246 11.379 14.7361C12.298 15.3298 13.7492 15.9145 15.6717 16.3735C18.0007 16.9296 20.8712 17.2655 24 17.2655C27.1288 17.2655 29.9993 16.9296 32.3283 16.3735C34.2508 15.9145 35.702 15.3298 36.621 14.7361C37.3796 14.246 37.5251 13.9271 37.5515 13.8519C37.5287 13.7876 37.4333 13.5973 37.0635 13.2931C36.5266 12.8516 35.6288 12.3647 34.343 11.9175C31.79 11.0295 28.1333 10.4437 24 10.4437C19.8667 10.4437 16.2099 11.0295 13.657 11.9175C12.3712 12.3647 11.4734 12.8516 10.9365 13.2931C10.5667 13.5973 10.4713 13.7876 10.4485 13.8519ZM37.5563 18.7877C36.3176 19.3925 34.8502 19.8839 33.2571 20.2642C30.5836 20.9025 27.3973 21.2655 24 21.2655C20.6027 21.2655 17.4164 20.9025 14.7429 20.2642C13.1498 19.8839 11.6824 19.3925 10.4436 18.7877V34.1275C10.4515 34.1545 10.5427 34.4867 11.379 35.027C12.298 35.6207 13.7492 36.2054 15.6717 36.6644C18.0007 37.2205 20.8712 37.5564 24 37.5564C27.1288 37.5564 29.9993 37.2205 32.3283 36.6644C34.2508 36.2054 35.702 35.6207 36.621 35.027C37.4573 34.4867 37.5485 34.1546 37.5563 34.1275V18.7877ZM41.5563 13.8546V34.1455C41.5563 36.1078 40.158 37.5042 38.7915 38.3869C37.3498 39.3182 35.4192 40.0389 33.2571 40.5551C30.5836 41.1934 27.3973 41.5564 24 41.5564C20.6027 41.5564 17.4164 41.1934 14.7429 40.5551C12.5808 40.0389 10.6502 39.3182 9.20848 38.3869C7.84205 37.5042 6.44365 36.1078 6.44365 34.1455L6.44365 13.8546C6.44365 12.2684 7.37223 11.0454 8.39581 10.2036C9.43325 9.3505 10.8137 8.67141 12.343 8.13948C15.4203 7.06909 19.5418 6.44366 24 6.44366C28.4582 6.44366 32.5797 7.06909 35.657 8.13948C37.1863 8.67141 38.5667 9.3505 39.6042 10.2036C40.6278 11.0454 41.5563 12.2684 41.5563 13.8546Z" fill="white" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-xl font-extrabold tracking-tighter uppercase">Festbau</h2>
+</a>
+<nav class="hidden md:flex items-center gap-8">
+<div class="relative group">
+<button class="text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors flex items-center gap-1">
+Services
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+<div class="absolute top-full left-0 mt-2 w-64 bg-white dark:bg-industrial-gray shadow-xl border border-gray-200 dark:border-gray-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+<a href="services/design-build.html" class="block px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors border-b border-gray-100 dark:border-gray-700">Design Build</a>
+<a href="services/general-contracting.html" class="block px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors border-b border-gray-100 dark:border-gray-700">General Contracting</a>
+<a href="services/project-management.html" class="block px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors border-b border-gray-100 dark:border-gray-700">Project Management</a>
+<a href="services/modular-prefabrications.html" class="block px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors">Modular Prefabrications</a>
+</div>
+</div>
+<a class="text-sm font-semibold uppercase tracking-widest text-primary border-b-2 border-primary" href="project-portfolio.html">Projects</a>
+<a class="text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors" href="qualifications.html">Qualifications</a>
+<a class="text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors" href="about-us.html">About Us</a>
+<a href="contact.html" class="bg-primary text-white px-6 py-2 text-sm font-bold uppercase tracking-widest rounded-sm hover:brightness-110 transition-all">
+Contact
+</a>
+</nav>
+<button id="mobile-menu-btn" class="md:hidden text-gray-900 dark:text-white">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</div>
+<div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 right-0 bg-white dark:bg-industrial-gray border-b border-gray-200 dark:border-gray-700 shadow-xl">
+<div class="px-6 py-4 space-y-4">
+<a href="home.html" class="block text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors">Home</a>
+<div>
+<button id="mobile-services-btn" class="w-full flex items-center justify-between text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors">
+Services
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+<div id="mobile-services-menu" class="hidden mt-2 ml-4 space-y-2">
+<a href="services/design-build.html" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-primary py-2">Design Build</a>
+<a href="services/general-contracting.html" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-primary py-2">General Contracting</a>
+<a href="services/project-management.html" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-primary py-2">Project Management</a>
+<a href="services/modular-prefabrications.html" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-primary py-2">Modular Prefabrications</a>
+</div>
+</div>
+<a href="project-portfolio.html" class="block text-sm font-semibold uppercase tracking-widest text-primary">Projects</a>
+<a href="qualifications.html" class="block text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors">Qualifications</a>
+<a href="about-us.html" class="block text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors">About Us</a>
+<a href="contact.html" class="block bg-primary text-white px-6 py-3 text-sm font-bold uppercase tracking-widest rounded-sm hover:brightness-110 transition-all text-center">Contact</a>
+</div>
+</div>
+</header>
+<script src="assets/js/navigation.js"></script>
+<main>
+</div>
+</header>
+<main>
+<section class="relative bg-industrial-gray py-20 lg:py-32 overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Global distribution map" class="w-full h-full object-cover opacity-20 mix-blend-luminosity grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeKKWXD56TSdXzP2mcd_zOjQUKFvfyJyOgWPWAV0uTB-hK2PNFAEt0LJxeu8kB15hXminoJ-dB5qwuFkDK6WrC6Em8Y88MhVaT25q4_zoyeZtKQpcqnca8kNy3V6zWL6LNADGY7dKNEyOyYvQ5JuoUWnwRI0ixCzJ5-J3zuPLuSaFKxOwMyY1EqT1bapGDydFz1XfyAIqOmq7fkzqICiIdm4I6PvqwlOol47hziVswYUMvEqHHr35lHogXqd37BtYEce32JUyTClg"/>
+</div>
+<div class="max-w-7xl mx-auto px-6 relative z-10">
+<div class="max-w-3xl">
+<div class="flex items-center gap-3 mb-6">
+<span class="h-[2px] w-12 bg-accent-yellow"></span>
+<span class="text-accent-yellow font-black uppercase tracking-[0.3em] text-xs">Architectural Excellence</span>
+</div>
+<h1 class="text-5xl md:text-7xl font-black text-white leading-[1] tracking-tighter mb-6 uppercase">
+                    OUR PROJECT<br/>
+<span class="text-primary">PORTFOLIO</span>
+</h1>
+<p class="text-lg text-gray-300 mb-8 border-l-4 border-accent-yellow pl-6 leading-relaxed max-w-xl">
+                    A storytelling experience across our core sectors. Discover how we turn vision into landmark reality.
+                </p>
+</div>
+</div>
+</section>
+<section class="py-24 bg-white dark:bg-background-dark border-b border-gray-100 dark:border-gray-800">
+<div class="max-w-7xl mx-auto px-6 mb-12">
+<div class="flex items-end justify-between">
+<div>
+<span class="text-accent-yellow font-black uppercase tracking-[0.3em] text-[10px] block mb-2">Sector 01</span>
+<h2 class="text-4xl font-black uppercase tracking-tighter text-industrial-gray dark:text-white">Community Housing</h2>
+</div>
+<a class="text-xs font-bold uppercase tracking-widest text-primary hover:underline pb-2" href="#">View All Housing</a>
+</div>
+</div>
+<div class="flex flex-col lg:flex-row gap-8 pl-6 lg:pl-[max(1.5rem,calc((100vw-80rem)/2))]">
+<div class="w-full lg:w-1/2 flex-shrink-0 group relative overflow-hidden h-[600px]">
+<img alt="Veridian Community Housing" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAYlbJyAdoI1RV4u7Y2pXdulAwvDouLFWAAYbvmDx9-FFl0cjLRVkPLBqZuzncCtxKi4QL9SYm5ytLWOArXPYAEjT1Qj9qunhvCTWpe5VNSWJtwIwpSpWKguBP1F0R0aVIS-2ANl6c8ObbqQxbqmnCJ2DgYJwdsuj4KiMfE9EtBqKsTvJFqj5eRtAAbEl2JMd1zdrhbzOkwsxKcv9KDHtFqQjRegCuYUMlWeOp5HBbzxR6pwDp-fLk2pw6rDEVp1Khtb4WYzzuozQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-10 left-10 right-10">
+<p class="text-accent-yellow font-black uppercase tracking-widest text-xs mb-3">Featured Landmark</p>
+<h3 class="text-4xl font-black text-white uppercase tracking-tighter mb-6">Veridian Commons</h3>
+<button class="bg-accent-yellow text-industrial-gray px-8 py-4 text-xs font-black uppercase tracking-widest hover:bg-white transition-colors">
+                        View Case Study
+                    </button>
+</div>
+</div>
+<div class="filmstrip-scroll overflow-x-auto flex gap-6 pr-6 pb-6">
+<div class="w-80 flex-shrink-0 group cursor-pointer">
+<div class="aspect-[3/4] overflow-hidden bg-gray-100 mb-4">
+<img alt="Project" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiEZ_hyTBh7VFmmpxFNVLiAkZvILKotHxGXX_tB_mDzk_DbKefJQWayJuZ2JIFuuKk6Td8zCsRiVlaccKVoSTmsiw8SXa5MIYB2d8IQEUVBk0GcD5vEjRhvxSEBNXIp8zbyqIVuMHK8X20RUjXU4PiHh8GcPwlhakUavy4YYwXLGUvRB1KizSqxGCTMWrRAKaAfjETW4UlY7g3goXhw49gmZwddiadaOWs8gw-I6a0Qb5iBgvaDj-xCAARKrNvmHZ7pLbZxV48wbE"/>
+</div>
+<p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Vienna, AT</p>
+<h4 class="text-lg font-bold uppercase tracking-tight group-hover:text-primary transition-colors">Skyline Residences</h4>
+</div>
+<div class="w-80 flex-shrink-0 group cursor-pointer">
+<div class="aspect-[3/4] overflow-hidden bg-gray-100 mb-4">
+<img alt="Project" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVozHJtzO2Yn0I94XOM0UBWBAs6aGjkzcPBPuKlUrR8cQnFhezuKqLXQ5DsqYg2bEr0SGX6dY2zs8j-ls5dakThLnIkBvMCUxrmDEG6gJbgz9GuP0MvwF2bMYEXptp9kWhiqECTkA3dqObyTysRDg6qWIaNKpvciVNVfX2VPtDcL2iIiFQhHiSZvKyU2Wzz3mngk9n6FS7MwsyRzDHIf5OISHQWenorpTaqIGNAURpuS4QB5qh4mn55r-1R7QkLdFtX5St-TqORPg"/>
+</div>
+<p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Berlin, DE</p>
+<h4 class="text-lg font-bold uppercase tracking-tight group-hover:text-primary transition-colors">Urban Loft Block</h4>
+</div>
+<div class="w-80 flex-shrink-0 group cursor-pointer">
+<div class="aspect-[3/4] overflow-hidden bg-gray-100 mb-4">
+<img alt="Project" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYTuhHbmGp-pLWh0bl88VNNjmzbtv23fllbNAZBURrbwmGr-hzD2F3MYqrpBJ8tvdrHmkdFMBVOnP1cwR119fP0Fhq8JuNl430H5h-TcNfJtiCAcimRrGqLpz-kUg7CKf-LjKwq1gcdbQSr3YDMJTnzS3mvAWVGYiXptgoCQgnfteGXFEbBiOlISqFkiiSlijLkL1sBmVlsDxdws4zq748rLN54uGDOOaoNC9SjVEJyMH3RBvTiC4ikwuswHq7TyBiLQW8XdT1xNg"/>
+</div>
+<p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Stockholm, SE</p>
+<h4 class="text-lg font-bold uppercase tracking-tight group-hover:text-primary transition-colors">Fjord View Estate</h4>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-background-light dark:bg-background-dark/30 border-b border-gray-100 dark:border-gray-800">
+<div class="max-w-7xl mx-auto px-6 mb-12">
+<div class="flex items-end justify-between">
+<div>
+<span class="text-accent-yellow font-black uppercase tracking-[0.3em] text-[10px] block mb-2">Sector 02</span>
+<h2 class="text-4xl font-black uppercase tracking-tighter text-industrial-gray dark:text-white">Modular Systems</h2>
+</div>
+<a class="text-xs font-bold uppercase tracking-widest text-primary hover:underline pb-2" href="#">View All Modular</a>
+</div>
+</div>
+<div class="flex flex-col lg:flex-row-reverse gap-8 pr-6 lg:pr-[max(1.5rem,calc((100vw-80rem)/2))]">
+<div class="w-full lg:w-1/2 flex-shrink-0 group relative overflow-hidden h-[600px]">
+<img alt="Modular Office Hub" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiEZ_hyTBh7VFmmpxFNVLiAkZvILKotHxGXX_tB_mDzk_DbKefJQWayJuZ2JIFuuKk6Td8zCsRiVlaccKVoSTmsiw8SXa5MIYB2d8IQEUVBk0GcD5vEjRhvxSEBNXIp8zbyqIVuMHK8X20RUjXU4PiHh8GcPwlhakUavy4YYwXLGUvRB1KizSqxGCTMWrRAKaAfjETW4UlY7g3goXhw49gmZwddiadaOWs8gw-I6a0Qb5iBgvaDj-xCAARKrNvmHZ7pLbZxV48wbE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-10 left-10 right-10">
+<p class="text-accent-yellow font-black uppercase tracking-widest text-xs mb-3">Precision Engineering</p>
+<h3 class="text-4xl font-black text-white uppercase tracking-tighter mb-6">Orbit Modular Hub</h3>
+<button class="bg-accent-yellow text-industrial-gray px-8 py-4 text-xs font-black uppercase tracking-widest hover:bg-white transition-colors">
+                        View Case Study
+                    </button>
+</div>
+</div>
+<div class="filmstrip-scroll overflow-x-auto flex flex-row-reverse lg:flex-row gap-6 pl-6 pb-6">
+<div class="w-80 flex-shrink-0 group cursor-pointer">
+<div class="aspect-[3/4] overflow-hidden bg-gray-100 mb-4">
+<img alt="Project" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYTuhHbmGp-pLWh0bl88VNNjmzbtv23fllbNAZBURrbwmGr-hzD2F3MYqrpBJ8tvdrHmkdFMBVOnP1cwR119fP0Fhq8JuNl430H5h-TcNfJtiCAcimRrGqLpz-kUg7CKf-LjKwq1gcdbQSr3YDMJTnzS3mvAWVGYiXptgoCQgnfteGXFEbBiOlISqFkiiSlijLkL1sBmVlsDxdws4zq748rLN54uGDOOaoNC9SjVEJyMH3RBvTiC4ikwuswHq7TyBiLQW8XdT1xNg"/>
+</div>
+<p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Oslo, NO</p>
+<h4 class="text-lg font-bold uppercase tracking-tight group-hover:text-primary transition-colors">Tundra Research Base</h4>
+</div>
+<div class="w-80 flex-shrink-0 group cursor-pointer">
+<div class="aspect-[3/4] overflow-hidden bg-gray-100 mb-4">
+<img alt="Project" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAYlbJyAdoI1RV4u7Y2pXdulAwvDouLFWAAYbvmDx9-FFl0cjLRVkPLBqZuzncCtxKi4QL9SYm5ytLWOArXPYAEjT1Qj9qunhvCTWpe5VNSWJtwIwpSpWKguBP1F0R0aVIS-2ANl6c8ObbqQxbqmnCJ2DgYJwdsuj4KiMfE9EtBqKsTvJFqj5eRtAAbEl2JMd1zdrhbzOkwsxKcv9KDHtFqQjRegCuYUMlWeOp5HBbzxR6pwDp-fLk2pw6rDEVp1Khtb4WYzzuozQ"/>
+</div>
+<p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Hamburg, DE</p>
+<h4 class="text-lg font-bold uppercase tracking-tight group-hover:text-primary transition-colors">Port Tech Cluster</h4>
+</div>
+<div class="w-80 flex-shrink-0 group cursor-pointer">
+<div class="aspect-[3/4] overflow-hidden bg-gray-100 mb-4">
+<img alt="Project" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVozHJtzO2Yn0I94XOM0UBWBAs6aGjkzcPBPuKlUrR8cQnFhezuKqLXQ5DsqYg2bEr0SGX6dY2zs8j-ls5dakThLnIkBvMCUxrmDEG6gJbgz9GuP0MvwF2bMYEXptp9kWhiqECTkA3dqObyTysRDg6qWIaNKpvciVNVfX2VPtDcL2iIiFQhHiSZvKyU2Wzz3mngk9n6FS7MwsyRzDHIf5OISHQWenorpTaqIGNAURpuS4QB5qh4mn55r-1R7QkLdFtX5St-TqORPg"/>
+</div>
+<p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Munich, DE</p>
+<h4 class="text-lg font-bold uppercase tracking-tight group-hover:text-primary transition-colors">Alps Retreat Modular</h4>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-white dark:bg-background-dark">
+<div class="max-w-7xl mx-auto px-6 mb-12">
+<div class="flex items-end justify-between">
+<div>
+<span class="text-accent-yellow font-black uppercase tracking-[0.3em] text-[10px] block mb-2">Sector 03</span>
+<h2 class="text-4xl font-black uppercase tracking-tighter text-industrial-gray dark:text-white">Industrial Landmark</h2>
+</div>
+<a class="text-xs font-bold uppercase tracking-widest text-primary hover:underline pb-2" href="#">View All Industrial</a>
+</div>
+</div>
+<div class="flex flex-col lg:flex-row gap-8 pl-6 lg:pl-[max(1.5rem,calc((100vw-80rem)/2))]">
+<div class="w-full lg:w-1/2 flex-shrink-0 group relative overflow-hidden h-[600px]">
+<img alt="The Nexus Industrial Complex" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVozHJtzO2Yn0I94XOM0UBWBAs6aGjkzcPBPuKlUrR8cQnFhezuKqLXQ5DsqYg2bEr0SGX6dY2zs8j-ls5dakThLnIkBvMCUxrmDEG6gJbgz9GuP0MvwF2bMYEXptp9kWhiqECTkA3dqObyTysRDg6qWIaNKpvciVNVfX2VPtDcL2iIiFQhHiSZvKyU2Wzz3mngk9n6FS7MwsyRzDHIf5OISHQWenorpTaqIGNAURpuS4QB5qh4mn55r-1R7QkLdFtX5St-TqORPg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-10 left-10 right-10">
+<p class="text-accent-yellow font-black uppercase tracking-widest text-xs mb-3">Global Logistics</p>
+<h3 class="text-4xl font-black text-white uppercase tracking-tighter mb-6">The Nexus Complex</h3>
+<button class="bg-accent-yellow text-industrial-gray px-8 py-4 text-xs font-black uppercase tracking-widest hover:bg-white transition-colors">
+                        View Case Study
+                    </button>
+</div>
+</div>
+<div class="filmstrip-scroll overflow-x-auto flex gap-6 pr-6 pb-6">
+<div class="w-80 flex-shrink-0 group cursor-pointer">
+<div class="aspect-[3/4] overflow-hidden bg-gray-100 mb-4">
+<img alt="Project" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYTuhHbmGp-pLWh0bl88VNNjmzbtv23fllbNAZBURrbwmGr-hzD2F3MYqrpBJ8tvdrHmkdFMBVOnP1cwR119fP0Fhq8JuNl430H5h-TcNfJtiCAcimRrGqLpz-kUg7CKf-LjKwq1gcdbQSr3YDMJTnzS3mvAWVGYiXptgoCQgnfteGXFEbBiOlISqFkiiSlijLkL1sBmVlsDxdws4zq748rLN54uGDOOaoNC9SjVEJyMH3RBvTiC4ikwuswHq7TyBiLQW8XdT1xNg"/>
+</div>
+<p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Rotterdam, NL</p>
+<h4 class="text-lg font-bold uppercase tracking-tight group-hover:text-primary transition-colors">Aero Manufacturing</h4>
+</div>
+<div class="w-80 flex-shrink-0 group cursor-pointer">
+<div class="aspect-[3/4] overflow-hidden bg-gray-100 mb-4">
+<img alt="Project" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiEZ_hyTBh7VFmmpxFNVLiAkZvILKotHxGXX_tB_mDzk_DbKefJQWayJuZ2JIFuuKk6Td8zCsRiVlaccKVoSTmsiw8SXa5MIYB2d8IQEUVBk0GcD5vEjRhvxSEBNXIp8zbyqIVuMHK8X20RUjXU4PiHh8GcPwlhakUavy4YYwXLGUvRB1KizSqxGCTMWrRAKaAfjETW4UlY7g3goXhw49gmZwddiadaOWs8gw-I6a0Qb5iBgvaDj-xCAARKrNvmHZ7pLbZxV48wbE"/>
+</div>
+<p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Gdansk, PL</p>
+<h4 class="text-lg font-bold uppercase tracking-tight group-hover:text-primary transition-colors">North Sea Forge</h4>
+</div>
+<div class="w-80 flex-shrink-0 group cursor-pointer">
+<div class="aspect-[3/4] overflow-hidden bg-gray-100 mb-4">
+<img alt="Project" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAYlbJyAdoI1RV4u7Y2pXdulAwvDouLFWAAYbvmDx9-FFl0cjLRVkPLBqZuzncCtxKi4QL9SYm5ytLWOArXPYAEjT1Qj9qunhvCTWpe5VNSWJtwIwpSpWKguBP1F0R0aVIS-2ANl6c8ObbqQxbqmnCJ2DgYJwdsuj4KiMfE9EtBqKsTvJFqj5eRtAAbEl2JMd1zdrhbzOkwsxKcv9KDHtFqQjRegCuYUMlWeOp5HBbzxR6pwDp-fLk2pw6rDEVp1Khtb4WYzzuozQ"/>
+</div>
+<p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Lyon, FR</p>
+<h4 class="text-lg font-bold uppercase tracking-tight group-hover:text-primary transition-colors">Euro Circuits Hub</h4>
+</div>
+</div>
+</div>
+</section>
+<section class="py-32 bg-background-light dark:bg-background-dark/50 border-t border-gray-100 dark:border-gray-800">
+<div class="max-w-7xl mx-auto px-6 text-center">
+<h2 class="text-4xl md:text-6xl font-black tracking-tighter uppercase mb-8 text-gray-900 dark:text-white leading-none">
+                Ready to build<br/>your <span class="text-primary">legacy?</span>
+</h2>
+<p class="text-lg text-gray-500 dark:text-gray-400 max-w-xl mx-auto mb-12">
+                Let's discuss how our modular and industrial solutions can accelerate your next capital project.
+            </p>
+<div class="flex flex-col sm:flex-row gap-6 justify-center">
+<button class="bg-primary text-white px-12 py-5 text-sm font-black uppercase tracking-widest hover:brightness-110 transition-all rounded-sm">
+                    Start a Consultation
+                </button>
+<button class="bg-white dark:bg-industrial-gray border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white px-12 py-5 text-sm font-black uppercase tracking-widest hover:bg-gray-50 dark:hover:bg-gray-700 transition-all rounded-sm">
+                    View Data Sheets
+                </button>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-background-dark text-white pt-24 pb-12 border-t-4 border-accent-yellow">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
+<div class="md:col-span-1">
+<div class="flex items-center gap-3 mb-8">
+<div class="bg-white p-1 rounded-sm">
+<svg class="size-6 text-background-dark" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M39.5563 34.1455V13.8546C39.5563 15.708 36.8773 17.3437 32.7927 18.3189C30.2914 18.916 27.263 19.2655 24 19.2655C20.737 19.2655 17.7086 18.916 15.2073 18.3189C11.1227 17.3437 8.44365 15.708 8.44365 13.8546V34.1455C8.44365 35.9988 11.1227 37.6346 15.2073 38.6098C17.7086 39.2069 20.737 39.5564 24 39.5564C27.1288 39.5564 30.2914 39.2069 32.7927 38.6098C36.8773 37.6346 39.5563 35.9988 39.5563 34.1455Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-xl font-extrabold tracking-tighter uppercase">Festbau</h2>
+</div>
+<p class="text-gray-400 text-sm leading-relaxed mb-8">
+                    High-end construction and project management. Excellence in industrial and community infrastructure since 1974.
+                </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 border border-gray-700 flex items-center justify-center hover:bg-primary hover:border-primary transition-all rounded-sm" href="#"><span class="material-symbols-outlined text-sm">hub</span></a>
+<a class="w-10 h-10 border border-gray-700 flex items-center justify-center hover:bg-primary hover:border-primary transition-all rounded-sm" href="#"><span class="material-symbols-outlined text-sm">alternate_email</span></a>
+</div>
+</div>
+<div>
+<h5 class="text-sm font-black uppercase tracking-[0.2em] text-accent-yellow mb-8">Sectors</h5>
+<ul class="space-y-4">
+<li><a class="text-sm text-gray-400 hover:text-white transition-colors" href="#">Community Housing</a></li>
+<li><a class="text-sm text-gray-400 hover:text-white transition-colors" href="#">Modular Hubs</a></li>
+<li><a class="text-sm text-gray-400 hover:text-white transition-colors" href="#">Industrial Plants</a></li>
+<li><a class="text-sm text-gray-400 hover:text-white transition-colors" href="#">Logistics Centers</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-sm font-black uppercase tracking-[0.2em] text-accent-yellow mb-8">Contact</h5>
+<p class="text-sm text-gray-400 leading-relaxed">
+                    Bauallee 12-14<br/>
+                    80331 Munich, Germany<br/>
+                    T: +49 (0) 89 234 567 89<br/>
+                    E: projects@festbau.de
+                </p>
+</div>
+<div>
+<h5 class="text-sm font-black uppercase tracking-[0.2em] text-accent-yellow mb-8">Global Reach</h5>
+<p class="text-xs text-gray-400 mb-6 uppercase tracking-widest">Register for project updates</p>
+<div class="flex">
+<input class="bg-gray-800 border-none px-4 py-3 text-sm focus:ring-1 focus:ring-primary w-full rounded-l-sm text-white" placeholder="Professional Email" type="email"/>
+<button class="bg-primary px-4 py-3 rounded-r-sm hover:brightness-110 transition-all">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</div>
+<div class="pt-12 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="text-xs text-gray-500 uppercase tracking-widest">© 2024 Festbau GmbH. Built with Precision.</p>
+<div class="flex gap-8">
+<a class="text-[10px] text-gray-500 hover:text-white uppercase tracking-widest" href="#">Legal</a>
+<a class="text-[10px] text-gray-500 hover:text-white uppercase tracking-widest" href="#">Privacy Policy</a>
+</div>
+</div>
+</div>
+</footer>
+
+</body></html>

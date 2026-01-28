@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Festbau | Industrial Construction Excellence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply font-display;
+            }
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .masonry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-auto-rows: 200px;
+            gap: 1rem;
+        }
+        .masonry-item-large {
+            grid-row: span 2;
+            grid-column: span 2;
+        }
+        .masonry-item-tall {
+            grid-row: span 2;
+        }
+        @media (max-width: 768px) {
+            .masonry-item-large, .masonry-item-tall {
+                grid-row: span 1;
+                grid-column: span 1;
+            }
+        }
+        
+        /* Fade in up animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        /* Fade in animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        
+        /* Slide in from left */
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .slide-in-left {
+            opacity: 0;
+            animation: slideInLeft 0.8s ease-out forwards;
+        }
+        
+        /* Scale in animation */
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .scale-in {
+            opacity: 0;
+            animation: scaleIn 0.6s ease-out forwards;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1152d4",
+                        "accent-yellow": "#FFD700",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                        "industrial-gray": "#2d3442",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-gray-900 dark:text-gray-100 overflow-x-hidden">
+<header class="sticky top-0 z-50 w-full bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<a href="home.html" class="flex items-center gap-3">
+<div class="bg-primary p-1.5 rounded-sm">
+<svg class="size-6 text-white" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M39.5563 34.1455V13.8546C39.5563 15.708 36.8773 17.3437 32.7927 18.3189C30.2914 18.916 27.263 19.2655 24 19.2655C20.737 19.2655 17.7086 18.916 15.2073 18.3189C11.1227 17.3437 8.44365 15.708 8.44365 13.8546V34.1455C8.44365 35.9988 11.1227 37.6346 15.2073 38.6098C17.7086 39.2069 20.737 39.5564 24 39.5564C27.263 39.5564 30.2914 39.2069 32.7927 38.6098C36.8773 37.6346 39.5563 35.9988 39.5563 34.1455Z" fill="currentColor"></path>
+<path clip-rule="evenodd" d="M10.4485 13.8519C10.4749 13.9271 10.6203 14.246 11.379 14.7361C12.298 15.3298 13.7492 15.9145 15.6717 16.3735C18.0007 16.9296 20.8712 17.2655 24 17.2655C27.1288 17.2655 29.9993 16.9296 32.3283 16.3735C34.2508 15.9145 35.702 15.3298 36.621 14.7361C37.3796 14.246 37.5251 13.9271 37.5515 13.8519C37.5287 13.7876 37.4333 13.5973 37.0635 13.2931C36.5266 12.8516 35.6288 12.3647 34.343 11.9175C31.79 11.0295 28.1333 10.4437 24 10.4437C19.8667 10.4437 16.2099 11.0295 13.657 11.9175C12.3712 12.3647 11.4734 12.8516 10.9365 13.2931C10.5667 13.5973 10.4713 13.7876 10.4485 13.8519ZM37.5563 18.7877C36.3176 19.3925 34.8502 19.8839 33.2571 20.2642C30.5836 20.9025 27.3973 21.2655 24 21.2655C20.6027 21.2655 17.4164 20.9025 14.7429 20.2642C13.1498 19.8839 11.6824 19.3925 10.4436 18.7877V34.1275C10.4515 34.1545 10.5427 34.4867 11.379 35.027C12.298 35.6207 13.7492 36.2054 15.6717 36.6644C18.0007 37.2205 20.8712 37.5564 24 37.5564C27.1288 37.5564 29.9993 37.2205 32.3283 36.6644C34.2508 36.2054 35.702 35.6207 36.621 35.027C37.4573 34.4867 37.5485 34.1546 37.5563 34.1275V18.7877ZM41.5563 13.8546V34.1455C41.5563 36.1078 40.158 37.5042 38.7915 38.3869C37.3498 39.3182 35.4192 40.0389 33.2571 40.5551C30.5836 41.1934 27.3973 41.5564 24 41.5564C20.6027 41.5564 17.4164 41.1934 14.7429 40.5551C12.5808 40.0389 10.6502 39.3182 9.20848 38.3869C7.84205 37.5042 6.44365 36.1078 6.44365 34.1455L6.44365 13.8546C6.44365 12.2684 7.37223 11.0454 8.39581 10.2036C9.43325 9.3505 10.8137 8.67141 12.343 8.13948C15.4203 7.06909 19.5418 6.44366 24 6.44366C28.4582 6.44366 32.5797 7.06909 35.657 8.13948C37.1863 8.67141 38.5667 9.3505 39.6042 10.2036C40.6278 11.0454 41.5563 12.2684 41.5563 13.8546Z" fill="white" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-xl font-extrabold tracking-tighter uppercase">Festbau</h2>
+</a>
+<nav class="hidden md:flex items-center gap-8">
+<div class="relative group">
+<button class="text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors flex items-center gap-1">
+Services
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+<div class="absolute top-full left-0 mt-2 w-64 bg-white dark:bg-industrial-gray shadow-xl border border-gray-200 dark:border-gray-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+<a href="services/design-build.html" class="block px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors border-b border-gray-100 dark:border-gray-700">Design Build</a>
+<a href="services/general-contracting.html" class="block px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors border-b border-gray-100 dark:border-gray-700">General Contracting</a>
+<a href="services/project-management.html" class="block px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors border-b border-gray-100 dark:border-gray-700">Project Management</a>
+<a href="services/modular-prefabrications.html" class="block px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors">Modular Prefabrications</a>
+</div>
+</div>
+<a class="text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors" href="project-portfolio.html">Projects</a>
+<a class="text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors" href="qualifications.html">Qualifications</a>
+<a class="text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors" href="about-us.html">About Us</a>
+<a href="contact.html" class="bg-primary text-white px-6 py-2 text-sm font-bold uppercase tracking-widest rounded-sm hover:brightness-110 transition-all">
+Contact
+</a>
+</nav>
+<button id="mobile-menu-btn" class="md:hidden text-gray-900 dark:text-white">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</div>
+<div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 right-0 bg-white dark:bg-industrial-gray border-b border-gray-200 dark:border-gray-700 shadow-xl">
+<div class="px-6 py-4 space-y-4">
+<a href="home.html" class="block text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors">Home</a>
+<div>
+<button id="mobile-services-btn" class="w-full flex items-center justify-between text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors">
+Services
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+<div id="mobile-services-menu" class="hidden mt-2 ml-4 space-y-2">
+<a href="services/design-build.html" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-primary py-2">Design Build</a>
+<a href="services/general-contracting.html" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-primary py-2">General Contracting</a>
+<a href="services/project-management.html" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-primary py-2">Project Management</a>
+<a href="services/modular-prefabrications.html" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-primary py-2">Modular Prefabrications</a>
+</div>
+</div>
+<a href="project-portfolio.html" class="block text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors">Projects</a>
+<a href="qualifications.html" class="block text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors">Qualifications</a>
+<a href="about-us.html" class="block text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors">About Us</a>
+<a href="contact.html" class="block bg-primary text-white px-6 py-3 text-sm font-bold uppercase tracking-widest rounded-sm hover:brightness-110 transition-all text-center">Contact</a>
+</div>
+</div>
+</header>
+<script>
+document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+const menu = document.getElementById('mobile-menu');
+menu.classList.toggle('hidden');
+});
+
+document.getElementById('mobile-services-btn').addEventListener('click', function() {
+const submenu = document.getElementById('mobile-services-menu');
+submenu.classList.toggle('hidden');
+});
+</script>
+<main>
+<section class="relative min-h-[85vh] flex flex-col md:flex-row border-b border-gray-200 dark:border-gray-800">
+<div class="relative w-full md:w-1/2 min-h-[400px] bg-industrial-gray flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center grayscale contrast-125 opacity-70" data-alt="Black and white wide shot of a large crane at a construction site" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDgAksz6v4SME5rV26SsOHfwFQyololFAwyniWUkVy2osv4qb7pxEK7B1b9rz1hGus0jjno_TCLHRSe7C9zGyxC_T3OSBN4Gx-2VYRAKpxoXaAmVilv0UPCOfjLF6783ysrXdyhFw6lvFAS1ee8fu9RtmpdD2_wA2a1zR59VdBTnQpyu06aXzEsAB3P06SuuQ1PaI56xQ74IYlN2eKS4EQUJTl4nEcerWs2zSEE1kdAPBsMusOIgGW1pxHLGvgckeQHIe20ZQbnx_g");'></div>
+<div class="absolute inset-0 bg-gradient-to-r from-background-dark/40 to-transparent"></div>
+<div class="absolute bottom-10 left-10 border-l-4 border-accent-yellow pl-4 py-2 bg-background-dark/50 backdrop-blur-sm">
+<p class="text-accent-yellow text-xs font-black uppercase tracking-[0.3em] mb-1">Live Project</p>
+<p class="text-white text-lg font-bold">Berlin Central Hub Expansion</p>
+</div>
+</div>
+<div class="w-full md:w-1/2 bg-background-light dark:bg-background-dark flex flex-col justify-center p-8 md:p-20 relative">
+<div class="max-w-md">
+<div class="mb-6 flex items-center gap-2 fade-in-up">
+<span class="h-px w-8 bg-accent-yellow"></span>
+<span class="text-accent-yellow font-bold uppercase tracking-widest text-xs">Since 1974</span>
+</div>
+<h1 class="text-5xl md:text-7xl font-black leading-none tracking-tighter text-gray-900 dark:text-white mb-8 fade-in-up" style="animation-delay: 0.1s">
+                    PRECISION<br/>
+<span class="text-primary italic">STRENGTH</span><br/>
+                    SCALE
+                </h1>
+<p class="text-lg text-gray-600 dark:text-gray-400 mb-10 leading-relaxed border-l-2 border-gray-300 dark:border-gray-700 pl-6 fade-in-up" style="animation-delay: 0.2s">
+                    Industrial-scale engineering and construction excellence. We deliver robust solutions for the world's most complex infrastructure.
+                </p>
+<div class="flex flex-wrap gap-4 fade-in-up" style="animation-delay: 0.3s">
+<button class="bg-primary text-white px-8 py-4 text-base font-bold uppercase tracking-widest rounded-sm hover:translate-y-[-2px] transition-transform">
+                        View Portfolio
+                    </button>
+<button class="border-2 border-industrial-gray dark:border-gray-700 px-8 py-4 text-base font-bold uppercase tracking-widest rounded-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                        Our Process
+                    </button>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-industrial-gray dark:bg-black text-white py-12 border-b-8 border-accent-yellow" id="stats-section">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="flex flex-col gap-1 fade-in-up" style="animation-delay: 0.1s">
+<span class="text-accent-yellow text-4xl font-black tracking-tighter">
+<span class="counter" data-target="50">0</span>+
+</span>
+<span class="text-xs font-bold uppercase tracking-widest text-gray-400">Years Experience</span>
+</div>
+<div class="flex flex-col gap-1 fade-in-up" style="animation-delay: 0.2s">
+<span class="text-accent-yellow text-4xl font-black tracking-tighter">
+<span class="counter" data-target="200">0</span>+
+</span>
+<span class="text-xs font-bold uppercase tracking-widest text-gray-400">Major Projects</span>
+</div>
+<div class="flex flex-col gap-1 fade-in-up" style="animation-delay: 0.3s">
+<span class="text-accent-yellow text-4xl font-black tracking-tighter">
+<span class="counter" data-target="500">0</span>+
+</span>
+<span class="text-xs font-bold uppercase tracking-widest text-gray-400">Engineers &amp; Staff</span>
+</div>
+<div class="flex flex-col gap-1 fade-in-up" style="animation-delay: 0.4s">
+<span class="text-accent-yellow text-4xl font-black tracking-tighter">
+<span class="counter" data-target="0.0" data-decimal="true">0.0</span>
+</span>
+<span class="text-xs font-bold uppercase tracking-widest text-gray-400">Safety Incidents</span>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-white dark:bg-background-dark">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+<div class="fade-in-up">
+<h2 class="text-accent-yellow font-black uppercase tracking-[0.4em] text-sm mb-4">Core Expertise</h2>
+<h3 class="text-4xl md:text-5xl font-black tracking-tight text-gray-900 dark:text-white">Industrial Solutions.</h3>
+</div>
+<p class="max-w-md text-gray-500 text-sm leading-relaxed fade-in-up" style="animation-delay: 0.2s">
+                    We provide end-to-end construction capabilities from early-stage feasibility studies to complex multi-billion dollar project management.
+                </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-1">
+<div class="group p-10 bg-background-light dark:bg-industrial-gray border-b-4 border-transparent hover:border-primary transition-all duration-300 flex flex-col h-full fade-in-up" style="animation-delay: 0.1s">
+<span class="material-symbols-outlined text-4xl text-primary mb-6">engineering</span>
+<h4 class="text-xl font-bold mb-4 uppercase tracking-tighter">General Contracting</h4>
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-8 flex-grow">Complete oversight of construction sites, managing vendors, and ensuring safety protocols.</p>
+<a class="text-primary text-xs font-black uppercase tracking-widest group-hover:gap-3 flex items-center gap-2 transition-all" href="#">Learn More <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+</div>
+<div class="group p-10 bg-background-light dark:bg-industrial-gray border-b-4 border-transparent hover:border-primary transition-all duration-300 flex flex-col h-full fade-in-up" style="animation-delay: 0.2s">
+<span class="material-symbols-outlined text-4xl text-primary mb-6">architecture</span>
+<h4 class="text-xl font-bold mb-4 uppercase tracking-tighter">Design-Build</h4>
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-8 flex-grow">A streamlined process where the design and construction phases are handled by a single entity.</p>
+<a class="text-primary text-xs font-black uppercase tracking-widest group-hover:gap-3 flex items-center gap-2 transition-all" href="#">Learn More <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+</div>
+<div class="group p-10 bg-background-light dark:bg-industrial-gray border-b-4 border-transparent hover:border-primary transition-all duration-300 flex flex-col h-full fade-in-up" style="animation-delay: 0.3s">
+<span class="material-symbols-outlined text-4xl text-primary mb-6">foundation</span>
+<h4 class="text-xl font-bold mb-4 uppercase tracking-tighter">Pre-Construction</h4>
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-8 flex-grow">Strategic feasibility, budgeting, and site selection before a single stone is moved.</p>
+<a class="text-primary text-xs font-black uppercase tracking-widest group-hover:gap-3 flex items-center gap-2 transition-all" href="#">Learn More <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+</div>
+<div class="group p-10 bg-background-light dark:bg-industrial-gray border-b-4 border-transparent hover:border-primary transition-all duration-300 flex flex-col h-full fade-in-up" style="animation-delay: 0.4s">
+<span class="material-symbols-outlined text-4xl text-primary mb-6">eco</span>
+<h4 class="text-xl font-bold mb-4 uppercase tracking-tighter">Sustainability</h4>
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-8 flex-grow">Innovative green building techniques and material sourcing for LEED-certified results.</p>
+<a class="text-primary text-xs font-black uppercase tracking-widest group-hover:gap-3 flex items-center gap-2 transition-all" href="#">Learn More <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+</div>
+</div>
+</div>
+</section>
+<section class="relative py-32 overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Green building projects" class="w-full h-full object-cover filter brightness-50 contrast-125" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVozHJtzO2Yn0I94XOM0UBWBAs6aGjkzcPBPuKlUrR8cQnFhezuKqLXQ5DsqYg2bEr0SGX6dY2zs8j-ls5dakThLnIkBvMCUxrmDEG6gJbgz9GuP0MvwF2bMYEXptp9kWhiqECTkA3dqObyTysRDg6qWIaNKpvciVNVfX2VPtDcL2iIiFQhHiSZvKyU2Wzz3mngk9n6FS7MwsyRzDHIf5OISHQWenorpTaqIGNAURpuS4QB5qh4mn55r-1R7QkLdFtX5St-TqORPg"/>
+<div class="absolute inset-0 bg-gradient-to-b from-background-dark/90 via-background-dark/60 to-background-dark/90"></div>
+</div>
+<div class="relative z-10 max-w-7xl mx-auto px-6">
+<div class="flex flex-col items-center text-center mb-20 fade-in-up">
+<h2 class="text-accent-yellow font-black uppercase tracking-[0.4em] text-sm mb-4">Future Forward</h2>
+<h3 class="text-4xl md:text-6xl font-black tracking-tighter text-white uppercase mb-8">Sustainability Commitment</h3>
+<div class="w-24 h-2 bg-primary mb-8"></div>
+<p class="max-w-2xl text-xl text-gray-300 leading-relaxed font-light">
+                    Engineering the next generation of infrastructure with a focus on carbon neutrality, renewable integration, and ecological preservation.
+                </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-white/5 backdrop-blur-md p-10 border-l-4 border-accent-yellow fade-in-up" style="animation-delay: 0.1s">
+<div class="text-primary text-5xl font-black mb-4">40%</div>
+<h4 class="text-white font-bold uppercase tracking-widest text-lg mb-2">Reduction in Waste</h4>
+<p class="text-gray-400 text-sm">Implementing circular construction methodologies across all industrial sites by 2026.</p>
+</div>
+<div class="bg-white/5 backdrop-blur-md p-10 border-l-4 border-accent-yellow fade-in-up" style="animation-delay: 0.2s">
+<div class="text-primary text-5xl font-black mb-4">100%</div>
+<h4 class="text-white font-bold uppercase tracking-widest text-lg mb-2">Renewable Powered</h4>
+<p class="text-gray-400 text-sm">Site operations transition to zero-emission machinery and solar-integrated trailers.</p>
+</div>
+<div class="bg-white/5 backdrop-blur-md p-10 border-l-4 border-accent-yellow fade-in-up" style="animation-delay: 0.3s">
+<div class="text-primary text-5xl font-black mb-4">LEED</div>
+<h4 class="text-white font-bold uppercase tracking-widest text-lg mb-2">Platinum Standard</h4>
+<p class="text-gray-400 text-sm">Our engineering team specializes in the highest tier of international green certifications.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-gray-50 dark:bg-black/40">
+<div class="max-w-7xl mx-auto px-6">
+<div class="fade-in-up">
+<h2 class="text-accent-yellow font-black uppercase tracking-[0.4em] text-sm mb-4">Craftsmanship</h2>
+<h3 class="text-4xl md:text-5xl font-black tracking-tight text-gray-900 dark:text-white mb-12">Built to Last.</h3>
+</div>
+<div class="masonry-grid">
+<div class="masonry-item-large relative group overflow-hidden bg-industrial-gray scale-in" style="animation-delay: 0.1s">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Modern high-rise skyscraper construction" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCVozHJtzO2Yn0I94XOM0UBWBAs6aGjkzcPBPuKlUrR8cQnFhezuKqLXQ5DsqYg2bEr0SGX6dY2zs8j-ls5dakThLnIkBvMCUxrmDEG6gJbgz9GuP0MvwF2bMYEXptp9kWhiqECTkA3dqObyTysRDg6qWIaNKpvciVNVfX2VPtDcL2iIiFQhHiSZvKyU2Wzz3mngk9n6FS7MwsyRzDHIf5OISHQWenorpTaqIGNAURpuS4QB5qh4mn55r-1R7QkLdFtX5St-TqORPg");'></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8">
+<span class="text-accent-yellow font-bold uppercase tracking-widest text-xs mb-2">Corporate</span>
+<h4 class="text-white text-2xl font-bold uppercase tracking-tighter">The Nord Sky Tower</h4>
+</div>
+<div class="absolute top-4 right-4 bg-primary text-white text-[10px] font-bold uppercase tracking-[0.2em] px-3 py-1">Featured</div>
+</div>
+<div class="masonry-item-tall relative group overflow-hidden bg-industrial-gray scale-in" style="animation-delay: 0.2s">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Massive concrete bridge structure" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBCnkWhKnOgRJL5YAcDH9vkZI8Oir2JfT5urs_OTHcC-6gmZyazkt8nhdF5brGwbQSt-07nqDeHYULj7R5HYzps8El68l2QAQXpYmUUCD1lKhddAzxNcZcIiyFvLD9DK7_q_7l4749W60F0_7BT02car5p_YUi1vbKW5QnSDMlPpPRwRD7EagZJVgi0FGqoXTT2E_HaPKNtRD-GH0Ulyv70R7Pj2_6bJHfTme0PiMqTyso3Wc0u5SNz1EHbze9IsCjhhtudCnV7MPI");'></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8">
+<span class="text-accent-yellow font-bold uppercase tracking-widest text-xs mb-2">Infrastructure</span>
+<h4 class="text-white text-xl font-bold uppercase tracking-tighter">Alpine Crossing Viaduct</h4>
+</div>
+</div>
+<div class="relative group overflow-hidden bg-industrial-gray scale-in" style="animation-delay: 0.3s">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Logistics warehouse interior" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBMCqnhvKeG0-polQraiu3aqkEithXxlWLxpVESwedDJhHhjXTHmZc8Fur2Upu1oqerTr9QYBgdKhgCXc98-uopd2eBGJ_i1td9NCwf27ymhYNRGF0tHyEj5qTWuAcMPl4d5eDGKef-17C_FY3sder4M-qQxQ1n657Oyb08NRRvPTMAw2NUD1krkOiuEsUkE014nCqfPQgXjWHalQJWXHeQ8DRp6bivBzMVkvmQfSUpvMw5ZhS5gBQExE9NR2hoP0YPMKq_AimozzM");'></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
+<h4 class="text-white text-lg font-bold uppercase tracking-tighter">Logistics Center Gamma</h4>
+</div>
+</div>
+<div class="relative group overflow-hidden bg-industrial-gray scale-in" style="animation-delay: 0.4s">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Modern industrial manufacturing plant" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB36022NbLeZiDefm2MRsLq9M-6sQt4ss9JGcfnckT8aXtMRKN6kVhFNS6c2GDbKIdlIDfBbojtumZL2d2OH4PqX7n5XZJRVXos7XL9fm8rJLKeevIYcs2j_i0S7Uzg4hMU01Zbciv2kWcey0R3R-F2sZ4IFFEI50zxDEWJRjbZeYPFzOKrXCvgW5mem_PgXtSCwvjKpV1uJyQCnt3g6w7eJBjb59rWGf9myw8ClDoChNSK9NvIdCYxccLbmH4pw7ztET7rtNGu_30");'></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
+<h4 class="text-white text-lg font-bold uppercase tracking-tighter">Hydrogen Power Plant</h4>
+</div>
+</div>
+</div>
+<div class="mt-12 flex justify-center fade-in-up" style="animation-delay: 0.5s">
+<button class="bg-transparent border-2 border-gray-300 dark:border-gray-700 px-12 py-4 text-xs font-black uppercase tracking-[0.3em] hover:bg-gray-200 dark:hover:bg-gray-800 transition-all">
+                    Discover More Projects
+                </button>
+</div>
+</div>
+</section>
+<section class="py-24 bg-background-light dark:bg-background-dark">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex flex-col md:flex-row gap-16 items-start">
+<div class="w-full md:w-1/3 fade-in-up">
+<h2 class="text-accent-yellow font-black uppercase tracking-[0.4em] text-sm mb-4">Operations</h2>
+<h3 class="text-4xl font-black tracking-tight text-gray-900 dark:text-white mb-8">Regional Presence</h3>
+<p class="text-gray-500 mb-8">Our network spans the nation, providing local expertise with international scaling capabilities. Explore our active sites and regional offices.</p>
+<div class="space-y-6">
+<div class="flex items-start gap-4 p-4 border-l-2 border-primary bg-white dark:bg-industrial-gray shadow-sm fade-in-up" style="animation-delay: 0.1s">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<div>
+<h4 class="font-bold uppercase text-sm">Munich HQ</h4>
+<p class="text-xs text-gray-500 uppercase">Central Administration &amp; Engineering</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 border-l-2 border-accent-yellow bg-white dark:bg-industrial-gray shadow-sm fade-in-up" style="animation-delay: 0.2s">
+<span class="material-symbols-outlined text-accent-yellow">construction</span>
+<div>
+<h4 class="font-bold uppercase text-sm">Hamburg Hub</h4>
+<p class="text-xs text-gray-500 uppercase">Active Port Infrastructure Project</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 border-l-2 border-accent-yellow bg-white dark:bg-industrial-gray shadow-sm fade-in-up" style="animation-delay: 0.3s">
+<span class="material-symbols-outlined text-accent-yellow">construction</span>
+<div>
+<h4 class="font-bold uppercase text-sm">Berlin Core</h4>
+<p class="text-xs text-gray-500 uppercase">Government Complex Renewal</p>
+</div>
+</div>
+</div>
+</div>
+<div class="w-full md:w-2/3 aspect-square md:aspect-video relative bg-industrial-gray overflow-hidden group fade-in" style="animation-delay: 0.2s">
+<div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1526778548025-fa2f459cd5ce?q=80&amp;w=2000&amp;auto=format&amp;fit=crop')] bg-cover bg-center opacity-30 mix-blend-overlay grayscale"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="relative w-full h-full">
+<div class="absolute top-1/4 left-1/3 group/pin cursor-pointer">
+<div class="w-4 h-4 bg-primary rounded-full animate-ping absolute opacity-75"></div>
+<div class="w-4 h-4 bg-primary rounded-full relative border-2 border-white"></div>
+<div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-white text-black text-[10px] font-bold px-2 py-1 whitespace-nowrap opacity-0 group-hover/pin:opacity-100 transition-opacity">HAMBURG PORT</div>
+</div>
+<div class="absolute top-1/2 left-1/2 group/pin cursor-pointer">
+<div class="w-4 h-4 bg-accent-yellow rounded-full animate-ping absolute opacity-75"></div>
+<div class="w-4 h-4 bg-accent-yellow rounded-full relative border-2 border-black"></div>
+<div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-white text-black text-[10px] font-bold px-2 py-1 whitespace-nowrap opacity-0 group-hover/pin:opacity-100 transition-opacity">MUNICH HQ</div>
+</div>
+<div class="absolute top-1/3 right-1/4 group/pin cursor-pointer">
+<div class="w-4 h-4 bg-primary rounded-full animate-ping absolute opacity-75"></div>
+<div class="w-4 h-4 bg-primary rounded-full relative border-2 border-white"></div>
+<div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-white text-black text-[10px] font-bold px-2 py-1 whitespace-nowrap opacity-0 group-hover/pin:opacity-100 transition-opacity">BERLIN HUB</div>
+</div>
+</div>
+</div>
+<div class="absolute bottom-6 right-6 flex gap-2">
+<button class="bg-black/80 text-white p-2 hover:bg-primary transition-colors"><span class="material-symbols-outlined">add</span></button>
+<button class="bg-black/80 text-white p-2 hover:bg-primary transition-colors"><span class="material-symbols-outlined">remove</span></button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-32 bg-black text-white relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-accent-yellow to-transparent"></div>
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-24">
+<div class="relative fade-in-up">
+<span class="material-symbols-outlined text-primary text-8xl absolute -top-12 -left-8 opacity-40">format_quote</span>
+<blockquote class="relative z-10">
+<p class="text-4xl md:text-5xl font-black italic leading-tight mb-8 uppercase tracking-tighter">
+                            "Festbau delivered the logistics center ahead of schedule, showcasing <span class="text-primary">unmatched logistical precision</span> and structural integrity."
+                        </p>
+<footer class="flex items-center gap-6">
+<div class="w-16 h-1 bg-accent-yellow"></div>
+<div>
+<p class="text-xl font-bold uppercase">Hans-Georg Müller</p>
+<p class="text-sm text-gray-500 uppercase tracking-[0.2em]">Director of Operations, EuroFreight</p>
+</div>
+</footer>
+</blockquote>
+</div>
+<div class="relative fade-in-up" style="animation-delay: 0.2s">
+<span class="material-symbols-outlined text-primary text-8xl absolute -top-12 -left-8 opacity-40">format_quote</span>
+<blockquote class="relative z-10">
+<p class="text-4xl md:text-5xl font-black italic leading-tight mb-8 uppercase tracking-tighter">
+                            "Their commitment to <span class="text-accent-yellow">zero-incident safety</span> and ecological standards sets a new benchmark for the entire industry."
+                        </p>
+<footer class="flex items-center gap-6">
+<div class="w-16 h-1 bg-primary"></div>
+<div>
+<p class="text-xl font-bold uppercase">Sarah Jenkins</p>
+<p class="text-sm text-gray-500 uppercase tracking-[0.2em]">Lead Architect, UrbanVisions Ltd.</p>
+</div>
+</footer>
+</blockquote>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 bg-primary overflow-hidden relative">
+<div class="absolute top-0 right-0 h-full w-1/3 opacity-10 flex flex-col gap-4 -rotate-12 translate-x-20">
+<div class="h-10 w-full bg-accent-yellow"></div>
+<div class="h-10 w-full bg-accent-yellow"></div>
+<div class="h-10 w-full bg-accent-yellow"></div>
+</div>
+<div class="max-w-7xl mx-auto px-6 relative z-10">
+<div class="flex flex-col md:flex-row items-center justify-between gap-12 text-center md:text-left">
+<div class="max-w-2xl fade-in-up">
+<h2 class="text-white text-4xl md:text-5xl font-black tracking-tighter mb-6 uppercase leading-none">Ready to build the next icon?</h2>
+<p class="text-white/80 text-lg">Partner with Germany's leading industrial construction firm for your next large-scale venture.</p>
+</div>
+<button class="bg-white text-primary px-10 py-5 text-sm font-black uppercase tracking-widest rounded-sm hover:scale-105 transition-transform shadow-xl fade-in-up" style="animation-delay: 0.2s">
+                    Start Consultation
+                </button>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-background-dark text-white pt-24 pb-12 border-t-4 border-accent-yellow">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
+<div class="md:col-span-1">
+<div class="flex items-center gap-3 mb-8">
+<div class="bg-white p-1 rounded-sm">
+<svg class="size-6 text-background-dark" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M39.5563 34.1455V13.8546C39.5563 15.708 36.8773 17.3437 32.7927 18.3189C30.2914 18.916 27.263 19.2655 24 19.2655C20.737 19.2655 17.7086 18.916 15.2073 18.3189C11.1227 17.3437 8.44365 15.708 8.44365 13.8546V34.1455C8.44365 35.9988 11.1227 37.6346 15.2073 38.6098C17.7086 39.2069 20.737 39.5564 24 39.5564C27.1288 39.5564 30.2914 39.2069 32.7927 38.6098C36.8773 37.6346 39.5563 35.9988 39.5563 34.1455Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-xl font-extrabold tracking-tighter uppercase">Festbau</h2>
+</div>
+<p class="text-gray-400 text-sm leading-relaxed mb-8">
+                    Delivering the foundations of modern infrastructure since 1974. Precision engineering, absolute reliability.
+                </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 border border-gray-700 flex items-center justify-center hover:bg-primary hover:border-primary transition-all rounded-sm" href="#"><span class="material-symbols-outlined text-sm">hub</span></a>
+<a class="w-10 h-10 border border-gray-700 flex items-center justify-center hover:bg-primary hover:border-primary transition-all rounded-sm" href="#"><span class="material-symbols-outlined text-sm">alternate_email</span></a>
+<a class="w-10 h-10 border border-gray-700 flex items-center justify-center hover:bg-primary hover:border-primary transition-all rounded-sm" href="#"><span class="material-symbols-outlined text-sm">groups</span></a>
+</div>
+</div>
+<div>
+<h5 class="text-sm font-black uppercase tracking-[0.2em] text-accent-yellow mb-8">Navigation</h5>
+<ul class="space-y-4">
+<li><a class="text-sm text-gray-400 hover:text-white transition-colors" href="#">Our Services</a></li>
+<li><a class="text-sm text-gray-400 hover:text-white transition-colors" href="#">Project Portfolio</a></li>
+<li><a class="text-sm text-gray-400 hover:text-white transition-colors" href="#">Safety Standards</a></li>
+<li><a class="text-sm text-gray-400 hover:text-white transition-colors" href="#">Careers</a></li>
+<li><a class="text-sm text-gray-400 hover:text-white transition-colors" href="#">Sustainability</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-sm font-black uppercase tracking-[0.2em] text-accent-yellow mb-8">Headquarters</h5>
+<p class="text-sm text-gray-400 leading-relaxed">
+                    Bauallee 12-14<br/>
+                    80331 Munich, Germany<br/>
+                    T: +49 (0) 89 234 567 89<br/>
+                    E: contact@festbau.de
+                </p>
+</div>
+<div>
+<h5 class="text-sm font-black uppercase tracking-[0.2em] text-accent-yellow mb-8">Newsletter</h5>
+<p class="text-xs text-gray-400 mb-6 uppercase tracking-widest">Industry insights &amp; news</p>
+<div class="flex">
+<input class="bg-gray-800 border-none px-4 py-3 text-sm focus:ring-1 focus:ring-primary w-full rounded-l-sm" placeholder="Your Email" type="email"/>
+<button class="bg-primary px-4 py-3 rounded-r-sm hover:brightness-110 transition-all">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</div>
+<div class="pt-12 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="text-xs text-gray-500 uppercase tracking-widest">© 2024 Festbau GmbH. All rights reserved.</p>
+<div class="flex gap-8">
+<a class="text-[10px] text-gray-500 hover:text-white uppercase tracking-widest" href="#">Imprint</a>
+<a class="text-[10px] text-gray-500 hover:text-white uppercase tracking-widest" href="#">Privacy Policy</a>
+<a class="text-[10px] text-gray-500 hover:text-white uppercase tracking-widest" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+
+<script>
+// Counter Animation
+function animateCounter(element, target, duration = 2000) {
+    const isDecimal = element.dataset.decimal === 'true';
+    const start = 0;
+    const increment = target / (duration / 16);
+    let current = start;
+    
+    const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+            element.textContent = isDecimal ? target.toFixed(1) : Math.ceil(target);
+            clearInterval(timer);
+        } else {
+            element.textContent = isDecimal ? current.toFixed(1) : Math.ceil(current);
+        }
+    }, 16);
+}
+
+// Intersection Observer for counter animation
+const observerOptions = {
+    threshold: 0.5,
+    rootMargin: '0px'
+};
+
+let countersAnimated = false;
+
+const counterObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting && !countersAnimated) {
+            countersAnimated = true;
+            const counters = entry.target.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                const target = parseFloat(counter.dataset.target);
+                animateCounter(counter, target);
+            });
+            // Stop observing after animation triggered (won't repeat)
+            observer.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+// Observe stats section
+const statsSection = document.getElementById('stats-section');
+if (statsSection) {
+    counterObserver.observe(statsSection);
+}
+
+// Intersection Observer for fade-in animations
+const fadeObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            // Trigger animation
+            entry.target.style.opacity = '1';
+            entry.target.style.animation = entry.target.style.animation || 'fadeInUp 0.8s ease-out forwards';
+            
+            // Stop observing this element (animation will only happen once)
+            observer.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+});
+
+// Observe all animated elements
+document.addEventListener('DOMContentLoaded', () => {
+    const animatedElements = document.querySelectorAll('.fade-in-up, .fade-in, .slide-in-left, .scale-in');
+    animatedElements.forEach(el => {
+        fadeObserver.observe(el);
+    });
+});
+</script>
+
+</body></html>

@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About Us | Festbau Industrial Construction</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply font-display;
+            }
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: #e5e7eb;
+        }
+        @media (max-width: 768px) {
+            .timeline-container::before {
+                left: 20px;
+            }
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1152d4",
+                        "accent-yellow": "#FFD700",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                        "industrial-gray": "#2d3442",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-gray-900 dark:text-gray-100 overflow-x-hidden">
+<header class="sticky top-0 z-50 w-full bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<a href="home.html" class="flex items-center gap-3">
+<div class="bg-primary p-1.5 rounded-sm">
+<svg class="size-6 text-white" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M39.5563 34.1455V13.8546C39.5563 15.708 36.8773 17.3437 32.7927 18.3189C30.2914 18.916 27.263 19.2655 24 19.2655C20.737 19.2655 17.7086 18.916 15.2073 18.3189C11.1227 17.3437 8.44365 15.708 8.44365 13.8546V34.1455C8.44365 35.9988 11.1227 37.6346 15.2073 38.6098C17.7086 39.2069 20.737 39.5564 24 39.5564C27.263 39.5564 30.2914 39.2069 32.7927 38.6098C36.8773 37.6346 39.5563 35.9988 39.5563 34.1455Z" fill="currentColor"></path>
+<path clip-rule="evenodd" d="M10.4485 13.8519C10.4749 13.9271 10.6203 14.246 11.379 14.7361C12.298 15.3298 13.7492 15.9145 15.6717 16.3735C18.0007 16.9296 20.8712 17.2655 24 17.2655C27.1288 17.2655 29.9993 16.9296 32.3283 16.3735C34.2508 15.9145 35.702 15.3298 36.621 14.7361C37.3796 14.246 37.5251 13.9271 37.5515 13.8519C37.5287 13.7876 37.4333 13.5973 37.0635 13.2931C36.5266 12.8516 35.6288 12.3647 34.343 11.9175C31.79 11.0295 28.1333 10.4437 24 10.4437C19.8667 10.4437 16.2099 11.0295 13.657 11.9175C12.3712 12.3647 11.4734 12.8516 10.9365 13.2931C10.5667 13.5973 10.4713 13.7876 10.4485 13.8519ZM37.5563 18.7877C36.3176 19.3925 34.8502 19.8839 33.2571 20.2642C30.5836 20.9025 27.3973 21.2655 24 21.2655C20.6027 21.2655 17.4164 20.9025 14.7429 20.2642C13.1498 19.8839 11.6824 19.3925 10.4436 18.7877V34.1275C10.4515 34.1545 10.5427 34.4867 11.379 35.027C12.298 35.6207 13.7492 36.2054 15.6717 36.6644C18.0007 37.2205 20.8712 37.5564 24 37.5564C27.1288 37.5564 29.9993 37.2205 32.3283 36.6644C34.2508 36.2054 35.702 35.6207 36.621 35.027C37.4573 34.4867 37.5485 34.1546 37.5563 34.1275V18.7877ZM41.5563 13.8546V34.1455C41.5563 36.1078 40.158 37.5042 38.7915 38.3869C37.3498 39.3182 35.4192 40.0389 33.2571 40.5551C30.5836 41.1934 27.3973 41.5564 24 41.5564C20.6027 41.5564 17.4164 41.1934 14.7429 40.5551C12.5808 40.0389 10.6502 39.3182 9.20848 38.3869C7.84205 37.5042 6.44365 36.1078 6.44365 34.1455L6.44365 13.8546C6.44365 12.2684 7.37223 11.0454 8.39581 10.2036C9.43325 9.3505 10.8137 8.67141 12.343 8.13948C15.4203 7.06909 19.5418 6.44366 24 6.44366C28.4582 6.44366 32.5797 7.06909 35.657 8.13948C37.1863 8.67141 38.5667 9.3505 39.6042 10.2036C40.6278 11.0454 41.5563 12.2684 41.5563 13.8546Z" fill="white" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-xl font-extrabold tracking-tighter uppercase">Festbau</h2>
+</a>
+<nav class="hidden md:flex items-center gap-8">
+<div class="relative group">
+<button class="text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors flex items-center gap-1">
+Services
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+<div class="absolute top-full left-0 mt-2 w-64 bg-white dark:bg-industrial-gray shadow-xl border border-gray-200 dark:border-gray-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+<a href="services/design-build.html" class="block px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors border-b border-gray-100 dark:border-gray-700">Design Build</a>
+<a href="services/general-contracting.html" class="block px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors border-b border-gray-100 dark:border-gray-700">General Contracting</a>
+<a href="services/project-management.html" class="block px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors border-b border-gray-100 dark:border-gray-700">Project Management</a>
+<a href="services/modular-prefabrications.html" class="block px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors">Modular Prefabrications</a>
+</div>
+</div>
+<a class="text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors" href="project-portfolio.html">Projects</a>
+<a class="text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors" href="qualifications.html">Qualifications</a>
+<a class="text-sm font-semibold uppercase tracking-widest text-primary border-b-2 border-primary" href="about-us.html">About Us</a>
+<a href="contact.html" class="bg-primary text-white px-6 py-2 text-sm font-bold uppercase tracking-widest rounded-sm hover:brightness-110 transition-all">
+Contact
+</a>
+</nav>
+<button id="mobile-menu-btn" class="md:hidden text-gray-900 dark:text-white">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</div>
+<div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 right-0 bg-white dark:bg-industrial-gray border-b border-gray-200 dark:border-gray-700 shadow-xl">
+<div class="px-6 py-4 space-y-4">
+<a href="home.html" class="block text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors">Home</a>
+<div>
+<button id="mobile-services-btn" class="w-full flex items-center justify-between text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors">
+Services
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+<div id="mobile-services-menu" class="hidden mt-2 ml-4 space-y-2">
+<a href="services/design-build.html" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-primary py-2">Design Build</a>
+<a href="services/general-contracting.html" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-primary py-2">General Contracting</a>
+<a href="services/project-management.html" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-primary py-2">Project Management</a>
+<a href="services/modular-prefabrications.html" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-primary py-2">Modular Prefabrications</a>
+</div>
+</div>
+<a href="project-portfolio.html" class="block text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors">Projects</a>
+<a href="qualifications.html" class="block text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors">Qualifications</a>
+<a href="about-us.html" class="block text-sm font-semibold uppercase tracking-widest text-primary">About Us</a>
+<a href="contact.html" class="block bg-primary text-white px-6 py-3 text-sm font-bold uppercase tracking-widest rounded-sm hover:brightness-110 transition-all text-center">Contact</a>
+</div>
+</div>
+</header>
+<script>
+document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+const menu = document.getElementById('mobile-menu');
+menu.classList.toggle('hidden');
+});
+
+document.getElementById('mobile-services-btn').addEventListener('click', function() {
+const submenu = document.getElementById('mobile-services-menu');
+submenu.classList.toggle('hidden');
+});
+</script>
+<main>
+<section class="relative h-[70vh] flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center grayscale brightness-[0.3]" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDgAksz6v4SME5rV26SsOHfwFQyololFAwyniWUkVy2osv4qb7pxEK7B1b9rz1hGus0jjno_TCLHRSe7C9zGyxC_T3OSBN4Gx-2VYRAKpxoXaAmVilv0UPCOfjLF6783ysrXdyhFw6lvFAS1ee8fu9RtmpdD2_wA2a1zR59VdBTnQpyu06aXzEsAB3P06SuuQ1PaI56xQ74IYlN2eKS4EQUJTl4nEcerWs2zSEE1kdAPBsMusOIgGW1pxHLGvgckeQHIe20ZQbnx_g");'></div>
+<div class="relative z-10 text-center px-6">
+<h1 class="text-5xl md:text-8xl font-black text-white tracking-tighter mb-4 leading-none uppercase">
+                Building the Future<br/>Since <span class="text-primary">1974</span>
+</h1>
+<div class="w-24 md:w-48 h-2 bg-accent-yellow mx-auto"></div>
+<p class="mt-8 text-xl text-gray-300 font-light max-w-2xl mx-auto uppercase tracking-widest">A Legacy of Engineering Excellence and Integrity</p>
+</div>
+</section>
+<section class="py-24 bg-white dark:bg-background-dark">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-accent-yellow font-black uppercase tracking-[0.4em] text-sm mb-4">Our Foundation</h2>
+<h3 class="text-4xl md:text-5xl font-black tracking-tight text-gray-900 dark:text-white uppercase">Core Values</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-1">
+<div class="group p-12 bg-background-light dark:bg-industrial-gray border-b-8 border-transparent hover:border-primary transition-all duration-300">
+<span class="material-symbols-outlined text-6xl text-primary mb-8">verified_user</span>
+<h4 class="text-2xl font-black mb-4 uppercase tracking-tighter">Integrity</h4>
+<p class="text-gray-600 dark:text-gray-400 leading-relaxed">We maintain uncompromising ethical standards across every project site, from initial planning to final handover.</p>
+</div>
+<div class="group p-12 bg-background-light dark:bg-industrial-gray border-b-8 border-transparent hover:border-primary transition-all duration-300">
+<span class="material-symbols-outlined text-6xl text-primary mb-8">precision_manufacturing</span>
+<h4 class="text-2xl font-black mb-4 uppercase tracking-tighter">Precision</h4>
+<p class="text-gray-600 dark:text-gray-400 leading-relaxed">Our engineering teams operate with millimetric accuracy, ensuring structural longevity in the most demanding environments.</p>
+</div>
+<div class="group p-12 bg-background-light dark:bg-industrial-gray border-b-8 border-transparent hover:border-primary transition-all duration-300">
+<span class="material-symbols-outlined text-6xl text-primary mb-8">height</span>
+<h4 class="text-2xl font-black mb-4 uppercase tracking-tighter">Scale</h4>
+<p class="text-gray-600 dark:text-gray-400 leading-relaxed">Equipped with state-of-the-art machinery and human capital, we specialize in delivering massive infrastructure projects.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-gray-50 dark:bg-black/20">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+<div>
+<h2 class="text-accent-yellow font-black uppercase tracking-[0.4em] text-sm mb-4">Milestones</h2>
+<h3 class="text-4xl md:text-5xl font-black tracking-tight text-gray-900 dark:text-white uppercase">Our History</h3>
+</div>
+</div>
+<div class="relative timeline-container py-10">
+<div class="relative mb-24 md:mb-16 flex flex-col md:flex-row items-center w-full">
+<div class="hidden md:block w-1/2 pr-12 text-right">
+<h4 class="text-4xl font-black text-primary mb-2">1974</h4>
+<p class="text-gray-600 dark:text-gray-400">Foundation in Munich by Karl-Heinz Festbau, starting with local commercial renovations.</p>
+</div>
+<div class="z-10 bg-accent-yellow w-10 h-10 rounded-full flex items-center justify-center border-4 border-white dark:border-background-dark">
+<div class="w-2 h-2 bg-industrial-gray rounded-full"></div>
+</div>
+<div class="w-full md:w-1/2 pl-12 mt-4 md:mt-0 md:hidden">
+<h4 class="text-3xl font-black text-primary mb-2">1974</h4>
+<p class="text-gray-600 dark:text-gray-400">Foundation in Munich by Karl-Heinz Festbau, starting with local commercial renovations.</p>
+</div>
+<div class="hidden md:block w-1/2"></div>
+</div>
+<div class="relative mb-24 md:mb-16 flex flex-col md:flex-row items-center w-full">
+<div class="hidden md:block w-1/2"></div>
+<div class="z-10 bg-accent-yellow w-10 h-10 rounded-full flex items-center justify-center border-4 border-white dark:border-background-dark">
+<div class="w-2 h-2 bg-industrial-gray rounded-full"></div>
+</div>
+<div class="w-full md:w-1/2 pl-12 mt-4 md:mt-0">
+<h4 class="text-4xl font-black text-primary mb-2">1992</h4>
+<p class="text-gray-600 dark:text-gray-400">Expansion into heavy industrial infrastructure, completing the first major hydro-electric dam project.</p>
+</div>
+</div>
+<div class="relative mb-24 md:mb-16 flex flex-col md:flex-row items-center w-full">
+<div class="hidden md:block w-1/2 pr-12 text-right">
+<h4 class="text-4xl font-black text-primary mb-2">2008</h4>
+<p class="text-gray-600 dark:text-gray-400">International expansion with offices opening across Europe and specialized marine engineering units.</p>
+</div>
+<div class="z-10 bg-accent-yellow w-10 h-10 rounded-full flex items-center justify-center border-4 border-white dark:border-background-dark">
+<div class="w-2 h-2 bg-industrial-gray rounded-full"></div>
+</div>
+<div class="w-full md:w-1/2 pl-12 mt-4 md:mt-0 md:hidden">
+<h4 class="text-3xl font-black text-primary mb-2">2008</h4>
+<p class="text-gray-600 dark:text-gray-400">International expansion with offices opening across Europe and specialized marine engineering units.</p>
+</div>
+<div class="hidden md:block w-1/2"></div>
+</div>
+<div class="relative flex flex-col md:flex-row items-center w-full">
+<div class="hidden md:block w-1/2"></div>
+<div class="z-10 bg-primary w-10 h-10 rounded-full flex items-center justify-center border-4 border-white dark:border-background-dark">
+<div class="w-2 h-2 bg-white rounded-full"></div>
+</div>
+<div class="w-full md:w-1/2 pl-12 mt-4 md:mt-0">
+<h4 class="text-4xl font-black text-primary mb-2">Today</h4>
+<p class="text-gray-600 dark:text-gray-400">Leading the transition to sustainable industrial construction with over 500 expert engineers.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-white dark:bg-background-dark">
+<div class="max-w-7xl mx-auto px-6">
+<div class="mb-16">
+<h2 class="text-accent-yellow font-black uppercase tracking-[0.4em] text-sm mb-4">Board of Directors</h2>
+<h3 class="text-4xl md:text-5xl font-black tracking-tight text-gray-900 dark:text-white uppercase">Leadership Team</h3>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="group">
+<div class="aspect-[3/4] bg-industrial-gray relative overflow-hidden mb-6">
+<img alt="CEO" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLdCj8wsXX3k23lnNiyzngvQP1cvVLNy00wl7AaRke35WGij28ajdXCCbDoUNMrIgyNj3fcHwCuwcttUP_3i_OLvRmsTnL1wsmfnTmuRAb65rQ_6EnZOIMAyINdKALBJDPydLVMKXZ-W2okfCG0NfzrDJb0jXYEgBrGtklwY2AjJvLygBmlr3x0auWdWky_hgOyAqjjFmYvRZhAOj77rULuANlTntfttZbisyYA0PHGgRipJ8t0-77t4PDTyDNUIE720VaU2LDA5E"/>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<h5 class="text-xl font-black uppercase tracking-tighter">Erik Festbau</h5>
+<p class="text-primary font-bold text-xs uppercase tracking-widest">Chief Executive Officer</p>
+</div>
+<div class="group">
+<div class="aspect-[3/4] bg-industrial-gray relative overflow-hidden mb-6">
+<img alt="COO" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1ctmGa_T-CzKEDvLbyxON5o6G02g-jVjVj7g8MAvUK16F973z_XKbv0SqTJun4vDR7KkBErXR3GoRdlJ2jEmGiQpeDtS0CyxPHDgFmrbU-WjhyVY9JkVkXjsYdIlND3YT0f927hDJP02lsnCubLcwZ5O0ycFz_4Q0bU2tRPYGqFUvsO0B1-mf7X672Mu1dwXo7DmKbtubr8vT3r3PNM_slwnCMoVz4bxRJhbFRYahlABKgciDxb9M5vi7pogAwqNl5VCpQEo3F5U"/>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<h5 class="text-xl font-black uppercase tracking-tighter">Dr. Elena Wagner</h5>
+<p class="text-primary font-bold text-xs uppercase tracking-widest">Operations Director</p>
+</div>
+<div class="group">
+<div class="aspect-[3/4] bg-industrial-gray relative overflow-hidden mb-6">
+<img alt="CTO" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxxNHWUa-lk8g0xkshGztDWPeMIjaS07KRD4H6hXUmYwIYhH_bZEhMOtXyRGZSknI-1BOci9jLKuqpj7odJvIMSoE37yxmtzlBuqFea851H1mk-3sq1_CJekRhgMfVshklwMA9LUs3vURLdT__5ZqtFp5huwWbOv9Sv8fSDOUpnIJcefCBH4-Kn7SLAq1Ldt8T2pq9LO4J_ajDkwsMQQVPfYSwivgc8HGpBwc7sGLMAeVgPEabXIwr3X03T-on453GcM2XAvMZXIY"/>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<h5 class="text-xl font-black uppercase tracking-tighter">Marcus Thorne</h5>
+<p class="text-primary font-bold text-xs uppercase tracking-widest">Chief Technical Officer</p>
+</div>
+<div class="group">
+<div class="aspect-[3/4] bg-industrial-gray relative overflow-hidden mb-6">
+<img alt="CFO" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtDjyM6_Zu3DF4xgAaqz-h3LRctB7_ffVVStK3QgJtmFug_hypf6BS5MmMtRHc__gTsGvdzP5UZXAMEFJp2aam1S0wsd-ysbarFq9hz2DB5Ex90mz-hopByxfYjOZneB0Glj0nfHdMmgxpIxS1tjQfCt7AIO4cdOniVpMcJu029QURbKZvvpPuRWSWREhgwv1hqN0iDwf2d0dt9-ZwU-W3W-A_xqfOa6ftPwv_dKE75JmabbQuogjcrHtVAfoMZ3gGtYCZn1JlQC4"/>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<h5 class="text-xl font-black uppercase tracking-tighter">Sophie Chevalier</h5>
+<p class="text-primary font-bold text-xs uppercase tracking-widest">Financial Director</p>
+</div>
+</div>
+</div>
+</section>
+<section class="relative py-32 overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Safety at work" class="w-full h-full object-cover filter brightness-50 contrast-125 grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB36022NbLeZiDefm2MRsLq9M-6sQt4ss9JGcfnckT8aXtMRKN6kVhFNS6c2GDbKIdlIDfBbojtumZL2d2OH4PqX7n5XZJRVXos7XL9fm8rJLKeevIYcs2j_i0S7Uzg4hMU01Zbciv2kWcey0R3R-F2sZ4IFFEI50zxDEWJRjbZeYPFzOKrXCvgW5mem_PgXtSCwvjKpV1uJyQCnt3g6w7eJBjb59rWGf9myw8ClDoChNSK9NvIdCYxccLbmH4pw7ztET7rtNGu_30"/>
+<div class="absolute inset-0 bg-gradient-to-b from-background-dark/90 via-background-dark/60 to-background-dark/90"></div>
+</div>
+<div class="relative z-10 max-w-7xl mx-auto px-6">
+<div class="flex flex-col items-center text-center mb-20">
+<h2 class="text-accent-yellow font-black uppercase tracking-[0.4em] text-sm mb-4">Uncompromising Standards</h2>
+<h3 class="text-4xl md:text-6xl font-black tracking-tighter text-white uppercase mb-8">Safety &amp; Quality</h3>
+<div class="w-24 h-2 bg-primary mb-8"></div>
+<p class="max-w-2xl text-xl text-gray-300 leading-relaxed font-light">
+                    Every bolt, beam, and blueprint undergoes rigorous multi-stage verification to ensure absolute site safety and operational longevity.
+                </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-white/5 backdrop-blur-md p-10 border-l-4 border-accent-yellow">
+<div class="text-primary text-5xl font-black mb-4">0.0</div>
+<h4 class="text-white font-bold uppercase tracking-widest text-lg mb-2">Incident Rate</h4>
+<p class="text-gray-400 text-sm">Our industry-leading safety protocols have maintained a zero-incident record across all major sites since 2018.</p>
+</div>
+<div class="bg-white/5 backdrop-blur-md p-10 border-l-4 border-accent-yellow">
+<div class="text-primary text-5xl font-black mb-4">ISO</div>
+<h4 class="text-white font-bold uppercase tracking-widest text-lg mb-2">9001 Certified</h4>
+<p class="text-gray-400 text-sm">International quality management certification that governs every aspect of our project delivery chain.</p>
+</div>
+<div class="bg-white/5 backdrop-blur-md p-10 border-l-4 border-accent-yellow">
+<div class="text-primary text-5xl font-black mb-4">24/7</div>
+<h4 class="text-white font-bold uppercase tracking-widest text-lg mb-2">Site Monitoring</h4>
+<p class="text-gray-400 text-sm">Real-time digital oversight and automated risk assessment integrated into every construction phase.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 bg-primary overflow-hidden relative">
+<div class="absolute top-0 right-0 h-full w-1/3 opacity-10 flex flex-col gap-4 -rotate-12 translate-x-20">
+<div class="h-10 w-full bg-accent-yellow"></div>
+<div class="h-10 w-full bg-accent-yellow"></div>
+<div class="h-10 w-full bg-accent-yellow"></div>
+</div>
+<div class="max-w-7xl mx-auto px-6 relative z-10">
+<div class="flex flex-col md:flex-row items-center justify-between gap-12 text-center md:text-left">
+<div class="max-w-2xl">
+<h2 class="text-white text-4xl md:text-5xl font-black tracking-tighter mb-6 uppercase leading-none">Be part of the legacy</h2>
+<p class="text-white/80 text-lg">Whether you are planning an icon or looking to join our elite team of engineers.</p>
+</div>
+<div class="flex gap-4">
+<button class="bg-white text-primary px-10 py-5 text-sm font-black uppercase tracking-widest rounded-sm hover:scale-105 transition-transform shadow-xl">
+                        Contact Us
+                    </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-background-dark text-white pt-24 pb-12 border-t-4 border-accent-yellow">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
+<div class="md:col-span-1">
+<div class="flex items-center gap-3 mb-8">
+<div class="bg-white p-1 rounded-sm">
+<svg class="size-6 text-background-dark" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M39.5563 34.1455V13.8546C39.5563 15.708 36.8773 17.3437 32.7927 18.3189C30.2914 18.916 27.263 19.2655 24 19.2655C20.737 19.2655 17.7086 18.916 15.2073 18.3189C11.1227 17.3437 8.44365 15.708 8.44365 13.8546V34.1455C8.44365 35.9988 11.1227 37.6346 15.2073 38.6098C17.7086 39.2069 20.737 39.5564 24 39.5564C27.263 39.5564 30.2914 39.2069 32.7927 38.6098C36.8773 37.6346 39.5563 35.9988 39.5563 34.1455Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-xl font-extrabold tracking-tighter uppercase">Festbau</h2>
+</div>
+<p class="text-gray-400 text-sm leading-relaxed mb-8">
+                    Delivering the foundations of modern infrastructure since 1974. Precision engineering, absolute reliability.
+                </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 border border-gray-700 flex items-center justify-center hover:bg-primary hover:border-primary transition-all rounded-sm" href="#"><span class="material-symbols-outlined text-sm">hub</span></a>
+<a class="w-10 h-10 border border-gray-700 flex items-center justify-center hover:bg-primary hover:border-primary transition-all rounded-sm" href="#"><span class="material-symbols-outlined text-sm">alternate_email</span></a>
+<a class="w-10 h-10 border border-gray-700 flex items-center justify-center hover:bg-primary hover:border-primary transition-all rounded-sm" href="#"><span class="material-symbols-outlined text-sm">groups</span></a>
+</div>
+</div>
+<div>
+<h5 class="text-sm font-black uppercase tracking-[0.2em] text-accent-yellow mb-8">Navigation</h5>
+<ul class="space-y-4">
+<li><a class="text-sm text-gray-400 hover:text-white transition-colors" href="#">Our Services</a></li>
+<li><a class="text-sm text-gray-400 hover:text-white transition-colors" href="#">Project Portfolio</a></li>
+<li><a class="text-sm text-gray-400 hover:text-white transition-colors" href="#">Safety Standards</a></li>
+<li><a class="text-sm text-gray-400 hover:text-white transition-colors" href="#">Careers</a></li>
+<li><a class="text-sm text-gray-400 hover:text-white transition-colors" href="#">Sustainability</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-sm font-black uppercase tracking-[0.2em] text-accent-yellow mb-8">Headquarters</h5>
+<p class="text-sm text-gray-400 leading-relaxed">
+                    Bauallee 12-14<br/>
+                    80331 Munich, Germany<br/>
+                    T: +49 (0) 89 234 567 89<br/>
+                    E: contact@festbau.de
+                </p>
+</div>
+<div>
+<h5 class="text-sm font-black uppercase tracking-[0.2em] text-accent-yellow mb-8">Newsletter</h5>
+<p class="text-xs text-gray-400 mb-6 uppercase tracking-widest">Industry insights &amp; news</p>
+<div class="flex">
+<input class="bg-gray-800 border-none px-4 py-3 text-sm focus:ring-1 focus:ring-primary w-full rounded-l-sm" placeholder="Your Email" type="email"/>
+<button class="bg-primary px-4 py-3 rounded-r-sm hover:brightness-110 transition-all">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</div>
+<div class="pt-12 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="text-xs text-gray-500 uppercase tracking-widest">© 2024 Festbau GmbH. All rights reserved.</p>
+<div class="flex gap-8">
+<a class="text-[10px] text-gray-500 hover:text-white uppercase tracking-widest" href="#">Imprint</a>
+<a class="text-[10px] text-gray-500 hover:text-white uppercase tracking-widest" href="#">Privacy Policy</a>
+<a class="text-[10px] text-gray-500 hover:text-white uppercase tracking-widest" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+
+</body></html>
