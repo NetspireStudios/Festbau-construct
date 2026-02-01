@@ -198,36 +198,53 @@ submenu.classList.toggle('hidden');
 });
 </script>
 <main>
-<section class="relative min-h-[85vh] flex flex-col md:flex-row border-b border-gray-200 dark:border-gray-800">
-<div class="relative w-full md:w-1/2 min-h-[400px] bg-industrial-gray flex items-center justify-center overflow-hidden">
-<div class="absolute inset-0 bg-cover bg-center grayscale contrast-125 opacity-70" data-alt="Black and white wide shot of a large crane at a construction site" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDgAksz6v4SME5rV26SsOHfwFQyololFAwyniWUkVy2osv4qb7pxEK7B1b9rz1hGus0jjno_TCLHRSe7C9zGyxC_T3OSBN4Gx-2VYRAKpxoXaAmVilv0UPCOfjLF6783ysrXdyhFw6lvFAS1ee8fu9RtmpdD2_wA2a1zR59VdBTnQpyu06aXzEsAB3P06SuuQ1PaI56xQ74IYlN2eKS4EQUJTl4nEcerWs2zSEE1kdAPBsMusOIgGW1pxHLGvgckeQHIe20ZQbnx_g");'></div>
-<div class="absolute inset-0 bg-gradient-to-r from-background-dark/40 to-transparent"></div>
-<div class="absolute bottom-10 left-10 border-l-4 border-accent-yellow pl-4 py-2 bg-background-dark/50 backdrop-blur-sm">
-<p class="text-accent-yellow text-xs font-black uppercase tracking-[0.3em] mb-1">Live Project</p>
-<p class="text-white text-lg font-bold">Berlin Central Hub Expansion</p>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center overflow-hidden">
+<!-- Background Image with Gradient Overlay -->
+<div class="absolute inset-0 z-0">
+<img alt="Festbau affordable housing complex construction" class="w-full h-full object-cover" src="assets/images/hero-housing.jpg"/>
+<div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/70 to-black/50"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/60"></div>
 </div>
+
+<!-- Hero Content -->
+<div class="max-w-7xl mx-auto px-6 relative z-10 w-full py-20">
+<div class="max-w-4xl">
+<!-- Slogan -->
+<div class="flex items-center gap-3 mb-8 fade-in-up">
+<span class="h-1 w-20 bg-accent-yellow"></span>
+<span class="text-accent-yellow font-black uppercase tracking-[0.3em] text-sm">Shaping Futures. Responsibly.</span>
 </div>
-<div class="w-full md:w-1/2 bg-background-light dark:bg-background-dark flex flex-col justify-center p-8 md:p-20 relative">
-<div class="max-w-md">
-<div class="mb-6 flex items-center gap-2 fade-in-up">
-<span class="h-px w-8 bg-accent-yellow"></span>
-<span class="text-accent-yellow font-bold uppercase tracking-widest text-xs">Since 1974</span>
+
+<!-- Main Headline -->
+<h1 class="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[1.05] tracking-tighter mb-8 uppercase fade-in-up" style="animation-delay: 0.1s">
+Building <span class="text-accent-yellow">Affordable Communities</span> with Precision & Speed
+</h1>
+
+<!-- Subheading -->
+<p class="text-xl md:text-2xl text-gray-300 mb-4 leading-relaxed max-w-3xl fade-in-up" style="animation-delay: 0.2s">
+Delivering government-backed projects across North America with precision, speed, and integrity.
+</p>
+<p class="text-base md:text-lg text-gray-400 mb-12 leading-relaxed max-w-3xl fade-in-up" style="animation-delay: 0.25s">
+Specializing in modular construction and community housing that meets budget and timeline expectations without compromising quality.
+</p>
+
+<!-- CTA Buttons -->
+<div class="flex flex-wrap gap-4 mb-12 fade-in-up" style="animation-delay: 0.3s">
+<a href="contact.html" class="bg-primary text-white px-10 py-5 text-base font-black uppercase tracking-widest rounded-sm hover:scale-105 transition-transform shadow-2xl">
+Get a Consultation
+</a>
+<a href="assets/Festbau-Qualifications.pdf" download class="border-2 border-white text-white px-10 py-5 text-base font-black uppercase tracking-widest rounded-sm hover:bg-white hover:text-black transition-all shadow-xl">
+Download Qualifications
+</a>
 </div>
-<h1 class="text-5xl md:text-7xl font-black leading-none tracking-tighter text-gray-900 dark:text-white mb-8 fade-in-up" style="animation-delay: 0.1s">
-                    PRECISION<br/>
-<span class="text-primary italic">STRENGTH</span><br/>
-                    SCALE
-                </h1>
-<p class="text-lg text-gray-600 dark:text-gray-400 mb-10 leading-relaxed border-l-2 border-gray-300 dark:border-gray-700 pl-6 fade-in-up" style="animation-delay: 0.2s">
-                    Industrial-scale engineering and construction excellence. We deliver robust solutions for the world's most complex infrastructure.
-                </p>
-<div class="flex flex-wrap gap-4 fade-in-up" style="animation-delay: 0.3s">
-<button class="bg-primary text-white px-8 py-4 text-base font-bold uppercase tracking-widest rounded-sm hover:translate-y-[-2px] transition-transform">
-                        View Portfolio
-                    </button>
-<button class="border-2 border-industrial-gray dark:border-gray-700 px-8 py-4 text-base font-bold uppercase tracking-widest rounded-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-                        Our Process
-                    </button>
+
+<!-- Trust Tagline -->
+<div class="flex items-center gap-3 text-white/90 fade-in-up" style="animation-delay: 0.4s">
+<span class="material-symbols-outlined text-accent-yellow text-2xl">verified</span>
+<p class="text-sm md:text-base font-semibold uppercase tracking-wider">
+Trusted by public agencies and private investors alike
+</p>
 </div>
 </div>
 </div>
