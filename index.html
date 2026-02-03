@@ -200,17 +200,18 @@ submenu.classList.toggle('hidden');
 <main>
 <!-- A) Hero Section -->
 <section class="relative min-h-screen flex items-center overflow-hidden">
-<!-- Background Image with Left-Side Dark Overlay -->
+<!-- Background Image with Right-Side Dark Overlay -->
 <div class="absolute inset-0 z-0">
 <img alt="Festbau construction site with scale and modern housing" class="w-full h-full object-cover" src="assets/images/hero-housing.jpg" style="filter: invert(1);"/>
-<!-- Left-side dark overlay panel -->
-<div class="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-transparent"></div>
+<!-- Right-side dark overlay panel -->
+<div class="absolute inset-0 bg-gradient-to-l from-black via-black/85 to-transparent"></div>
 <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/40"></div>
 </div>
 
-<!-- Hero Content -->
+<!-- Hero Content - Right Aligned -->
 <div class="max-w-7xl mx-auto px-6 relative z-10 w-full py-20">
-<div class="max-w-3xl">
+<div class="flex justify-end">
+<div class="max-w-2xl text-right">
 <!-- H1 (Shaping Futures. Responsibly.) -->
 <h1 class="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[1.1] tracking-tight mb-8 fade-in-up">
 Shaping Futures. <span class="text-primary">Responsibly.</span>
@@ -222,14 +223,14 @@ Shaping Futures. <span class="text-primary">Responsibly.</span>
 </p>
 
 <!-- CTA Row -->
-<div class="flex flex-wrap gap-4 mb-8 fade-in-up" style="animation-delay: 0.2s">
+<div class="flex flex-wrap gap-4 mb-8 justify-end fade-in-up" style="animation-delay: 0.2s">
 <a href="contact.html" class="bg-primary text-white px-10 py-5 text-base font-black uppercase tracking-widest rounded-sm hover:scale-105 transition-transform shadow-2xl">
 Get a Consultation
 </a>
 </div>
 
 <!-- "Fast proof" micro-strip (under CTAs) -->
-<div class="flex flex-wrap items-center gap-3 text-gray-300 text-sm font-semibold fade-in-up" style="animation-delay: 0.3s">
+<div class="flex flex-wrap items-center gap-3 text-gray-300 text-sm font-semibold justify-end fade-in-up" style="animation-delay: 0.3s">
 <span>Design-Build</span>
 <span class="text-accent-yellow">•</span>
 <span>General Contracting</span>
@@ -237,6 +238,7 @@ Get a Consultation
 <span>Project Management</span>
 <span class="text-accent-yellow">•</span>
 <span>Modular/Prefab Delivery</span>
+</div>
 </div>
 </div>
 </div>
@@ -314,87 +316,51 @@ $<span class="counter" data-target="100">0</span>M+
 
 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
 <!-- Project 1: Burks Falls Mid-Rise Renovation -->
-<div class="bg-white dark:bg-industrial-gray border-b-4 border-primary hover:shadow-2xl transition-all fade-in-up" style="animation-delay: 0.1s">
+<div class="bg-white dark:bg-industrial-gray border-b-4 border-primary hover:shadow-2xl transition-all fade-in-up cursor-pointer project-card" style="animation-delay: 0.1s" onclick="openProjectModal('burks-falls')">
 <div class="aspect-video bg-industrial-gray relative overflow-hidden">
-<img alt="Burks Falls mid-rise renovation project" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVozHJtzO2Yn0I94XOM0UBWBAs6aGjkzcPBPuKlUrR8cQnFhezuKqLXQ5DsqYg2bEr0SGX6dY2zs8j-ls5dakThLnIkBvMCUxrmDEG6gJbgz9GuP0MvwF2bMYEXptp9kWhiqECTkA3dqObyTysRDg6qWIaNKpvciVNVfX2VPtDcL2iIiFQhHiSZvKyU2Wzz3mngk9n6FS7MwsyRzDHIf5OISHQWenorpTaqIGNAURpuS4QB5qh4mn55r-1R7QkLdFtX5St-TqORPg"/>
+<img alt="Burks Falls mid-rise renovation project" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVozHJtzO2Yn0I94XOM0UBWBAs6aGjkzcPBPuKlUrR8cQnFhezuKqLXQ5DsqYg2bEr0SGX6dY2zs8j-ls5dakThLnIkBvMCUxrmDEG6gJbgz9GuP0MvwF2bMYEXptp9kWhiqECTkA3dqObyTysRDg6qWIaNKpvciVNVfX2VPtDcL2iIiFQhHiSZvKyU2Wzz3mngk9n6FS7MwsyRzDHIf5OISHQWenorpTaqIGNAURpuS4QB5qh4mn55r-1R7QkLdFtX5St-TqORPg"/>
+<div class="absolute inset-0 bg-primary/0 hover:bg-primary/20 transition-all flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-4xl opacity-0 hover:opacity-100 transition-all">open_in_full</span>
+</div>
 </div>
 <div class="p-8">
 <h4 class="text-2xl font-black uppercase tracking-tighter mb-2 text-gray-900 dark:text-white">Burks Falls Mid-Rise Renovation</h4>
 <p class="text-sm text-gray-500 dark:text-gray-400 mb-4 uppercase tracking-wider">Burk's Falls</p>
-<p class="text-sm text-gray-600 dark:text-gray-400 mb-2"><span class="font-bold text-gray-900 dark:text-white">Delivery:</span> Design-Build</p>
 <p class="text-lg font-black text-primary mb-4">$5.0M</p>
-<p class="text-sm text-gray-700 dark:text-gray-300 mb-4 leading-relaxed font-semibold">Major renovation delivered with disciplined sequencing and tight coordination.</p>
-<ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
-<li class="flex items-start gap-2">
-<span class="text-primary mt-1">•</span>
-<span>Interior modernization + building upgrades</span>
-</li>
-<li class="flex items-start gap-2">
-<span class="text-primary mt-1">•</span>
-<span>Multi-trade coordination and schedule control</span>
-</li>
-<li class="flex items-start gap-2">
-<span class="text-primary mt-1">•</span>
-<span>Closeout documentation and turnover planning</span>
-</li>
-</ul>
+<p class="text-sm text-gray-600 dark:text-gray-400">Click to view details</p>
 </div>
 </div>
 
 <!-- Project 2: Dairy Queen Ground-Up Build -->
-<div class="bg-white dark:bg-industrial-gray border-b-4 border-primary hover:shadow-2xl transition-all fade-in-up" style="animation-delay: 0.2s">
+<div class="bg-white dark:bg-industrial-gray border-b-4 border-primary hover:shadow-2xl transition-all fade-in-up cursor-pointer project-card" style="animation-delay: 0.2s" onclick="openProjectModal('dairy-queen')">
 <div class="aspect-video bg-industrial-gray relative overflow-hidden">
-<img alt="Dairy Queen QSR new build London" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCnkWhKnOgRJL5YAcDH9vkZI8Oir2JfT5urs_OTHcC-6gmZyazkt8nhdF5brGwbQSt-07nqDeHYULj7R5HYzps8El68l2QAQXpYmUUCD1lKhddAzxNcZcIiyFvLD9DK7_q_7l4749W60F0_7BT02car5p_YUi1vbKW5QnSDMlPpPRwRD7EagZJVgi0FGqoXTT2E_HaPKNtRD-GH0Ulyv70R7Pj2_6bJHfTme0PiMqTyso3Wc0u5SNz1EHbze9IsCjhhtudCnV7MPI"/>
+<img alt="Dairy Queen QSR new build London" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCnkWhKnOgRJL5YAcDH9vkZI8Oir2JfT5urs_OTHcC-6gmZyazkt8nhdF5brGwbQSt-07nqDeHYULj7R5HYzps8El68l2QAQXpYmUUCD1lKhddAzxNcZcIiyFvLD9DK7_q_7l4749W60F0_7BT02car5p_YUi1vbKW5QnSDMlPpPRwRD7EagZJVgi0FGqoXTT2E_HaPKNtRD-GH0Ulyv70R7Pj2_6bJHfTme0PiMqTyso3Wc0u5SNz1EHbze9IsCjhhtudCnV7MPI"/>
+<div class="absolute inset-0 bg-primary/0 hover:bg-primary/20 transition-all flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-4xl opacity-0 hover:opacity-100 transition-all">open_in_full</span>
+</div>
 </div>
 <div class="p-8">
 <h4 class="text-2xl font-black uppercase tracking-tighter mb-2 text-gray-900 dark:text-white">Dairy Queen Ground-Up Build</h4>
 <p class="text-sm text-gray-500 dark:text-gray-400 mb-4 uppercase tracking-wider">London</p>
-<p class="text-sm text-gray-600 dark:text-gray-400 mb-2"><span class="font-bold text-gray-900 dark:text-white">Delivery:</span> General Contracting</p>
 <p class="text-lg font-black text-primary mb-4">~$3.0M</p>
-<p class="text-sm text-gray-700 dark:text-gray-300 mb-4 leading-relaxed font-semibold">New-build QSR delivery with fast-track scheduling and clean turnover.</p>
-<ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
-<li class="flex items-start gap-2">
-<span class="text-primary mt-1">•</span>
-<span>Sitework + building shell + interior build-out coordination</span>
-</li>
-<li class="flex items-start gap-2">
-<span class="text-primary mt-1">•</span>
-<span>Long-lead procurement planning and trade buyout</span>
-</li>
-<li class="flex items-start gap-2">
-<span class="text-primary mt-1">•</span>
-<span>Owner-ready turnover and punch management</span>
-</li>
-</ul>
+<p class="text-sm text-gray-600 dark:text-gray-400">Click to view details</p>
 </div>
 </div>
 
 <!-- Project 3: Adaptive Reuse -->
-<div class="bg-white dark:bg-industrial-gray border-b-4 border-primary hover:shadow-2xl transition-all fade-in-up" style="animation-delay: 0.3s">
+<div class="bg-white dark:bg-industrial-gray border-b-4 border-primary hover:shadow-2xl transition-all fade-in-up cursor-pointer project-card" style="animation-delay: 0.3s" onclick="openProjectModal('adaptive-reuse')">
 <div class="aspect-video bg-industrial-gray relative overflow-hidden">
-<img alt="School gym to residential adaptive reuse project" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB36022NbLeZiDefm2MRsLq9M-6sQt4ss9JGcfnckT8aXtMRKN6kVhFNS6c2GDbKIdlIDfBbojtumZL2d2OH4PqX7n5XZJRVXos7XL9fm8rJLKeevIYcs2j_i0S7Uzg4hMU01Zbciv2kWcey0R3R-F2sZ4IFFEI50zxDEWJRjbZeYPFzOKrXCvgW5mem_PgXtSCwvjKpV1uJyQCnt3g6w7eJBjb59rWGf9myw8ClDoChNSK9NvIdCYxccLbmH4pw7ztET7rtNGu_30"/>
+<img alt="School gym to residential adaptive reuse project" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB36022NbLeZiDefm2MRsLq9M-6sQt4ss9JGcfnckT8aXtMRKN6kVhFNS6c2GDbKIdlIDfBbojtumZL2d2OH4PqX7n5XZJRVXos7XL9fm8rJLKeevIYcs2j_i0S7Uzg4hMU01Zbciv2kWcey0R3R-F2sZ4IFFEI50zxDEWJRjbZeYPFzOKrXCvgW5mem_PgXtSCwvjKpV1uJyQCnt3g6w7eJBjb59rWGf9myw8ClDoChNSK9NvIdCYxccLbmH4pw7ztET7rtNGu_30"/>
 <div class="absolute top-4 right-4 bg-accent-yellow text-black text-xs font-black uppercase px-3 py-1">Under Construction</div>
+<div class="absolute inset-0 bg-primary/0 hover:bg-primary/20 transition-all flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-4xl opacity-0 hover:opacity-100 transition-all">open_in_full</span>
+</div>
 </div>
 <div class="p-8">
-<h4 class="text-2xl font-black uppercase tracking-tighter mb-2 text-gray-900 dark:text-white">Adaptive Reuse: School Gym → Multi-Unit Residential</h4>
+<h4 class="text-2xl font-black uppercase tracking-tighter mb-2 text-gray-900 dark:text-white">Adaptive Reuse: School Gym to Multi-Unit Residential</h4>
 <p class="text-sm text-gray-500 dark:text-gray-400 mb-4 uppercase tracking-wider">Cambridge</p>
-<p class="text-sm text-gray-600 dark:text-gray-400 mb-2"><span class="font-bold text-gray-900 dark:text-white">Delivery:</span> Project Management</p>
 <p class="text-lg font-black text-primary mb-4">$2.5M</p>
-<p class="text-sm text-gray-700 dark:text-gray-300 mb-4 leading-relaxed font-semibold">Repurposing an existing asset with careful life-safety, MEP, and sequencing coordination.</p>
-<ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
-<li class="flex items-start gap-2">
-<span class="text-primary mt-1">•</span>
-<span>Adaptive reuse planning + phased execution</span>
-</li>
-<li class="flex items-start gap-2">
-<span class="text-primary mt-1">•</span>
-<span>Multi-trade coordination under active constraints</span>
-</li>
-<li class="flex items-start gap-2">
-<span class="text-primary mt-1">•</span>
-<span>Quality control + turnover readiness</span>
-</li>
-</ul>
+<p class="text-sm text-gray-600 dark:text-gray-400">Click to view details</p>
 </div>
 </div>
 </div>
@@ -407,86 +373,110 @@ View All Projects
 </div>
 </div>
 </section>
+
+<!-- Project Modal -->
+<div id="project-modal" class="fixed inset-0 z-[100] hidden">
+<div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="closeProjectModal()"></div>
+<div class="absolute inset-4 md:inset-10 lg:inset-20 bg-white dark:bg-industrial-gray rounded-sm overflow-hidden flex flex-col md:flex-row">
+<!-- Close Button -->
+<button onclick="closeProjectModal()" class="absolute top-4 right-4 z-10 bg-black/50 hover:bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined">close</span>
+</button>
+
+<!-- Project Image -->
+<div class="w-full md:w-1/2 h-64 md:h-full bg-industrial-gray">
+<img id="modal-image" alt="Project" class="w-full h-full object-cover"/>
+</div>
+
+<!-- Project Details -->
+<div class="w-full md:w-1/2 p-8 md:p-12 overflow-y-auto">
+<div id="modal-badge" class="hidden mb-4">
+<span class="bg-accent-yellow text-black text-xs font-black uppercase px-3 py-1">Under Construction</span>
+</div>
+<h3 id="modal-title" class="text-3xl font-black uppercase tracking-tighter mb-2 text-gray-900 dark:text-white"></h3>
+<p id="modal-location" class="text-sm text-gray-500 dark:text-gray-400 mb-4 uppercase tracking-wider"></p>
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-2"><span class="font-bold text-gray-900 dark:text-white">Delivery:</span> <span id="modal-delivery"></span></p>
+<p id="modal-value" class="text-2xl font-black text-primary mb-6"></p>
+<p id="modal-description" class="text-base text-gray-700 dark:text-gray-300 mb-6 leading-relaxed font-semibold"></p>
+<h4 class="text-sm font-black uppercase tracking-widest text-gray-900 dark:text-white mb-4">Scope Highlights</h4>
+<ul id="modal-scope" class="space-y-3 text-sm text-gray-600 dark:text-gray-400">
+</ul>
+</div>
+</div>
+</div>
 <!-- E) Delivery System (this is what sells $10M+ readiness) -->
-<section class="py-24 bg-black text-white relative overflow-hidden">
-<div class="max-w-7xl mx-auto px-6">
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-<!-- Left: Content -->
-<div>
+<section class="relative overflow-hidden">
+<!-- Full-width background with image on right -->
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-r from-black via-black to-black/70"></div>
+</div>
+
+<div class="relative z-10 flex flex-col lg:flex-row">
+<!-- Left: Content Section -->
+<div class="w-full lg:w-3/5 py-24 px-6 lg:px-16 xl:px-24">
+<div class="max-w-2xl">
 <div class="mb-12 fade-in-up">
 <h2 class="text-accent-yellow font-black uppercase tracking-[0.4em] text-sm mb-4">Competitive Advantage</h2>
-<h3 class="text-4xl md:text-5xl font-black tracking-tight text-white mb-8">Delivery System Built for Institutional & Investor Standards</h3>
+<h3 class="text-4xl md:text-5xl font-black tracking-tight text-white mb-8 leading-tight">Delivery System Built for Institutional & Investor Standards</h3>
 <p class="text-lg text-gray-300 leading-relaxed">
 Large projects aren't won by hype - they're won by controls. Festbau runs a disciplined delivery system designed to protect schedule, cost, and quality while keeping stakeholders aligned.
 </p>
 </div>
 
-<div class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 <!-- 1. Preconstruction diligence -->
-<div class="flex items-start gap-4 fade-in-up" style="animation-delay: 0.1s">
-<span class="material-symbols-outlined text-4xl text-primary flex-shrink-0">checklist</span>
-<div>
-<h4 class="text-lg font-black uppercase tracking-tighter mb-2 text-white">Preconstruction Diligence</h4>
+<div class="group bg-white/5 backdrop-blur-sm p-6 border-l-4 border-primary hover:bg-white/10 transition-all fade-in-up" style="animation-delay: 0.1s">
+<span class="material-symbols-outlined text-3xl text-primary mb-4 block">checklist</span>
+<h4 class="text-base font-black uppercase tracking-tighter mb-2 text-white">Preconstruction Diligence</h4>
 <p class="text-sm text-gray-400 leading-relaxed">Constructability, scope clarity, procurement plan</p>
-</div>
 </div>
 
 <!-- 2. Schedule control -->
-<div class="flex items-start gap-4 fade-in-up" style="animation-delay: 0.2s">
-<span class="material-symbols-outlined text-4xl text-primary flex-shrink-0">schedule</span>
-<div>
-<h4 class="text-lg font-black uppercase tracking-tighter mb-2 text-white">Schedule Control</h4>
+<div class="group bg-white/5 backdrop-blur-sm p-6 border-l-4 border-primary hover:bg-white/10 transition-all fade-in-up" style="animation-delay: 0.15s">
+<span class="material-symbols-outlined text-3xl text-primary mb-4 block">schedule</span>
+<h4 class="text-base font-black uppercase tracking-tighter mb-2 text-white">Schedule Control</h4>
 <p class="text-sm text-gray-400 leading-relaxed">Critical path focus, lookaheads, constraint removal</p>
-</div>
 </div>
 
 <!-- 3. Cost control -->
-<div class="flex items-start gap-4 fade-in-up" style="animation-delay: 0.3s">
-<span class="material-symbols-outlined text-4xl text-primary flex-shrink-0">account_balance_wallet</span>
-<div>
-<h4 class="text-lg font-black uppercase tracking-tighter mb-2 text-white">Cost Control</h4>
+<div class="group bg-white/5 backdrop-blur-sm p-6 border-l-4 border-primary hover:bg-white/10 transition-all fade-in-up" style="animation-delay: 0.2s">
+<span class="material-symbols-outlined text-3xl text-primary mb-4 block">account_balance_wallet</span>
+<h4 class="text-base font-black uppercase tracking-tighter mb-2 text-white">Cost Control</h4>
 <p class="text-sm text-gray-400 leading-relaxed">Change management discipline, budget tracking, cost-to-complete thinking</p>
-</div>
 </div>
 
 <!-- 4. Procurement + buyout -->
-<div class="flex items-start gap-4 fade-in-up" style="animation-delay: 0.4s">
-<span class="material-symbols-outlined text-4xl text-primary flex-shrink-0">shopping_cart</span>
-<div>
-<h4 class="text-lg font-black uppercase tracking-tighter mb-2 text-white">Procurement + Buyout</h4>
+<div class="group bg-white/5 backdrop-blur-sm p-6 border-l-4 border-primary hover:bg-white/10 transition-all fade-in-up" style="animation-delay: 0.25s">
+<span class="material-symbols-outlined text-3xl text-primary mb-4 block">shopping_cart</span>
+<h4 class="text-base font-black uppercase tracking-tighter mb-2 text-white">Procurement + Buyout</h4>
 <p class="text-sm text-gray-400 leading-relaxed">Long-lead planning, trade coverage, accountable scopes</p>
-</div>
 </div>
 
 <!-- 5. Quality assurance -->
-<div class="flex items-start gap-4 fade-in-up" style="animation-delay: 0.5s">
-<span class="material-symbols-outlined text-4xl text-primary flex-shrink-0">verified</span>
-<div>
-<h4 class="text-lg font-black uppercase tracking-tighter mb-2 text-white">Quality Assurance</h4>
+<div class="group bg-white/5 backdrop-blur-sm p-6 border-l-4 border-primary hover:bg-white/10 transition-all fade-in-up" style="animation-delay: 0.3s">
+<span class="material-symbols-outlined text-3xl text-primary mb-4 block">verified</span>
+<h4 class="text-base font-black uppercase tracking-tighter mb-2 text-white">Quality Assurance</h4>
 <p class="text-sm text-gray-400 leading-relaxed">Inspection checkpoints, deficiency prevention, clean closeout</p>
-</div>
 </div>
 
 <!-- 6. Owner/investor reporting -->
-<div class="flex items-start gap-4 fade-in-up" style="animation-delay: 0.6s">
-<span class="material-symbols-outlined text-4xl text-primary flex-shrink-0">bar_chart</span>
-<div>
-<h4 class="text-lg font-black uppercase tracking-tighter mb-2 text-white">Owner/Investor Reporting</h4>
+<div class="group bg-white/5 backdrop-blur-sm p-6 border-l-4 border-primary hover:bg-white/10 transition-all fade-in-up" style="animation-delay: 0.35s">
+<span class="material-symbols-outlined text-3xl text-primary mb-4 block">bar_chart</span>
+<h4 class="text-base font-black uppercase tracking-tighter mb-2 text-white">Owner/Investor Reporting</h4>
 <p class="text-sm text-gray-400 leading-relaxed">Clear updates built for decision-makers</p>
 </div>
 </div>
 </div>
 </div>
 
-<!-- Right: Photo -->
-<div class="fade-in" style="animation-delay: 0.2s">
-<img alt="Construction professional with hard hat on site" class="w-full h-full object-cover rounded-sm" src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?q=80&w=2000&auto=format&fit=crop"/>
-</div>
+<!-- Right: Photo Section - Embedded into layout -->
+<div class="w-full lg:w-2/5 min-h-[400px] lg:min-h-full relative">
+<img alt="Construction professional reviewing plans on site" class="w-full h-full object-cover absolute inset-0" src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?q=80&w=2000&auto=format&fit=crop"/>
 </div>
 </div>
 </section>
 <!-- F) Project Locations Map -->
-<section class="py-24 bg-white dark:bg-background-dark">
+<section class="py-24 bg-gray-50 dark:bg-black/20">
 <div class="max-w-7xl mx-auto px-6">
 <div class="mb-12 text-center fade-in-up">
 <h2 class="text-accent-yellow font-black uppercase tracking-[0.4em] text-sm mb-4">Our Reach</h2>
@@ -496,384 +486,121 @@ From Windsor to Thunder Bay, we've delivered quality projects across the provinc
 </p>
 </div>
 
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
-<!-- Quesada -->
-<div class="bg-background-light dark:bg-industrial-gray p-4 border-l-4 border-primary hover:shadow-lg transition-all fade-in-up">
-<div class="flex items-start gap-3">
-<span class="material-symbols-outlined text-primary text-2xl flex-shrink-0">location_on</span>
-<div>
-<h4 class="text-sm font-black uppercase text-gray-900 dark:text-white">Quesada</h4>
-<p class="text-xs text-gray-600 dark:text-gray-400">5841 Malden Rd unit 132, LaSalle, ON N9H 1S3</p>
+<!-- Static Map with Pins -->
+<div class="relative w-full aspect-[16/9] bg-industrial-gray rounded-sm overflow-hidden shadow-2xl fade-in-up">
+<!-- Map Image - Static Ontario Map -->
+<img alt="Ontario Map with Festbau project locations" class="w-full h-full object-cover pointer-events-none" src="https://www.openstreetmap.org/export/embed.html?bbox=-95.15625%2C41.771312%2C-74.00390625%2C50.28933925329178&layer=mapnik" style="filter: grayscale(0.3) contrast(1.1);"/>
+<iframe class="w-full h-full absolute inset-0 pointer-events-none" src="https://www.openstreetmap.org/export/embed.html?bbox=-95.15625%2C41.771312%2C-74.00390625%2C50.28933925329178&layer=mapnik" style="border: 0; pointer-events: none;"></iframe>
+
+<!-- Location Pins - Positioned on map -->
+<!-- Thunder Bay Area - Top Left -->
+<div class="absolute" style="top: 25%; left: 8%;">
+<div class="relative group">
+<div class="w-3 h-3 bg-primary rounded-full shadow-lg"></div>
+<div class="absolute -top-1 -left-1 w-5 h-5 bg-primary/30 rounded-full animate-ping"></div>
+<span class="absolute -top-8 left-1/2 -translate-x-1/2 bg-black text-white text-[10px] px-2 py-1 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">Thunder Bay (3)</span>
+</div>
+</div>
+
+<!-- Barrie Area -->
+<div class="absolute" style="top: 38%; left: 72%;">
+<div class="relative group">
+<div class="w-3 h-3 bg-primary rounded-full shadow-lg"></div>
+<span class="absolute -top-8 left-1/2 -translate-x-1/2 bg-black text-white text-[10px] px-2 py-1 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">Barrie</span>
+</div>
+</div>
+
+<!-- GTA Area - Toronto/Vaughan/Ajax/Oshawa/Stouffville -->
+<div class="absolute" style="top: 52%; left: 78%;">
+<div class="relative group">
+<div class="w-5 h-5 bg-primary rounded-full shadow-lg flex items-center justify-center text-white text-[10px] font-black">7</div>
+<div class="absolute -top-1 -left-1 w-7 h-7 bg-primary/30 rounded-full animate-ping"></div>
+<span class="absolute -top-8 left-1/2 -translate-x-1/2 bg-black text-white text-[10px] px-2 py-1 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">GTA Region (7)</span>
+</div>
+</div>
+
+<!-- Kingston Area -->
+<div class="absolute" style="top: 55%; left: 88%;">
+<div class="relative group">
+<div class="w-4 h-4 bg-primary rounded-full shadow-lg flex items-center justify-center text-white text-[8px] font-black">4</div>
+<span class="absolute -top-8 left-1/2 -translate-x-1/2 bg-black text-white text-[10px] px-2 py-1 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">Kingston Area (4)</span>
+</div>
+</div>
+
+<!-- Niagara Region -->
+<div class="absolute" style="top: 68%; left: 75%;">
+<div class="relative group">
+<div class="w-4 h-4 bg-accent-yellow rounded-full shadow-lg flex items-center justify-center text-black text-[8px] font-black">4</div>
+<span class="absolute -top-8 left-1/2 -translate-x-1/2 bg-black text-white text-[10px] px-2 py-1 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">Niagara Region (4)</span>
+</div>
+</div>
+
+<!-- London Area -->
+<div class="absolute" style="top: 62%; left: 55%;">
+<div class="relative group">
+<div class="w-5 h-5 bg-accent-yellow rounded-full shadow-lg flex items-center justify-center text-black text-[10px] font-black">6</div>
+<div class="absolute -top-1 -left-1 w-7 h-7 bg-accent-yellow/30 rounded-full animate-ping"></div>
+<span class="absolute -top-8 left-1/2 -translate-x-1/2 bg-black text-white text-[10px] px-2 py-1 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">London Area (6)</span>
+</div>
+</div>
+
+<!-- Windsor/Essex Area -->
+<div class="absolute" style="top: 72%; left: 35%;">
+<div class="relative group">
+<div class="w-5 h-5 bg-primary rounded-full shadow-lg flex items-center justify-center text-white text-[10px] font-black">6</div>
+<div class="absolute -top-1 -left-1 w-7 h-7 bg-primary/30 rounded-full animate-ping"></div>
+<span class="absolute -top-8 left-1/2 -translate-x-1/2 bg-black text-white text-[10px] px-2 py-1 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">Windsor/Essex (6)</span>
+</div>
+</div>
+
+<!-- Chatham -->
+<div class="absolute" style="top: 68%; left: 42%;">
+<div class="relative group">
+<div class="w-3 h-3 bg-primary rounded-full shadow-lg"></div>
+<span class="absolute -top-8 left-1/2 -translate-x-1/2 bg-black text-white text-[10px] px-2 py-1 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">Chatham</span>
+</div>
+</div>
+
+<!-- Goderich/Kincardine/Port Elgin Area -->
+<div class="absolute" style="top: 48%; left: 52%;">
+<div class="relative group">
+<div class="w-4 h-4 bg-primary rounded-full shadow-lg flex items-center justify-center text-white text-[8px] font-black">4</div>
+<span class="absolute -top-8 left-1/2 -translate-x-1/2 bg-black text-white text-[10px] px-2 py-1 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">Bruce County (4)</span>
+</div>
+</div>
+
+<!-- Orangeville/Shelburne Area -->
+<div class="absolute" style="top: 45%; left: 68%;">
+<div class="relative group">
+<div class="w-3 h-3 bg-primary rounded-full shadow-lg"></div>
+<span class="absolute -top-8 left-1/2 -translate-x-1/2 bg-black text-white text-[10px] px-2 py-1 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">Dufferin (2)</span>
+</div>
+</div>
+
+<!-- Hanover -->
+<div class="absolute" style="top: 42%; left: 58%;">
+<div class="relative group">
+<div class="w-3 h-3 bg-primary rounded-full shadow-lg"></div>
+<span class="absolute -top-8 left-1/2 -translate-x-1/2 bg-black text-white text-[10px] px-2 py-1 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">Hanover</span>
 </div>
 </div>
 </div>
 
-<!-- Warehouse -->
-<div class="bg-background-light dark:bg-industrial-gray p-4 border-l-4 border-primary hover:shadow-lg transition-all fade-in-up">
-<div class="flex items-start gap-3">
-<span class="material-symbols-outlined text-primary text-2xl flex-shrink-0">location_on</span>
-<div>
-<h4 class="text-sm font-black uppercase text-gray-900 dark:text-white">Warehouse</h4>
-<p class="text-xs text-gray-600 dark:text-gray-400">1640 Huron Church Rd, Windsor, ON N9B 3M4</p>
+<!-- Legend -->
+<div class="flex flex-wrap justify-center gap-8 mt-8 fade-in-up">
+<div class="flex items-center gap-2">
+<div class="w-4 h-4 bg-primary rounded-full"></div>
+<span class="text-sm text-gray-600 dark:text-gray-400 font-semibold">Barburrito & Commercial</span>
 </div>
-</div>
-</div>
-
-<!-- Barburrito Locations -->
-<div class="bg-background-light dark:bg-industrial-gray p-4 border-l-4 border-primary hover:shadow-lg transition-all fade-in-up">
-<div class="flex items-start gap-3">
-<span class="material-symbols-outlined text-primary text-2xl flex-shrink-0">location_on</span>
-<div>
-<h4 class="text-sm font-black uppercase text-gray-900 dark:text-white">Barburrito - Kingsville</h4>
-<p class="text-xs text-gray-600 dark:text-gray-400">410 Main St E CRU 5, Kingsville, ON N9Y 2K2</p>
-</div>
+<div class="flex items-center gap-2">
+<div class="w-4 h-4 bg-accent-yellow rounded-full"></div>
+<span class="text-sm text-gray-600 dark:text-gray-400 font-semibold">Dairy Queen</span>
 </div>
 </div>
 
-<div class="bg-background-light dark:bg-industrial-gray p-4 border-l-4 border-primary hover:shadow-lg transition-all fade-in-up">
-<div class="flex items-start gap-3">
-<span class="material-symbols-outlined text-primary text-2xl flex-shrink-0">location_on</span>
-<div>
-<h4 class="text-sm font-black uppercase text-gray-900 dark:text-white">Barburrito - Chatham</h4>
-<p class="text-xs text-gray-600 dark:text-gray-400">515 Grand Ave W unit d3, Chatham, ON N7L 1C5</p>
-</div>
-</div>
-</div>
-
-<div class="bg-background-light dark:bg-industrial-gray p-4 border-l-4 border-primary hover:shadow-lg transition-all fade-in-up">
-<div class="flex items-start gap-3">
-<span class="material-symbols-outlined text-primary text-2xl flex-shrink-0">location_on</span>
-<div>
-<h4 class="text-sm font-black uppercase text-gray-900 dark:text-white">Barburrito - Essex</h4>
-<p class="text-xs text-gray-600 dark:text-gray-400">45 Arthur Ave, Essex, ON N8M 2M8</p>
-</div>
-</div>
-</div>
-
-<div class="bg-background-light dark:bg-industrial-gray p-4 border-l-4 border-primary hover:shadow-lg transition-all fade-in-up">
-<div class="flex items-start gap-3">
-<span class="material-symbols-outlined text-primary text-2xl flex-shrink-0">location_on</span>
-<div>
-<h4 class="text-sm font-black uppercase text-gray-900 dark:text-white">Barburrito - Windsor</h4>
-<p class="text-xs text-gray-600 dark:text-gray-400">7555 Tecumseh Rd E, Windsor, ON N8T 1G2</p>
-</div>
-</div>
-</div>
-
-<div class="bg-background-light dark:bg-industrial-gray p-4 border-l-4 border-primary hover:shadow-lg transition-all fade-in-up">
-<div class="flex items-start gap-3">
-<span class="material-symbols-outlined text-primary text-2xl flex-shrink-0">location_on</span>
-<div>
-<h4 class="text-sm font-black uppercase text-gray-900 dark:text-white">Barburrito - London (Wellington)</h4>
-<p class="text-xs text-gray-600 dark:text-gray-400">336 Wellington Rd #3, London, ON N6C 4P6</p>
-</div>
-</div>
-</div>
-
-<div class="bg-background-light dark:bg-industrial-gray p-4 border-l-4 border-primary hover:shadow-lg transition-all fade-in-up">
-<div class="flex items-start gap-3">
-<span class="material-symbols-outlined text-primary text-2xl flex-shrink-0">location_on</span>
-<div>
-<h4 class="text-sm font-black uppercase text-gray-900 dark:text-white">Barburrito - London (Wonderland)</h4>
-<p class="text-xs text-gray-600 dark:text-gray-400">1225 Wonderland Rd N unit 53, London, ON N6G 4X2</p>
-</div>
-</div>
-</div>
-
-<div class="bg-background-light dark:bg-industrial-gray p-4 border-l-4 border-primary hover:shadow-lg transition-all fade-in-up">
-<div class="flex items-start gap-3">
-<span class="material-symbols-outlined text-primary text-2xl flex-shrink-0">location_on</span>
-<div>
-<h4 class="text-sm font-black uppercase text-gray-900 dark:text-white">Barburrito - Goderich</h4>
-<p class="text-xs text-gray-600 dark:text-gray-400">316 Suncoast Dr E unit d, Goderich, ON N7A 4N7</p>
-</div>
-</div>
-</div>
-
-<div class="bg-background-light dark:bg-industrial-gray p-4 border-l-4 border-primary hover:shadow-lg transition-all fade-in-up">
-<div class="flex items-start gap-3">
-<span class="material-symbols-outlined text-primary text-2xl flex-shrink-0">location_on</span>
-<div>
-<h4 class="text-sm font-black uppercase text-gray-900 dark:text-white">Barburrito - Kincardine</h4>
-<p class="text-xs text-gray-600 dark:text-gray-400">960 Queen St, Kincardine, ON N2Z 2Y2</p>
-</div>
-</div>
-</div>
-
-<div class="bg-background-light dark:bg-industrial-gray p-4 border-l-4 border-primary hover:shadow-lg transition-all fade-in-up">
-<div class="flex items-start gap-3">
-<span class="material-symbols-outlined text-primary text-2xl flex-shrink-0">location_on</span>
-<div>
-<h4 class="text-sm font-black uppercase text-gray-900 dark:text-white">Barburrito - Port Elgin</h4>
-<p class="text-xs text-gray-600 dark:text-gray-400">1110 Goderich St Building 3, Unit A, Port Elgin, ON N0H 2C3</p>
-</div>
-</div>
-</div>
-
-<div class="bg-background-light dark:bg-industrial-gray p-4 border-l-4 border-primary hover:shadow-lg transition-all fade-in-up">
-<div class="flex items-start gap-3">
-<span class="material-symbols-outlined text-primary text-2xl flex-shrink-0">location_on</span>
-<div>
-<h4 class="text-sm font-black uppercase text-gray-900 dark:text-white">Barburrito - Hanover</h4>
-<p class="text-xs text-gray-600 dark:text-gray-400">937 10th St, Hanover, ON N4N 1S1</p>
-</div>
-</div>
-</div>
-
-<div class="bg-background-light dark:bg-industrial-gray p-4 border-l-4 border-primary hover:shadow-lg transition-all fade-in-up">
-<div class="flex items-start gap-3">
-<span class="material-symbols-outlined text-primary text-2xl flex-shrink-0">location_on</span>
-<div>
-<h4 class="text-sm font-black uppercase text-gray-900 dark:text-white">Barburrito - Fort Erie</h4>
-<p class="text-xs text-gray-600 dark:text-gray-400">450 Garrison Rd #120, Fort Erie, ON L2A 1N2</p>
-</div>
-</div>
-</div>
-
-<div class="bg-background-light dark:bg-industrial-gray p-4 border-l-4 border-primary hover:shadow-lg transition-all fade-in-up">
-<div class="flex items-start gap-3">
-<span class="material-symbols-outlined text-primary text-2xl flex-shrink-0">location_on</span>
-<div>
-<h4 class="text-sm font-black uppercase text-gray-900 dark:text-white">Barburrito - Niagara Falls</h4>
-<p class="text-xs text-gray-600 dark:text-gray-400">6380 Fallsview Blvd, Niagara Falls, ON L2G 7X5</p>
-</div>
-</div>
-</div>
-
-<div class="bg-background-light dark:bg-industrial-gray p-4 border-l-4 border-primary hover:shadow-lg transition-all fade-in-up">
-<div class="flex items-start gap-3">
-<span class="material-symbols-outlined text-primary text-2xl flex-shrink-0">location_on</span>
-<div>
-<h4 class="text-sm font-black uppercase text-gray-900 dark:text-white">Barburrito - St. Catharines</h4>
-<p class="text-xs text-gray-600 dark:text-gray-400">295 Fourth Ave Unit 3, St. Catharines, ON L2S 0E7</p>
-</div>
-</div>
-</div>
-
-<div class="bg-background-light dark:bg-industrial-gray p-4 border-l-4 border-primary hover:shadow-lg transition-all fade-in-up">
-<div class="flex items-start gap-3">
-<span class="material-symbols-outlined text-primary text-2xl flex-shrink-0">location_on</span>
-<div>
-<h4 class="text-sm font-black uppercase text-gray-900 dark:text-white">Barburrito - Whitchurch-Stouffville (Main)</h4>
-<p class="text-xs text-gray-600 dark:text-gray-400">5777 Main St Unit 4, Whitchurch-Stouffville, ON L4A 2S9</p>
-</div>
-</div>
-</div>
-
-<div class="bg-background-light dark:bg-industrial-gray p-4 border-l-4 border-primary hover:shadow-lg transition-all fade-in-up">
-<div class="flex items-start gap-3">
-<span class="material-symbols-outlined text-primary text-2xl flex-shrink-0">location_on</span>
-<div>
-<h4 class="text-sm font-black uppercase text-gray-900 dark:text-white">Barburrito - Whitchurch-Stouffville (Aurora)</h4>
-<p class="text-xs text-gray-600 dark:text-gray-400">5292 Aurora Rd, Whitchurch-Stouffville, ON L4A 3H2</p>
-</div>
-</div>
-</div>
-
-<div class="bg-background-light dark:bg-industrial-gray p-4 border-l-4 border-primary hover:shadow-lg transition-all fade-in-up">
-<div class="flex items-start gap-3">
-<span class="material-symbols-outlined text-primary text-2xl flex-shrink-0">location_on</span>
-<div>
-<h4 class="text-sm font-black uppercase text-gray-900 dark:text-white">Barburrito - Shelburne</h4>
-<p class="text-xs text-gray-600 dark:text-gray-400">804 Ojibway Rd Unit 2, Building D, Shelburne, ON L9V 3X9</p>
-</div>
-</div>
-</div>
-
-<div class="bg-background-light dark:bg-industrial-gray p-4 border-l-4 border-primary hover:shadow-lg transition-all fade-in-up">
-<div class="flex items-start gap-3">
-<span class="material-symbols-outlined text-primary text-2xl flex-shrink-0">location_on</span>
-<div>
-<h4 class="text-sm font-black uppercase text-gray-900 dark:text-white">Barburrito - Orangeville</h4>
-<p class="text-xs text-gray-600 dark:text-gray-400">75 First St, Orangeville, ON L9W 2E7</p>
-</div>
-</div>
-</div>
-
-<div class="bg-background-light dark:bg-industrial-gray p-4 border-l-4 border-primary hover:shadow-lg transition-all fade-in-up">
-<div class="flex items-start gap-3">
-<span class="material-symbols-outlined text-primary text-2xl flex-shrink-0">location_on</span>
-<div>
-<h4 class="text-sm font-black uppercase text-gray-900 dark:text-white">Barburrito - Ajax</h4>
-<p class="text-xs text-gray-600 dark:text-gray-400">15 Westney Rd N, Ajax, ON L1T 1P5</p>
-</div>
-</div>
-</div>
-
-<div class="bg-background-light dark:bg-industrial-gray p-4 border-l-4 border-primary hover:shadow-lg transition-all fade-in-up">
-<div class="flex items-start gap-3">
-<span class="material-symbols-outlined text-primary text-2xl flex-shrink-0">location_on</span>
-<div>
-<h4 class="text-sm font-black uppercase text-gray-900 dark:text-white">Barburrito - Oshawa</h4>
-<p class="text-xs text-gray-600 dark:text-gray-400">2630 Simcoe St N Unit A11.5, Oshawa, ON L1L 0R1</p>
-</div>
-</div>
-</div>
-
-<div class="bg-background-light dark:bg-industrial-gray p-4 border-l-4 border-primary hover:shadow-lg transition-all fade-in-up">
-<div class="flex items-start gap-3">
-<span class="material-symbols-outlined text-primary text-2xl flex-shrink-0">location_on</span>
-<div>
-<h4 class="text-sm font-black uppercase text-gray-900 dark:text-white">Barburrito - Belleville</h4>
-<p class="text-xs text-gray-600 dark:text-gray-400">189 Bell Blvd Unit B6, Belleville, ON K9P 5B8</p>
-</div>
-</div>
-</div>
-
-<div class="bg-background-light dark:bg-industrial-gray p-4 border-l-4 border-primary hover:shadow-lg transition-all fade-in-up">
-<div class="flex items-start gap-3">
-<span class="material-symbols-outlined text-primary text-2xl flex-shrink-0">location_on</span>
-<div>
-<h4 class="text-sm font-black uppercase text-gray-900 dark:text-white">Barburrito - Napanee</h4>
-<p class="text-xs text-gray-600 dark:text-gray-400">9 Jim Kimmett Blvd, Napanee, ON K7R 0B4</p>
-</div>
-</div>
-</div>
-
-<div class="bg-background-light dark:bg-industrial-gray p-4 border-l-4 border-primary hover:shadow-lg transition-all fade-in-up">
-<div class="flex items-start gap-3">
-<span class="material-symbols-outlined text-primary text-2xl flex-shrink-0">location_on</span>
-<div>
-<h4 class="text-sm font-black uppercase text-gray-900 dark:text-white">Barburrito - Kingston (Midland)</h4>
-<p class="text-xs text-gray-600 dark:text-gray-400">1117 Midland Ave #1093, Kingston, ON K7P 2X8</p>
-</div>
-</div>
-</div>
-
-<div class="bg-background-light dark:bg-industrial-gray p-4 border-l-4 border-primary hover:shadow-lg transition-all fade-in-up">
-<div class="flex items-start gap-3">
-<span class="material-symbols-outlined text-primary text-2xl flex-shrink-0">location_on</span>
-<div>
-<h4 class="text-sm font-black uppercase text-gray-900 dark:text-white">Barburrito - Kingston (Princess)</h4>
-<p class="text-xs text-gray-600 dark:text-gray-400">1046 Princess St unit 9-11, Kingston, ON K7L 1H2</p>
-</div>
-</div>
-</div>
-
-<div class="bg-background-light dark:bg-industrial-gray p-4 border-l-4 border-primary hover:shadow-lg transition-all fade-in-up">
-<div class="flex items-start gap-3">
-<span class="material-symbols-outlined text-primary text-2xl flex-shrink-0">location_on</span>
-<div>
-<h4 class="text-sm font-black uppercase text-gray-900 dark:text-white">Barburrito - Barrie</h4>
-<p class="text-xs text-gray-600 dark:text-gray-400">367 Cundles Rd E, Barrie, ON L4M 0K3</p>
-</div>
-</div>
-</div>
-
-<div class="bg-background-light dark:bg-industrial-gray p-4 border-l-4 border-primary hover:shadow-lg transition-all fade-in-up">
-<div class="flex items-start gap-3">
-<span class="material-symbols-outlined text-primary text-2xl flex-shrink-0">location_on</span>
-<div>
-<h4 class="text-sm font-black uppercase text-gray-900 dark:text-white">Barburrito - Thunder Bay (Fort William)</h4>
-<p class="text-xs text-gray-600 dark:text-gray-400">959 Fort William Rd, Thunder Bay, ON P7B 3A6</p>
-</div>
-</div>
-</div>
-
-<div class="bg-background-light dark:bg-industrial-gray p-4 border-l-4 border-primary hover:shadow-lg transition-all fade-in-up">
-<div class="flex items-start gap-3">
-<span class="material-symbols-outlined text-primary text-2xl flex-shrink-0">location_on</span>
-<div>
-<h4 class="text-sm font-black uppercase text-gray-900 dark:text-white">Barburrito - Thunder Bay (Main)</h4>
-<p class="text-xs text-gray-600 dark:text-gray-400">359 Main St, Thunder Bay, ON P7B 3A6</p>
-</div>
-</div>
-</div>
-
-<!-- Dairy Queen Locations -->
-<div class="bg-background-light dark:bg-industrial-gray p-4 border-l-4 border-accent-yellow hover:shadow-lg transition-all fade-in-up">
-<div class="flex items-start gap-3">
-<span class="material-symbols-outlined text-accent-yellow text-2xl flex-shrink-0">location_on</span>
-<div>
-<h4 class="text-sm font-black uppercase text-gray-900 dark:text-white">Dairy Queen - Thunder Bay</h4>
-<p class="text-xs text-gray-600 dark:text-gray-400">601 Southern Ave, Thunder Bay, ON P7C 2V3</p>
-</div>
-</div>
-</div>
-
-<div class="bg-background-light dark:bg-industrial-gray p-4 border-l-4 border-accent-yellow hover:shadow-lg transition-all fade-in-up">
-<div class="flex items-start gap-3">
-<span class="material-symbols-outlined text-accent-yellow text-2xl flex-shrink-0">location_on</span>
-<div>
-<h4 class="text-sm font-black uppercase text-gray-900 dark:text-white">Dairy Queen - London (Adelaide)</h4>
-<p class="text-xs text-gray-600 dark:text-gray-400">1820 Adelaide St N Unit 3E, London, ON N5X 4B7</p>
-</div>
-</div>
-</div>
-
-<div class="bg-background-light dark:bg-industrial-gray p-4 border-l-4 border-accent-yellow hover:shadow-lg transition-all fade-in-up">
-<div class="flex items-start gap-3">
-<span class="material-symbols-outlined text-accent-yellow text-2xl flex-shrink-0">location_on</span>
-<div>
-<h4 class="text-sm font-black uppercase text-gray-900 dark:text-white">Dairy Queen - London (Wellington)</h4>
-<p class="text-xs text-gray-600 dark:text-gray-400">1105 Wellington Rd, Mall Unit K, London, ON N6E 1V4</p>
-</div>
-</div>
-</div>
-
-<div class="bg-background-light dark:bg-industrial-gray p-4 border-l-4 border-accent-yellow hover:shadow-lg transition-all fade-in-up">
-<div class="flex items-start gap-3">
-<span class="material-symbols-outlined text-accent-yellow text-2xl flex-shrink-0">location_on</span>
-<div>
-<h4 class="text-sm font-black uppercase text-gray-900 dark:text-white">Dairy Queen - Aylmer</h4>
-<p class="text-xs text-gray-600 dark:text-gray-400">25 Progress Dr, Aylmer, ON N5H 3J6</p>
-</div>
-</div>
-</div>
-
-<div class="bg-background-light dark:bg-industrial-gray p-4 border-l-4 border-accent-yellow hover:shadow-lg transition-all fade-in-up">
-<div class="flex items-start gap-3">
-<span class="material-symbols-outlined text-accent-yellow text-2xl flex-shrink-0">location_on</span>
-<div>
-<h4 class="text-sm font-black uppercase text-gray-900 dark:text-white">Dairy Queen - Niagara Falls</h4>
-<p class="text-xs text-gray-600 dark:text-gray-400">5500 Ferry St, Niagara Falls, ON L2G 1S4</p>
-</div>
-</div>
-</div>
-
-<div class="bg-background-light dark:bg-industrial-gray p-4 border-l-4 border-accent-yellow hover:shadow-lg transition-all fade-in-up">
-<div class="flex items-start gap-3">
-<span class="material-symbols-outlined text-accent-yellow text-2xl flex-shrink-0">location_on</span>
-<div>
-<h4 class="text-sm font-black uppercase text-gray-900 dark:text-white">Dairy Queen - Toronto</h4>
-<p class="text-xs text-gray-600 dark:text-gray-400">1646 Bloor St W, Toronto, ON M6P 0A6</p>
-</div>
-</div>
-</div>
-
-<div class="bg-background-light dark:bg-industrial-gray p-4 border-l-4 border-accent-yellow hover:shadow-lg transition-all fade-in-up">
-<div class="flex items-start gap-3">
-<span class="material-symbols-outlined text-accent-yellow text-2xl flex-shrink-0">location_on</span>
-<div>
-<h4 class="text-sm font-black uppercase text-gray-900 dark:text-white">Dairy Queen - Vaughan</h4>
-<p class="text-xs text-gray-600 dark:text-gray-400">4100 Hwy 7, Vaughan, ON L4L 8Z2</p>
-</div>
-</div>
-</div>
-
-<div class="bg-background-light dark:bg-industrial-gray p-4 border-l-4 border-accent-yellow hover:shadow-lg transition-all fade-in-up">
-<div class="flex items-start gap-3">
-<span class="material-symbols-outlined text-accent-yellow text-2xl flex-shrink-0">location_on</span>
-<div>
-<h4 class="text-sm font-black uppercase text-gray-900 dark:text-white">Dairy Queen - London (Wonderland)</h4>
-<p class="text-xs text-gray-600 dark:text-gray-400">765 Wonderland Rd S, London, ON N6K 2Y5</p>
-</div>
-</div>
-</div>
-
-<div class="bg-background-light dark:bg-industrial-gray p-4 border-l-4 border-accent-yellow hover:shadow-lg transition-all fade-in-up">
-<div class="flex items-start gap-3">
-<span class="material-symbols-outlined text-accent-yellow text-2xl flex-shrink-0">location_on</span>
-<div>
-<h4 class="text-sm font-black uppercase text-gray-900 dark:text-white">Dairy Queen - St. Catharines</h4>
-<p class="text-xs text-gray-600 dark:text-gray-400">286 Bunting Rd, St. Catharines, ON L2M 7S5</p>
-</div>
-</div>
-</div>
-</div>
-
-<div class="text-center mt-12 fade-in-up">
-<p class="text-sm text-gray-600 dark:text-gray-400">Representing over 40+ completed locations across Ontario</p>
+<div class="text-center mt-8 fade-in-up">
+<p class="text-lg font-black text-gray-900 dark:text-white">40+ Completed Locations Across Ontario</p>
+<p class="text-sm text-gray-500 dark:text-gray-400 mt-2">Brands include: Barburrito, Dairy Queen, Quesada, and more</p>
 </div>
 </div>
 </section>
@@ -883,7 +610,7 @@ From Windsor to Thunder Bay, we've delivered quality projects across the provinc
 <div class="flex flex-col items-center text-center gap-8">
 <div class="max-w-3xl">
 <h2 class="text-white text-4xl md:text-5xl font-black tracking-tight mb-6 leading-tight">Ready to build a project you can underwrite with confidence?</h2>
-<p class="text-white/90 text-xl leading-relaxed">Share the scope, schedule, and constraints—our team will respond with a clear next-step plan.</p>
+<p class="text-white/90 text-xl leading-relaxed">Share the scope, schedule, and constraints - our team will respond with a clear next-step plan.</p>
 </div>
 <div>
 <a href="contact.html" class="bg-white text-primary px-12 py-5 text-base font-black uppercase tracking-widest rounded-sm hover:scale-105 transition-transform shadow-2xl inline-block">
@@ -947,9 +674,13 @@ Download Qualifications
 <span class="material-symbols-outlined text-sm">policy</span>
 Privacy Policy
 </a></li>
-<li><a class="text-gray-400 hover:text-white transition-colors flex items-center gap-2" href="https://linkedin.com" target="_blank">
+<li><a class="text-gray-400 hover:text-white transition-colors flex items-center gap-2" href="https://www.linkedin.com/company/festbau-construction" target="_blank">
 <span class="material-symbols-outlined text-sm">groups</span>
 LinkedIn
+</a></li>
+<li><a class="text-gray-400 hover:text-white transition-colors flex items-center gap-2" href="https://www.instagram.com/vugarconstruction" target="_blank">
+<span class="material-symbols-outlined text-sm">photo_camera</span>
+Instagram
 </a></li>
 </ul>
 </div>
@@ -958,7 +689,14 @@ LinkedIn
 <!-- Footer Bottom -->
 <div class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
 <p class="text-xs text-gray-500 uppercase tracking-wider">© 2026 Festbau. All rights reserved.</p>
-<p class="text-xs text-gray-500">Built for institutional and investor standards.</p>
+<div class="flex items-center gap-6">
+<a href="https://www.linkedin.com/company/festbau-construction" target="_blank" class="text-gray-500 hover:text-primary transition-colors">
+<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+</a>
+<a href="https://www.instagram.com/vugarconstruction" target="_blank" class="text-gray-500 hover:text-primary transition-colors">
+<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+</a>
+</div>
 </div>
 </div>
 </footer>
@@ -1034,6 +772,105 @@ document.addEventListener('DOMContentLoaded', () => {
     animatedElements.forEach(el => {
         fadeObserver.observe(el);
     });
+});
+
+// Project Modal Data
+const projectData = {
+    'burks-falls': {
+        title: 'Burks Falls Mid-Rise Renovation',
+        location: "Burk's Falls",
+        delivery: 'Design-Build',
+        value: '$5.0M',
+        description: 'Major renovation delivered with disciplined sequencing and tight coordination.',
+        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCVozHJtzO2Yn0I94XOM0UBWBAs6aGjkzcPBPuKlUrR8cQnFhezuKqLXQ5DsqYg2bEr0SGX6dY2zs8j-ls5dakThLnIkBvMCUxrmDEG6gJbgz9GuP0MvwF2bMYEXptp9kWhiqECTkA3dqObyTysRDg6qWIaNKpvciVNVfX2VPtDcL2iIiFQhHiSZvKyU2Wzz3mngk9n6FS7MwsyRzDHIf5OISHQWenorpTaqIGNAURpuS4QB5qh4mn55r-1R7QkLdFtX5St-TqORPg',
+        scope: [
+            'Interior modernization + building upgrades',
+            'Multi-trade coordination and schedule control',
+            'Closeout documentation and turnover planning'
+        ],
+        badge: false
+    },
+    'dairy-queen': {
+        title: 'Dairy Queen Ground-Up Build',
+        location: 'London',
+        delivery: 'General Contracting',
+        value: '~$3.0M',
+        description: 'New-build QSR delivery with fast-track scheduling and clean turnover.',
+        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBCnkWhKnOgRJL5YAcDH9vkZI8Oir2JfT5urs_OTHcC-6gmZyazkt8nhdF5brGwbQSt-07nqDeHYULj7R5HYzps8El68l2QAQXpYmUUCD1lKhddAzxNcZcIiyFvLD9DK7_q_7l4749W60F0_7BT02car5p_YUi1vbKW5QnSDMlPpPRwRD7EagZJVgi0FGqoXTT2E_HaPKNtRD-GH0Ulyv70R7Pj2_6bJHfTme0PiMqTyso3Wc0u5SNz1EHbze9IsCjhhtudCnV7MPI',
+        scope: [
+            'Sitework + building shell + interior build-out coordination',
+            'Long-lead procurement planning and trade buyout',
+            'Owner-ready turnover and punch management'
+        ],
+        badge: false
+    },
+    'adaptive-reuse': {
+        title: 'Adaptive Reuse: School Gym to Multi-Unit Residential',
+        location: 'Cambridge',
+        delivery: 'Project Management',
+        value: '$2.5M',
+        description: 'Repurposing an existing asset with careful life-safety, MEP, and sequencing coordination.',
+        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB36022NbLeZiDefm2MRsLq9M-6sQt4ss9JGcfnckT8aXtMRKN6kVhFNS6c2GDbKIdlIDfBbojtumZL2d2OH4PqX7n5XZJRVXos7XL9fm8rJLKeevIYcs2j_i0S7Uzg4hMU01Zbciv2kWcey0R3R-F2sZ4IFFEI50zxDEWJRjbZeYPFzOKrXCvgW5mem_PgXtSCwvjKpV1uJyQCnt3g6w7eJBjb59rWGf9myw8ClDoChNSK9NvIdCYxccLbmH4pw7ztET7rtNGu_30',
+        scope: [
+            'Adaptive reuse planning + phased execution',
+            'Multi-trade coordination under active constraints',
+            'Quality control + turnover readiness'
+        ],
+        badge: true
+    }
+};
+
+// Open Project Modal
+function openProjectModal(projectId) {
+    const modal = document.getElementById('project-modal');
+    const project = projectData[projectId];
+    
+    if (!project || !modal) return;
+    
+    // Populate modal content
+    document.getElementById('modal-title').textContent = project.title;
+    document.getElementById('modal-location').textContent = project.location;
+    document.getElementById('modal-delivery').textContent = project.delivery;
+    document.getElementById('modal-value').textContent = project.value;
+    document.getElementById('modal-description').textContent = project.description;
+    document.getElementById('modal-image').src = project.image;
+    
+    // Badge
+    const badge = document.getElementById('modal-badge');
+    if (project.badge) {
+        badge.classList.remove('hidden');
+    } else {
+        badge.classList.add('hidden');
+    }
+    
+    // Scope list
+    const scopeList = document.getElementById('modal-scope');
+    scopeList.innerHTML = project.scope.map(item => 
+        `<li class="flex items-start gap-2">
+            <span class="text-primary mt-1">•</span>
+            <span>${item}</span>
+        </li>`
+    ).join('');
+    
+    // Show modal
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+}
+
+// Close Project Modal
+function closeProjectModal() {
+    const modal = document.getElementById('project-modal');
+    if (modal) {
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+    }
+}
+
+// Close modal on Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeProjectModal();
+    }
 });
 </script>
 
