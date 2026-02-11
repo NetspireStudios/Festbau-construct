@@ -223,31 +223,37 @@ submenu.classList.toggle('hidden');
 </script>
 <main>
 <!-- A) Hero Section -->
-<section class="relative flex items-center overflow-hidden" style="min-height: calc(85vh + 20px)">
-<!-- Background Image with Bottom-to-Top Dark Overlay -->
-<div class="absolute inset-0 z-0">
-<img alt="Festbau construction site with scale and modern housing" class="w-full h-full object-cover" src="assets/images/hero-housing.png"/>
-<!-- Bottom-to-top dark to light gradient overlay -->
-<div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+<section class="relative min-h-[90vh] flex flex-col md:flex-row overflow-hidden">
+<!-- Left Side: Image -->
+<div class="w-full md:w-1/2 relative bg-slate-900">
+<img alt="Festbau construction site with scale and modern housing" class="absolute inset-0 w-full h-full object-cover opacity-80" src="assets/images/hero-housing.png"/>
+<div class="absolute bottom-12 left-12 border-l-4 border-accent-yellow pl-6">
+<p class="text-accent-yellow text-xs font-bold tracking-[0.2em] uppercase mb-2">Live Project</p>
+<h3 class="text-white text-2xl font-bold">Ontario Construction Excellence</h3>
+</div>
 </div>
 
-<!-- Hero Content - Left Aligned -->
-<div class="max-w-7xl mx-auto px-6 relative z-10 w-full py-20">
-<div class="max-w-3xl">
-<!-- H1 (Shaping futures. Responsibly) -->
-<h1 class="text-4xl md:text-6xl lg:text-7xl font-black leading-[1.1] tracking-tight mb-12 fade-in-up whitespace-nowrap" style="animation-delay: 0.05s">
-<span class="text-white">Shaping futures.</span> <span class="text-primary">Responsibly.</span>
+<!-- Right Side: Content -->
+<div class="w-full md:w-1/2 bg-white dark:bg-background-dark flex flex-col justify-center px-12 md:px-24 py-20">
+<div class="space-y-6">
+<div class="flex items-center space-x-4">
+<div class="h-[2px] w-12 bg-accent-yellow"></div>
+<p class="text-accent-yellow font-bold tracking-widest text-xs uppercase">Since 2016</p>
+</div>
+<h1 class="text-6xl md:text-8xl font-black leading-[0.9] tracking-tighter uppercase">
+Shaping <br/>
+<span class="text-primary italic font-serif lowercase tracking-normal">futures.</span> <br/>
+Responsibly
 </h1>
-
-<!-- CTA Row -->
-<div class="flex flex-wrap gap-4 mb-8 fade-in-up" style="animation-delay: 0.2s">
-<a href="contact.html" class="bg-primary text-white px-10 py-5 text-base font-black uppercase tracking-widest rounded-sm hover:scale-105 transition-transform shadow-2xl">
-Get a Consultation
-</a>
+<p class="max-w-md text-slate-500 dark:text-slate-400 text-lg leading-relaxed">
+Industrial-grade construction with transparent reporting. We deliver robust solutions for Ontario's most complex projects.
+</p>
+<div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 pt-4">
+<a class="bg-primary text-white px-10 py-4 font-bold uppercase tracking-widest hover:bg-blue-700 transition-all text-center" href="contact.html">Get a Consultation</a>
+<a class="border border-slate-300 dark:border-slate-700 px-10 py-4 font-bold uppercase tracking-widest hover:bg-slate-50 dark:hover:bg-slate-800 transition-all text-center" href="about-us.html">Our Methodology</a>
 </div>
-
-<!-- "Fast proof" micro-strip (under CTAs) -->
-<div class="flex flex-wrap items-center gap-3 text-gray-300 text-sm font-semibold fade-in-up" style="animation-delay: 0.3s">
+<!-- Services strip -->
+<div class="flex flex-wrap items-center gap-3 text-gray-500 dark:text-gray-400 text-sm font-semibold pt-4">
 <span>Design-Build</span>
 <span class="text-accent-yellow">•</span>
 <span>General Contracting</span>
