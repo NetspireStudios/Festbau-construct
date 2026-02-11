@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BookingPenguin | Premium Hero Refinement</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "brand-blue": "#0ea5e9",
+                        "deep-charcoal": "#0f172a",
+                        "slate-950": "#020617",
+                        "accent-blue": "#3b82f6",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.375rem", "lg": "0.75rem", "xl": "1rem", "2xl": "1.5rem", "3xl": "2.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body { font-family: 'Manrope', sans-serif; background-color: #ffffff; color: #0f172a; }.dashboard-3d {
+            transform: perspective(2000px) rotateX(10deg) rotateY(-2deg) translateY(0);
+            box-shadow: 
+                0 0 0 1px rgba(255, 255, 255, 0.8),
+                0 20px 50px -10px rgba(15, 23, 42, 0.1),
+                0 40px 80px -20px rgba(15, 23, 42, 0.15),
+                0 60px 120px -25px rgba(14, 165, 233, 0.05);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }.glow-button-container {
+            position: relative;
+            z-index: 1;
+        }
+        .glow-button-container::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 110%;
+            height: 120%;
+            background: radial-gradient(circle, rgba(14, 165, 233, 0.4) 0%, rgba(14, 165, 233, 0) 70%);
+            border-radius: 2rem;
+            z-index: -1;
+            animation: pulse-glow 3s ease-in-out infinite;
+        }
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+            50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.1); }
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.08);
+        }
+        .ecosystem-path-svg {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .path-line {
+            stroke-dasharray: 12 12;
+            stroke-width: 3;
+            filter: drop-shadow(0 0 8px rgba(14, 165, 233, 0.3));
+        }
+        .pulse-glow {
+            animation: pulse-line 6s linear infinite;
+        }
+        @keyframes pulse-line {
+            0% { stroke-dashoffset: 200; }
+            100% { stroke-dashoffset: 0; }
+        }.penguin-wing-shape {
+            position: absolute;
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.03) 0%, transparent 70%);
+            clip-path: polygon(0% 0%, 100% 30%, 80% 100%, 0% 80%);
+            z-index: -1;
+        }
+        .gradient-text {
+            background: linear-gradient(to bottom right, #0ea5e9 0%, #0f172a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden selection:bg-brand-blue selection:text-white">
+<div class="layout-container flex h-full grow flex-col relative">
+<div class="penguin-wing-shape top-0 -left-20 w-[600px] h-[800px] rotate-[15deg]"></div>
+<div class="penguin-wing-shape top-[40%] -right-40 w-[800px] h-[1000px] -rotate-[25deg]"></div>
+<div class="penguin-wing-shape bottom-0 -left-60 w-[900px] h-[900px] rotate-[45deg]"></div>
+<header class="fixed top-0 z-[100] w-full flex items-center justify-between border-b border-slate-100 bg-white/70 backdrop-blur-2xl px-8 md:px-20 py-5">
+<div class="flex items-center gap-2">
+<div class="size-10 text-brand-blue">
+<svg fill="currentColor" viewBox="0 0 48 48">
+<path d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z"></path>
+</svg>
+</div>
+<h2 class="text-2xl font-black tracking-tight text-deep-charcoal uppercase italic">BookingPenguin</h2>
+</div>
+<nav class="hidden lg:flex flex-1 justify-center gap-12">
+<a class="text-xs font-black uppercase tracking-widest text-slate-400 hover:text-brand-blue transition-colors" href="#">Platform</a>
+<a class="text-xs font-black uppercase tracking-widest text-slate-400 hover:text-brand-blue transition-colors" href="#">Enterprise</a>
+<a class="text-xs font-black uppercase tracking-widest text-slate-400 hover:text-brand-blue transition-colors" href="#">Ecosystem</a>
+<a class="text-xs font-black uppercase tracking-widest text-slate-400 hover:text-brand-blue transition-colors" href="#">Security</a>
+</nav>
+<div class="flex items-center gap-6">
+<button class="text-sm font-bold text-slate-600">Login</button>
+<button class="bg-deep-charcoal text-white px-8 py-3 rounded-xl text-sm font-extrabold hover:bg-brand-blue transition-all shadow-xl shadow-slate-200">Book Demo</button>
+</div>
+</header>
+<main class="relative pt-40 overflow-hidden bg-transparent">
+<section class="px-6 md:px-20 text-center relative z-10 pb-32">
+<div class="max-w-5xl mx-auto mb-24">
+<div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-blue/5 border border-brand-blue/10 text-brand-blue text-[10px] font-black uppercase tracking-[0.3em] mb-8">
+                    Unified Enterprise Infrastructure
+                </div>
+<h1 class="text-6xl md:text-[6.5rem] font-black leading-[0.9] mb-12 tracking-tighter text-deep-charcoal flex flex-col items-center">
+<span>One Ecosystem.</span>
+<span class="gradient-text py-2">Total Control.</span>
+</h1>
+<p class="text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed mb-16 font-medium">
+                    Bridge the gap between complex logistics and seamless experience. Scale your service empire with the industry's most robust orchestration engine.
+                </p>
+<div class="flex flex-col sm:flex-row gap-8 justify-center items-center">
+<div class="glow-button-container">
+<button class="bg-brand-blue text-white h-20 px-16 rounded-[2rem] font-black text-2xl hover:bg-slate-950 transition-all shadow-2xl shadow-brand-blue/20">
+                            Access Dashboard
+                        </button>
+</div>
+<div class="flex items-center gap-3 px-6">
+<div class="flex -space-x-3">
+<div class="size-11 rounded-full border-2 border-white bg-slate-200 overflow-hidden"></div>
+<div class="size-11 rounded-full border-2 border-white bg-slate-300 overflow-hidden"></div>
+<div class="size-11 rounded-full border-2 border-white bg-brand-blue/20 overflow-hidden flex items-center justify-center text-[10px] font-bold">+500</div>
+</div>
+<span class="text-xs font-bold text-slate-400">Trusted by Global Leaders</span>
+</div>
+</div>
+</div>
+<div class="relative max-w-6xl mx-auto">
+<div class="dashboard-3d bg-white rounded-[3rem] border border-slate-100/50 overflow-hidden">
+<div class="h-14 border-b border-slate-50 bg-slate-50/50 flex items-center px-8 gap-4">
+<div class="flex gap-2">
+<div class="size-3 rounded-full bg-slate-200"></div>
+<div class="size-3 rounded-full bg-slate-200"></div>
+<div class="size-3 rounded-full bg-slate-200"></div>
+</div>
+<div class="h-7 w-96 bg-white border border-slate-100 rounded-xl flex items-center px-3">
+<div class="size-3 bg-brand-blue/30 rounded-full mr-2"></div>
+<div class="h-2 w-32 bg-slate-100 rounded-full"></div>
+</div>
+</div>
+<div class="flex min-h-[700px]">
+<div class="w-72 border-r border-slate-50 p-8 space-y-10 hidden md:block">
+<div class="space-y-6">
+<div class="h-12 w-full bg-brand-blue/5 rounded-2xl flex items-center px-4 border border-brand-blue/10">
+<div class="size-5 bg-brand-blue rounded-lg mr-3"></div>
+<div class="h-2 w-24 bg-brand-blue/20 rounded-full"></div>
+</div>
+<div class="h-12 w-full bg-transparent rounded-2xl flex items-center px-4">
+<div class="size-5 bg-slate-100 rounded-lg mr-3"></div>
+<div class="h-2 w-20 bg-slate-100 rounded-full"></div>
+</div>
+<div class="h-12 w-full bg-transparent rounded-2xl flex items-center px-4">
+<div class="size-5 bg-slate-100 rounded-lg mr-3"></div>
+<div class="h-2 w-28 bg-slate-100 rounded-full"></div>
+</div>
+</div>
+</div>
+<div class="flex-1 p-14 text-left bg-white">
+<div class="flex justify-between items-end mb-16">
+<div>
+<h3 class="text-4xl font-black text-deep-charcoal tracking-tight mb-2">$8.4M Total GMV</h3>
+<p class="text-sm font-bold text-emerald-500 uppercase tracking-widest flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">trending_up</span> +32.4% vs Last Quarter
+                                    </p>
+</div>
+<div class="flex gap-4">
+<div class="px-6 py-3 bg-slate-50 rounded-xl font-bold text-sm text-slate-400">Export CSV</div>
+<div class="px-6 py-3 bg-brand-blue text-white rounded-xl font-black text-sm shadow-lg shadow-brand-blue/20">Add New Project</div>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-8 mb-16">
+<div class="p-8 rounded-[2.5rem] bg-slate-50 border border-slate-100">
+<div class="size-10 bg-white rounded-xl shadow-sm flex items-center justify-center text-brand-blue mb-6">
+<span class="material-symbols-outlined">group</span>
+</div>
+<div class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-2">Total Retainers</div>
+<div class="text-3xl font-black text-deep-charcoal">1,429</div>
+</div>
+<div class="p-8 rounded-[2.5rem] bg-slate-50 border border-slate-100">
+<div class="size-10 bg-white rounded-xl shadow-sm flex items-center justify-center text-orange-500 mb-6">
+<span class="material-symbols-outlined">flash_on</span>
+</div>
+<div class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-2">Live Automations</div>
+<div class="text-3xl font-black text-deep-charcoal">284</div>
+</div>
+<div class="p-8 rounded-[2.5rem] bg-brand-blue text-white shadow-2xl shadow-brand-blue/30">
+<div class="size-10 bg-white/20 rounded-xl flex items-center justify-center text-white mb-6">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+<div class="text-[10px] font-black text-white/60 uppercase tracking-[0.2em] mb-2">Fulfillment Rate</div>
+<div class="text-3xl font-black">99.2%</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div class="h-56 bg-slate-50 rounded-[2.5rem] border border-slate-100 p-8 flex items-end gap-3">
+<div class="flex-1 bg-brand-blue/10 rounded-t-xl h-[40%]"></div>
+<div class="flex-1 bg-brand-blue/20 rounded-t-xl h-[60%]"></div>
+<div class="flex-1 bg-brand-blue/40 rounded-t-xl h-[30%]"></div>
+<div class="flex-1 bg-brand-blue/60 rounded-t-xl h-[80%]"></div>
+<div class="flex-1 bg-brand-blue rounded-t-xl h-[50%]"></div>
+<div class="flex-1 bg-brand-blue/80 rounded-t-xl h-[95%]"></div>
+</div>
+<div class="h-56 bg-slate-50 rounded-[2.5rem] border border-slate-100 p-10 flex flex-col justify-center gap-6">
+<div class="h-3 w-full bg-slate-200 rounded-full"></div>
+<div class="h-3 w-4/5 bg-slate-200 rounded-full"></div>
+<div class="h-3 w-2/3 bg-slate-200 rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="relative py-60 px-6 md:px-20 bg-slate-50/40">
+<svg class="ecosystem-path-svg hidden lg:block" fill="none" preserveAspectRatio="none" viewBox="0 0 1440 1800">
+<path class="path-line pulse-glow" d="M720,0 C720,200 100,200 100,500 C100,800 1340,800 1340,1100 C1340,1400 720,1400 720,1800" stroke="#0ea5e9" stroke-dasharray="12 12"></path>
+</svg>
+<div class="max-w-7xl mx-auto relative z-10">
+<div class="text-center mb-40">
+<span class="text-[10px] font-black text-brand-blue uppercase tracking-[0.4em]">The Architecture</span>
+<h2 class="text-5xl md:text-7xl font-black text-deep-charcoal mt-6 mb-8 tracking-tight">Enterprise Connectivity.</h2>
+<p class="text-xl text-slate-500 max-w-2xl mx-auto font-medium leading-relaxed">One pulse. One data stream. Every part of your business perfectly synced through our proprietary ecosystem path.</p>
+</div>
+<div class="flex flex-col lg:flex-row items-center gap-24 mb-60">
+<div class="w-full lg:w-1/2">
+<div class="glass-card p-14 rounded-[3.5rem] border-slate-200/50 relative">
+<div class="absolute -top-10 left-12 size-20 bg-white rounded-3xl shadow-2xl flex items-center justify-center border border-slate-100">
+<span class="material-symbols-outlined text-brand-blue text-4xl font-bold">person_search</span>
+</div>
+<h3 class="text-4xl font-black text-deep-charcoal mb-6 mt-6">Hyper-Converting Intake</h3>
+<p class="text-lg text-slate-500 leading-relaxed mb-10">Stop losing leads to clunky forms. Our Client Portal offers a frictionless, glass-styled experience that customers actually enjoy using.</p>
+<div class="space-y-4">
+<div class="h-16 bg-white/50 rounded-2xl border border-slate-100 flex items-center px-6 gap-4">
+<span class="material-symbols-outlined text-brand-blue">payments</span>
+<span class="text-sm font-bold text-slate-700 italic">Instant Apple Pay Integration</span>
+</div>
+<div class="h-16 bg-white/50 rounded-2xl border border-slate-100 flex items-center px-6 gap-4">
+<span class="material-symbols-outlined text-brand-blue">schedule</span>
+<span class="text-sm font-bold text-slate-700 italic">Smart Capacity Booking</span>
+</div>
+</div>
+</div>
+</div>
+<div class="w-full lg:w-1/2 hidden lg:block">
+<div class="relative h-64 flex items-center justify-center">
+<div class="glass-card absolute top-0 right-0 p-8 rounded-3xl shadow-2xl w-72 transform rotate-6 border-slate-100">
+<div class="flex items-center gap-3 mb-4">
+<div class="size-2 rounded-full bg-emerald-500"></div>
+<div class="h-2 w-24 bg-slate-200 rounded-full"></div>
+</div>
+<div class="h-4 w-full bg-slate-100 rounded-lg"></div>
+</div>
+<div class="glass-card absolute bottom-0 left-0 p-8 rounded-3xl shadow-2xl w-72 transform -rotate-3 border-slate-100">
+<div class="h-10 w-10 bg-brand-blue/10 rounded-xl mb-4"></div>
+<div class="h-4 w-3/4 bg-slate-100 rounded-lg"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col lg:flex-row-reverse items-center gap-24 mb-60">
+<div class="w-full lg:w-1/2">
+<div class="glass-card p-14 rounded-[3.5rem] border-slate-200/50 relative">
+<div class="absolute -top-10 right-12 size-20 bg-deep-charcoal rounded-3xl shadow-2xl flex items-center justify-center">
+<span class="material-symbols-outlined text-brand-blue text-4xl font-bold">dynamic_form</span>
+</div>
+<h3 class="text-4xl font-black text-deep-charcoal mb-6 mt-6 text-right lg:text-left">Dynamic Form Logic</h3>
+<p class="text-lg text-slate-500 leading-relaxed mb-10 text-right lg:text-left">Build complex service logic without a single line of code. Conditionals, variable pricing, and regional tax engines built right into the core.</p>
+<div class="flex flex-wrap justify-end lg:justify-start gap-4">
+<span class="px-5 py-2.5 bg-slate-100 rounded-xl text-[10px] font-black uppercase tracking-widest text-slate-500">No-Code</span>
+<span class="px-5 py-2.5 bg-slate-100 rounded-xl text-[10px] font-black uppercase tracking-widest text-slate-500">Conditional Flow</span>
+<span class="px-5 py-2.5 bg-slate-100 rounded-xl text-[10px] font-black uppercase tracking-widest text-slate-500">Stripe-Native</span>
+</div>
+</div>
+</div>
+<div class="w-full lg:w-1/2 flex justify-center">
+<div class="w-80 h-[450px] bg-white rounded-[2.5rem] border border-slate-100 shadow-2xl overflow-hidden p-8 space-y-6">
+<div class="h-12 w-full bg-slate-50 rounded-xl border border-dashed border-slate-300 flex items-center justify-center">
+<span class="text-[10px] font-bold text-slate-400">DRAG FIELD HERE</span>
+</div>
+<div class="p-6 bg-brand-blue/5 border border-brand-blue/10 rounded-3xl">
+<div class="text-[10px] font-black text-brand-blue uppercase mb-3 tracking-widest">Conditional Step</div>
+<div class="h-2 w-full bg-brand-blue/20 rounded-full mb-3"></div>
+<div class="h-2 w-2/3 bg-brand-blue/20 rounded-full"></div>
+</div>
+<div class="p-6 bg-slate-50 rounded-3xl">
+<div class="text-[10px] font-black text-slate-400 uppercase mb-3 tracking-widest">Price Formula</div>
+<div class="h-10 w-full bg-white rounded-xl shadow-sm"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col lg:flex-row items-center gap-24 mb-60">
+<div class="w-full lg:w-1/2">
+<div class="glass-card p-14 rounded-[3.5rem] border-slate-200/50 relative">
+<div class="absolute -top-10 left-12 size-20 bg-white rounded-3xl shadow-2xl flex items-center justify-center border border-slate-100">
+<span class="material-symbols-outlined text-brand-blue text-4xl font-bold">domain_add</span>
+</div>
+<h3 class="text-4xl font-black text-deep-charcoal mb-6 mt-6">Multi-Region Engine</h3>
+<p class="text-lg text-slate-500 leading-relaxed mb-10">Manage multiple business units, franchises, or regional branches from a single unified admin HQ. Shared resources, isolated billing.</p>
+<div class="grid grid-cols-2 gap-5">
+<div class="p-6 bg-white/60 rounded-3xl border border-slate-100 text-center">
+<div class="text-3xl font-black text-brand-blue">Unlimited</div>
+<div class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Child Accounts</div>
+</div>
+<div class="p-6 bg-white/60 rounded-3xl border border-slate-100 text-center">
+<div class="text-3xl font-black text-deep-charcoal">Global</div>
+<div class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Compliance</div>
+</div>
+</div>
+</div>
+</div>
+<div class="w-full lg:w-1/2 relative">
+<div class="flex flex-col gap-5">
+<div class="glass-card p-5 rounded-2xl flex items-center gap-4 translate-x-12 border-slate-100 shadow-xl">
+<div class="size-12 bg-slate-900 rounded-xl"></div>
+<div>
+<div class="text-sm font-black text-slate-900">London North Office</div>
+<div class="text-[10px] text-slate-400 uppercase font-bold tracking-widest">Active Branch</div>
+</div>
+</div>
+<div class="glass-card p-5 rounded-2xl flex items-center gap-4 border-slate-100 shadow-xl">
+<div class="size-12 bg-slate-200 rounded-xl"></div>
+<div>
+<div class="text-sm font-black text-slate-900">Berlin HQ</div>
+<div class="text-[10px] text-slate-400 uppercase font-bold tracking-widest">Active Branch</div>
+</div>
+</div>
+<div class="glass-card p-5 rounded-2xl flex items-center gap-4 -translate-x-12 border-slate-100 shadow-xl">
+<div class="size-12 bg-brand-blue rounded-xl"></div>
+<div>
+<div class="text-sm font-black text-slate-900">NYC Logistics Center</div>
+<div class="text-[10px] text-slate-400 uppercase font-bold tracking-widest">Active Branch</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text-center">
+<div class="inline-flex flex-col items-center">
+<div class="size-28 bg-brand-blue rounded-[3rem] shadow-2xl shadow-brand-blue/40 flex items-center justify-center mb-10 border-4 border-white">
+<span class="material-symbols-outlined text-white text-6xl">engineering</span>
+</div>
+<h2 class="text-5xl font-black text-deep-charcoal mb-6">Staff Performance Portal</h2>
+<p class="text-xl text-slate-500 max-w-2xl mx-auto font-medium leading-relaxed">Equip your field teams with a mission-critical mobile interface. Live routing, instant payouts, and crystal-clear instructions.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-40 px-6 md:px-20 bg-white">
+<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
+<div>
+<span class="text-[10px] font-black text-slate-400 uppercase tracking-[0.4em]">Analytics Hub</span>
+<h2 class="text-5xl font-black text-deep-charcoal mt-6 mb-8 tracking-tight leading-[1.1]">High-Fidelity Reporting &amp; Export.</h2>
+<p class="text-lg text-slate-500 leading-relaxed mb-12 font-medium">Turn raw booking data into actionable insights. Deep-dive into staff utilization, regional profitability, and customer LTV with one-click CSV/Excel exports.</p>
+<ul class="space-y-8">
+<li class="flex items-start gap-5">
+<div class="size-8 bg-brand-blue/10 rounded-full flex items-center justify-center mt-1">
+<span class="material-symbols-outlined text-brand-blue text-sm">check</span>
+</div>
+<div>
+<h4 class="text-lg font-black text-deep-charcoal">Real-time Data Sync</h4>
+<p class="text-sm text-slate-500 leading-relaxed">Every booking is instantly processed into your financial dashboards for real-time liquidity tracking.</p>
+</div>
+</li>
+<li class="flex items-start gap-5">
+<div class="size-8 bg-brand-blue/10 rounded-full flex items-center justify-center mt-1">
+<span class="material-symbols-outlined text-brand-blue text-sm">check</span>
+</div>
+<div>
+<h4 class="text-lg font-black text-deep-charcoal">Custom Report Templates</h4>
+<p class="text-sm text-slate-500 leading-relaxed">Build recurring reports for stakeholders and department heads with automated email delivery.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="glass-card p-3 rounded-[3rem] border-slate-100/50 overflow-hidden shadow-2xl">
+<div class="bg-slate-950 rounded-[2.8rem] p-12 text-white min-h-[500px] relative">
+<div class="flex justify-between items-center mb-12">
+<div class="text-xl font-black italic">Sales_Matrix.csv</div>
+<div class="px-5 py-2.5 bg-white/10 rounded-xl text-xs font-bold uppercase tracking-widest border border-white/10">Live Feed</div>
+</div>
+<div class="space-y-8">
+<div class="grid grid-cols-4 gap-6 opacity-30">
+<div class="h-2 bg-white rounded-full"></div>
+<div class="h-2 bg-white rounded-full"></div>
+<div class="h-2 bg-white rounded-full"></div>
+<div class="h-2 bg-white rounded-full"></div>
+</div>
+<div class="grid grid-cols-4 gap-6">
+<div class="h-2 bg-brand-blue rounded-full"></div>
+<div class="h-2 bg-white/30 rounded-full"></div>
+<div class="h-2 bg-white/30 rounded-full"></div>
+<div class="h-2 bg-white/30 rounded-full"></div>
+</div>
+<div class="grid grid-cols-4 gap-6">
+<div class="h-2 bg-brand-blue rounded-full"></div>
+<div class="h-2 bg-white/30 rounded-full"></div>
+<div class="h-2 bg-white/30 rounded-full"></div>
+<div class="h-2 bg-white/30 rounded-full"></div>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 right-0 p-12 bg-gradient-to-t from-slate-950 to-transparent pt-32">
+<div class="flex items-end gap-3">
+<div class="flex-1 h-36 bg-brand-blue rounded-t-xl"></div>
+<div class="flex-1 h-56 bg-brand-blue/60 rounded-t-xl"></div>
+<div class="flex-1 h-28 bg-brand-blue/40 rounded-t-xl"></div>
+<div class="flex-1 h-64 bg-brand-blue rounded-t-xl"></div>
+<div class="flex-1 h-48 bg-brand-blue/80 rounded-t-xl"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-48 px-6 md:px-20 relative bg-transparent">
+<div class="max-w-4xl mx-auto text-center relative z-10">
+<h2 class="text-6xl md:text-[6.5rem] font-black text-deep-charcoal mb-16 tracking-tighter leading-[0.9] flex flex-col">
+<span>Scale Without</span>
+<span class="gradient-text py-2">Limits.</span>
+</h2>
+<div class="flex flex-col sm:flex-row gap-8 justify-center items-center">
+<button class="bg-deep-charcoal text-white px-16 py-7 rounded-[2.5rem] font-black text-2xl hover:bg-brand-blue transition-all shadow-[0_20px_60px_-15px_rgba(15,23,42,0.3)]">
+                        Start Enterprise Trial
+                    </button>
+<button class="bg-white border-2 border-slate-100 text-slate-700 px-16 py-7 rounded-[2.5rem] font-bold text-2xl hover:bg-slate-50 transition-all shadow-sm">
+                        Talk to an Architect
+                    </button>
+</div>
+<p class="mt-20 text-slate-400 text-[10px] font-black uppercase tracking-[0.5em]">Deployment in minutes • SOC2 Type II • ISO 27001 Certified</p>
+</div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.03] pointer-events-none w-full text-center">
+<h2 class="text-[35rem] font-black italic select-none leading-none">BP</h2>
+</div>
+</section>
+</main>
+<footer class="bg-slate-50 border-t border-slate-100 px-8 md:px-20 py-24 relative z-10">
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-20">
+<div class="col-span-1">
+<div class="flex items-center gap-2 mb-10">
+<div class="size-8 text-brand-blue">
+<svg fill="currentColor" viewBox="0 0 48 48">
+<path d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z"></path>
+</svg>
+</div>
+<h2 class="text-xl font-black text-deep-charcoal uppercase italic tracking-tighter">BookingPenguin</h2>
+</div>
+<p class="text-slate-500 text-sm leading-relaxed max-w-xs font-medium">The high-performance operating system for modern service industries. Trusted by the world's fastest scaling enterprises.</p>
+</div>
+<div>
+<h5 class="font-black text-deep-charcoal text-[10px] uppercase tracking-[0.3em] mb-10">Ecosystem</h5>
+<ul class="space-y-4 text-sm text-slate-500 font-bold">
+<li><a class="hover:text-brand-blue transition-colors" href="#">Client Portal</a></li>
+<li><a class="hover:text-brand-blue transition-colors" href="#">Staff Hub</a></li>
+<li><a class="hover:text-brand-blue transition-colors" href="#">Admin Dashboard</a></li>
+<li><a class="hover:text-brand-blue transition-colors" href="#">API Gateway</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-black text-deep-charcoal text-[10px] uppercase tracking-[0.3em] mb-10">Solutions</h5>
+<ul class="space-y-4 text-sm text-slate-500 font-bold">
+<li><a class="hover:text-brand-blue transition-colors" href="#">Franchise Logic</a></li>
+<li><a class="hover:text-brand-blue transition-colors" href="#">Enterprise API</a></li>
+<li><a class="hover:text-brand-blue transition-colors" href="#">Field Ops</a></li>
+<li><a class="hover:text-brand-blue transition-colors" href="#">Fleet Management</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-black text-deep-charcoal text-[10px] uppercase tracking-[0.3em] mb-10">Support</h5>
+<ul class="space-y-4 text-sm text-slate-500 font-bold">
+<li><a class="hover:text-brand-blue transition-colors" href="#">Documentation</a></li>
+<li><a class="hover:text-brand-blue transition-colors" href="#">Security Hub</a></li>
+<li><a class="hover:text-brand-blue transition-colors" href="#">Platform Status</a></li>
+<li><a class="hover:text-brand-blue transition-colors" href="#">Contact Support</a></li>
+</ul>
+</div>
+</div>
+<div class="mt-24 pt-10 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-8 max-w-7xl mx-auto">
+<p class="text-[10px] text-slate-400 font-bold uppercase tracking-[0.4em]">© 2024 BOOKINGPENGUIN INC. ENTERPRISE ARCHITECTURE.</p>
+<div class="flex gap-8 text-[10px] font-black text-slate-400 uppercase tracking-[0.4em]">
+<a class="hover:text-deep-charcoal transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-deep-charcoal transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-deep-charcoal transition-colors" href="#">Security Info</a>
+</div>
+</div>
+</footer>
+</div>
+
+</body></html>
