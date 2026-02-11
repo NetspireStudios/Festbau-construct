@@ -128,7 +128,7 @@
     </script>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-gray-900 dark:text-gray-100 overflow-x-hidden">
-<header class="sticky top-0 z-50 w-full bg-primary shadow-lg">
+<header id="main-header" class="sticky top-0 z-50 w-full bg-primary shadow-lg transition-transform duration-300">
 <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
 <a href="index.html" class="flex items-center">
 <img src="assets/images/logo.png" alt="Festbau Construction" class="h-20 w-auto"/>
@@ -181,6 +181,7 @@ Services
 </div>
 </header>
 <script>
+// Mobile menu toggle
 document.getElementById('mobile-menu-btn').addEventListener('click', function() {
 const menu = document.getElementById('mobile-menu');
 menu.classList.toggle('hidden');
@@ -190,30 +191,53 @@ document.getElementById('mobile-services-btn').addEventListener('click', functio
 const submenu = document.getElementById('mobile-services-menu');
 submenu.classList.toggle('hidden');
 });
+
+// Header scroll behavior - hide on scroll down, show on scroll up
+(function() {
+    let lastScrollTop = 0;
+    let scrollTimeout;
+    const header = document.getElementById('main-header');
+    
+    window.addEventListener('scroll', function() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        // Clear existing timeout
+        clearTimeout(scrollTimeout);
+        
+        if (scrollTop > lastScrollTop && scrollTop > 100) {
+            // Scrolling down - hide header
+            header.style.transform = 'translateY(-100%)';
+        } else {
+            // Scrolling up or stopped - show header
+            header.style.transform = 'translateY(0)';
+        }
+        
+        // Show header when user stops scrolling
+        scrollTimeout = setTimeout(function() {
+            header.style.transform = 'translateY(0)';
+        }, 150);
+        
+        lastScrollTop = scrollTop;
+    });
+})();
 </script>
 <main>
 <!-- A) Hero Section -->
 <section class="relative min-h-screen flex items-center overflow-hidden">
-<!-- Background Image with Left-Side Dark Overlay -->
+<!-- Background Image with Bottom-to-Top Dark Overlay -->
 <div class="absolute inset-0 z-0">
 <img alt="Festbau construction site with scale and modern housing" class="w-full h-full object-cover" src="assets/images/hero-housing.png"/>
-<!-- Left-side dark overlay panel -->
-<div class="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-transparent"></div>
-<div class="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/40"></div>
+<!-- Bottom-to-top dark to light gradient overlay -->
+<div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
 </div>
 
 <!-- Hero Content - Left Aligned -->
 <div class="max-w-7xl mx-auto px-6 relative z-10 w-full py-20">
 <div class="max-w-3xl">
-<!-- H1 (Shaping futures Responsibly) -->
-<h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-[1.1] tracking-tight mb-8 fade-in-up" style="animation-delay: 0.05s">
-Shaping futures <span class="text-primary">Responsibly</span>
+<!-- H1 (Shaping futures. Responsibly) -->
+<h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-[1.1] tracking-tight mb-12 fade-in-up" style="animation-delay: 0.05s">
+Shaping futures. <span class="text-primary">Responsibly</span>
 </h1>
-
-<!-- Subheading (government + investor confidence + delivery capability) -->
-<p class="text-lg md:text-xl text-gray-300 mb-12 leading-relaxed fade-in-up" style="animation-delay: 0.1s">
-<span class="font-bold text-white">Founded in 2016.</span> Ontario-based delivery partner built for public-sector rigor and investor underwriting - transparent reporting, disciplined planning, and accountable execution from preconstruction to closeout.
-</p>
 
 <!-- CTA Row -->
 <div class="flex flex-wrap gap-4 mb-8 fade-in-up" style="animation-delay: 0.2s">
