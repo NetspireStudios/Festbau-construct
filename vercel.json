@@ -1,0 +1,38 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/about-us", "destination": "/about-us.html" },
+    { "source": "/contact", "destination": "/contact.html" },
+    { "source": "/privacy-policy", "destination": "/privacy-policy.html" },
+    { "source": "/project-portfolio", "destination": "/project-portfolio.html" },
+    { "source": "/qualifications", "destination": "/qualifications.html" },
+    { "source": "/services/design-build", "destination": "/services/design-build.html" },
+    { "source": "/services/general-contracting", "destination": "/services/general-contracting.html" },
+    { "source": "/services/project-management", "destination": "/services/project-management.html" },
+    { "source": "/services/modular-prefabrications", "destination": "/services/modular-prefabrications.html" },
+    { "source": "/case-studies/burks-falls", "destination": "/case-studies/burks-falls.html" },
+    { "source": "/case-studies/dairy-queen", "destination": "/case-studies/dairy-queen.html" },
+    { "source": "/case-studies/adaptive-reuse", "destination": "/case-studies/adaptive-reuse.html" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        }
+      ]
+    }
+  ]
+}
