@@ -4,7 +4,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Project Portfolio | Festbau</title>
-<meta name="description" content="Explore Festbau's portfolio of design-build, general contracting, and project management projects across Ontario."/>
+<meta name="description" content="Explore Festbau's portfolio of commercial construction projects across Ontario. QSR builds, franchise rollouts, renovations, and institutional projects."/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
@@ -18,18 +18,27 @@
         font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
     }
 
-    /* Fade in up animation */
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
+    /* Filmstrip scrollbar */
+    .filmstrip-scroll::-webkit-scrollbar {
+        height: 4px;
+    }
+    .filmstrip-scroll::-webkit-scrollbar-track {
+        background: #e5e7eb;
+    }
+    .filmstrip-scroll::-webkit-scrollbar-thumb {
+        background: #FFD700;
+        border-radius: 4px;
+    }
+    .filmstrip-scroll {
+        scrollbar-width: thin;
+        scrollbar-color: #FFD700 #e5e7eb;
     }
 
+    /* Fade in up animation */
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
     .fade-in-up {
         opacity: 0;
         animation: fadeInUp 0.8s ease-out forwards;
@@ -37,51 +46,17 @@
 
     /* Fade in animation */
     @keyframes fadeIn {
-        from {
-            opacity: 0;
-        }
-        to {
-            opacity: 1;
-        }
+        from { opacity: 0; }
+        to { opacity: 1; }
     }
-
     .fade-in {
         opacity: 0;
         animation: fadeIn 0.8s ease-out forwards;
     }
 
-    /* Slide in from left */
-    @keyframes slideInLeft {
-        from {
-            opacity: 0;
-            transform: translateX(-30px);
-        }
-        to {
-            opacity: 1;
-            transform: translateX(0);
-        }
-    }
-
-    .slide-in-left {
-        opacity: 0;
-        animation: slideInLeft 0.8s ease-out forwards;
-    }
-
-    /* Scale in animation */
-    @keyframes scaleIn {
-        from {
-            opacity: 0;
-            transform: scale(0.95);
-        }
-        to {
-            opacity: 1;
-            transform: scale(1);
-        }
-    }
-
-    .scale-in {
-        opacity: 0;
-        animation: scaleIn 0.6s ease-out forwards;
+    /* Modal overlay */
+    .modal-overlay {
+        backdrop-filter: blur(8px);
     }
 </style>
 <script>
@@ -110,10 +85,10 @@
     }
 </script>
 </head>
-<body class="bg-background-light dark:bg-background-dark text-gray-900 dark:text-gray-100 overflow-x-hidden">
+<body class="bg-white dark:bg-background-dark text-gray-900 dark:text-gray-100 overflow-x-hidden">
 
 <!-- ===== HEADER / NAVIGATION ===== -->
-<header class="sticky top-0 z-50 w-full bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+<header class="sticky top-0 z-50 w-full bg-white/95 dark:bg-background-dark/95 backdrop-blur-md border-b border-gray-100 dark:border-gray-800">
 <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
 <a href="index.html" class="flex items-center gap-3">
 <div class="bg-primary p-1.5 rounded-sm">
@@ -178,189 +153,369 @@ Services
 <main>
 
 <!-- ===== HERO SECTION ===== -->
-<section class="relative min-h-[70vh] flex items-center overflow-hidden">
-<!-- Background Image -->
+<section class="relative bg-industrial-gray py-20 lg:py-32 overflow-hidden">
 <div class="absolute inset-0 z-0">
-<img alt="Aerial view of a large construction project in progress" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2000&auto=format&fit=crop"/>
-<div class="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/40"></div>
-<div class="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50"></div>
-</div>
-<!-- Hero Content -->
-<div class="max-w-7xl mx-auto px-6 relative z-10 w-full py-20">
-<div class="max-w-3xl">
-<p class="text-accent-yellow font-black uppercase tracking-[0.3em] text-sm mb-4 fade-in-up">Portfolio</p>
-<h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-[1.1] tracking-tight mb-8 fade-in-up" style="animation-delay: 0.05s">
-Our <span class="text-primary">Projects</span>
-</h1>
-<p class="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed fade-in-up" style="animation-delay: 0.1s">
-A proven track record of delivering complex, schedule-driven construction projects across Ontario &mdash; on time, on budget, and built to institutional standards.
-</p>
-<div class="flex flex-wrap items-center gap-3 text-gray-300 text-sm font-semibold fade-in-up" style="animation-delay: 0.2s">
-<span>Design-Build</span>
-<span class="text-accent-yellow">&bull;</span>
-<span>General Contracting</span>
-<span class="text-accent-yellow">&bull;</span>
-<span>Project Management</span>
-</div>
-</div>
-</div>
-</section>
-
-<!-- ===== FILTER CONTROLS ===== -->
-<section class="py-12 bg-white dark:bg-background-dark border-b border-gray-200 dark:border-gray-800">
-<div class="max-w-7xl mx-auto px-6">
-<div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-<!-- Delivery Type Filter -->
-<div class="flex flex-col gap-2">
-<span class="text-xs font-bold uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">Delivery Type</span>
-<div class="flex flex-wrap gap-2" id="delivery-filters">
-<button class="filter-btn active-filter px-5 py-2 text-xs font-bold uppercase tracking-widest border-2 border-primary bg-primary text-white rounded-sm transition-all duration-200" data-filter="all" data-group="delivery">All</button>
-<button class="filter-btn px-5 py-2 text-xs font-bold uppercase tracking-widest border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-primary hover:text-primary rounded-sm transition-all duration-200" data-filter="design-build" data-group="delivery">Design-Build</button>
-<button class="filter-btn px-5 py-2 text-xs font-bold uppercase tracking-widest border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-primary hover:text-primary rounded-sm transition-all duration-200" data-filter="general-contracting" data-group="delivery">General Contracting</button>
-<button class="filter-btn px-5 py-2 text-xs font-bold uppercase tracking-widest border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-primary hover:text-primary rounded-sm transition-all duration-200" data-filter="project-management" data-group="delivery">Project Management</button>
-</div>
-</div>
-<!-- Status Filter -->
-<div class="flex flex-col gap-2">
-<span class="text-xs font-bold uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">Status</span>
-<div class="flex flex-wrap gap-2" id="status-filters">
-<button class="filter-btn active-filter px-5 py-2 text-xs font-bold uppercase tracking-widest border-2 border-primary bg-primary text-white rounded-sm transition-all duration-200" data-filter="all" data-group="status">All</button>
-<button class="filter-btn px-5 py-2 text-xs font-bold uppercase tracking-widest border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-primary hover:text-primary rounded-sm transition-all duration-200" data-filter="completed" data-group="status">Completed</button>
-<button class="filter-btn px-5 py-2 text-xs font-bold uppercase tracking-widest border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-primary hover:text-primary rounded-sm transition-all duration-200" data-filter="under-construction" data-group="status">Under Construction</button>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-<!-- ===== PROJECT GRID ===== -->
-<section class="py-24 bg-background-light dark:bg-industrial-gray">
-<div class="max-w-7xl mx-auto px-6">
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="project-grid">
-
-<!-- Project 1: Burks Falls -->
-<a href="case-studies/burks-falls.html" class="project-card group bg-white dark:bg-background-dark border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 block fade-in-up" data-delivery="design-build" data-status="completed" style="animation-delay: 0.1s">
-<div class="relative h-64 overflow-hidden">
-<img alt="Burks Falls Mid-Rise Renovation project" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200&auto=format&fit=crop"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-<!-- Status Badge -->
-<div class="absolute top-4 left-4">
-<span class="bg-green-600 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-sm">Completed</span>
-</div>
-<!-- Delivery Tag -->
-<div class="absolute top-4 right-4">
-<span class="bg-primary text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-sm">Design-Build</span>
-</div>
-</div>
-<div class="p-8">
-<div class="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 font-semibold uppercase tracking-wider mb-3">
-<span class="material-symbols-outlined text-primary text-sm">location_on</span>
-Burk's Falls, Ontario
-</div>
-<h3 class="text-xl font-black uppercase tracking-tighter mb-2 group-hover:text-primary transition-colors">Burks Falls Mid-Rise Renovation</h3>
-<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-4">Major mid-rise renovation delivered with disciplined sequencing, tight trade coordination, and closeout documentation to institutional standards.</p>
-<div class="flex items-center justify-between">
-<span class="text-2xl font-black text-primary tracking-tighter">$5.0M</span>
-<span class="text-primary text-xs font-bold uppercase tracking-widest flex items-center gap-1 group-hover:gap-2 transition-all">
-View Case Study <span class="material-symbols-outlined text-sm">arrow_forward</span>
-</span>
-</div>
-</div>
-</a>
-
-<!-- Project 2: Dairy Queen -->
-<a href="case-studies/dairy-queen.html" class="project-card group bg-white dark:bg-background-dark border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 block fade-in-up" data-delivery="general-contracting" data-status="completed" style="animation-delay: 0.15s">
-<div class="relative h-64 overflow-hidden">
-<img alt="Dairy Queen Ground-Up Build project" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-<!-- Status Badge -->
-<div class="absolute top-4 left-4">
-<span class="bg-green-600 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-sm">Completed</span>
-</div>
-<!-- Delivery Tag -->
-<div class="absolute top-4 right-4">
-<span class="bg-primary text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-sm">General Contracting</span>
-</div>
-</div>
-<div class="p-8">
-<div class="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 font-semibold uppercase tracking-wider mb-3">
-<span class="material-symbols-outlined text-primary text-sm">location_on</span>
-London, Ontario
-</div>
-<h3 class="text-xl font-black uppercase tracking-tighter mb-2 group-hover:text-primary transition-colors">Dairy Queen Ground-Up Build</h3>
-<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-4">New-build QSR delivery with fast-track scheduling, long-lead procurement planning, trade buyout, and clean owner-ready turnover.</p>
-<div class="flex items-center justify-between">
-<span class="text-2xl font-black text-primary tracking-tighter">~$3.0M</span>
-<span class="text-primary text-xs font-bold uppercase tracking-widest flex items-center gap-1 group-hover:gap-2 transition-all">
-View Case Study <span class="material-symbols-outlined text-sm">arrow_forward</span>
-</span>
-</div>
-</div>
-</a>
-
-<!-- Project 3: Adaptive Reuse -->
-<a href="case-studies/adaptive-reuse.html" class="project-card group bg-white dark:bg-background-dark border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 block fade-in-up" data-delivery="project-management" data-status="under-construction" style="animation-delay: 0.2s">
-<div class="relative h-64 overflow-hidden">
-<img alt="Adaptive Reuse: School Gym to Residential project" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://images.unsplash.com/photo-1590274853856-f22d5ee3d228?q=80&w=1200&auto=format&fit=crop"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-<!-- Status Badge -->
-<div class="absolute top-4 left-4">
-<span class="bg-accent-yellow text-background-dark text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-sm">Under Construction</span>
-</div>
-<!-- Delivery Tag -->
-<div class="absolute top-4 right-4">
-<span class="bg-primary text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-sm">Project Management</span>
-</div>
-</div>
-<div class="p-8">
-<div class="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 font-semibold uppercase tracking-wider mb-3">
-<span class="material-symbols-outlined text-primary text-sm">location_on</span>
-Cambridge, Ontario
-</div>
-<h3 class="text-xl font-black uppercase tracking-tighter mb-2 group-hover:text-primary transition-colors">Adaptive Reuse: School Gym to Residential</h3>
-<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-4">Repurposing an existing institutional asset into multi-unit residential with careful life-safety, MEP, and phased sequencing coordination.</p>
-<div class="flex items-center justify-between">
-<span class="text-2xl font-black text-primary tracking-tighter">$2.5M</span>
-<span class="text-primary text-xs font-bold uppercase tracking-widest flex items-center gap-1 group-hover:gap-2 transition-all">
-View Case Study <span class="material-symbols-outlined text-sm">arrow_forward</span>
-</span>
-</div>
-</div>
-</a>
-
-</div>
-
-<!-- No Results Message -->
-<div id="no-results" class="hidden text-center py-16">
-<span class="material-symbols-outlined text-6xl text-gray-300 dark:text-gray-600 mb-4 block">search_off</span>
-<h3 class="text-xl font-black uppercase tracking-tighter text-gray-500 dark:text-gray-400 mb-2">No Projects Found</h3>
-<p class="text-sm text-gray-400 dark:text-gray-500">Try adjusting your filter criteria to see more projects.</p>
-</div>
-</div>
-</section>
-
-<!-- ===== BOTTOM CTA ===== -->
-<section class="py-24 bg-primary overflow-hidden relative">
-<div class="absolute inset-0 opacity-10">
-<div class="absolute top-0 left-0 w-96 h-96 bg-white/20 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
-<div class="absolute bottom-0 right-0 w-72 h-72 bg-white/20 rounded-full translate-x-1/3 translate-y-1/3"></div>
+<img alt="Commercial construction project aerial view" class="w-full h-full object-cover opacity-20 mix-blend-luminosity grayscale" src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2000&auto=format&fit=crop"/>
 </div>
 <div class="max-w-7xl mx-auto px-6 relative z-10">
-<div class="flex flex-col items-center text-center gap-8 fade-in-up">
-<div class="max-w-3xl">
-<h2 class="text-white text-4xl md:text-5xl font-black tracking-tight mb-6 leading-tight">Have a Project in Mind?</h2>
-<p class="text-white/90 text-xl leading-relaxed">Share your scope, schedule, and constraints &mdash; our team will respond with a clear next-step plan tailored to your goals.</p>
+<div class="max-w-3xl fade-in-up">
+<div class="flex items-center gap-3 mb-6">
+<span class="h-[2px] w-12 bg-accent-yellow"></span>
+<span class="text-accent-yellow font-black uppercase tracking-[0.3em] text-xs">Commercial Excellence</span>
+</div>
+<h1 class="text-5xl md:text-7xl font-black text-white leading-[1] tracking-tighter mb-6 uppercase">
+Our Project<br/>
+<span class="text-primary">Portfolio</span>
+</h1>
+<p class="text-lg text-gray-300 mb-8 border-l-4 border-accent-yellow pl-6 leading-relaxed max-w-xl">
+Turnkey commercial construction across Ontario. From QSR franchise rollouts to institutional renovations, delivered on time and on budget.
+</p>
+<div class="flex flex-wrap items-center gap-3 text-gray-400 text-sm font-semibold">
+<span class="bg-white/10 px-4 py-2 rounded-sm">9+ Completed Projects</span>
+<span class="bg-white/10 px-4 py-2 rounded-sm">100% Turnkey Delivery</span>
+<span class="bg-white/10 px-4 py-2 rounded-sm">Multi-Province Reach</span>
+</div>
+</div>
+</div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- SECTOR 01: QSR & RESTAURANT CONSTRUCTION                  -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<section class="py-24 bg-white dark:bg-background-dark border-b border-gray-100 dark:border-gray-800">
+<div class="max-w-7xl mx-auto px-6 mb-12">
+<div class="flex items-end justify-between">
+<div>
+<span class="text-accent-yellow font-black uppercase tracking-[0.3em] text-[10px] block mb-2">Sector 01</span>
+<h2 class="text-4xl font-black uppercase tracking-tighter text-industrial-gray dark:text-white">QSR &amp; Restaurant Construction</h2>
+</div>
+<span class="text-xs font-bold uppercase tracking-widest text-gray-400 pb-2">5 Projects</span>
+</div>
+</div>
+
+<!-- Featured + Filmstrip -->
+<div class="flex flex-col lg:flex-row gap-8 pl-6 lg:pl-[max(1.5rem,calc((100vw-80rem)/2))]">
+<!-- Featured Landmark: Dairy Queen Niagara Falls -->
+<div class="w-full lg:w-1/2 flex-shrink-0 group relative overflow-hidden h-[500px] lg:h-[600px] cursor-pointer" onclick="openModal('dq-niagara')">
+<img alt="Dairy Queen Niagara Falls - Turnkey commercial construction" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" src="https://images.unsplash.com/photo-1567521464027-f127ff144326?q=80&w=1400&auto=format&fit=crop"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<div class="absolute top-6 left-6">
+<span class="bg-green-600 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-sm">Completed</span>
+</div>
+<div class="absolute bottom-10 left-10 right-10">
+<p class="text-accent-yellow font-black uppercase tracking-widest text-xs mb-3">Featured Project</p>
+<h3 class="text-3xl lg:text-4xl font-black text-white uppercase tracking-tighter mb-2">Dairy Queen</h3>
+<p class="text-gray-300 text-sm mb-6">Niagara Falls, ON</p>
+<span class="bg-accent-yellow text-industrial-gray px-8 py-4 text-xs font-black uppercase tracking-widest hover:bg-white transition-colors inline-block">
+View Project Details
+</span>
+</div>
+</div>
+
+<!-- Filmstrip -->
+<div class="filmstrip-scroll overflow-x-auto flex gap-6 pr-6 pb-6">
+<!-- Tokyo Smoke -->
+<div class="w-72 lg:w-80 flex-shrink-0 group cursor-pointer" onclick="openModal('tokyo-smoke')">
+<div class="aspect-[3/4] overflow-hidden bg-gray-100 mb-4 relative">
+<img alt="Tokyo Smoke Port Elgin - Retail construction" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=800&auto=format&fit=crop"/>
+<div class="absolute top-3 left-3">
+<span class="bg-green-600 text-white text-[9px] font-bold uppercase tracking-widest px-2 py-1 rounded-sm">Completed</span>
+</div>
+</div>
+<p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Port Elgin, ON</p>
+<h4 class="text-lg font-bold uppercase tracking-tight group-hover:text-primary transition-colors">Tokyo Smoke</h4>
+<p class="text-xs text-gray-500 mt-1">Turnkey Project</p>
+</div>
+
+<!-- Eggmania -->
+<div class="w-72 lg:w-80 flex-shrink-0 group cursor-pointer" onclick="openModal('eggmania')">
+<div class="aspect-[3/4] overflow-hidden bg-gray-100 mb-4 relative">
+<img alt="Eggmania - Restaurant construction" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=800&auto=format&fit=crop"/>
+<div class="absolute top-3 left-3">
+<span class="bg-green-600 text-white text-[9px] font-bold uppercase tracking-widest px-2 py-1 rounded-sm">Completed</span>
+</div>
+</div>
+<p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Ontario</p>
+<h4 class="text-lg font-bold uppercase tracking-tight group-hover:text-primary transition-colors">Eggmania</h4>
+<p class="text-xs text-gray-500 mt-1">Turnkey Project</p>
+</div>
+
+<!-- Brewing Brokers -->
+<div class="w-72 lg:w-80 flex-shrink-0 group cursor-pointer" onclick="openModal('brewing-brokers')">
+<div class="aspect-[3/4] overflow-hidden bg-gray-100 mb-4 relative">
+<img alt="Brewing Brokers - Bar and brewery construction" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://images.unsplash.com/photo-1559526324-593bc073d938?q=80&w=800&auto=format&fit=crop"/>
+<div class="absolute top-3 left-3">
+<span class="bg-green-600 text-white text-[9px] font-bold uppercase tracking-widest px-2 py-1 rounded-sm">Completed</span>
+</div>
+</div>
+<p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Ontario</p>
+<h4 class="text-lg font-bold uppercase tracking-tight group-hover:text-primary transition-colors">Brewing Brokers</h4>
+<p class="text-xs text-gray-500 mt-1">Turnkey Project</p>
+</div>
+
+<!-- Dairy Queen London -->
+<div class="w-72 lg:w-80 flex-shrink-0 group cursor-pointer" onclick="openModal('dq-london')">
+<div class="aspect-[3/4] overflow-hidden bg-gray-100 mb-4 relative">
+<img alt="Dairy Queen London - Ground-up QSR build" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=800&auto=format&fit=crop"/>
+<div class="absolute top-3 left-3">
+<span class="bg-green-600 text-white text-[9px] font-bold uppercase tracking-widest px-2 py-1 rounded-sm">Completed</span>
+</div>
+</div>
+<p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">London, ON</p>
+<h4 class="text-lg font-bold uppercase tracking-tight group-hover:text-primary transition-colors">Dairy Queen</h4>
+<p class="text-xs text-gray-500 mt-1">Ground-Up Build ~$3.0M</p>
+</div>
+</div>
+</div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- SECTOR 02: FRANCHISE ROLLOUT PROGRAM                       -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<section class="py-24 bg-background-light dark:bg-background-dark/30 border-b border-gray-100 dark:border-gray-800">
+<div class="max-w-7xl mx-auto px-6 mb-12">
+<div class="flex items-end justify-between">
+<div>
+<span class="text-accent-yellow font-black uppercase tracking-[0.3em] text-[10px] block mb-2">Sector 02</span>
+<h2 class="text-4xl font-black uppercase tracking-tighter text-industrial-gray dark:text-white">Franchise Rollout Program</h2>
+</div>
+<span class="text-xs font-bold uppercase tracking-widest text-gray-400 pb-2">4 Locations</span>
+</div>
+</div>
+
+<!-- Featured + Filmstrip (reversed layout) -->
+<div class="flex flex-col lg:flex-row-reverse gap-8 pr-6 lg:pr-[max(1.5rem,calc((100vw-80rem)/2))]">
+<!-- Featured Landmark: BarBurrito Stoufville -->
+<div class="w-full lg:w-1/2 flex-shrink-0 group relative overflow-hidden h-[500px] lg:h-[600px] cursor-pointer" onclick="openModal('barburrito-stoufville')">
+<img alt="BarBurrito Stoufville - Franchise turnkey construction" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1400&auto=format&fit=crop"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<div class="absolute top-6 right-6">
+<span class="bg-green-600 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-sm">Completed</span>
+</div>
+<div class="absolute bottom-10 left-10 right-10">
+<p class="text-accent-yellow font-black uppercase tracking-widest text-xs mb-3">Multi-Location Program</p>
+<h3 class="text-3xl lg:text-4xl font-black text-white uppercase tracking-tighter mb-2">BarBurrito Stoufville</h3>
+<p class="text-gray-300 text-sm mb-6">Stoufville, ON</p>
+<span class="bg-accent-yellow text-industrial-gray px-8 py-4 text-xs font-black uppercase tracking-widest hover:bg-white transition-colors inline-block">
+View Project Details
+</span>
+</div>
+</div>
+
+<!-- Filmstrip -->
+<div class="filmstrip-scroll overflow-x-auto flex gap-6 pl-6 pb-6">
+<!-- BarBurrito Belleville -->
+<div class="w-72 lg:w-80 flex-shrink-0 group cursor-pointer" onclick="openModal('barburrito-belleville')">
+<div class="aspect-[3/4] overflow-hidden bg-gray-100 mb-4 relative">
+<img alt="BarBurrito Belleville - Franchise construction" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=800&auto=format&fit=crop"/>
+<div class="absolute top-3 left-3">
+<span class="bg-green-600 text-white text-[9px] font-bold uppercase tracking-widest px-2 py-1 rounded-sm">Completed</span>
+</div>
+</div>
+<p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Belleville, ON</p>
+<h4 class="text-lg font-bold uppercase tracking-tight group-hover:text-primary transition-colors">BarBurrito</h4>
+<p class="text-xs text-gray-500 mt-1">Turnkey Project</p>
+</div>
+
+<!-- BarBurrito Fort Erie -->
+<div class="w-72 lg:w-80 flex-shrink-0 group cursor-pointer" onclick="openModal('barburrito-forterie')">
+<div class="aspect-[3/4] overflow-hidden bg-gray-100 mb-4 relative">
+<img alt="BarBurrito Fort Erie - Franchise construction" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=800&auto=format&fit=crop"/>
+<div class="absolute top-3 left-3">
+<span class="bg-green-600 text-white text-[9px] font-bold uppercase tracking-widest px-2 py-1 rounded-sm">Completed</span>
+</div>
+</div>
+<p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Fort Erie, ON</p>
+<h4 class="text-lg font-bold uppercase tracking-tight group-hover:text-primary transition-colors">BarBurrito</h4>
+<p class="text-xs text-gray-500 mt-1">Turnkey Project</p>
+</div>
+
+<!-- BarBurrito Shelburne -->
+<div class="w-72 lg:w-80 flex-shrink-0 group cursor-pointer" onclick="openModal('barburrito-shelburne')">
+<div class="aspect-[3/4] overflow-hidden bg-gray-100 mb-4 relative">
+<img alt="BarBurrito Shelburne - Franchise construction" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?q=80&w=800&auto=format&fit=crop"/>
+<div class="absolute top-3 left-3">
+<span class="bg-green-600 text-white text-[9px] font-bold uppercase tracking-widest px-2 py-1 rounded-sm">Completed</span>
+</div>
+</div>
+<p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Shelburne, ON</p>
+<h4 class="text-lg font-bold uppercase tracking-tight group-hover:text-primary transition-colors">BarBurrito</h4>
+<p class="text-xs text-gray-500 mt-1">Turnkey Project</p>
+</div>
+</div>
+</div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- SECTOR 03: COMMUNITY & INSTITUTIONAL                       -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<section class="py-24 bg-white dark:bg-background-dark border-b border-gray-100 dark:border-gray-800">
+<div class="max-w-7xl mx-auto px-6 mb-12">
+<div class="flex items-end justify-between">
+<div>
+<span class="text-accent-yellow font-black uppercase tracking-[0.3em] text-[10px] block mb-2">Sector 03</span>
+<h2 class="text-4xl font-black uppercase tracking-tighter text-industrial-gray dark:text-white">Community &amp; Infrastructure</h2>
+</div>
+<span class="text-xs font-bold uppercase tracking-widest text-gray-400 pb-2">3 Projects</span>
+</div>
+</div>
+
+<!-- Featured + Filmstrip -->
+<div class="flex flex-col lg:flex-row gap-8 pl-6 lg:pl-[max(1.5rem,calc((100vw-80rem)/2))]">
+<!-- Featured Landmark: Burks Falls Mid-Rise -->
+<div class="w-full lg:w-1/2 flex-shrink-0 group relative overflow-hidden h-[500px] lg:h-[600px] cursor-pointer" onclick="openModal('burks-falls')">
+<img alt="Burks Falls Mid-Rise Renovation - $5M institutional renovation" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1400&auto=format&fit=crop"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<div class="absolute top-6 left-6">
+<span class="bg-green-600 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-sm">Completed</span>
+</div>
+<div class="absolute bottom-10 left-10 right-10">
+<p class="text-accent-yellow font-black uppercase tracking-widest text-xs mb-3">Featured Landmark</p>
+<h3 class="text-3xl lg:text-4xl font-black text-white uppercase tracking-tighter mb-2">Burks Falls Mid-Rise Renovation</h3>
+<p class="text-gray-300 text-sm mb-1">Burk's Falls, ON</p>
+<p class="text-2xl font-black text-accent-yellow mb-6">$5.0M</p>
+<span class="bg-accent-yellow text-industrial-gray px-8 py-4 text-xs font-black uppercase tracking-widest hover:bg-white transition-colors inline-block">
+View Project Details
+</span>
+</div>
+</div>
+
+<!-- Filmstrip -->
+<div class="filmstrip-scroll overflow-x-auto flex gap-6 pr-6 pb-6">
+<!-- Adaptive Reuse -->
+<div class="w-72 lg:w-80 flex-shrink-0 group cursor-pointer" onclick="openModal('adaptive-reuse')">
+<div class="aspect-[3/4] overflow-hidden bg-gray-100 mb-4 relative">
+<img alt="Adaptive Reuse: School Gym to Residential" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://images.unsplash.com/photo-1590274853856-f22d5ee3d228?q=80&w=800&auto=format&fit=crop"/>
+<div class="absolute top-3 left-3">
+<span class="bg-accent-yellow text-black text-[9px] font-bold uppercase tracking-widest px-2 py-1 rounded-sm">Under Construction</span>
+</div>
+</div>
+<p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Cambridge, ON</p>
+<h4 class="text-lg font-bold uppercase tracking-tight group-hover:text-primary transition-colors">Adaptive Reuse: School Gym to Residential</h4>
+<p class="text-xs text-gray-500 mt-1">$2.5M</p>
+</div>
+
+<!-- Fence Project Niagara -->
+<div class="w-72 lg:w-80 flex-shrink-0 group cursor-pointer" onclick="openModal('fence-niagara')">
+<div class="aspect-[3/4] overflow-hidden bg-gray-100 mb-4 relative">
+<img alt="Fence Project for Niagara Region" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?q=80&w=800&auto=format&fit=crop"/>
+<div class="absolute top-3 left-3">
+<span class="bg-green-600 text-white text-[9px] font-bold uppercase tracking-widest px-2 py-1 rounded-sm">Completed</span>
+</div>
+</div>
+<p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Niagara Region, ON</p>
+<h4 class="text-lg font-bold uppercase tracking-tight group-hover:text-primary transition-colors">Fence Project for Niagara Region</h4>
+<p class="text-xs text-gray-500 mt-1">Turnkey Project</p>
+</div>
+</div>
+</div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- PROJECT STATS BAR                                          -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<section class="py-16 bg-industrial-gray">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+<div>
+<p class="text-4xl font-black text-accent-yellow mb-2">12+</p>
+<p class="text-xs font-bold text-gray-400 uppercase tracking-widest">Commercial Projects</p>
 </div>
 <div>
-<a href="contact.html" class="bg-white text-primary px-12 py-5 text-base font-black uppercase tracking-widest rounded-sm hover:scale-105 transition-transform shadow-2xl inline-block">
-Get a Consultation
-</a>
+<p class="text-4xl font-black text-white mb-2">100%</p>
+<p class="text-xs font-bold text-gray-400 uppercase tracking-widest">Turnkey Delivery</p>
 </div>
+<div>
+<p class="text-4xl font-black text-accent-yellow mb-2">4+</p>
+<p class="text-xs font-bold text-gray-400 uppercase tracking-widest">Franchise Brands</p>
+</div>
+<div>
+<p class="text-4xl font-black text-white mb-2">ON</p>
+<p class="text-xs font-bold text-gray-400 uppercase tracking-widest">Province-Wide</p>
+</div>
+</div>
+</div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- BOTTOM CTA                                                 -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<section class="py-32 bg-background-light dark:bg-background-dark/50 border-t border-gray-100 dark:border-gray-800">
+<div class="max-w-7xl mx-auto px-6 text-center">
+<h2 class="text-4xl md:text-6xl font-black tracking-tighter uppercase mb-8 text-gray-900 dark:text-white leading-none">
+Ready to build<br/>your <span class="text-primary">project?</span>
+</h2>
+<p class="text-lg text-gray-500 dark:text-gray-400 max-w-xl mx-auto mb-12">
+Let's discuss how our turnkey commercial construction services can deliver your next project on time and on budget.
+</p>
+<div class="flex flex-col sm:flex-row gap-6 justify-center">
+<a href="contact.html" class="bg-primary text-white px-12 py-5 text-sm font-black uppercase tracking-widest hover:brightness-110 transition-all rounded-sm inline-block">
+Start a Consultation
+</a>
+<a href="qualifications.html" class="bg-white dark:bg-industrial-gray border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white px-12 py-5 text-sm font-black uppercase tracking-widest hover:bg-gray-50 dark:hover:bg-gray-700 transition-all rounded-sm inline-block">
+View Qualifications
+</a>
 </div>
 </div>
 </section>
 
 </main>
+
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- PROJECT DETAIL MODAL                                       -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div id="project-modal" class="fixed inset-0 z-[100] hidden">
+<div class="absolute inset-0 bg-black/80 modal-overlay" onclick="closeModal()"></div>
+<div class="absolute inset-4 md:inset-8 lg:inset-16 bg-white dark:bg-industrial-gray rounded-sm overflow-hidden flex flex-col">
+<!-- Close Button -->
+<button onclick="closeModal()" class="absolute top-4 right-4 z-10 bg-black/60 hover:bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined">close</span>
+</button>
+
+<!-- Modal Content -->
+<div class="flex flex-col md:flex-row h-full overflow-hidden">
+<!-- Image Gallery Side -->
+<div class="w-full md:w-1/2 h-64 md:h-full bg-gray-100 dark:bg-background-dark relative flex-shrink-0">
+<img id="modal-main-image" alt="Project" class="w-full h-full object-cover"/>
+<!-- Image Navigation -->
+<div class="absolute bottom-4 left-4 right-4 flex gap-2" id="modal-thumbnails">
+</div>
+</div>
+
+<!-- Details Side -->
+<div class="w-full md:w-1/2 p-8 md:p-12 overflow-y-auto">
+<div id="modal-status-badge" class="mb-4">
+<span class="bg-green-600 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-sm">Completed</span>
+</div>
+<h3 id="modal-title" class="text-3xl font-black uppercase tracking-tighter mb-2 text-gray-900 dark:text-white"></h3>
+<p id="modal-location" class="text-sm text-gray-500 dark:text-gray-400 mb-2 uppercase tracking-wider flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">location_on</span>
+<span id="modal-location-text"></span>
+</p>
+<p id="modal-type" class="text-xs font-bold text-primary uppercase tracking-widest mb-4"></p>
+<p id="modal-value" class="text-2xl font-black text-primary mb-6"></p>
+<div class="border-t border-gray-200 dark:border-gray-600 pt-6 mb-6">
+<p id="modal-description" class="text-base text-gray-700 dark:text-gray-300 leading-relaxed"></p>
+</div>
+<div id="modal-scope-section">
+<h4 class="text-sm font-black uppercase tracking-widest text-gray-900 dark:text-white mb-4">Scope of Work</h4>
+<ul id="modal-scope" class="space-y-3 text-sm text-gray-600 dark:text-gray-400 mb-8">
+</ul>
+</div>
+<a href="contact.html" class="bg-primary text-white px-8 py-4 text-xs font-black uppercase tracking-widest hover:brightness-110 transition-all rounded-sm inline-block">
+Inquire About Similar Project
+</a>
+</div>
+</div>
+</div>
+</div>
+
 
 <!-- ===== FOOTER ===== -->
 <footer class="bg-background-dark text-white pt-20 pb-12 border-t-4 border-accent-yellow">
@@ -380,7 +535,6 @@ Get a Consultation
 Ontario-based Design-Build and General Contracting partner. Founded 2016.
 </p>
 </div>
-
 <!-- Contact Information -->
 <div>
 <h5 class="text-sm font-black uppercase tracking-[0.2em] text-accent-yellow mb-6">Contact</h5>
@@ -402,7 +556,6 @@ Ontario-based Design-Build and General Contracting partner. Founded 2016.
 </li>
 </ul>
 </div>
-
 <!-- Quick Links -->
 <div>
 <h5 class="text-sm font-black uppercase tracking-[0.2em] text-accent-yellow mb-6">Resources</h5>
@@ -426,7 +579,6 @@ Instagram
 </ul>
 </div>
 </div>
-
 <!-- Footer Bottom -->
 <div class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
 <p class="text-xs text-gray-500 uppercase tracking-wider">&copy; 2026 Festbau. All rights reserved.</p>
@@ -442,15 +594,360 @@ Instagram
 </div>
 </footer>
 
+
 <!-- ===== JAVASCRIPT ===== -->
 <script>
-// Mobile Menu Toggle
+// ===== PROJECT DATA =====
+var projects = {
+    'dq-niagara': {
+        title: 'Dairy Queen',
+        location: 'Niagara Falls, ON',
+        type: 'Turnkey Commercial Build',
+        status: 'Completed',
+        value: '',
+        description: 'Complete turnkey construction of a new Dairy Queen franchise location in Niagara Falls. This project involved full site development, foundation work, steel and wood framing, interior fit-out to DQ corporate standards, kitchen equipment installation, HVAC, electrical, plumbing, and final finishing. Delivered on schedule with full compliance to franchise design specifications and municipal building codes.',
+        scope: [
+            'Complete site preparation and foundation',
+            'Structural framing and building envelope',
+            'Full interior fit-out to franchise standards',
+            'Commercial kitchen and equipment installation',
+            'HVAC, electrical, and plumbing systems',
+            'Parking lot, signage, and landscaping'
+        ],
+        images: [
+            'https://images.unsplash.com/photo-1567521464027-f127ff144326?q=80&w=1400&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1400&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1400&auto=format&fit=crop'
+        ]
+    },
+    'tokyo-smoke': {
+        title: 'Tokyo Smoke',
+        location: 'Port Elgin, ON',
+        type: 'Turnkey Retail Build',
+        status: 'Completed',
+        value: '',
+        description: 'Turnkey construction of a Tokyo Smoke retail cannabis store in Port Elgin. This specialized project required strict adherence to AGCO (Alcohol and Gaming Commission of Ontario) regulations, including security infrastructure, controlled access areas, and compliant display systems. Full interior build-out with custom millwork, specialty lighting, and branded design elements.',
+        scope: [
+            'Regulatory-compliant retail build-out',
+            'Security infrastructure and access control',
+            'Custom millwork and display systems',
+            'Specialty lighting and branded interiors',
+            'HVAC and ventilation systems',
+            'Full electrical and data infrastructure'
+        ],
+        images: [
+            'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1400&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1604014237800-1c9102c219da?q=80&w=1400&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1400&auto=format&fit=crop'
+        ]
+    },
+    'eggmania': {
+        title: 'Eggmania',
+        location: 'Ontario',
+        type: 'Turnkey Restaurant Build',
+        status: 'Completed',
+        value: '',
+        description: 'Full turnkey construction of the Eggmania restaurant concept. This project encompassed complete interior build-out including commercial kitchen design and installation, dining area finishing, custom branding elements, and all mechanical, electrical, and plumbing systems. Delivered as a move-in ready restaurant operation.',
+        scope: [
+            'Complete restaurant interior build-out',
+            'Commercial kitchen design and installation',
+            'Dining area finishes and custom branding',
+            'Mechanical, electrical, and plumbing',
+            'Health and safety code compliance',
+            'Equipment commissioning and turnover'
+        ],
+        images: [
+            'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1400&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1400&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?q=80&w=1400&auto=format&fit=crop'
+        ]
+    },
+    'brewing-brokers': {
+        title: 'Brewing Brokers',
+        location: 'Ontario',
+        type: 'Turnkey Commercial Build',
+        status: 'Completed',
+        value: '',
+        description: 'Turnkey construction for Brewing Brokers, a specialty craft brewing and taproom establishment. The project included full facility build-out with brewing equipment foundations, specialized plumbing and drainage for brewing operations, taproom and bar area construction, cold storage installation, and all finishing work. Built to meet both commercial building codes and AGCO licensing requirements.',
+        scope: [
+            'Brewing facility and taproom build-out',
+            'Specialized plumbing and drainage systems',
+            'Brewing equipment foundations and utilities',
+            'Bar construction and cold storage',
+            'Taproom interior finishing',
+            'AGCO compliance and licensing coordination'
+        ],
+        images: [
+            'https://images.unsplash.com/photo-1559526324-593bc073d938?q=80&w=1400&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1532634922-8fe0b757fb13?q=80&w=1400&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?q=80&w=1400&auto=format&fit=crop'
+        ]
+    },
+    'dq-london': {
+        title: 'Dairy Queen',
+        location: 'London, ON',
+        type: 'Ground-Up QSR Build',
+        status: 'Completed',
+        value: '~$3.0M',
+        description: 'New ground-up Dairy Queen QSR build in London, Ontario. This was one of our largest QSR projects, delivered with fast-track scheduling, comprehensive long-lead procurement planning, full trade buyout, and clean owner-ready turnover. The project included complete site development, structural construction, full interior fit-out, drive-through infrastructure, and all site works.',
+        scope: [
+            'Ground-up site development and construction',
+            'Fast-track scheduling and delivery',
+            'Long-lead procurement management',
+            'Full trade buyout and coordination',
+            'Drive-through infrastructure',
+            'Owner-ready turnover documentation'
+        ],
+        images: [
+            'https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1400&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1567521464027-f127ff144326?q=80&w=1400&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1400&auto=format&fit=crop'
+        ]
+    },
+    'barburrito-stoufville': {
+        title: 'BarBurrito Stoufville',
+        location: 'Stoufville, ON',
+        type: 'Turnkey Franchise Build',
+        status: 'Completed',
+        value: '',
+        description: 'Turnkey franchise build for BarBurrito in Stoufville as part of our multi-location franchise rollout program. This project followed the standardized BarBurrito franchise design package with localized adaptations for the specific unit. Scope included demolition of existing space, full interior build-out, food service line installation, customer-facing finishes, and all M/E/P systems.',
+        scope: [
+            'Franchise-standard interior build-out',
+            'Demolition and site preparation',
+            'Food service line and equipment installation',
+            'Customer-facing finishes and branding',
+            'Mechanical, electrical, and plumbing',
+            'Final inspection and franchise handover'
+        ],
+        images: [
+            'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1400&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=1400&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1400&auto=format&fit=crop'
+        ]
+    },
+    'barburrito-belleville': {
+        title: 'BarBurrito Belleville',
+        location: 'Belleville, ON',
+        type: 'Turnkey Franchise Build',
+        status: 'Completed',
+        value: '',
+        description: 'Turnkey franchise construction for BarBurrito in Belleville, Ontario. Part of the multi-location rollout program, this project was delivered using standardized construction packages that ensure brand consistency while meeting local building requirements. Complete interior renovation from shell to fully operational restaurant.',
+        scope: [
+            'Shell-to-finish restaurant conversion',
+            'Franchise design package execution',
+            'Food service equipment installation',
+            'Interior finishing and branding',
+            'All mechanical, electrical, and plumbing',
+            'Municipal permitting and inspections'
+        ],
+        images: [
+            'https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=1400&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1400&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?q=80&w=1400&auto=format&fit=crop'
+        ]
+    },
+    'barburrito-forterie': {
+        title: 'BarBurrito Fort Erie',
+        location: 'Fort Erie, ON',
+        type: 'Turnkey Franchise Build',
+        status: 'Completed',
+        value: '',
+        description: 'Turnkey franchise build-out for BarBurrito in Fort Erie. Delivered as part of a multi-location rollout with standardized scheduling and procurement. Full scope from site preparation through to final franchise inspection and handover, ensuring consistent quality and brand compliance across all locations.',
+        scope: [
+            'Franchise-compliant construction',
+            'Interior demolition and preparation',
+            'Full restaurant fit-out',
+            'Kitchen and food service line',
+            'Signage, branding, and exterior work',
+            'Franchise inspection and handover'
+        ],
+        images: [
+            'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1400&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=1400&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?q=80&w=1400&auto=format&fit=crop'
+        ]
+    },
+    'barburrito-shelburne': {
+        title: 'BarBurrito Shelburne',
+        location: 'Shelburne, ON',
+        type: 'Turnkey Franchise Build',
+        status: 'Completed',
+        value: '',
+        description: 'Turnkey franchise construction for BarBurrito in Shelburne, Ontario. This location was part of the broader franchise expansion program, leveraging our standardized delivery system for consistent, efficient rollouts. Full interior build-out to BarBurrito corporate specifications with all required M/E/P systems and finishes.',
+        scope: [
+            'Complete franchise interior build-out',
+            'Corporate specification compliance',
+            'Commercial kitchen installation',
+            'Customer area finishing and branding',
+            'Full M/E/P systems installation',
+            'Turnkey delivery and handover'
+        ],
+        images: [
+            'https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?q=80&w=1400&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1400&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=1400&auto=format&fit=crop'
+        ]
+    },
+    'burks-falls': {
+        title: 'Burks Falls Mid-Rise Renovation',
+        location: "Burk's Falls, ON",
+        type: 'Design-Build',
+        status: 'Completed',
+        value: '$5.0M',
+        description: 'Major mid-rise renovation delivered with disciplined sequencing, tight trade coordination, and closeout documentation to institutional standards. This flagship project involved comprehensive structural rehabilitation, full MEP system upgrades, building envelope restoration, and interior renovations across multiple floors while maintaining partial occupancy.',
+        scope: [
+            'Structural rehabilitation and reinforcement',
+            'Full MEP system upgrades',
+            'Building envelope restoration',
+            'Multi-floor interior renovations',
+            'Phased construction with partial occupancy',
+            'Institutional-grade closeout documentation'
+        ],
+        images: [
+            'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1400&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1590274853856-f22d5ee3d228?q=80&w=1400&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1400&auto=format&fit=crop'
+        ]
+    },
+    'adaptive-reuse': {
+        title: 'Adaptive Reuse: School Gym to Residential',
+        location: 'Cambridge, ON',
+        type: 'Project Management',
+        status: 'Under Construction',
+        value: '$2.5M',
+        description: 'Repurposing an existing institutional asset into multi-unit residential with careful life-safety planning, MEP coordination, and phased sequencing. This complex adaptive reuse project transforms a former school gymnasium into modern residential units while preserving the structural character of the original building.',
+        scope: [
+            'Institutional-to-residential conversion',
+            'Life-safety system design and installation',
+            'Structural assessment and modification',
+            'Multi-unit residential fit-out',
+            'Phased construction sequencing',
+            'Municipal approvals and code compliance'
+        ],
+        images: [
+            'https://images.unsplash.com/photo-1590274853856-f22d5ee3d228?q=80&w=1400&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1400&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1400&auto=format&fit=crop'
+        ]
+    },
+    'fence-niagara': {
+        title: 'Fence Project for Niagara Region',
+        location: 'Niagara Region, ON',
+        type: 'Turnkey Infrastructure',
+        status: 'Completed',
+        value: '',
+        description: 'Turnkey fencing and site security infrastructure project for the Niagara Region. This municipal-level project included comprehensive site surveying, engineered fence system design, installation of commercial-grade fencing across multiple locations, and all associated site work. Delivered to regional government specifications with full documentation.',
+        scope: [
+            'Site surveying and engineering',
+            'Commercial-grade fence system installation',
+            'Multi-location coordination',
+            'Municipal specification compliance',
+            'Site restoration and landscaping',
+            'Project documentation and handover'
+        ],
+        images: [
+            'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?q=80&w=1400&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1400&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1400&auto=format&fit=crop'
+        ]
+    }
+};
+
+var currentImageIndex = 0;
+var currentImages = [];
+
+// ===== MODAL FUNCTIONS =====
+function openModal(projectId) {
+    var project = projects[projectId];
+    if (!project) return;
+
+    document.getElementById('modal-title').textContent = project.title;
+    document.getElementById('modal-location-text').textContent = project.location;
+    document.getElementById('modal-type').textContent = project.type;
+
+    var valueEl = document.getElementById('modal-value');
+    if (project.value) {
+        valueEl.textContent = project.value;
+        valueEl.style.display = '';
+    } else {
+        valueEl.style.display = 'none';
+    }
+
+    document.getElementById('modal-description').textContent = project.description;
+
+    // Status badge
+    var badgeEl = document.getElementById('modal-status-badge');
+    if (project.status === 'Under Construction') {
+        badgeEl.innerHTML = '<span class="bg-accent-yellow text-black text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-sm">Under Construction</span>';
+    } else {
+        badgeEl.innerHTML = '<span class="bg-green-600 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-sm">Completed</span>';
+    }
+
+    // Scope items
+    var scopeList = document.getElementById('modal-scope');
+    scopeList.innerHTML = '';
+    project.scope.forEach(function(item) {
+        var li = document.createElement('li');
+        li.className = 'flex items-start gap-3';
+        li.innerHTML = '<span class="material-symbols-outlined text-primary text-lg mt-0.5 flex-shrink-0">check_circle</span><span>' + item + '</span>';
+        scopeList.appendChild(li);
+    });
+
+    // Images
+    currentImages = project.images;
+    currentImageIndex = 0;
+    document.getElementById('modal-main-image').src = currentImages[0];
+
+    // Thumbnails
+    var thumbContainer = document.getElementById('modal-thumbnails');
+    thumbContainer.innerHTML = '';
+    currentImages.forEach(function(img, idx) {
+        var thumb = document.createElement('button');
+        thumb.className = 'w-16 h-12 rounded-sm overflow-hidden border-2 transition-all flex-shrink-0 ' + (idx === 0 ? 'border-accent-yellow' : 'border-white/40 hover:border-white');
+        thumb.innerHTML = '<img src="' + img + '" alt="Photo ' + (idx + 1) + '" class="w-full h-full object-cover"/>';
+        thumb.onclick = function(e) {
+            e.stopPropagation();
+            switchImage(idx);
+        };
+        thumbContainer.appendChild(thumb);
+    });
+
+    // Show modal
+    document.getElementById('project-modal').classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+}
+
+function switchImage(idx) {
+    currentImageIndex = idx;
+    document.getElementById('modal-main-image').src = currentImages[idx];
+
+    // Update thumbnail borders
+    var thumbs = document.getElementById('modal-thumbnails').children;
+    for (var i = 0; i < thumbs.length; i++) {
+        if (i === idx) {
+            thumbs[i].className = 'w-16 h-12 rounded-sm overflow-hidden border-2 border-accent-yellow transition-all flex-shrink-0';
+        } else {
+            thumbs[i].className = 'w-16 h-12 rounded-sm overflow-hidden border-2 border-white/40 hover:border-white transition-all flex-shrink-0';
+        }
+    }
+}
+
+function closeModal() {
+    document.getElementById('project-modal').classList.add('hidden');
+    document.body.style.overflow = '';
+}
+
+// Close modal on Escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+});
+
+// ===== MOBILE MENU =====
 document.getElementById('mobile-menu-btn').addEventListener('click', function() {
     var menu = document.getElementById('mobile-menu');
     menu.classList.toggle('hidden');
 });
 
-// Mobile Services Accordion
 document.getElementById('mobile-services-btn').addEventListener('click', function() {
     var submenu = document.getElementById('mobile-services-menu');
     var chevron = document.getElementById('mobile-services-chevron');
@@ -462,77 +959,7 @@ document.getElementById('mobile-services-btn').addEventListener('click', functio
     }
 });
 
-// ===== FILTER LOGIC =====
-var activeDelivery = 'all';
-var activeStatus = 'all';
-
-function applyFilters() {
-    var cards = document.querySelectorAll('.project-card');
-    var visibleCount = 0;
-
-    cards.forEach(function(card) {
-        var delivery = card.getAttribute('data-delivery');
-        var status = card.getAttribute('data-status');
-        var matchesDelivery = (activeDelivery === 'all' || delivery === activeDelivery);
-        var matchesStatus = (activeStatus === 'all' || status === activeStatus);
-
-        if (matchesDelivery && matchesStatus) {
-            card.style.display = '';
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            setTimeout(function() {
-                card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-                card.style.opacity = '1';
-                card.style.transform = 'translateY(0)';
-            }, 50);
-            visibleCount++;
-        } else {
-            card.style.display = 'none';
-        }
-    });
-
-    // Show/hide no results message
-    var noResults = document.getElementById('no-results');
-    if (visibleCount === 0) {
-        noResults.classList.remove('hidden');
-    } else {
-        noResults.classList.add('hidden');
-    }
-}
-
-function updateFilterButtons(group, activeValue) {
-    var buttons = document.querySelectorAll('.filter-btn[data-group="' + group + '"]');
-    buttons.forEach(function(btn) {
-        if (btn.getAttribute('data-filter') === activeValue) {
-            btn.classList.add('active-filter');
-            btn.classList.add('bg-primary', 'text-white', 'border-primary');
-            btn.classList.remove('text-gray-700', 'dark:text-gray-300', 'border-gray-300', 'dark:border-gray-600');
-        } else {
-            btn.classList.remove('active-filter');
-            btn.classList.remove('bg-primary', 'text-white', 'border-primary');
-            btn.classList.add('text-gray-700', 'dark:text-gray-300', 'border-gray-300', 'dark:border-gray-600');
-        }
-    });
-}
-
-// Attach click handlers to filter buttons
-document.querySelectorAll('.filter-btn').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-        var filter = this.getAttribute('data-filter');
-        var group = this.getAttribute('data-group');
-
-        if (group === 'delivery') {
-            activeDelivery = filter;
-        } else if (group === 'status') {
-            activeStatus = filter;
-        }
-
-        updateFilterButtons(group, filter);
-        applyFilters();
-    });
-});
-
-// Intersection Observer for scroll animations
+// ===== SCROLL ANIMATIONS =====
 var fadeObserver = new IntersectionObserver(function(entries, observer) {
     entries.forEach(function(entry) {
         if (entry.isIntersecting) {
@@ -546,9 +973,8 @@ var fadeObserver = new IntersectionObserver(function(entries, observer) {
     rootMargin: '0px 0px -50px 0px'
 });
 
-// Observe all animated elements on DOM load
 document.addEventListener('DOMContentLoaded', function() {
-    var animatedElements = document.querySelectorAll('.fade-in-up, .fade-in, .slide-in-left, .scale-in');
+    var animatedElements = document.querySelectorAll('.fade-in-up, .fade-in');
     animatedElements.forEach(function(el) {
         fadeObserver.observe(el);
     });
