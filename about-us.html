@@ -1,62 +1,118 @@
 <!DOCTYPE html>
-<html class="light" lang="en"><head>
+<html class="light" lang="en">
+<head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>About Us | Festbau Industrial Construction</title>
+<title>About Us | Festbau</title>
+<meta name="description" content="Learn about Festbau Construction — Ontario-based Design-Build and General Contracting partner. Founded in 2016, delivering institutional-grade projects across Ontario."/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style type="text/tailwindcss">
-        @layer base {
-            body {
-                @apply font-display;
-            }
+    @layer base {
+        body {
+            @apply font-display;
         }
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+
+    /* Fade in up animation */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
         }
-        .timeline-container::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 100%;
-            background: #e5e7eb;
+        to {
+            opacity: 1;
+            transform: translateY(0);
         }
-        @media (max-width: 768px) {
-            .timeline-container::before {
-                left: 20px;
-            }
+    }
+
+    .fade-in-up {
+        opacity: 0;
+        animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    /* Fade in animation */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
         }
-    </style>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#1152d4",
-                        "accent-yellow": "#FFD700",
-                        "background-light": "#f6f6f8",
-                        "background-dark": "#101622",
-                        "industrial-gray": "#2d3442",
-                    },
-                    fontFamily: {
-                        "display": ["Manrope", "sans-serif"]
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.125rem",
-                        "lg": "0.25rem",
-                        "xl": "0.5rem",
-                        "full": "0.75rem"
-                    },
+        to {
+            opacity: 1;
+        }
+    }
+
+    .fade-in {
+        opacity: 0;
+        animation: fadeIn 0.8s ease-out forwards;
+    }
+
+    /* Slide in from left */
+    @keyframes slideInLeft {
+        from {
+            opacity: 0;
+            transform: translateX(-30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    .slide-in-left {
+        opacity: 0;
+        animation: slideInLeft 0.8s ease-out forwards;
+    }
+
+    /* Scale in animation */
+    @keyframes scaleIn {
+        from {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    .scale-in {
+        opacity: 0;
+        animation: scaleIn 0.6s ease-out forwards;
+    }
+</style>
+<script>
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    "primary": "#1152d4",
+                    "accent-yellow": "#FFD700",
+                    "background-light": "#f6f6f8",
+                    "background-dark": "#101622",
+                    "industrial-gray": "#2d3442",
+                },
+                fontFamily: {
+                    "display": ["Manrope", "sans-serif"]
+                },
+                borderRadius: {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
                 },
             },
-        }
-    </script>
+        },
+    }
+</script>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-gray-900 dark:text-gray-100 overflow-x-hidden">
+
+<!-- ===== HEADER / NAVIGATION ===== -->
 <header class="sticky top-0 z-50 w-full bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
 <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
 <a href="index.html" class="flex items-center gap-3">
@@ -68,151 +124,329 @@
 </div>
 <h2 class="text-xl font-extrabold tracking-tighter uppercase">Festbau</h2>
 </a>
+<!-- Desktop Nav -->
 <nav class="hidden md:flex items-center gap-8">
 <a class="text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors" href="index.html">Home</a>
+<a class="text-sm font-semibold uppercase tracking-widest text-primary border-b-2 border-primary" href="about-us.html">About</a>
 <div class="relative group">
 <button class="text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors flex items-center gap-1">
 Services
 <span class="material-symbols-outlined text-sm">expand_more</span>
 </button>
 <div class="absolute top-full left-0 mt-2 w-64 bg-white dark:bg-industrial-gray shadow-xl border border-gray-200 dark:border-gray-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-<a href="services/design-build.html" class="block px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors border-b border-gray-100 dark:border-gray-700">Design Build</a>
+<a href="services/design-build.html" class="block px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors border-b border-gray-100 dark:border-gray-700">Design-Build</a>
 <a href="services/general-contracting.html" class="block px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors border-b border-gray-100 dark:border-gray-700">General Contracting</a>
 <a href="services/project-management.html" class="block px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors border-b border-gray-100 dark:border-gray-700">Project Management</a>
-<a href="services/modular-prefabrications.html" class="block px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors">Modular Prefabrications</a>
+<a href="services/modular-prefabrications.html" class="block px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors">Modular &amp; Prefabrication</a>
 </div>
 </div>
 <a class="text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors" href="project-portfolio.html">Projects</a>
 <a class="text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors" href="qualifications.html">Qualifications</a>
-<a class="text-sm font-semibold uppercase tracking-widest text-primary border-b-2 border-primary" href="about-us.html">About Us</a>
 <a href="contact.html" class="bg-primary text-white px-6 py-2 text-sm font-bold uppercase tracking-widest rounded-sm hover:brightness-110 transition-all">
-Contact
+Get a Consultation
 </a>
 </nav>
+<!-- Mobile Menu Button -->
 <button id="mobile-menu-btn" class="md:hidden text-gray-900 dark:text-white">
 <span class="material-symbols-outlined text-3xl">menu</span>
 </button>
 </div>
+<!-- Mobile Menu -->
 <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 right-0 bg-white dark:bg-industrial-gray border-b border-gray-200 dark:border-gray-700 shadow-xl">
 <div class="px-6 py-4 space-y-4">
 <a href="index.html" class="block text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors">Home</a>
+<a href="about-us.html" class="block text-sm font-semibold uppercase tracking-widest text-primary">About</a>
 <div>
 <button id="mobile-services-btn" class="w-full flex items-center justify-between text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors">
 Services
-<span class="material-symbols-outlined text-sm">expand_more</span>
+<span class="material-symbols-outlined text-sm transition-transform duration-200" id="mobile-services-chevron">expand_more</span>
 </button>
 <div id="mobile-services-menu" class="hidden mt-2 ml-4 space-y-2">
-<a href="services/design-build.html" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-primary py-2">Design Build</a>
+<a href="services/design-build.html" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-primary py-2">Design-Build</a>
 <a href="services/general-contracting.html" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-primary py-2">General Contracting</a>
 <a href="services/project-management.html" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-primary py-2">Project Management</a>
-<a href="services/modular-prefabrications.html" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-primary py-2">Modular Prefabrications</a>
+<a href="services/modular-prefabrications.html" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-primary py-2">Modular &amp; Prefabrication</a>
 </div>
 </div>
 <a href="project-portfolio.html" class="block text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors">Projects</a>
 <a href="qualifications.html" class="block text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors">Qualifications</a>
-<a href="about-us.html" class="block text-sm font-semibold uppercase tracking-widest text-primary">About Us</a>
-<a href="contact.html" class="block bg-primary text-white px-6 py-3 text-sm font-bold uppercase tracking-widest rounded-sm hover:brightness-110 transition-all text-center">Contact</a>
+<a href="contact.html" class="block bg-primary text-white px-6 py-3 text-sm font-bold uppercase tracking-widest rounded-sm hover:brightness-110 transition-all text-center">Get a Consultation</a>
 </div>
 </div>
 </header>
-<script>
-document.getElementById('mobile-menu-btn').addEventListener('click', function() {
-const menu = document.getElementById('mobile-menu');
-menu.classList.toggle('hidden');
-});
 
-document.getElementById('mobile-services-btn').addEventListener('click', function() {
-const submenu = document.getElementById('mobile-services-menu');
-submenu.classList.toggle('hidden');
-});
-</script>
 <main>
-<!-- A) About Hero -->
-<section class="relative min-h-screen flex items-center overflow-hidden py-20">
+
+<!-- ===== HERO SECTION ===== -->
+<section class="relative py-32 md:py-40 flex items-center overflow-hidden">
+<!-- Background Image -->
 <div class="absolute inset-0 z-0">
-<img alt="Festbau leadership team on construction site" class="w-full h-full object-cover brightness-[0.4]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgAksz6v4SME5rV26SsOHfwFQyololFAwyniWUkVy2osv4qb7pxEK7B1b9rz1hGus0jjno_TCLHRSe7C9zGyxC_T3OSBN4Gx-2VYRAKpxoXaAmVilv0UPCOfjLF6783ysrXdyhFw6lvFAS1ee8fu9RtmpdD2_wA2a1zR59VdBTnQpyu06aXzEsAB3P06SuuQ1PaI56xQ74IYlN2eKS4EQUJTl4nEcerWs2zSEE1kdAPBsMusOIgGW1pxHLGvgckeQHIe20ZQbnx_g"/>
+<img alt="Festbau construction team on project site" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2000&auto=format&fit=crop"/>
 <div class="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/60"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/40"></div>
 </div>
+<!-- Hero Content -->
 <div class="max-w-7xl mx-auto px-6 relative z-10 w-full">
-<div class="max-w-4xl">
-<div class="flex items-center gap-3 mb-8">
-<span class="h-1 w-20 bg-accent-yellow"></span>
-<span class="text-accent-yellow font-black uppercase tracking-[0.3em] text-sm">Who We Are</span>
-</div>
-<h1 class="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[1.05] tracking-tighter mb-10 uppercase">
-Building <span class="text-accent-yellow">Affordable</span> Communities
+<div class="max-w-3xl">
+<p class="text-accent-yellow font-black uppercase tracking-[0.3em] text-sm mb-4 fade-in-up">Our Company</p>
+<h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-[1.1] tracking-tight mb-8 fade-in-up" style="animation-delay: 0.05s">
+About <span class="text-primary">Festbau</span>
 </h1>
-<p class="text-xl md:text-2xl text-gray-300 mb-16 leading-relaxed max-w-3xl">
-Specializing in affordable community housing, modular construction, and government-funded infrastructure projects that make a real difference.
+<p class="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed fade-in-up" style="animation-delay: 0.1s">
+Ontario-based Design-Build and General Contracting partner. Founded in 2016.
 </p>
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-white">
-<div class="flex items-start gap-4 bg-white/5 backdrop-blur-sm p-6 border-l-4 border-accent-yellow hover:bg-white/10 transition-all">
-<span class="material-symbols-outlined text-accent-yellow text-4xl flex-shrink-0">apartment</span>
-<div>
-<div class="text-xl font-black mb-2">Community Housing</div>
-<p class="text-sm text-gray-400 leading-relaxed">Accessible & Sustainable</p>
 </div>
 </div>
-<div class="flex items-start gap-4 bg-white/5 backdrop-blur-sm p-6 border-l-4 border-accent-yellow hover:bg-white/10 transition-all">
-<span class="material-symbols-outlined text-accent-yellow text-4xl flex-shrink-0">factory</span>
-<div>
-<div class="text-xl font-black mb-2">Modular Solutions</div>
-<p class="text-sm text-gray-400 leading-relaxed">Efficient & Modern</p>
+</section>
+
+<!-- ===== SECTION 1: OUR STORY ===== -->
+<section class="py-24 bg-white dark:bg-background-dark">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<!-- Left: Content -->
+<div class="fade-in-up">
+<h2 class="text-primary font-black uppercase tracking-[0.4em] text-sm mb-4">Our Story</h2>
+<h3 class="text-4xl md:text-5xl font-black tracking-tight text-gray-900 dark:text-white mb-8 leading-tight">Built on Discipline, Driven by Trust</h3>
+<p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+Founded in 2016, Festbau Construction started with a clear mission: deliver construction projects with institutional-grade controls and transparent reporting.
+</p>
+<p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+From affordable housing renovations to ground-up commercial builds, we've grown into a trusted delivery partner for public-sector agencies, REITs, and private investors across Ontario.
+</p>
+<p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+Our approach is straightforward: align scope, schedule, and budget early, communicate clearly throughout, and deliver with accountability. Every project receives the same institutional-grade discipline, regardless of size.
+</p>
 </div>
-</div>
-<div class="flex items-start gap-4 bg-white/5 backdrop-blur-sm p-6 border-l-4 border-accent-yellow hover:bg-white/10 transition-all">
-<span class="material-symbols-outlined text-accent-yellow text-4xl flex-shrink-0">account_balance</span>
-<div>
-<div class="text-xl font-black mb-2">Government Projects</div>
-<p class="text-sm text-gray-400 leading-relaxed">Trusted Partner</p>
-</div>
+<!-- Right: Image -->
+<div class="fade-in-up" style="animation-delay: 0.15s">
+<div class="relative rounded-sm overflow-hidden shadow-2xl">
+<img alt="Construction professionals reviewing project plans on site" class="w-full h-auto object-cover" src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2000&auto=format&fit=crop"/>
 </div>
 </div>
 </div>
 </div>
 </section>
-<!-- B) Company Story / Overview -->
+
+<!-- ===== SECTION 2: WHAT WE DO ===== -->
+<section class="py-24 bg-background-light dark:bg-industrial-gray">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-16 fade-in-up">
+<h2 class="text-primary font-black uppercase tracking-[0.4em] text-sm mb-4">Our Services</h2>
+<h3 class="text-4xl md:text-5xl font-black tracking-tight text-gray-900 dark:text-white mb-6 leading-tight">What We Do</h3>
+<p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl mx-auto">
+Four core service areas, each delivered with the same institutional-grade controls and transparent reporting our clients depend on.
+</p>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Design-Build -->
+<a href="services/design-build.html" class="group p-8 bg-white dark:bg-background-dark border-l-4 border-primary hover:shadow-xl transition-all duration-300 fade-in-up" style="animation-delay: 0.1s">
+<span class="material-symbols-outlined text-5xl text-primary mb-6">architecture</span>
+<h4 class="text-xl font-black mb-3 uppercase tracking-tighter">Design-Build</h4>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-4">Single-team accountability from design through construction. Fewer handoffs, faster decisions, tighter cost and schedule control.</p>
+<span class="text-primary text-xs font-semibold uppercase tracking-wider flex items-center gap-1 group-hover:gap-2 transition-all">Learn more <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+</a>
+
+<!-- General Contracting -->
+<a href="services/general-contracting.html" class="group p-8 bg-white dark:bg-background-dark border-l-4 border-primary hover:shadow-xl transition-all duration-300 fade-in-up" style="animation-delay: 0.15s">
+<span class="material-symbols-outlined text-5xl text-primary mb-6">engineering</span>
+<h4 class="text-xl font-black mb-3 uppercase tracking-tighter">General Contracting</h4>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-4">Trade coordination and site leadership that keeps critical paths moving and quality consistent across every phase.</p>
+<span class="text-primary text-xs font-semibold uppercase tracking-wider flex items-center gap-1 group-hover:gap-2 transition-all">Learn more <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+</a>
+
+<!-- Project Management -->
+<a href="services/project-management.html" class="group p-8 bg-white dark:bg-background-dark border-l-4 border-primary hover:shadow-xl transition-all duration-300 fade-in-up" style="animation-delay: 0.2s">
+<span class="material-symbols-outlined text-5xl text-primary mb-6">assignment</span>
+<h4 class="text-xl font-black mb-3 uppercase tracking-tighter">Project Management</h4>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-4">Planning, risk control, and stakeholder coordination with clear objectives and timelines from start to finish.</p>
+<span class="text-primary text-xs font-semibold uppercase tracking-wider flex items-center gap-1 group-hover:gap-2 transition-all">Learn more <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+</a>
+
+<!-- Modular / Prefab -->
+<a href="services/modular-prefabrications.html" class="group p-8 bg-white dark:bg-background-dark border-l-4 border-primary hover:shadow-xl transition-all duration-300 fade-in-up" style="animation-delay: 0.25s">
+<span class="material-symbols-outlined text-5xl text-primary mb-6">factory</span>
+<h4 class="text-xl font-black mb-3 uppercase tracking-tighter">Modular / Prefab</h4>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-4">Procurement and set coordination to compress schedules and reduce on-site disruption for faster project delivery.</p>
+<span class="text-primary text-xs font-semibold uppercase tracking-wider flex items-center gap-1 group-hover:gap-2 transition-all">Learn more <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+</a>
+</div>
+</div>
+</section>
+
+<!-- ===== SECTION 3: MISSION & VALUES ===== -->
 <section class="py-24 bg-white dark:bg-background-dark">
 <div class="max-w-7xl mx-auto px-6">
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
-<div>
-<h2 class="text-accent-yellow font-black uppercase tracking-[0.4em] text-sm mb-4">Our Journey</h2>
-<h3 class="text-4xl md:text-5xl font-black tracking-tight text-gray-900 dark:text-white uppercase mb-8">Company Story</h3>
-<div class="space-y-6 text-gray-600 dark:text-gray-400 leading-relaxed">
-<p class="text-lg">
-<span class="text-2xl font-black text-primary">Founded in 1974</span> by Karl-Heinz Festbau in Munich, we began as a local contractor focused on commercial renovations.
-</p>
-<p>
-Over the decades, we recognized a critical gap in the market: <span class="font-bold text-gray-900 dark:text-white">affordable, quality housing for growing communities</span>. This insight drove our strategic pivot toward modular construction and government partnerships.
-</p>
-<p>
-Today, we're proud to be a leading provider of <span class="font-bold text-gray-900 dark:text-white">community-focused construction solutions</span>, combining traditional craftsmanship with cutting-edge modular technology.
+<div class="text-center mb-16 fade-in-up">
+<h2 class="text-primary font-black uppercase tracking-[0.4em] text-sm mb-4">What Drives Us</h2>
+<h3 class="text-4xl md:text-5xl font-black tracking-tight text-gray-900 dark:text-white mb-6 leading-tight">Mission &amp; Values</h3>
+<p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl mx-auto">
+Every decision we make is guided by four core principles that define how we work and who we are as a delivery partner.
 </p>
 </div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Transparency -->
+<div class="bg-background-light dark:bg-industrial-gray p-10 border-t-4 border-accent-yellow hover:shadow-xl transition-all duration-300 fade-in-up" style="animation-delay: 0.1s">
+<div class="w-16 h-16 bg-accent-yellow/20 rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-3xl text-accent-yellow">visibility</span>
 </div>
-<div class="bg-background-light dark:bg-industrial-gray p-10 border-l-4 border-accent-yellow">
-<h4 class="text-2xl font-black text-gray-900 dark:text-white uppercase tracking-tighter mb-8">Areas We Serve</h4>
-<div class="space-y-6">
-<div class="flex items-start gap-4">
-<span class="material-symbols-outlined text-primary text-3xl">location_on</span>
+<h4 class="text-xl font-black uppercase tracking-tighter mb-4">Transparency</h4>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Open books, clear reporting, no surprises. Every stakeholder sees the same numbers and the same status at every milestone.</p>
+</div>
+
+<!-- Accountability -->
+<div class="bg-background-light dark:bg-industrial-gray p-10 border-t-4 border-primary hover:shadow-xl transition-all duration-300 fade-in-up" style="animation-delay: 0.15s">
+<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-3xl text-primary">verified_user</span>
+</div>
+<h4 class="text-xl font-black uppercase tracking-tighter mb-4">Accountability</h4>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">We own the schedule, budget, and quality. When we commit to a milestone, we deliver it &mdash; and we communicate early if conditions change.</p>
+</div>
+
+<!-- Partnership -->
+<div class="bg-background-light dark:bg-industrial-gray p-10 border-t-4 border-primary hover:shadow-xl transition-all duration-300 fade-in-up" style="animation-delay: 0.2s">
+<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-3xl text-primary">handshake</span>
+</div>
+<h4 class="text-xl font-black uppercase tracking-tighter mb-4">Partnership</h4>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Long-term relationships built on trust. We invest in understanding our clients' goals and aligning our delivery to their success criteria.</p>
+</div>
+
+<!-- Excellence -->
+<div class="bg-background-light dark:bg-industrial-gray p-10 border-t-4 border-green-500 hover:shadow-xl transition-all duration-300 fade-in-up" style="animation-delay: 0.25s">
+<div class="w-16 h-16 bg-green-500/10 rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-3xl text-green-500">workspace_premium</span>
+</div>
+<h4 class="text-xl font-black uppercase tracking-tighter mb-4">Excellence</h4>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Institutional-grade standards on every project. From preconstruction planning to closeout documentation, we hold ourselves to the highest bar.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== SECTION 4: AREAS WE SERVE ===== -->
+<section class="py-24 bg-background-dark text-white">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<!-- Left Content -->
 <div>
-<h5 class="font-black text-lg text-gray-900 dark:text-white uppercase mb-1">Germany & Austria</h5>
-<p class="text-sm text-gray-600 dark:text-gray-400">Primary markets with extensive project history</p>
+<div class="mb-12 fade-in-up">
+<h2 class="text-accent-yellow font-black uppercase tracking-[0.4em] text-sm mb-4">Service Coverage</h2>
+<h3 class="text-4xl md:text-5xl font-black tracking-tight text-white mb-8 leading-tight">Areas We Serve</h3>
+<p class="text-lg text-gray-300 leading-relaxed mb-8">
+Festbau operates across Ontario, from Windsor to Thunder Bay. Our team is positioned to deliver projects province-wide with dedicated on-site presence and local trade networks.
+</p>
+</div>
+
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+<div class="flex items-center gap-2 fade-in-up" style="animation-delay: 0.1s">
+<span class="material-symbols-outlined text-primary text-lg">location_on</span>
+<span class="text-sm font-semibold text-gray-300">Cambridge</span>
+</div>
+<div class="flex items-center gap-2 fade-in-up" style="animation-delay: 0.12s">
+<span class="material-symbols-outlined text-primary text-lg">location_on</span>
+<span class="text-sm font-semibold text-gray-300">Toronto / GTA</span>
+</div>
+<div class="flex items-center gap-2 fade-in-up" style="animation-delay: 0.14s">
+<span class="material-symbols-outlined text-primary text-lg">location_on</span>
+<span class="text-sm font-semibold text-gray-300">London</span>
+</div>
+<div class="flex items-center gap-2 fade-in-up" style="animation-delay: 0.16s">
+<span class="material-symbols-outlined text-primary text-lg">location_on</span>
+<span class="text-sm font-semibold text-gray-300">Kitchener-Waterloo</span>
+</div>
+<div class="flex items-center gap-2 fade-in-up" style="animation-delay: 0.18s">
+<span class="material-symbols-outlined text-primary text-lg">location_on</span>
+<span class="text-sm font-semibold text-gray-300">Niagara Region</span>
+</div>
+<div class="flex items-center gap-2 fade-in-up" style="animation-delay: 0.2s">
+<span class="material-symbols-outlined text-primary text-lg">location_on</span>
+<span class="text-sm font-semibold text-gray-300">Kingston</span>
+</div>
+<div class="flex items-center gap-2 fade-in-up" style="animation-delay: 0.22s">
+<span class="material-symbols-outlined text-primary text-lg">location_on</span>
+<span class="text-sm font-semibold text-gray-300">Barrie</span>
+</div>
+<div class="flex items-center gap-2 fade-in-up" style="animation-delay: 0.24s">
+<span class="material-symbols-outlined text-primary text-lg">location_on</span>
+<span class="text-sm font-semibold text-gray-300">Hamilton</span>
+</div>
+<div class="flex items-center gap-2 fade-in-up" style="animation-delay: 0.26s">
+<span class="material-symbols-outlined text-primary text-lg">location_on</span>
+<span class="text-sm font-semibold text-gray-300">Windsor</span>
+</div>
+<div class="flex items-center gap-2 fade-in-up" style="animation-delay: 0.28s">
+<span class="material-symbols-outlined text-primary text-lg">location_on</span>
+<span class="text-sm font-semibold text-gray-300">Ottawa</span>
+</div>
+<div class="flex items-center gap-2 fade-in-up" style="animation-delay: 0.3s">
+<span class="material-symbols-outlined text-primary text-lg">location_on</span>
+<span class="text-sm font-semibold text-gray-300">Thunder Bay</span>
+</div>
+<div class="flex items-center gap-2 fade-in-up" style="animation-delay: 0.32s">
+<span class="material-symbols-outlined text-primary text-lg">location_on</span>
+<span class="text-sm font-semibold text-gray-300">Guelph</span>
 </div>
 </div>
-<div class="flex items-start gap-4">
-<span class="material-symbols-outlined text-primary text-3xl">public</span>
-<div>
-<h5 class="font-black text-lg text-gray-900 dark:text-white uppercase mb-1">European Union</h5>
-<p class="text-sm text-gray-600 dark:text-gray-400">Government-funded infrastructure partnerships</p>
+</div>
+
+<!-- Right: Image -->
+<div class="fade-in-up" style="animation-delay: 0.2s">
+<div class="relative rounded-sm overflow-hidden shadow-2xl">
+<img alt="Ontario skyline with construction cranes" class="w-full h-auto object-cover" src="https://images.unsplash.com/photo-1517090504332-af20e6b42581?q=80&w=2000&auto=format&fit=crop"/>
 </div>
 </div>
-<div class="flex items-start gap-4">
-<span class="material-symbols-outlined text-primary text-3xl">home_work</span>
-<div>
-<h5 class="font-black text-lg text-gray-900 dark:text-white uppercase mb-1">Municipal Projects</h5>
-<p class="text-sm text-gray-600 dark:text-gray-400">Specialized in community housing development</p>
 </div>
+</div>
+</section>
+
+<!-- ===== SECTION 5: LEADERSHIP ===== -->
+<section class="py-24 bg-white dark:bg-background-dark">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-16 fade-in-up">
+<h2 class="text-primary font-black uppercase tracking-[0.4em] text-sm mb-4">Our Team</h2>
+<h3 class="text-4xl md:text-5xl font-black tracking-tight text-gray-900 dark:text-white mb-6 leading-tight">Leadership</h3>
+<p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl mx-auto">
+Hands-on principals with deep industry experience who are directly involved in every project Festbau delivers.
+</p>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+<!-- Vugar Ismayilov -->
+<div class="group bg-background-light dark:bg-industrial-gray overflow-hidden hover:shadow-xl transition-all duration-300 fade-in-up" style="animation-delay: 0.1s">
+<div class="aspect-[4/3] overflow-hidden bg-gray-200">
+<img alt="Vugar Ismayilov — Principal, Festbau Construction" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1000&auto=format&fit=crop"/>
+</div>
+<div class="p-8">
+<h4 class="text-2xl font-black uppercase tracking-tighter mb-1 text-gray-900 dark:text-white">Vugar Ismayilov</h4>
+<p class="text-sm text-primary font-bold uppercase tracking-wider mb-4">Principal</p>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+Vugar founded Festbau in 2016 with a vision to bring institutional-grade project controls to every build. He leads client relationships, preconstruction strategy, and overall project delivery. His hands-on approach ensures that every project aligns with the high standards Festbau is known for.
+</p>
+<div class="mt-4 flex items-center gap-3">
+<a href="mailto:Vugar@festbau.ca" class="text-primary hover:text-primary/80 transition-colors flex items-center gap-1 text-xs font-bold uppercase tracking-wider">
+<span class="material-symbols-outlined text-sm">mail</span> Vugar@festbau.ca
+</a>
+</div>
+</div>
+</div>
+
+<!-- Mashhod -->
+<div class="group bg-background-light dark:bg-industrial-gray overflow-hidden hover:shadow-xl transition-all duration-300 fade-in-up" style="animation-delay: 0.15s">
+<div class="aspect-[4/3] overflow-hidden bg-gray-200">
+<img alt="Mashhod — Operations, Festbau Construction" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=1000&auto=format&fit=crop"/>
+</div>
+<div class="p-8">
+<h4 class="text-2xl font-black uppercase tracking-tighter mb-1 text-gray-900 dark:text-white">Mashhod</h4>
+<p class="text-sm text-primary font-bold uppercase tracking-wider mb-4">Operations</p>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+Mashhod oversees day-to-day operations, trade coordination, and site execution across all active projects. His focus on schedule discipline and quality control ensures that Festbau consistently delivers on its commitments to clients and stakeholders.
+</p>
+<div class="mt-4 flex items-center gap-3">
+<a href="mailto:Mashhod@festbau.ca" class="text-primary hover:text-primary/80 transition-colors flex items-center gap-1 text-xs font-bold uppercase tracking-wider">
+<span class="material-symbols-outlined text-sm">mail</span> Mashhod@festbau.ca
+</a>
 </div>
 </div>
 </div>
@@ -220,172 +454,32 @@ Today, we're proud to be a leading provider of <span class="font-bold text-gray-
 </div>
 </section>
 
-<!-- C) Mission & Values -->
-<section class="py-24 bg-gray-50 dark:bg-black/20">
-<div class="max-w-7xl mx-auto px-6">
-<div class="text-center mb-16">
-<h2 class="text-accent-yellow font-black uppercase tracking-[0.4em] text-sm mb-4">Our Foundation</h2>
-<h3 class="text-4xl md:text-5xl font-black tracking-tight text-gray-900 dark:text-white uppercase">Mission & Values</h3>
-</div>
-<div class="mb-16 max-w-3xl mx-auto text-center">
-<p class="text-xl text-gray-700 dark:text-gray-300 leading-relaxed font-light">
-Our mission is to deliver <span class="font-bold text-primary">accessible, sustainable housing solutions</span> that strengthen communities and improve quality of life for all.
-</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-1">
-<div class="group p-12 bg-white dark:bg-industrial-gray border-b-8 border-transparent hover:border-primary transition-all duration-300">
-<span class="material-symbols-outlined text-6xl text-primary mb-8">handshake</span>
-<h4 class="text-2xl font-black mb-4 uppercase tracking-tighter">Integrity</h4>
-<p class="text-gray-600 dark:text-gray-400 leading-relaxed">We maintain uncompromising ethical standards, building trust with every partner and community we serve.</p>
-</div>
-<div class="group p-12 bg-white dark:bg-industrial-gray border-b-8 border-transparent hover:border-primary transition-all duration-300">
-<span class="material-symbols-outlined text-6xl text-primary mb-8">balance</span>
-<h4 class="text-2xl font-black mb-4 uppercase tracking-tighter">Accessibility</h4>
-<p class="text-gray-600 dark:text-gray-400 leading-relaxed">Quality housing should be affordable for everyone. We optimize costs without compromising on safety or quality.</p>
-</div>
-<div class="group p-12 bg-white dark:bg-industrial-gray border-b-8 border-transparent hover:border-primary transition-all duration-300">
-<span class="material-symbols-outlined text-6xl text-primary mb-8">eco</span>
-<h4 class="text-2xl font-black mb-4 uppercase tracking-tighter">Sustainability</h4>
-<p class="text-gray-600 dark:text-gray-400 leading-relaxed">Every project is designed with environmental impact in mind, using efficient modular methods and sustainable materials.</p>
-</div>
-</div>
-</div>
-</section>
-<!-- D) How We Work (Approach) -->
-<section class="py-24 bg-white dark:bg-background-dark">
-<div class="max-w-7xl mx-auto px-6">
-<div class="text-center mb-16">
-<h2 class="text-accent-yellow font-black uppercase tracking-[0.4em] text-sm mb-4">Our Process</h2>
-<h3 class="text-4xl md:text-5xl font-black tracking-tight text-gray-900 dark:text-white uppercase">How We Work</h3>
-</div>
-<div class="max-w-5xl mx-auto">
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-<!-- Step 1 -->
-<div class="relative">
-<div class="bg-primary text-white w-16 h-16 rounded-sm flex items-center justify-center text-3xl font-black mb-6">
-1
-</div>
-<h4 class="text-xl font-black uppercase tracking-tighter mb-3 text-gray-900 dark:text-white">Consultation</h4>
-<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-Understanding your community needs, budget constraints, and project timeline.
-</p>
-<div class="hidden lg:block absolute top-8 -right-4 text-accent-yellow text-4xl">→</div>
-</div>
-<!-- Step 2 -->
-<div class="relative">
-<div class="bg-primary text-white w-16 h-16 rounded-sm flex items-center justify-center text-3xl font-black mb-6">
-2
-</div>
-<h4 class="text-xl font-black uppercase tracking-tighter mb-3 text-gray-900 dark:text-white">Design</h4>
-<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-Collaborative design process optimized for modular efficiency and local requirements.
-</p>
-<div class="hidden lg:block absolute top-8 -right-4 text-accent-yellow text-4xl">→</div>
-</div>
-<!-- Step 3 -->
-<div class="relative">
-<div class="bg-primary text-white w-16 h-16 rounded-sm flex items-center justify-center text-3xl font-black mb-6">
-3
-</div>
-<h4 class="text-xl font-black uppercase tracking-tighter mb-3 text-gray-900 dark:text-white">Fabrication</h4>
-<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-Precision manufacturing in our controlled factory environment ensures quality and speed.
-</p>
-<div class="hidden lg:block absolute top-8 -right-4 text-accent-yellow text-4xl">→</div>
-</div>
-<!-- Step 4 -->
-<div class="relative">
-<div class="bg-primary text-white w-16 h-16 rounded-sm flex items-center justify-center text-3xl font-black mb-6">
-4
-</div>
-<h4 class="text-xl font-black uppercase tracking-tighter mb-3 text-gray-900 dark:text-white">Installation</h4>
-<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-Rapid on-site assembly with minimal disruption to the surrounding community.
-</p>
-</div>
-</div>
-<div class="mt-16 bg-background-light dark:bg-industrial-gray p-8 border-l-4 border-accent-yellow">
-<div class="flex items-start gap-4">
-<span class="material-symbols-outlined text-primary text-4xl">schedule</span>
-<div>
-<h5 class="text-xl font-black text-gray-900 dark:text-white uppercase mb-2">Average Timeline</h5>
-<p class="text-gray-600 dark:text-gray-400">
-From initial consultation to move-in ready: <span class="font-bold text-primary">40-60% faster</span> than traditional construction methods.
-</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="py-24 bg-white dark:bg-background-dark">
-<div class="max-w-7xl mx-auto px-6">
-<div class="mb-16">
-<h2 class="text-accent-yellow font-black uppercase tracking-[0.4em] text-sm mb-4">Board of Directors</h2>
-<h3 class="text-4xl md:text-5xl font-black tracking-tight text-gray-900 dark:text-white uppercase">Leadership Team</h3>
-</div>
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-<div class="group">
-<div class="aspect-[3/4] bg-industrial-gray relative overflow-hidden mb-6">
-<img alt="CEO" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLdCj8wsXX3k23lnNiyzngvQP1cvVLNy00wl7AaRke35WGij28ajdXCCbDoUNMrIgyNj3fcHwCuwcttUP_3i_OLvRmsTnL1wsmfnTmuRAb65rQ_6EnZOIMAyINdKALBJDPydLVMKXZ-W2okfCG0NfzrDJb0jXYEgBrGtklwY2AjJvLygBmlr3x0auWdWky_hgOyAqjjFmYvRZhAOj77rULuANlTntfttZbisyYA0PHGgRipJ8t0-77t4PDTyDNUIE720VaU2LDA5E"/>
-<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-</div>
-<h5 class="text-xl font-black uppercase tracking-tighter">Erik Festbau</h5>
-<p class="text-primary font-bold text-xs uppercase tracking-widest">Chief Executive Officer</p>
-</div>
-<div class="group">
-<div class="aspect-[3/4] bg-industrial-gray relative overflow-hidden mb-6">
-<img alt="COO" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1ctmGa_T-CzKEDvLbyxON5o6G02g-jVjVj7g8MAvUK16F973z_XKbv0SqTJun4vDR7KkBErXR3GoRdlJ2jEmGiQpeDtS0CyxPHDgFmrbU-WjhyVY9JkVkXjsYdIlND3YT0f927hDJP02lsnCubLcwZ5O0ycFz_4Q0bU2tRPYGqFUvsO0B1-mf7X672Mu1dwXo7DmKbtubr8vT3r3PNM_slwnCMoVz4bxRJhbFRYahlABKgciDxb9M5vi7pogAwqNl5VCpQEo3F5U"/>
-<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-</div>
-<h5 class="text-xl font-black uppercase tracking-tighter">Dr. Elena Wagner</h5>
-<p class="text-primary font-bold text-xs uppercase tracking-widest">Operations Director</p>
-</div>
-<div class="group">
-<div class="aspect-[3/4] bg-industrial-gray relative overflow-hidden mb-6">
-<img alt="CTO" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxxNHWUa-lk8g0xkshGztDWPeMIjaS07KRD4H6hXUmYwIYhH_bZEhMOtXyRGZSknI-1BOci9jLKuqpj7odJvIMSoE37yxmtzlBuqFea851H1mk-3sq1_CJekRhgMfVshklwMA9LUs3vURLdT__5ZqtFp5huwWbOv9Sv8fSDOUpnIJcefCBH4-Kn7SLAq1Ldt8T2pq9LO4J_ajDkwsMQQVPfYSwivgc8HGpBwc7sGLMAeVgPEabXIwr3X03T-on453GcM2XAvMZXIY"/>
-<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-</div>
-<h5 class="text-xl font-black uppercase tracking-tighter">Marcus Thorne</h5>
-<p class="text-primary font-bold text-xs uppercase tracking-widest">Chief Technical Officer</p>
-</div>
-<div class="group">
-<div class="aspect-[3/4] bg-industrial-gray relative overflow-hidden mb-6">
-<img alt="CFO" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtDjyM6_Zu3DF4xgAaqz-h3LRctB7_ffVVStK3QgJtmFug_hypf6BS5MmMtRHc__gTsGvdzP5UZXAMEFJp2aam1S0wsd-ysbarFq9hz2DB5Ex90mz-hopByxfYjOZneB0Glj0nfHdMmgxpIxS1tjQfCt7AIO4cdOniVpMcJu029QURbKZvvpPuRWSWREhgwv1hqN0iDwf2d0dt9-ZwU-W3W-A_xqfOa6ftPwv_dKE75JmabbQuogjcrHtVAfoMZ3gGtYCZn1JlQC4"/>
-<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-</div>
-<h5 class="text-xl font-black uppercase tracking-tighter">Sophie Chevalier</h5>
-<p class="text-primary font-bold text-xs uppercase tracking-widest">Financial Director</p>
-</div>
-</div>
-</div>
-</section>
-<section class="py-20 bg-primary overflow-hidden relative">
-<div class="absolute top-0 right-0 h-full w-1/3 opacity-10 flex flex-col gap-4 -rotate-12 translate-x-20">
-<div class="h-10 w-full bg-accent-yellow"></div>
-<div class="h-10 w-full bg-accent-yellow"></div>
-<div class="h-10 w-full bg-accent-yellow"></div>
-</div>
+<!-- ===== BOTTOM CTA BANNER ===== -->
+<section class="py-24 bg-primary overflow-hidden relative">
 <div class="max-w-7xl mx-auto px-6 relative z-10">
-<div class="flex flex-col md:flex-row items-center justify-between gap-12 text-center md:text-left">
-<div class="max-w-2xl">
-<h2 class="text-white text-4xl md:text-5xl font-black tracking-tighter mb-6 uppercase leading-none">Be part of the legacy</h2>
-<p class="text-white/80 text-lg">Whether you are planning an icon or looking to join our elite team of engineers.</p>
+<div class="flex flex-col items-center text-center gap-8">
+<div class="max-w-3xl">
+<h2 class="text-white text-4xl md:text-5xl font-black tracking-tight mb-6 leading-tight">Ready to Work Together?</h2>
+<p class="text-white/90 text-xl leading-relaxed">Share your project scope, timeline, and constraints. Our team will outline a clear plan of action.</p>
 </div>
-<div class="flex gap-4">
-<button class="bg-white text-primary px-10 py-5 text-sm font-black uppercase tracking-widest rounded-sm hover:scale-105 transition-transform shadow-xl">
-                        Contact Us
-                    </button>
+<div>
+<a href="contact.html" class="bg-white text-primary px-12 py-5 text-base font-black uppercase tracking-widest rounded-sm hover:scale-105 transition-transform shadow-2xl inline-block">
+Get a Consultation
+</a>
 </div>
 </div>
 </div>
 </section>
+
 </main>
-<footer class="bg-background-dark text-white pt-24 pb-12 border-t-4 border-accent-yellow">
+
+<!-- ===== FOOTER ===== -->
+<footer class="bg-background-dark text-white pt-20 pb-12 border-t-4 border-accent-yellow">
 <div class="max-w-7xl mx-auto px-6">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
-<div class="md:col-span-1">
-<div class="flex items-center gap-3 mb-8">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+<!-- Company Info -->
+<div>
+<div class="flex items-center gap-3 mb-6">
 <div class="bg-white p-1 rounded-sm">
 <svg class="size-6 text-background-dark" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
 <path d="M39.5563 34.1455V13.8546C39.5563 15.708 36.8773 17.3437 32.7927 18.3189C30.2914 18.916 27.263 19.2655 24 19.2655C20.737 19.2655 17.7086 18.916 15.2073 18.3189C11.1227 17.3437 8.44365 15.708 8.44365 13.8546V34.1455C8.44365 35.9988 11.1227 37.6346 15.2073 38.6098C17.7086 39.2069 20.737 39.5564 24 39.5564C27.263 39.5564 30.2914 39.2069 32.7927 38.6098C36.8773 37.6346 39.5563 35.9988 39.5563 34.1455Z" fill="currentColor"></path>
@@ -393,54 +487,114 @@ From initial consultation to move-in ready: <span class="font-bold text-primary"
 </div>
 <h2 class="text-xl font-extrabold tracking-tighter uppercase">Festbau</h2>
 </div>
-<p class="text-gray-400 text-sm leading-relaxed mb-8">
-                    Delivering the foundations of modern infrastructure since 1974. Precision engineering, absolute reliability.
-                </p>
-<div class="flex gap-4">
-<a class="w-10 h-10 border border-gray-700 flex items-center justify-center hover:bg-primary hover:border-primary transition-all rounded-sm" href="#"><span class="material-symbols-outlined text-sm">hub</span></a>
-<a class="w-10 h-10 border border-gray-700 flex items-center justify-center hover:bg-primary hover:border-primary transition-all rounded-sm" href="#"><span class="material-symbols-outlined text-sm">alternate_email</span></a>
-<a class="w-10 h-10 border border-gray-700 flex items-center justify-center hover:bg-primary hover:border-primary transition-all rounded-sm" href="#"><span class="material-symbols-outlined text-sm">groups</span></a>
+<p class="text-gray-400 text-sm leading-relaxed mb-6">
+Ontario-based Design-Build and General Contracting partner. Founded 2016.
+</p>
 </div>
-</div>
+
+<!-- Contact Information -->
 <div>
-<h5 class="text-sm font-black uppercase tracking-[0.2em] text-accent-yellow mb-8">Navigation</h5>
-<ul class="space-y-4">
-<li><a class="text-sm text-gray-400 hover:text-white transition-colors" href="#">Our Services</a></li>
-<li><a class="text-sm text-gray-400 hover:text-white transition-colors" href="#">Project Portfolio</a></li>
-<li><a class="text-sm text-gray-400 hover:text-white transition-colors" href="#">Safety Standards</a></li>
-<li><a class="text-sm text-gray-400 hover:text-white transition-colors" href="#">Careers</a></li>
-<li><a class="text-sm text-gray-400 hover:text-white transition-colors" href="#">Sustainability</a></li>
+<h5 class="text-sm font-black uppercase tracking-[0.2em] text-accent-yellow mb-6">Contact</h5>
+<ul class="space-y-3 text-sm text-gray-400">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">call</span>
+<a href="tel:+15483331419" class="hover:text-white transition-colors">(548) 333-1419</a>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">mail</span>
+<div class="flex flex-col gap-1">
+<a href="mailto:Vugar@festbau.ca" class="hover:text-white transition-colors">Vugar@festbau.ca</a>
+<a href="mailto:Mashhod@festbau.ca" class="hover:text-white transition-colors">Mashhod@festbau.ca</a>
+</div>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">location_on</span>
+<span>Cambridge, Ontario</span>
+</li>
 </ul>
 </div>
+
+<!-- Quick Links -->
 <div>
-<h5 class="text-sm font-black uppercase tracking-[0.2em] text-accent-yellow mb-8">Headquarters</h5>
-<p class="text-sm text-gray-400 leading-relaxed">
-                    Bauallee 12-14<br/>
-                    80331 Munich, Germany<br/>
-                    T: +49 (0) 89 234 567 89<br/>
-                    E: contact@festbau.de
-                </p>
+<h5 class="text-sm font-black uppercase tracking-[0.2em] text-accent-yellow mb-6">Resources</h5>
+<ul class="space-y-3 text-sm">
+<li><a class="text-gray-400 hover:text-white transition-colors flex items-center gap-2" href="qualifications.html">
+<span class="material-symbols-outlined text-sm">download</span>
+Download Qualifications
+</a></li>
+<li><a class="text-gray-400 hover:text-white transition-colors flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-sm">policy</span>
+Privacy Policy
+</a></li>
+<li><a class="text-gray-400 hover:text-white transition-colors flex items-center gap-2" href="https://www.linkedin.com/company/festbau-construction" target="_blank">
+<span class="material-symbols-outlined text-sm">groups</span>
+LinkedIn
+</a></li>
+<li><a class="text-gray-400 hover:text-white transition-colors flex items-center gap-2" href="https://www.instagram.com/vugarconstruction" target="_blank">
+<span class="material-symbols-outlined text-sm">photo_camera</span>
+Instagram
+</a></li>
+</ul>
 </div>
-<div>
-<h5 class="text-sm font-black uppercase tracking-[0.2em] text-accent-yellow mb-8">Newsletter</h5>
-<p class="text-xs text-gray-400 mb-6 uppercase tracking-widest">Industry insights &amp; news</p>
-<div class="flex">
-<input class="bg-gray-800 border-none px-4 py-3 text-sm focus:ring-1 focus:ring-primary w-full rounded-l-sm" placeholder="Your Email" type="email"/>
-<button class="bg-primary px-4 py-3 rounded-r-sm hover:brightness-110 transition-all">
-<span class="material-symbols-outlined">send</span>
-</button>
 </div>
-</div>
-</div>
-<div class="pt-12 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-6">
-<p class="text-xs text-gray-500 uppercase tracking-widest">© 2024 Festbau GmbH. All rights reserved.</p>
-<div class="flex gap-8">
-<a class="text-[10px] text-gray-500 hover:text-white uppercase tracking-widest" href="#">Imprint</a>
-<a class="text-[10px] text-gray-500 hover:text-white uppercase tracking-widest" href="#">Privacy Policy</a>
-<a class="text-[10px] text-gray-500 hover:text-white uppercase tracking-widest" href="#">Terms of Service</a>
+
+<!-- Footer Bottom -->
+<div class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-xs text-gray-500 uppercase tracking-wider">&copy; 2026 Festbau. All rights reserved.</p>
+<div class="flex items-center gap-6">
+<a href="https://www.linkedin.com/company/festbau-construction" target="_blank" class="text-gray-500 hover:text-primary transition-colors">
+<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+</a>
+<a href="https://www.instagram.com/vugarconstruction" target="_blank" class="text-gray-500 hover:text-primary transition-colors">
+<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+</a>
 </div>
 </div>
 </div>
 </footer>
 
-</body></html>
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+// Mobile Menu Toggle
+document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+    var menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('hidden');
+});
+
+// Mobile Services Accordion
+document.getElementById('mobile-services-btn').addEventListener('click', function() {
+    var submenu = document.getElementById('mobile-services-menu');
+    var chevron = document.getElementById('mobile-services-chevron');
+    submenu.classList.toggle('hidden');
+    if (submenu.classList.contains('hidden')) {
+        chevron.style.transform = 'rotate(0deg)';
+    } else {
+        chevron.style.transform = 'rotate(180deg)';
+    }
+});
+
+// Intersection Observer for scroll animations
+var fadeObserver = new IntersectionObserver(function(entries, observer) {
+    entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.animation = entry.target.style.animation || 'fadeInUp 0.8s ease-out forwards';
+            observer.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+});
+
+// Observe all animated elements on DOM load
+document.addEventListener('DOMContentLoaded', function() {
+    var animatedElements = document.querySelectorAll('.fade-in-up, .fade-in, .slide-in-left, .scale-in');
+    animatedElements.forEach(function(el) {
+        fadeObserver.observe(el);
+    });
+});
+</script>
+
+</body>
+</html>

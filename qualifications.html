@@ -1,55 +1,118 @@
-<html class="light" lang="en"><head>
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Qualifications | Festbau Industrial Construction</title>
+<title>Qualifications &amp; Resources | Festbau</title>
+<meta name="description" content="Procurement-ready documentation, licenses, insurance, bonding certificates, and affiliations for Festbau Construction."/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style type="text/tailwindcss">
-        @layer base {
-            body {
-                @apply font-display;
-            }
+    @layer base {
+        body {
+            @apply font-display;
         }
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+
+    /* Fade in up animation */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
         }
-        .industrial-grid {
-            background-image: radial-gradient(#1152d4 1px, transparent 1px);
-            background-size: 32px 32px;
-            opacity: 0.1;
+        to {
+            opacity: 1;
+            transform: translateY(0);
         }
-        .hero-overlay {
-            background: linear-gradient(90deg, rgba(16, 22, 34, 0.9) 0%, rgba(16, 22, 34, 0.4) 100%);
+    }
+
+    .fade-in-up {
+        opacity: 0;
+        animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    /* Fade in animation */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
         }
-    </style>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#1152d4",
-                        "accent-yellow": "#FFD700",
-                        "background-light": "#f6f6f8",
-                        "background-dark": "#101622",
-                        "industrial-gray": "#2d3442",
-                    },
-                    fontFamily: {
-                        "display": ["Manrope", "sans-serif"]
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.125rem",
-                        "lg": "0.25rem",
-                        "xl": "0.5rem",
-                        "full": "0.75rem"
-                    },
+        to {
+            opacity: 1;
+        }
+    }
+
+    .fade-in {
+        opacity: 0;
+        animation: fadeIn 0.8s ease-out forwards;
+    }
+
+    /* Slide in from left */
+    @keyframes slideInLeft {
+        from {
+            opacity: 0;
+            transform: translateX(-30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    .slide-in-left {
+        opacity: 0;
+        animation: slideInLeft 0.8s ease-out forwards;
+    }
+
+    /* Scale in animation */
+    @keyframes scaleIn {
+        from {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    .scale-in {
+        opacity: 0;
+        animation: scaleIn 0.6s ease-out forwards;
+    }
+</style>
+<script>
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    "primary": "#1152d4",
+                    "accent-yellow": "#FFD700",
+                    "background-light": "#f6f6f8",
+                    "background-dark": "#101622",
+                    "industrial-gray": "#2d3442",
+                },
+                fontFamily: {
+                    "display": ["Manrope", "sans-serif"]
+                },
+                borderRadius: {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
                 },
             },
-        }
-    </script>
+        },
+    }
+</script>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-gray-900 dark:text-gray-100 overflow-x-hidden">
+
+<!-- ===== HEADER / NAVIGATION ===== -->
 <header class="sticky top-0 z-50 w-full bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
 <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
 <a href="index.html" class="flex items-center gap-3">
@@ -61,313 +124,366 @@
 </div>
 <h2 class="text-xl font-extrabold tracking-tighter uppercase">Festbau</h2>
 </a>
+<!-- Desktop Nav -->
 <nav class="hidden md:flex items-center gap-8">
 <a class="text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors" href="index.html">Home</a>
+<a class="text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors" href="about-us.html">About</a>
 <div class="relative group">
 <button class="text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors flex items-center gap-1">
 Services
 <span class="material-symbols-outlined text-sm">expand_more</span>
 </button>
 <div class="absolute top-full left-0 mt-2 w-64 bg-white dark:bg-industrial-gray shadow-xl border border-gray-200 dark:border-gray-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-<a href="services/design-build.html" class="block px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors border-b border-gray-100 dark:border-gray-700">Design Build</a>
+<a href="services/design-build.html" class="block px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors border-b border-gray-100 dark:border-gray-700">Design-Build</a>
 <a href="services/general-contracting.html" class="block px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors border-b border-gray-100 dark:border-gray-700">General Contracting</a>
 <a href="services/project-management.html" class="block px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors border-b border-gray-100 dark:border-gray-700">Project Management</a>
-<a href="services/modular-prefabrications.html" class="block px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors">Modular Prefabrications</a>
+<a href="services/modular-prefabrications.html" class="block px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors">Modular &amp; Prefabrication</a>
 </div>
 </div>
 <a class="text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors" href="project-portfolio.html">Projects</a>
 <a class="text-sm font-semibold uppercase tracking-widest text-primary border-b-2 border-primary" href="qualifications.html">Qualifications</a>
-<a class="text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors" href="about-us.html">About Us</a>
 <a href="contact.html" class="bg-primary text-white px-6 py-2 text-sm font-bold uppercase tracking-widest rounded-sm hover:brightness-110 transition-all">
-Contact
+Get a Consultation
 </a>
 </nav>
+<!-- Mobile Menu Button -->
 <button id="mobile-menu-btn" class="md:hidden text-gray-900 dark:text-white">
 <span class="material-symbols-outlined text-3xl">menu</span>
 </button>
 </div>
+<!-- Mobile Menu -->
 <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 right-0 bg-white dark:bg-industrial-gray border-b border-gray-200 dark:border-gray-700 shadow-xl">
 <div class="px-6 py-4 space-y-4">
 <a href="index.html" class="block text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors">Home</a>
+<a href="about-us.html" class="block text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors">About</a>
 <div>
 <button id="mobile-services-btn" class="w-full flex items-center justify-between text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors">
 Services
-<span class="material-symbols-outlined text-sm">expand_more</span>
+<span class="material-symbols-outlined text-sm transition-transform duration-200" id="mobile-services-chevron">expand_more</span>
 </button>
 <div id="mobile-services-menu" class="hidden mt-2 ml-4 space-y-2">
-<a href="services/design-build.html" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-primary py-2">Design Build</a>
+<a href="services/design-build.html" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-primary py-2">Design-Build</a>
 <a href="services/general-contracting.html" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-primary py-2">General Contracting</a>
 <a href="services/project-management.html" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-primary py-2">Project Management</a>
-<a href="services/modular-prefabrications.html" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-primary py-2">Modular Prefabrications</a>
+<a href="services/modular-prefabrications.html" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-primary py-2">Modular &amp; Prefabrication</a>
 </div>
 </div>
 <a href="project-portfolio.html" class="block text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors">Projects</a>
 <a href="qualifications.html" class="block text-sm font-semibold uppercase tracking-widest text-primary">Qualifications</a>
-<a href="about-us.html" class="block text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors">About Us</a>
-<a href="contact.html" class="block bg-primary text-white px-6 py-3 text-sm font-bold uppercase tracking-widest rounded-sm hover:brightness-110 transition-all text-center">Contact</a>
+<a href="contact.html" class="block bg-primary text-white px-6 py-3 text-sm font-bold uppercase tracking-widest rounded-sm hover:brightness-110 transition-all text-center">Get a Consultation</a>
 </div>
 </div>
 </header>
-<script src="assets/js/navigation.js"></script>
+
 <main>
-<section class="relative min-h-[500px] flex items-center overflow-hidden bg-background-dark">
-<img alt="Industrial Project" class="absolute inset-0 w-full h-full object-cover brightness-[0.4]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB36022NbLeZiDefm2MRsLq9M-6sQt4ss9JGcfnckT8aXtMRKN6kVhFNS6c2GDbKIdlIDfBbojtumZL2d2OH4PqX7n5XZJRVXos7XL9fm8rJLKeevIYcs2j_i0S7Uzg4hMU01Zbciv2kWcey0R3R-F2sZ4IFFEI50zxDEWJRjbZeYPFzOKrXCvgW5mem_PgXtSCwvjKpV1uJyQCnt3g6w7eJBjb59rWGf9myw8ClDoChNSK9NvIdCYxccLbmH4pw7ztET7rtNGu_30"/>
-<div class="absolute inset-0 hero-overlay"></div>
-<div class="absolute inset-0 industrial-grid"></div>
-<div class="max-w-7xl mx-auto px-6 relative z-10 w-full">
-<div class="flex flex-col lg:flex-row items-center justify-between gap-16">
-<div class="max-w-3xl text-left">
-<div class="flex items-center gap-4 mb-6">
-<span class="w-12 h-1 bg-accent-yellow"></span>
-<span class="text-accent-yellow font-black uppercase tracking-[0.4em] text-xs">Certified Standards</span>
+
+<!-- ===== HERO SECTION ===== -->
+<section class="relative py-24 md:py-32 bg-background-dark overflow-hidden">
+<!-- Decorative elements -->
+<div class="absolute inset-0 opacity-5">
+<div class="absolute top-0 right-0 w-[600px] h-[600px] bg-primary rounded-full translate-x-1/2 -translate-y-1/2"></div>
+<div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent-yellow rounded-full -translate-x-1/3 translate-y-1/3"></div>
 </div>
-<h1 class="text-5xl md:text-7xl font-black text-white tracking-tighter leading-[0.9] uppercase">
-                        Professional <br/>
-<span class="text-accent-yellow">Qualifications</span>
+<div class="max-w-7xl mx-auto px-6 relative z-10">
+<div class="max-w-3xl">
+<p class="text-accent-yellow font-black uppercase tracking-[0.3em] text-sm mb-4 fade-in-up">Due Diligence Hub</p>
+<h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-[1.1] tracking-tight mb-8 fade-in-up" style="animation-delay: 0.05s">
+Qualifications &amp; <span class="text-primary">Resources</span>
 </h1>
-<p class="mt-8 text-gray-300 text-lg md:text-xl font-light max-w-xl leading-relaxed">
-                        Setting the global benchmark for industrial construction through rigorous licensing, financial resilience, and uncompromising safety protocols.
-                    </p>
-</div>
-<div class="w-full lg:w-auto">
-<div class="bg-white/10 backdrop-blur-xl border border-white/20 p-8 md:p-10 shadow-2xl relative overflow-hidden group">
-<div class="absolute top-0 right-0 w-24 h-24 bg-primary/20 rounded-full blur-3xl -mr-12 -mt-12"></div>
-<div class="relative z-10">
-<h4 class="text-white text-xs font-black uppercase tracking-[0.2em] mb-6 opacity-80">Credential Package</h4>
-<button class="w-full bg-primary hover:bg-white text-white hover:text-primary px-8 py-5 text-sm font-black uppercase tracking-[0.2em] transition-all flex items-center justify-center gap-4 shadow-xl">
-<span class="material-symbols-outlined text-2xl">download</span>
-<span>Download All Qualifications</span>
-</button>
-<div class="mt-6 flex items-center justify-between">
-<p class="text-[11px] text-accent-yellow font-bold uppercase tracking-widest">Latest update: Q3 2024</p>
-<p class="text-[10px] text-white/50 uppercase tracking-widest">PDF • 42.5 MB</p>
-</div>
-</div>
-</div>
-</div>
+<p class="text-lg md:text-xl text-gray-300 leading-relaxed fade-in-up" style="animation-delay: 0.1s">
+Procurement-ready documentation for due diligence &mdash; everything you need to evaluate Festbau as a delivery partner, in one place.
+</p>
 </div>
 </div>
 </section>
+
+<!-- ===== SECTION 1: DOWNLOADABLE RESOURCES ===== -->
 <section class="py-24 bg-white dark:bg-background-dark">
 <div class="max-w-7xl mx-auto px-6">
-<div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-<div>
-<h2 class="text-primary font-black uppercase tracking-[0.4em] text-sm mb-4">Verification</h2>
-<h3 class="text-4xl font-black tracking-tight text-gray-900 dark:text-white uppercase">Professional Licenses</h3>
+<div class="text-center mb-16 fade-in-up">
+<h2 class="text-primary font-black uppercase tracking-[0.4em] text-sm mb-4">Downloads</h2>
+<h3 class="text-4xl md:text-5xl font-black tracking-tight text-gray-900 dark:text-white mb-6 leading-tight">Downloadable Resources</h3>
+<p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl mx-auto">
+Access our key corporate documents. Each resource is formatted for procurement review and stakeholder distribution.
+</p>
 </div>
-<p class="text-gray-500 text-sm max-w-md dark:text-gray-400">
-                    Festbau maintains active licensure in all primary industrial hubs, ensuring full compliance with local engineering and building codes.
-                </p>
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+<!-- Resource 1: Company Profile -->
+<div class="group bg-background-light dark:bg-industrial-gray border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 fade-in-up" style="animation-delay: 0.1s">
+<div class="h-48 bg-gradient-to-br from-primary/10 to-primary/5 dark:from-primary/20 dark:to-primary/10 flex items-center justify-center relative overflow-hidden">
+<div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(17,82,212,0.05)_50%,transparent_75%)] bg-[length:20px_20px]"></div>
+<span class="material-symbols-outlined text-7xl text-primary/60 group-hover:scale-110 transition-transform duration-300">description</span>
 </div>
-<div class="overflow-x-auto border border-gray-100 dark:border-gray-800 shadow-sm">
-<table class="w-full border-collapse">
-<thead>
-<tr class="bg-gray-50 dark:bg-industrial-gray/50 border-b border-gray-200 dark:border-gray-700">
-<th class="px-8 py-6 text-left text-xs font-black uppercase tracking-widest text-primary">Jurisdiction</th>
-<th class="px-8 py-6 text-left text-xs font-black uppercase tracking-widest text-primary">License Type</th>
-<th class="px-8 py-6 text-left text-xs font-black uppercase tracking-widest text-primary">License No.</th>
-<th class="px-8 py-6 text-right text-xs font-black uppercase tracking-widest text-primary">Status</th>
-</tr>
-</thead>
-<tbody class="divide-y divide-gray-100 dark:divide-gray-800">
-<tr class="hover:bg-gray-50/50 dark:hover:bg-white/5 transition-colors group">
-<td class="px-8 py-6 font-bold uppercase tracking-tighter text-gray-900 dark:text-white">Bavaria, Germany</td>
-<td class="px-8 py-6 text-sm text-gray-600 dark:text-gray-400">Structural Engineering Class A</td>
-<td class="px-8 py-6 font-mono text-sm text-primary">DE-BY-19742024</td>
-<td class="px-8 py-6 text-right">
-<span class="inline-flex items-center px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-[10px] font-black uppercase tracking-widest">Active</span>
-</td>
-</tr>
-<tr class="hover:bg-gray-50/50 dark:hover:bg-white/5 transition-colors group">
-<td class="px-8 py-6 font-bold uppercase tracking-tighter text-gray-900 dark:text-white">Texas, USA</td>
-<td class="px-8 py-6 text-sm text-gray-600 dark:text-gray-400">Industrial General Contractor</td>
-<td class="px-8 py-6 font-mono text-sm text-primary">TX-IND-4421-B</td>
-<td class="px-8 py-6 text-right">
-<span class="inline-flex items-center px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-[10px] font-black uppercase tracking-widest">Active</span>
-</td>
-</tr>
-<tr class="hover:bg-gray-50/50 dark:hover:bg-white/5 transition-colors group">
-<td class="px-8 py-6 font-bold uppercase tracking-tighter text-gray-900 dark:text-white">Alberta, Canada</td>
-<td class="px-8 py-6 text-sm text-gray-600 dark:text-gray-400">Prime Heavy Industrial License</td>
-<td class="px-8 py-6 font-mono text-sm text-primary">AB-PRIME-0988</td>
-<td class="px-8 py-6 text-right">
-<span class="inline-flex items-center px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-[10px] font-black uppercase tracking-widest">Active</span>
-</td>
-</tr>
-<tr class="hover:bg-gray-50/50 dark:hover:bg-white/5 transition-colors group">
-<td class="px-8 py-6 font-bold uppercase tracking-tighter text-gray-900 dark:text-white">Singapore</td>
-<td class="px-8 py-6 text-sm text-gray-600 dark:text-gray-400">Infrastructure Development Grade 1</td>
-<td class="px-8 py-6 font-mono text-sm text-primary">SG-GB-00122</td>
-<td class="px-8 py-6 text-right">
-<span class="inline-flex items-center px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-[10px] font-black uppercase tracking-widest">Active</span>
-</td>
-</tr>
-</tbody>
-</table>
+<div class="p-8">
+<h4 class="text-lg font-black uppercase tracking-tighter mb-2">Company Profile</h4>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-6">Corporate overview including history, leadership team, core capabilities, and service delivery methodology.</p>
+<a href="#" class="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 text-xs font-bold uppercase tracking-widest rounded-sm hover:brightness-110 transition-all">
+<span class="material-symbols-outlined text-sm">download</span>
+Download PDF
+</a>
+</div>
+</div>
+
+<!-- Resource 2: Project Portfolio -->
+<div class="group bg-background-light dark:bg-industrial-gray border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 fade-in-up" style="animation-delay: 0.15s">
+<div class="h-48 bg-gradient-to-br from-primary/10 to-primary/5 dark:from-primary/20 dark:to-primary/10 flex items-center justify-center relative overflow-hidden">
+<div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(17,82,212,0.05)_50%,transparent_75%)] bg-[length:20px_20px]"></div>
+<span class="material-symbols-outlined text-7xl text-primary/60 group-hover:scale-110 transition-transform duration-300">folder_open</span>
+</div>
+<div class="p-8">
+<h4 class="text-lg font-black uppercase tracking-tighter mb-2">Project Portfolio</h4>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-6">Detailed case studies of completed and active projects including scope, value, delivery method, and outcomes.</p>
+<a href="#" class="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 text-xs font-bold uppercase tracking-widest rounded-sm hover:brightness-110 transition-all">
+<span class="material-symbols-outlined text-sm">download</span>
+Download PDF
+</a>
+</div>
+</div>
+
+<!-- Resource 3: Safety Program Overview -->
+<div class="group bg-background-light dark:bg-industrial-gray border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 fade-in-up" style="animation-delay: 0.2s">
+<div class="h-48 bg-gradient-to-br from-primary/10 to-primary/5 dark:from-primary/20 dark:to-primary/10 flex items-center justify-center relative overflow-hidden">
+<div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(17,82,212,0.05)_50%,transparent_75%)] bg-[length:20px_20px]"></div>
+<span class="material-symbols-outlined text-7xl text-primary/60 group-hover:scale-110 transition-transform duration-300">health_and_safety</span>
+</div>
+<div class="p-8">
+<h4 class="text-lg font-black uppercase tracking-tighter mb-2">Safety Program Overview</h4>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-6">Comprehensive health and safety policies, incident management protocols, training programs, and site safety procedures.</p>
+<a href="#" class="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 text-xs font-bold uppercase tracking-widest rounded-sm hover:brightness-110 transition-all">
+<span class="material-symbols-outlined text-sm">download</span>
+Download PDF
+</a>
+</div>
+</div>
+
+<!-- Resource 4: Insurance & Bonding Certificate -->
+<div class="group bg-background-light dark:bg-industrial-gray border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 fade-in-up" style="animation-delay: 0.25s">
+<div class="h-48 bg-gradient-to-br from-primary/10 to-primary/5 dark:from-primary/20 dark:to-primary/10 flex items-center justify-center relative overflow-hidden">
+<div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(17,82,212,0.05)_50%,transparent_75%)] bg-[length:20px_20px]"></div>
+<span class="material-symbols-outlined text-7xl text-primary/60 group-hover:scale-110 transition-transform duration-300">shield</span>
+</div>
+<div class="p-8">
+<h4 class="text-lg font-black uppercase tracking-tighter mb-2">Insurance &amp; Bonding Certificate</h4>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-6">Current certificates of insurance, bonding capacity documentation, and coverage summaries for procurement review.</p>
+<a href="#" class="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 text-xs font-bold uppercase tracking-widest rounded-sm hover:brightness-110 transition-all">
+<span class="material-symbols-outlined text-sm">download</span>
+Download PDF
+</a>
+</div>
+</div>
+
+<!-- Resource 5: Quality Management Plan -->
+<div class="group bg-background-light dark:bg-industrial-gray border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 fade-in-up" style="animation-delay: 0.3s">
+<div class="h-48 bg-gradient-to-br from-primary/10 to-primary/5 dark:from-primary/20 dark:to-primary/10 flex items-center justify-center relative overflow-hidden">
+<div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(17,82,212,0.05)_50%,transparent_75%)] bg-[length:20px_20px]"></div>
+<span class="material-symbols-outlined text-7xl text-primary/60 group-hover:scale-110 transition-transform duration-300">verified</span>
+</div>
+<div class="p-8">
+<h4 class="text-lg font-black uppercase tracking-tighter mb-2">Quality Management Plan</h4>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-6">QA/QC framework, inspection protocols, deficiency tracking systems, and closeout documentation standards.</p>
+<a href="#" class="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 text-xs font-bold uppercase tracking-widest rounded-sm hover:brightness-110 transition-all">
+<span class="material-symbols-outlined text-sm">download</span>
+Download PDF
+</a>
+</div>
+</div>
+
 </div>
 </div>
 </section>
-<section class="py-24 bg-background-light dark:bg-black/20 relative">
+
+<!-- ===== SECTION 2: LICENSES, INSURANCE & BONDING ===== -->
+<section class="py-24 bg-background-light dark:bg-industrial-gray">
 <div class="max-w-7xl mx-auto px-6">
-<div class="mb-16">
-<h2 class="text-accent-yellow font-black uppercase tracking-[0.4em] text-sm mb-4">Financial Assets</h2>
-<h3 class="text-4xl font-black tracking-tight text-gray-900 dark:text-white uppercase">Financial Stability</h3>
+<div class="text-center mb-16 fade-in-up">
+<h2 class="text-primary font-black uppercase tracking-[0.4em] text-sm mb-4">Compliance</h2>
+<h3 class="text-4xl md:text-5xl font-black tracking-tight text-gray-900 dark:text-white mb-6 leading-tight">Licenses, Insurance &amp; Bonding</h3>
+<p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl mx-auto">
+Fully licensed, insured, and bondable &mdash; meeting the compliance requirements of institutional and public-sector clients.
+</p>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-<div class="bg-white dark:bg-industrial-gray p-10 border-t-4 border-accent-yellow shadow-lg">
-<div class="flex items-center gap-4 mb-8">
-<span class="material-symbols-outlined text-4xl text-accent-yellow">account_balance</span>
-<h4 class="text-xl font-black uppercase tracking-tighter">Bonding Capacity</h4>
-</div>
-<div class="space-y-8">
-<div>
-<p class="text-[10px] text-gray-500 uppercase tracking-widest mb-2 font-bold">Single Project Capacity</p>
-<p class="text-4xl font-black text-primary">$150,000,000+</p>
-</div>
-<div class="w-full bg-gray-100 dark:bg-gray-700 h-1.5 overflow-hidden">
-<div class="bg-primary h-full w-3/4"></div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+<!-- License 1: Ontario General Contractor -->
+<div class="group p-8 bg-white dark:bg-background-dark border border-gray-200 dark:border-gray-700 hover:shadow-xl hover:border-primary/30 transition-all duration-300 fade-in-up" style="animation-delay: 0.1s">
+<div class="flex items-start gap-4 mb-4">
+<div class="w-14 h-14 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-2xl text-green-600 dark:text-green-400">gavel</span>
 </div>
 <div>
-<p class="text-[10px] text-gray-500 uppercase tracking-widest mb-2 font-bold">Aggregate Capacity</p>
-<p class="text-4xl font-black text-primary">$650,000,000+</p>
+<h4 class="text-lg font-black uppercase tracking-tighter mb-1">Ontario General Contractor License</h4>
+<span class="text-xs font-bold uppercase tracking-widest text-green-600 dark:text-green-400 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">check_circle</span>
+Active &amp; Verified
+</span>
 </div>
 </div>
-<p class="mt-10 text-xs text-gray-500 italic leading-relaxed border-l-2 border-primary/20 pl-4">
-                        Underwritten by leading A+ rated global insurance partners. Full financial audit reports available upon request for qualifying tenders.
-                    </p>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Licensed general contractor operating under Ontario regulatory requirements for commercial and residential construction.</p>
 </div>
-<div class="bg-white dark:bg-industrial-gray p-10 border-t-4 border-accent-yellow shadow-lg">
-<div class="flex items-center gap-4 mb-8">
-<span class="material-symbols-outlined text-4xl text-accent-yellow">security</span>
-<h4 class="text-xl font-black uppercase tracking-tighter">Insurance Coverage</h4>
+
+<!-- License 2: WSIB Clearance -->
+<div class="group p-8 bg-white dark:bg-background-dark border border-gray-200 dark:border-gray-700 hover:shadow-xl hover:border-primary/30 transition-all duration-300 fade-in-up" style="animation-delay: 0.15s">
+<div class="flex items-start gap-4 mb-4">
+<div class="w-14 h-14 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-2xl text-green-600 dark:text-green-400">workspace_premium</span>
 </div>
-<ul class="space-y-6">
-<li class="flex items-start gap-4 pb-4 border-b border-gray-100 dark:border-gray-700">
-<span class="material-symbols-outlined text-primary">verified_user</span>
 <div>
-<p class="font-bold text-sm uppercase tracking-widest text-gray-900 dark:text-white">General Liability</p>
-<p class="text-gray-500 text-sm">$25,000,000 per occurrence</p>
+<h4 class="text-lg font-black uppercase tracking-tighter mb-1">WSIB Clearance Certificate</h4>
+<span class="text-xs font-bold uppercase tracking-widest text-green-600 dark:text-green-400 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">check_circle</span>
+Active &amp; Verified
+</span>
 </div>
-</li>
-<li class="flex items-start gap-4 pb-4 border-b border-gray-100 dark:border-gray-700">
-<span class="material-symbols-outlined text-primary">verified_user</span>
+</div>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Current Workplace Safety and Insurance Board clearance certificate, maintained in good standing for all active projects.</p>
+</div>
+
+<!-- License 3: Commercial General Liability -->
+<div class="group p-8 bg-white dark:bg-background-dark border border-gray-200 dark:border-gray-700 hover:shadow-xl hover:border-primary/30 transition-all duration-300 fade-in-up" style="animation-delay: 0.2s">
+<div class="flex items-start gap-4 mb-4">
+<div class="w-14 h-14 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-2xl text-green-600 dark:text-green-400">shield</span>
+</div>
 <div>
-<p class="font-bold text-sm uppercase tracking-widest text-gray-900 dark:text-white">Professional Indemnity</p>
-<p class="text-gray-500 text-sm">$10,000,000 per claim</p>
+<h4 class="text-lg font-black uppercase tracking-tighter mb-1">Commercial General Liability</h4>
+<span class="text-xs font-bold uppercase tracking-widest text-green-600 dark:text-green-400 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">check_circle</span>
+$5M+ Coverage
+</span>
 </div>
-</li>
-<li class="flex items-start gap-4 pb-4 border-b border-gray-100 dark:border-gray-700">
-<span class="material-symbols-outlined text-primary">verified_user</span>
+</div>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Comprehensive commercial general liability insurance with $5M+ in aggregate coverage, meeting institutional and public-sector thresholds.</p>
+</div>
+
+<!-- License 4: Bonding Capacity -->
+<div class="group p-8 bg-white dark:bg-background-dark border border-gray-200 dark:border-gray-700 hover:shadow-xl hover:border-primary/30 transition-all duration-300 fade-in-up" style="animation-delay: 0.25s">
+<div class="flex items-start gap-4 mb-4">
+<div class="w-14 h-14 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-2xl text-primary">account_balance</span>
+</div>
 <div>
-<p class="font-bold text-sm uppercase tracking-widest text-gray-900 dark:text-white">Workers Compensation</p>
-<p class="text-gray-500 text-sm">Statutory limits exceeded by 2x</p>
+<h4 class="text-lg font-black uppercase tracking-tighter mb-1">Bonding Capacity</h4>
+<span class="text-xs font-bold uppercase tracking-widest text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">info</span>
+Available Upon Request
+</span>
 </div>
-</li>
-<li class="flex items-start gap-4">
-<span class="material-symbols-outlined text-primary">verified_user</span>
+</div>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Performance and labour/material payment bonding available through established surety relationships. Capacity details provided on a project-specific basis.</p>
+</div>
+
+<!-- License 5: Safety Certifications -->
+<div class="group p-8 bg-white dark:bg-background-dark border border-gray-200 dark:border-gray-700 hover:shadow-xl hover:border-primary/30 transition-all duration-300 fade-in-up" style="animation-delay: 0.3s">
+<div class="flex items-start gap-4 mb-4">
+<div class="w-14 h-14 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-2xl text-green-600 dark:text-green-400">health_and_safety</span>
+</div>
 <div>
-<p class="font-bold text-sm uppercase tracking-widest text-gray-900 dark:text-white">Environmental Liability</p>
-<p class="text-gray-500 text-sm">$5,000,000 specialized site cover</p>
+<h4 class="text-lg font-black uppercase tracking-tighter mb-1">Safety Certifications</h4>
+<span class="text-xs font-bold uppercase tracking-widest text-green-600 dark:text-green-400 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">check_circle</span>
+COR &amp; IHSA
+</span>
 </div>
-</li>
-</ul>
 </div>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Certificate of Recognition (COR) and Infrastructure Health &amp; Safety Association (IHSA) member. Safety is embedded in every phase of project delivery.</p>
+</div>
+
 </div>
 </div>
 </section>
-<section class="grid grid-cols-1 lg:grid-cols-2">
-<div class="relative min-h-[500px] lg:h-auto">
-<img alt="Safety inspection" class="absolute inset-0 w-full h-full object-cover brightness-[0.7] grayscale hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB36022NbLeZiDefm2MRsLq9M-6sQt4ss9JGcfnckT8aXtMRKN6kVhFNS6c2GDbKIdlIDfBbojtumZL2d2OH4PqX7n5XZJRVXos7XL9fm8rJLKeevIYcs2j_i0S7Uzg4hMU01Zbciv2kWcey0R3R-F2sZ4IFFEI50zxDEWJRjbZeYPFzOKrXCvgW5mem_PgXtSCwvjKpV1uJyQCnt3g6w7eJBjb59rWGf9myw8ClDoChNSK9NvIdCYxccLbmH4pw7ztET7rtNGu_30"/>
-<div class="absolute inset-0 bg-primary/20"></div>
-<div class="absolute bottom-12 left-12 right-12 bg-white/10 backdrop-blur-xl p-8 border-l-4 border-accent-yellow">
-<p class="text-white text-xl font-light italic leading-relaxed">"Safety is not just a protocol; it is the fundamental constraint within which all engineering excellence must exist."</p>
-<p class="text-accent-yellow font-black uppercase tracking-widest text-xs mt-4">— Karl-Heinz Festbau, Founder</p>
+
+<!-- ===== SECTION 3: AFFILIATIONS & MEMBERSHIPS ===== -->
+<section class="py-24 bg-white dark:bg-background-dark">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-16 fade-in-up">
+<h2 class="text-primary font-black uppercase tracking-[0.4em] text-sm mb-4">Industry Network</h2>
+<h3 class="text-4xl md:text-5xl font-black tracking-tight text-gray-900 dark:text-white mb-6 leading-tight">Affiliations &amp; Memberships</h3>
+<p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl mx-auto">
+Actively engaged with Ontario and Canadian construction industry organizations, maintaining the highest professional standards.
+</p>
 </div>
+
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 fade-in-up" style="animation-delay: 0.1s">
+
+<!-- OGCA -->
+<div class="group flex flex-col items-center text-center p-8 bg-background-light dark:bg-industrial-gray border border-gray-200 dark:border-gray-700 hover:shadow-lg hover:border-primary/30 transition-all duration-300">
+<div class="w-20 h-20 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center mb-4 group-hover:bg-primary/10 transition-colors duration-300">
+<span class="material-symbols-outlined text-3xl text-gray-500 dark:text-gray-400 group-hover:text-primary transition-colors duration-300">apartment</span>
 </div>
-<div class="bg-industrial-gray py-24 px-12 lg:px-24 flex flex-col justify-center">
-<h2 class="text-accent-yellow font-black uppercase tracking-[0.4em] text-sm mb-4">Zero Harm Policy</h2>
-<h3 class="text-4xl font-black text-white uppercase tracking-tight mb-8">Operational Safety</h3>
-<p class="text-gray-400 mb-12 text-lg leading-relaxed font-light">
-                Our proprietary Safety First™ framework integrates AI-driven risk assessment with decades of field-tested engineering protocols. We hold the industry's most rigorous certifications.
-            </p>
-<div class="grid grid-cols-2 gap-8">
-<div class="flex flex-col items-center text-center p-6 bg-white/5 border border-white/10 hover:border-primary transition-all">
-<div class="w-16 h-16 bg-white rounded-full mb-4 flex items-center justify-center p-2">
-<img alt="COR Logo" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHcXsjI4QKNE76FOEzsUxkq6waEcOtNtilG6BLirq5fAOV8u0127OsVeowvuJJhXlAGeB0IczaoT4OsP1zBVHdne_TfU-63QDxN8cUSTT4X-q4qgOAfItVIAp11Who2RYMpZUFhHJc_N_4K4MyxJbQS7szWI4GpUTAPo7bizR49anWeY1dwjVdAI_Kdc2ZhdEnxg36bSqbV9qPMep0QwS1BOPQFok2dkLpg-MM0YNUAWMLxTIT6nwZHjw42tf7OZo20hw5mW6KGtY"/>
+<h5 class="text-xs font-black uppercase tracking-wider text-gray-700 dark:text-gray-300 leading-tight">Ontario General Contractors Association</h5>
 </div>
-<p class="text-white font-black text-xs uppercase tracking-widest">COR™ Certified</p>
-<p class="text-gray-500 text-[10px] uppercase mt-2">Elite Health &amp; Safety</p>
+
+<!-- CCA -->
+<div class="group flex flex-col items-center text-center p-8 bg-background-light dark:bg-industrial-gray border border-gray-200 dark:border-gray-700 hover:shadow-lg hover:border-primary/30 transition-all duration-300">
+<div class="w-20 h-20 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center mb-4 group-hover:bg-primary/10 transition-colors duration-300">
+<span class="material-symbols-outlined text-3xl text-gray-500 dark:text-gray-400 group-hover:text-primary transition-colors duration-300">domain</span>
 </div>
-<div class="flex flex-col items-center text-center p-6 bg-white/5 border border-white/10 hover:border-primary transition-all">
-<div class="w-16 h-16 bg-white rounded-full mb-4 flex items-center justify-center p-2">
-<img alt="ISO 45001" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeftVEu7Cv2ZnkQljJhRqiAmpV7uch5N5Zn1MpzhNVj1bl5gXp1ohBaYJI4OOGX05YDdkJw0cYC4NRHAbJQIruIoh5c5omw-p2GotLygIl3NkKqwh1izN9JFHwQVY874EX7IUPnBXIr2pw0o3rz-fXyA7NVHrZYo-6yYJ9SlswJBV7WN960XlSB4L7pN-AjpIykYB-_hsojCLnP8-ZOzgfvunecBxKnSGZaOsZUy_MSdeqlUcxejRI2hPx4f2wsY2X1PQe_uwfnLA"/>
+<h5 class="text-xs font-black uppercase tracking-wider text-gray-700 dark:text-gray-300 leading-tight">Canadian Construction Association</h5>
 </div>
-<p class="text-white font-black text-xs uppercase tracking-widest">ISO 45001</p>
-<p class="text-gray-500 text-[10px] uppercase mt-2">OH&amp;S Management</p>
+
+<!-- IHSA -->
+<div class="group flex flex-col items-center text-center p-8 bg-background-light dark:bg-industrial-gray border border-gray-200 dark:border-gray-700 hover:shadow-lg hover:border-primary/30 transition-all duration-300">
+<div class="w-20 h-20 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center mb-4 group-hover:bg-primary/10 transition-colors duration-300">
+<span class="material-symbols-outlined text-3xl text-gray-500 dark:text-gray-400 group-hover:text-primary transition-colors duration-300">health_and_safety</span>
 </div>
-<div class="flex flex-col items-center text-center p-6 bg-white/5 border border-white/10 hover:border-primary transition-all">
-<div class="w-16 h-16 bg-white rounded-full mb-4 flex items-center justify-center p-2">
-<img alt="OSHA" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBl9tlHPNBFhzb4t9q8Bm5MYZhns25p5AlMxW5EvNYcLGXnE5oGC2vwQme3Z4Wm9miZmhLIw1aOQvFheG1MtfUJoCnlbRMYIeVyTAJWw_wrzkBY0b98yffy1u0w65iZ2DJGz4rVGfAXeIhLQg0QpiMHvH_VbwQeBTanq4cw29tNmNwxYagKP5KEjx7mo2JWn-aBP4LPYyDLx8TyzFhqALrTgex8V7bsW6k52RDeKP7qFBH9szGvl53Y9erNHwz88S0UzjZYbJR9_vo"/>
+<h5 class="text-xs font-black uppercase tracking-wider text-gray-700 dark:text-gray-300 leading-tight">IHSA Member</h5>
 </div>
-<p class="text-white font-black text-xs uppercase tracking-widest">OSHA Elite</p>
-<p class="text-gray-500 text-[10px] uppercase mt-2">VPP Member State</p>
+
+<!-- WSIB -->
+<div class="group flex flex-col items-center text-center p-8 bg-background-light dark:bg-industrial-gray border border-gray-200 dark:border-gray-700 hover:shadow-lg hover:border-primary/30 transition-all duration-300">
+<div class="w-20 h-20 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center mb-4 group-hover:bg-primary/10 transition-colors duration-300">
+<span class="material-symbols-outlined text-3xl text-gray-500 dark:text-gray-400 group-hover:text-primary transition-colors duration-300">workspace_premium</span>
 </div>
-<div class="flex flex-col items-center text-center p-6 bg-white/5 border border-white/10 hover:border-primary transition-all">
-<div class="w-16 h-16 bg-white rounded-full mb-4 flex items-center justify-center p-2">
-<img alt="VCA" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBY9P00Y6JIrdjX7ADon-pVhqnRqrcNxpu_NJI2jYf7IVl0X3ld_rBnrjP_sYL_E4n6R-7m5eOqSyiQI8cy6xr9vxIXis0c-ztNvgJfvFEt19_sl1XS6GCqrFcKW3ZpM_y054rQwJTGlCpt8qBgbrmLZ6nmz1zgDqQKooKzPyuIDE9LrWftRfqqc750ewSL7t0zPbAgJ8lTw2lNRhPj5SM7RXJrqQZNm9ieZlF-1tgkgmgzdFeYcgoFVnTMo2VrL1DjX33cBP7fqOk"/>
+<h5 class="text-xs font-black uppercase tracking-wider text-gray-700 dark:text-gray-300 leading-tight">WSIB Compliant Employer</h5>
 </div>
-<p class="text-white font-black text-xs uppercase tracking-widest">VCA Petro</p>
-<p class="text-gray-500 text-[10px] uppercase mt-2">High-Risk Operations</p>
+
+<!-- COR -->
+<div class="group flex flex-col items-center text-center p-8 bg-background-light dark:bg-industrial-gray border border-gray-200 dark:border-gray-700 hover:shadow-lg hover:border-primary/30 transition-all duration-300">
+<div class="w-20 h-20 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center mb-4 group-hover:bg-primary/10 transition-colors duration-300">
+<span class="material-symbols-outlined text-3xl text-gray-500 dark:text-gray-400 group-hover:text-primary transition-colors duration-300">verified</span>
 </div>
+<h5 class="text-xs font-black uppercase tracking-wider text-gray-700 dark:text-gray-300 leading-tight">COR Certified</h5>
 </div>
-</div>
-</section>
-<section class="py-24 bg-white dark:bg-background-dark overflow-hidden">
-<div class="max-w-7xl mx-auto px-6 text-center">
-<h2 class="text-primary font-black uppercase tracking-[0.4em] text-sm mb-4">Network</h2>
-<h3 class="text-4xl font-black tracking-tight text-gray-900 dark:text-white uppercase mb-16">Affiliations &amp; Memberships</h3>
-<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center justify-items-center opacity-60">
-<div class="h-20 w-full max-w-[160px] bg-gray-50 dark:bg-white/5 flex items-center justify-center rounded-sm border border-gray-100 dark:border-white/10 hover:opacity-100 hover:border-primary transition-all grayscale hover:grayscale-0">
-<p class="text-[11px] font-black uppercase text-gray-500 dark:text-gray-400">AGC MEMBER</p>
-</div>
-<div class="h-20 w-full max-w-[160px] bg-gray-50 dark:bg-white/5 flex items-center justify-center rounded-sm border border-gray-100 dark:border-white/10 hover:opacity-100 hover:border-primary transition-all grayscale hover:grayscale-0">
-<p class="text-[11px] font-black uppercase text-gray-500 dark:text-gray-400">IEEE GLOBAL</p>
-</div>
-<div class="h-20 w-full max-w-[160px] bg-gray-50 dark:bg-white/5 flex items-center justify-center rounded-sm border border-gray-100 dark:border-white/10 hover:opacity-100 hover:border-primary transition-all grayscale hover:grayscale-0">
-<p class="text-[11px] font-black uppercase text-gray-500 dark:text-gray-400">ICE CIVIL</p>
-</div>
-<div class="h-20 w-full max-w-[160px] bg-gray-50 dark:bg-white/5 flex items-center justify-center rounded-sm border border-gray-100 dark:border-white/10 hover:opacity-100 hover:border-primary transition-all grayscale hover:grayscale-0">
-<p class="text-[11px] font-black uppercase text-gray-500 dark:text-gray-400">ASCE CORP</p>
-</div>
-<div class="h-20 w-full max-w-[160px] bg-gray-50 dark:bg-white/5 flex items-center justify-center rounded-sm border border-gray-100 dark:border-white/10 hover:opacity-100 hover:border-primary transition-all grayscale hover:grayscale-0">
-<p class="text-[11px] font-black uppercase text-gray-500 dark:text-gray-400">USGBC SILVER</p>
-</div>
-<div class="h-20 w-full max-w-[160px] bg-gray-50 dark:bg-white/5 flex items-center justify-center rounded-sm border border-gray-100 dark:border-white/10 hover:opacity-100 hover:border-primary transition-all grayscale hover:grayscale-0">
-<p class="text-[11px] font-black uppercase text-gray-500 dark:text-gray-400">VDI GERMANY</p>
-</div>
+
 </div>
 </div>
 </section>
-<section class="py-24 bg-primary relative overflow-hidden">
-<div class="absolute inset-0 industrial-grid opacity-20"></div>
+
+<!-- ===== BOTTOM CTA ===== -->
+<section class="py-24 bg-primary overflow-hidden relative">
+<div class="absolute inset-0 opacity-10">
+<div class="absolute top-0 left-0 w-96 h-96 bg-white/20 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+<div class="absolute bottom-0 right-0 w-72 h-72 bg-white/20 rounded-full translate-x-1/3 translate-y-1/3"></div>
+</div>
 <div class="max-w-7xl mx-auto px-6 relative z-10">
-<div class="flex flex-col lg:flex-row items-center justify-between gap-12 text-center lg:text-left">
-<div class="max-w-2xl">
-<h2 class="text-white text-4xl md:text-6xl font-black tracking-tighter mb-6 uppercase leading-[0.9]">Ready for <br/><span class="text-accent-yellow">Large-Scale</span> Deployment</h2>
-<p class="text-white/80 text-lg md:text-xl font-light">Access our full operational technical data and risk assessment dossiers.</p>
+<div class="flex flex-col items-center text-center gap-8 fade-in-up">
+<div class="max-w-3xl">
+<span class="material-symbols-outlined text-6xl text-white/80 mb-4 block">contact_support</span>
+<h2 class="text-white text-4xl md:text-5xl font-black tracking-tight mb-6 leading-tight">Need Specific Documentation?</h2>
+<p class="text-white/90 text-xl leading-relaxed">Our team can prepare custom qualification packages, reference letters, or project-specific documentation upon request.</p>
 </div>
-<button class="bg-white text-primary px-12 py-6 text-sm font-black uppercase tracking-widest hover:bg-accent-yellow transition-all shadow-2xl shrink-0">
-                    Request Specific Docs
-                </button>
+<div>
+<a href="contact.html" class="bg-white text-primary px-12 py-5 text-base font-black uppercase tracking-widest rounded-sm hover:scale-105 transition-transform shadow-2xl inline-block">
+Contact Us
+</a>
+</div>
 </div>
 </div>
 </section>
+
 </main>
-<footer class="bg-background-dark text-white pt-24 pb-12 border-t-4 border-accent-yellow">
+
+<!-- ===== FOOTER ===== -->
+<footer class="bg-background-dark text-white pt-20 pb-12 border-t-4 border-accent-yellow">
 <div class="max-w-7xl mx-auto px-6">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
-<div class="md:col-span-1">
-<div class="flex items-center gap-3 mb-8">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+<!-- Company Info -->
+<div>
+<div class="flex items-center gap-3 mb-6">
 <div class="bg-white p-1 rounded-sm">
 <svg class="size-6 text-background-dark" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
 <path d="M39.5563 34.1455V13.8546C39.5563 15.708 36.8773 17.3437 32.7927 18.3189C30.2914 18.916 27.263 19.2655 24 19.2655C20.737 19.2655 17.7086 18.916 15.2073 18.3189C11.1227 17.3437 8.44365 15.708 8.44365 13.8546V34.1455C8.44365 35.9988 11.1227 37.6346 15.2073 38.6098C17.7086 39.2069 20.737 39.5564 24 39.5564C27.263 39.5564 30.2914 39.2069 32.7927 38.6098C36.8773 37.6346 39.5563 35.9988 39.5563 34.1455Z" fill="currentColor"></path>
@@ -375,55 +491,114 @@ Services
 </div>
 <h2 class="text-xl font-extrabold tracking-tighter uppercase">Festbau</h2>
 </div>
-<p class="text-gray-400 text-sm leading-relaxed mb-8">
-                    Delivering the foundations of modern infrastructure since 1974. Precision engineering, absolute reliability.
-                </p>
-<div class="flex gap-4">
-<a class="w-10 h-10 border border-gray-700 flex items-center justify-center hover:bg-primary hover:border-primary transition-all rounded-sm" href="#"><span class="material-symbols-outlined text-sm">hub</span></a>
-<a class="w-10 h-10 border border-gray-700 flex items-center justify-center hover:bg-primary hover:border-primary transition-all rounded-sm" href="#"><span class="material-symbols-outlined text-sm">alternate_email</span></a>
-<a class="w-10 h-10 border border-gray-700 flex items-center justify-center hover:bg-primary hover:border-primary transition-all rounded-sm" href="#"><span class="material-symbols-outlined text-sm">groups</span></a>
+<p class="text-gray-400 text-sm leading-relaxed mb-6">
+Ontario-based Design-Build and General Contracting partner. Founded 2016.
+</p>
 </div>
-</div>
+
+<!-- Contact Information -->
 <div>
-<h5 class="text-sm font-black uppercase tracking-[0.2em] text-accent-yellow mb-8">Navigation</h5>
-<ul class="space-y-4">
-<li><a class="text-sm text-gray-400 hover:text-white transition-colors" href="index.html">Home</a></li>
-<li><a class="text-sm text-gray-400 hover:text-white transition-colors" href="services/design-build.html">Our Services</a></li>
-<li><a class="text-sm text-gray-400 hover:text-white transition-colors" href="project-portfolio.html">Project Portfolio</a></li>
-<li><a class="text-sm text-gray-400 hover:text-white transition-colors" href="qualifications.html">Qualifications</a></li>
-<li><a class="text-sm text-gray-400 hover:text-white transition-colors" href="about-us.html">About Us</a></li>
-<li><a class="text-sm text-gray-400 hover:text-white transition-colors" href="contact.html">Contact</a></li>
+<h5 class="text-sm font-black uppercase tracking-[0.2em] text-accent-yellow mb-6">Contact</h5>
+<ul class="space-y-3 text-sm text-gray-400">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">call</span>
+<a href="tel:+15483331419" class="hover:text-white transition-colors">(548) 333-1419</a>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">mail</span>
+<div class="flex flex-col gap-1">
+<a href="mailto:Vugar@festbau.ca" class="hover:text-white transition-colors">Vugar@festbau.ca</a>
+<a href="mailto:Mashhod@festbau.ca" class="hover:text-white transition-colors">Mashhod@festbau.ca</a>
+</div>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">location_on</span>
+<span>Cambridge, Ontario</span>
+</li>
 </ul>
 </div>
+
+<!-- Quick Links -->
 <div>
-<h5 class="text-sm font-black uppercase tracking-[0.2em] text-accent-yellow mb-8">Headquarters</h5>
-<p class="text-sm text-gray-400 leading-relaxed">
-                    Bauallee 12-14<br/>
-                    80331 Munich, Germany<br/>
-                    T: +49 (0) 89 234 567 89<br/>
-                    E: contact@festbau.de
-                </p>
+<h5 class="text-sm font-black uppercase tracking-[0.2em] text-accent-yellow mb-6">Resources</h5>
+<ul class="space-y-3 text-sm">
+<li><a class="text-gray-400 hover:text-white transition-colors flex items-center gap-2" href="qualifications.html">
+<span class="material-symbols-outlined text-sm">download</span>
+Download Qualifications
+</a></li>
+<li><a class="text-gray-400 hover:text-white transition-colors flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-sm">policy</span>
+Privacy Policy
+</a></li>
+<li><a class="text-gray-400 hover:text-white transition-colors flex items-center gap-2" href="https://www.linkedin.com/company/festbau-construction" target="_blank">
+<span class="material-symbols-outlined text-sm">groups</span>
+LinkedIn
+</a></li>
+<li><a class="text-gray-400 hover:text-white transition-colors flex items-center gap-2" href="https://www.instagram.com/vugarconstruction" target="_blank">
+<span class="material-symbols-outlined text-sm">photo_camera</span>
+Instagram
+</a></li>
+</ul>
 </div>
-<div>
-<h5 class="text-sm font-black uppercase tracking-[0.2em] text-accent-yellow mb-8">Newsletter</h5>
-<p class="text-xs text-gray-400 mb-6 uppercase tracking-widest">Industry insights &amp; news</p>
-<div class="flex">
-<input class="bg-gray-800 border-none px-4 py-3 text-sm focus:ring-1 focus:ring-primary w-full rounded-l-sm" placeholder="Your Email" type="email"/>
-<button class="bg-primary px-4 py-3 rounded-r-sm hover:brightness-110 transition-all">
-<span class="material-symbols-outlined">send</span>
-</button>
 </div>
-</div>
-</div>
-<div class="pt-12 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-6">
-<p class="text-xs text-gray-500 uppercase tracking-widest">© 2024 Festbau GmbH. All rights reserved.</p>
-<div class="flex gap-8">
-<a class="text-[10px] text-gray-500 hover:text-white uppercase tracking-widest" href="#">Imprint</a>
-<a class="text-[10px] text-gray-500 hover:text-white uppercase tracking-widest" href="#">Privacy Policy</a>
-<a class="text-[10px] text-gray-500 hover:text-white uppercase tracking-widest" href="#">Terms of Service</a>
+
+<!-- Footer Bottom -->
+<div class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-xs text-gray-500 uppercase tracking-wider">&copy; 2026 Festbau. All rights reserved.</p>
+<div class="flex items-center gap-6">
+<a href="https://www.linkedin.com/company/festbau-construction" target="_blank" class="text-gray-500 hover:text-primary transition-colors">
+<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+</a>
+<a href="https://www.instagram.com/vugarconstruction" target="_blank" class="text-gray-500 hover:text-primary transition-colors">
+<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+</a>
 </div>
 </div>
 </div>
 </footer>
 
-</body></html>
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+// Mobile Menu Toggle
+document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+    var menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('hidden');
+});
+
+// Mobile Services Accordion
+document.getElementById('mobile-services-btn').addEventListener('click', function() {
+    var submenu = document.getElementById('mobile-services-menu');
+    var chevron = document.getElementById('mobile-services-chevron');
+    submenu.classList.toggle('hidden');
+    if (submenu.classList.contains('hidden')) {
+        chevron.style.transform = 'rotate(0deg)';
+    } else {
+        chevron.style.transform = 'rotate(180deg)';
+    }
+});
+
+// Intersection Observer for scroll animations
+var fadeObserver = new IntersectionObserver(function(entries, observer) {
+    entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.animation = entry.target.style.animation || 'fadeInUp 0.8s ease-out forwards';
+            observer.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+});
+
+// Observe all animated elements on DOM load
+document.addEventListener('DOMContentLoaded', function() {
+    var animatedElements = document.querySelectorAll('.fade-in-up, .fade-in, .slide-in-left, .scale-in');
+    animatedElements.forEach(function(el) {
+        fadeObserver.observe(el);
+    });
+});
+</script>
+
+</body>
+</html>

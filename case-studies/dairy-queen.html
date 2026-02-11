@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dairy Queen Ground-Up Build | Festbau Case Study</title>
+<meta name="description" content="Festbau delivered a ~$3.0M Dairy Queen ground-up build in London, Ontario — ahead of schedule, brand-compliant, under a General Contracting contract."/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style type="text/tailwindcss">
+    @layer base {
+        body {
+            @apply font-display;
+        }
+    }
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+
+    /* Fade in up animation */
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in-up {
+        opacity: 0;
+        animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    /* Fade in animation */
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    .fade-in {
+        opacity: 0;
+        animation: fadeIn 0.8s ease-out forwards;
+    }
+
+    /* Slide in from left */
+    @keyframes slideInLeft {
+        from { opacity: 0; transform: translateX(-30px); }
+        to { opacity: 1; transform: translateX(0); }
+    }
+    .slide-in-left {
+        opacity: 0;
+        animation: slideInLeft 0.8s ease-out forwards;
+    }
+
+    /* Scale in animation */
+    @keyframes scaleIn {
+        from { opacity: 0; transform: scale(0.95); }
+        to { opacity: 1; transform: scale(1); }
+    }
+    .scale-in {
+        opacity: 0;
+        animation: scaleIn 0.6s ease-out forwards;
+    }
+
+    /* Slide in from right */
+    @keyframes slideInRight {
+        from { opacity: 0; transform: translateX(30px); }
+        to { opacity: 1; transform: translateX(0); }
+    }
+    .slide-in-right {
+        opacity: 0;
+        animation: slideInRight 0.8s ease-out forwards;
+    }
+</style>
+<script>
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    "primary": "#1152d4",
+                    "accent-yellow": "#FFD700",
+                    "background-light": "#f6f6f8",
+                    "background-dark": "#101622",
+                    "industrial-gray": "#2d3442",
+                },
+                fontFamily: {
+                    "display": ["Manrope", "sans-serif"]
+                },
+                borderRadius: {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+                },
+            },
+        },
+    }
+</script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-gray-900 dark:text-gray-100 overflow-x-hidden">
+
+<!-- ===== HEADER / NAVIGATION ===== -->
+<header class="sticky top-0 z-50 w-full bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<a href="../index.html" class="flex items-center gap-3">
+<div class="bg-primary p-1.5 rounded-sm">
+<svg class="size-6 text-white" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M39.5563 34.1455V13.8546C39.5563 15.708 36.8773 17.3437 32.7927 18.3189C30.2914 18.916 27.263 19.2655 24 19.2655C20.737 19.2655 17.7086 18.916 15.2073 18.3189C11.1227 17.3437 8.44365 15.708 8.44365 13.8546V34.1455C8.44365 35.9988 11.1227 37.6346 15.2073 38.6098C17.7086 39.2069 20.737 39.5564 24 39.5564C27.263 39.5564 30.2914 39.2069 32.7927 38.6098C36.8773 37.6346 39.5563 35.9988 39.5563 34.1455Z" fill="currentColor"></path>
+<path clip-rule="evenodd" d="M10.4485 13.8519C10.4749 13.9271 10.6203 14.246 11.379 14.7361C12.298 15.3298 13.7492 15.9145 15.6717 16.3735C18.0007 16.9296 20.8712 17.2655 24 17.2655C27.1288 17.2655 29.9993 16.9296 32.3283 16.3735C34.2508 15.9145 35.702 15.3298 36.621 14.7361C37.3796 14.246 37.5251 13.9271 37.5515 13.8519C37.5287 13.7876 37.4333 13.5973 37.0635 13.2931C36.5266 12.8516 35.6288 12.3647 34.343 11.9175C31.79 11.0295 28.1333 10.4437 24 10.4437C19.8667 10.4437 16.2099 11.0295 13.657 11.9175C12.3712 12.3647 11.4734 12.8516 10.9365 13.2931C10.5667 13.5973 10.4713 13.7876 10.4485 13.8519ZM37.5563 18.7877C36.3176 19.3925 34.8502 19.8839 33.2571 20.2642C30.5836 20.9025 27.3973 21.2655 24 21.2655C20.6027 21.2655 17.4164 20.9025 14.7429 20.2642C13.1498 19.8839 11.6824 19.3925 10.4436 18.7877V34.1275C10.4515 34.1545 10.5427 34.4867 11.379 35.027C12.298 35.6207 13.7492 36.2054 15.6717 36.6644C18.0007 37.2205 20.8712 37.5564 24 37.5564C27.1288 37.5564 29.9993 37.2205 32.3283 36.6644C34.2508 36.2054 35.702 35.6207 36.621 35.027C37.4573 34.4867 37.5485 34.1546 37.5563 34.1275V18.7877ZM41.5563 13.8546V34.1455C41.5563 36.1078 40.158 37.5042 38.7915 38.3869C37.3498 39.3182 35.4192 40.0389 33.2571 40.5551C30.5836 41.1934 27.3973 41.5564 24 41.5564C20.6027 41.5564 17.4164 41.1934 14.7429 40.5551C12.5808 40.0389 10.6502 39.3182 9.20848 38.3869C7.84205 37.5042 6.44365 36.1078 6.44365 34.1455L6.44365 13.8546C6.44365 12.2684 7.37223 11.0454 8.39581 10.2036C9.43325 9.3505 10.8137 8.67141 12.343 8.13948C15.4203 7.06909 19.5418 6.44366 24 6.44366C28.4582 6.44366 32.5797 7.06909 35.657 8.13948C37.1863 8.67141 38.5667 9.3505 39.6042 10.2036C40.6278 11.0454 41.5563 12.2684 41.5563 13.8546Z" fill="white" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-xl font-extrabold tracking-tighter uppercase">Festbau</h2>
+</a>
+<!-- Desktop Nav -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors" href="../index.html">Home</a>
+<a class="text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors" href="../about-us.html">About</a>
+<div class="relative group">
+<button class="text-sm font-semibold uppercase tracking-widest hover:text-primary flex items-center gap-1 transition-colors">
+Services
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+<div class="absolute top-full left-0 mt-2 w-64 bg-white dark:bg-industrial-gray shadow-xl border border-gray-200 dark:border-gray-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+<a href="../services/design-build.html" class="block px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors border-b border-gray-100 dark:border-gray-700">Design-Build</a>
+<a href="../services/general-contracting.html" class="block px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors border-b border-gray-100 dark:border-gray-700">General Contracting</a>
+<a href="../services/project-management.html" class="block px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors border-b border-gray-100 dark:border-gray-700">Project Management</a>
+<a href="../services/modular-prefabrications.html" class="block px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors">Modular &amp; Prefabrication</a>
+</div>
+</div>
+<a class="text-sm font-semibold uppercase tracking-widest text-primary border-b-2 border-primary" href="../project-portfolio.html">Projects</a>
+<a class="text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors" href="../qualifications.html">Qualifications</a>
+<a href="../contact.html" class="bg-primary text-white px-6 py-2 text-sm font-bold uppercase tracking-widest rounded-sm hover:brightness-110 transition-all">
+Get a Consultation
+</a>
+</nav>
+<!-- Mobile Menu Button -->
+<button id="mobile-menu-btn" class="md:hidden text-gray-900 dark:text-white">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</div>
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 right-0 bg-white dark:bg-industrial-gray border-b border-gray-200 dark:border-gray-700 shadow-xl">
+<div class="px-6 py-4 space-y-4">
+<a href="../index.html" class="block text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors">Home</a>
+<a href="../about-us.html" class="block text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors">About</a>
+<div>
+<button id="mobile-services-btn" class="w-full flex items-center justify-between text-sm font-semibold uppercase tracking-widest hover:text-primary">
+Services
+<span class="material-symbols-outlined text-sm transition-transform duration-200" id="mobile-services-chevron">expand_more</span>
+</button>
+<div id="mobile-services-menu" class="hidden mt-2 ml-4 space-y-2">
+<a href="../services/design-build.html" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-primary py-2">Design-Build</a>
+<a href="../services/general-contracting.html" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-primary py-2">General Contracting</a>
+<a href="../services/project-management.html" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-primary py-2">Project Management</a>
+<a href="../services/modular-prefabrications.html" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-primary py-2">Modular &amp; Prefabrication</a>
+</div>
+</div>
+<a href="../project-portfolio.html" class="block text-sm font-semibold uppercase tracking-widest text-primary">Projects</a>
+<a href="../qualifications.html" class="block text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors">Qualifications</a>
+<a href="../contact.html" class="block bg-primary text-white px-6 py-3 text-sm font-bold uppercase tracking-widest rounded-sm hover:brightness-110 transition-all text-center">Get a Consultation</a>
+</div>
+</div>
+</header>
+
+<main>
+
+<!-- ===== HERO SECTION ===== -->
+<section class="relative min-h-[70vh] flex items-end overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Commercial restaurant construction site" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000&auto=format&fit=crop"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/20"></div>
+</div>
+<div class="max-w-7xl mx-auto px-6 relative z-10 w-full pb-16 pt-32">
+<div class="max-w-4xl">
+<div class="flex flex-wrap items-center gap-3 mb-6 fade-in-up">
+<span class="bg-primary text-white text-xs font-black uppercase px-4 py-1.5 rounded-sm tracking-wider">General Contracting</span>
+<span class="bg-accent-yellow text-black text-xs font-black uppercase px-4 py-1.5 rounded-sm tracking-wider">Completed</span>
+</div>
+<h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-[1.1] tracking-tight mb-4 fade-in-up" style="animation-delay: 0.05s">
+Dairy Queen Ground-Up <span class="text-primary">Build</span>
+</h1>
+<p class="text-lg md:text-xl text-gray-300 leading-relaxed fade-in-up" style="animation-delay: 0.1s">
+Complete ground-up construction of a brand-compliant Dairy Queen location in London, Ontario — delivered ahead of schedule.
+</p>
+</div>
+</div>
+</section>
+
+<!-- ===== KEY DETAILS TABLE ===== -->
+<section class="py-16 bg-white dark:bg-background-dark">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-gray-200 dark:bg-gray-700 border border-gray-200 dark:border-gray-700 fade-in-up">
+<div class="bg-white dark:bg-background-dark p-6 text-center">
+<p class="text-xs font-black uppercase tracking-[0.2em] text-primary mb-2">Project</p>
+<p class="text-sm font-bold text-gray-900 dark:text-white">Dairy Queen Ground-Up Build</p>
+</div>
+<div class="bg-white dark:bg-background-dark p-6 text-center">
+<p class="text-xs font-black uppercase tracking-[0.2em] text-primary mb-2">Location</p>
+<p class="text-sm font-bold text-gray-900 dark:text-white">London, Ontario</p>
+</div>
+<div class="bg-white dark:bg-background-dark p-6 text-center">
+<p class="text-xs font-black uppercase tracking-[0.2em] text-primary mb-2">Delivery</p>
+<p class="text-sm font-bold text-gray-900 dark:text-white">General Contracting</p>
+</div>
+<div class="bg-white dark:bg-background-dark p-6 text-center">
+<p class="text-xs font-black uppercase tracking-[0.2em] text-primary mb-2">Value</p>
+<p class="text-sm font-bold text-gray-900 dark:text-white">~$3.0M</p>
+</div>
+<div class="bg-white dark:bg-background-dark p-6 text-center">
+<p class="text-xs font-black uppercase tracking-[0.2em] text-primary mb-2">Status</p>
+<p class="text-sm font-bold text-green-600">Completed</p>
+</div>
+<div class="bg-white dark:bg-background-dark p-6 text-center">
+<p class="text-xs font-black uppercase tracking-[0.2em] text-primary mb-2">Duration</p>
+<p class="text-sm font-bold text-gray-900 dark:text-white">10 Months</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== PROJECT SCOPE ===== -->
+<section class="py-20 bg-background-light dark:bg-industrial-gray">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-14 fade-in-up">
+<h2 class="text-primary font-black uppercase tracking-[0.4em] text-sm mb-4">Scope of Work</h2>
+<h3 class="text-3xl md:text-4xl font-black tracking-tight text-gray-900 dark:text-white leading-tight">What We Delivered</h3>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+<div class="bg-white dark:bg-background-dark p-8 border-l-4 border-primary hover:shadow-xl transition-all duration-300 fade-in-up" style="animation-delay: 0.1s">
+<span class="material-symbols-outlined text-4xl text-primary mb-4">landscape</span>
+<h4 class="text-base font-black uppercase tracking-tighter mb-2">Sitework</h4>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Complete site preparation including grading, excavation, utilities, and paving for the new restaurant location.</p>
+</div>
+<div class="bg-white dark:bg-background-dark p-8 border-l-4 border-primary hover:shadow-xl transition-all duration-300 fade-in-up" style="animation-delay: 0.15s">
+<span class="material-symbols-outlined text-4xl text-primary mb-4">domain</span>
+<h4 class="text-base font-black uppercase tracking-tighter mb-2">Building Shell</h4>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Structural steel, exterior envelope, roofing, and all exterior finishes to brand specification.</p>
+</div>
+<div class="bg-white dark:bg-background-dark p-8 border-l-4 border-primary hover:shadow-xl transition-all duration-300 fade-in-up" style="animation-delay: 0.2s">
+<span class="material-symbols-outlined text-4xl text-primary mb-4">chair</span>
+<h4 class="text-base font-black uppercase tracking-tighter mb-2">Interior Build-Out</h4>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Full interior construction including kitchen equipment, customer areas, and brand-specific finishes.</p>
+</div>
+<div class="bg-white dark:bg-background-dark p-8 border-l-4 border-primary hover:shadow-xl transition-all duration-300 fade-in-up" style="animation-delay: 0.25s">
+<span class="material-symbols-outlined text-4xl text-primary mb-4">local_shipping</span>
+<h4 class="text-base font-black uppercase tracking-tighter mb-2">Long-Lead Procurement</h4>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Early identification and ordering of specialty kitchen equipment and brand-specific materials to prevent schedule delays.</p>
+</div>
+<div class="bg-white dark:bg-background-dark p-8 border-l-4 border-primary hover:shadow-xl transition-all duration-300 fade-in-up" style="animation-delay: 0.3s">
+<span class="material-symbols-outlined text-4xl text-primary mb-4">checklist</span>
+<h4 class="text-base font-black uppercase tracking-tighter mb-2">Punch Management</h4>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Systematic deficiency tracking and resolution to ensure clean turnover and brand-compliant final inspection.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== CHALLENGES & SOLUTIONS ===== -->
+<section class="py-20 bg-white dark:bg-background-dark">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-14 fade-in-up">
+<h2 class="text-primary font-black uppercase tracking-[0.4em] text-sm mb-4">Problem Solving</h2>
+<h3 class="text-3xl md:text-4xl font-black tracking-tight text-gray-900 dark:text-white leading-tight">Challenges &amp; Solutions</h3>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+<!-- Challenges -->
+<div class="fade-in-up slide-in-left" style="animation-delay: 0.1s">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-12 h-12 bg-red-500/10 rounded-sm flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl text-red-500">warning</span>
+</div>
+<h4 class="text-xl font-black uppercase tracking-tighter">Challenges</h4>
+</div>
+<div class="space-y-6">
+<div class="flex items-start gap-4 p-6 bg-red-50 dark:bg-red-950/20 border-l-4 border-red-400">
+<span class="material-symbols-outlined text-red-500 mt-0.5 flex-shrink-0">error</span>
+<div>
+<h5 class="font-bold text-sm mb-1">Fast-Track Schedule</h5>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">The franchise owner required an aggressive 10-month completion target to align with seasonal business planning and franchise opening commitments.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-6 bg-red-50 dark:bg-red-950/20 border-l-4 border-red-400">
+<span class="material-symbols-outlined text-red-500 mt-0.5 flex-shrink-0">error</span>
+<div>
+<h5 class="font-bold text-sm mb-1">Brand Compliance Requirements</h5>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Dairy Queen's corporate standards demanded exacting compliance on materials, finishes, signage, and kitchen equipment — with no deviations permitted.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-6 bg-red-50 dark:bg-red-950/20 border-l-4 border-red-400">
+<span class="material-symbols-outlined text-red-500 mt-0.5 flex-shrink-0">error</span>
+<div>
+<h5 class="font-bold text-sm mb-1">Site Constraints</h5>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Limited staging area, adjacent active commercial properties, and municipal servicing requirements created logistical complexity from day one.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Solutions -->
+<div class="fade-in-up slide-in-right" style="animation-delay: 0.2s">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-12 h-12 bg-green-500/10 rounded-sm flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl text-green-500">lightbulb</span>
+</div>
+<h4 class="text-xl font-black uppercase tracking-tighter">Solutions</h4>
+</div>
+<div class="space-y-6">
+<div class="flex items-start gap-4 p-6 bg-green-50 dark:bg-green-950/20 border-l-4 border-green-500">
+<span class="material-symbols-outlined text-green-500 mt-0.5 flex-shrink-0">check_circle</span>
+<div>
+<h5 class="font-bold text-sm mb-1">Long-Lead Procurement</h5>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Identified and ordered specialty kitchen equipment, HVAC units, and brand-specific signage packages within the first 30 days — preventing downstream delays.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-6 bg-green-50 dark:bg-green-950/20 border-l-4 border-green-500">
+<span class="material-symbols-outlined text-green-500 mt-0.5 flex-shrink-0">check_circle</span>
+<div>
+<h5 class="font-bold text-sm mb-1">Dedicated Site Superintendent</h5>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Assigned a full-time site superintendent to manage daily trade coordination, quality inspections, and real-time schedule adjustments.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-6 bg-green-50 dark:bg-green-950/20 border-l-4 border-green-500">
+<span class="material-symbols-outlined text-green-500 mt-0.5 flex-shrink-0">check_circle</span>
+<div>
+<h5 class="font-bold text-sm mb-1">Brand-Specific QA Checkpoints</h5>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Implemented milestone inspections aligned with Dairy Queen corporate standards at foundation, shell, rough-in, and finishes stages — catching deviations before they compounded.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== RESULTS & OUTCOMES ===== -->
+<section class="py-20 bg-background-dark text-white">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-14 fade-in-up">
+<h2 class="text-accent-yellow font-black uppercase tracking-[0.4em] text-sm mb-4">Outcomes</h2>
+<h3 class="text-3xl md:text-4xl font-black tracking-tight text-white leading-tight">Results &amp; Key Metrics</h3>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="bg-industrial-gray p-8 border-t-4 border-accent-yellow text-center hover:translate-y-[-4px] transition-all duration-300 fade-in-up" style="animation-delay: 0.1s">
+<span class="material-symbols-outlined text-4xl text-accent-yellow mb-4">rocket_launch</span>
+<p class="text-3xl font-black text-accent-yellow mb-2">Ahead</p>
+<p class="text-sm text-gray-400 uppercase tracking-wider font-semibold">Of Schedule</p>
+<p class="text-xs text-gray-500 mt-3 leading-relaxed">Delivered before the original 10-month target, enabling early franchise opening preparations.</p>
+</div>
+<div class="bg-industrial-gray p-8 border-t-4 border-primary text-center hover:translate-y-[-4px] transition-all duration-300 fade-in-up" style="animation-delay: 0.15s">
+<span class="material-symbols-outlined text-4xl text-primary mb-4">verified</span>
+<p class="text-3xl font-black text-primary mb-2">100%</p>
+<p class="text-sm text-gray-400 uppercase tracking-wider font-semibold">Brand Compliant</p>
+<p class="text-xs text-gray-500 mt-3 leading-relaxed">Passed all Dairy Queen corporate inspections with zero non-conformance items at final review.</p>
+</div>
+<div class="bg-industrial-gray p-8 border-t-4 border-green-500 text-center hover:translate-y-[-4px] transition-all duration-300 fade-in-up" style="animation-delay: 0.2s">
+<span class="material-symbols-outlined text-4xl text-green-500 mb-4">cleaning_services</span>
+<p class="text-3xl font-black text-green-500 mb-2">Clean</p>
+<p class="text-sm text-gray-400 uppercase tracking-wider font-semibold">Owner Turnover</p>
+<p class="text-xs text-gray-500 mt-3 leading-relaxed">Complete turnover package with all warranties, O&amp;M manuals, and as-built documentation delivered at handoff.</p>
+</div>
+<div class="bg-industrial-gray p-8 border-t-4 border-accent-yellow text-center hover:translate-y-[-4px] transition-all duration-300 fade-in-up" style="animation-delay: 0.25s">
+<span class="material-symbols-outlined text-4xl text-accent-yellow mb-4">account_balance_wallet</span>
+<p class="text-3xl font-black text-accent-yellow mb-2">~$3.0M</p>
+<p class="text-sm text-gray-400 uppercase tracking-wider font-semibold">Budget Target Met</p>
+<p class="text-xs text-gray-500 mt-3 leading-relaxed">Final project cost aligned with the original budget — no unplanned change orders or contingency overruns.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<section class="py-20 bg-background-light dark:bg-industrial-gray">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-14 fade-in-up">
+<h2 class="text-primary font-black uppercase tracking-[0.4em] text-sm mb-4">Project Gallery</h2>
+<h3 class="text-3xl md:text-4xl font-black tracking-tight text-gray-900 dark:text-white leading-tight">Visual Documentation</h3>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<div class="group overflow-hidden aspect-[4/3] lg:col-span-2 lg:row-span-2 lg:aspect-auto fade-in-up" style="animation-delay: 0.1s">
+<img alt="Restaurant construction site preparation" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://images.unsplash.com/photo-1590725140246-20aebfcf3706?q=80&w=1200&auto=format&fit=crop"/>
+</div>
+<div class="group overflow-hidden aspect-[4/3] fade-in-up" style="animation-delay: 0.15s">
+<img alt="Foundation and concrete work" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=800&auto=format&fit=crop"/>
+</div>
+<div class="group overflow-hidden aspect-[4/3] fade-in-up" style="animation-delay: 0.2s">
+<img alt="Steel framing going up" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://images.unsplash.com/photo-1567521464027-f127ff144326?q=80&w=800&auto=format&fit=crop"/>
+</div>
+<div class="group overflow-hidden aspect-[4/3] fade-in-up" style="animation-delay: 0.25s">
+<img alt="Interior build-out progress" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=800&auto=format&fit=crop"/>
+</div>
+<div class="group overflow-hidden aspect-[4/3] fade-in-up" style="animation-delay: 0.3s">
+<img alt="Exterior finishing and signage" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?q=80&w=800&auto=format&fit=crop"/>
+</div>
+<div class="group overflow-hidden aspect-[4/3] lg:col-span-2 fade-in-up" style="animation-delay: 0.35s">
+<img alt="Completed commercial building exterior" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200&auto=format&fit=crop"/>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== TESTIMONIAL ===== -->
+<section class="py-20 bg-white dark:bg-background-dark">
+<div class="max-w-4xl mx-auto px-6">
+<div class="bg-background-light dark:bg-industrial-gray p-12 md:p-16 border-l-4 border-accent-yellow relative fade-in-up">
+<span class="material-symbols-outlined text-6xl text-primary/20 absolute top-6 left-8">format_quote</span>
+<blockquote class="relative z-10">
+<p class="text-xl md:text-2xl font-semibold text-gray-700 dark:text-gray-300 leading-relaxed italic mb-8">
+&ldquo;Client testimonial coming soon.&rdquo;
+</p>
+<footer class="flex items-center gap-4">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">person</span>
+</div>
+<div>
+<p class="text-sm font-bold text-gray-900 dark:text-white">Franchise Owner</p>
+<p class="text-xs text-gray-500 uppercase tracking-wider">Dairy Queen — London, Ontario</p>
+</div>
+</footer>
+</blockquote>
+</div>
+</div>
+</section>
+
+<!-- ===== PREV / NEXT NAVIGATION ===== -->
+<section class="py-16 bg-background-light dark:bg-industrial-gray border-t border-gray-200 dark:border-gray-700">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<a href="burks-falls.html" class="group flex items-center gap-4 p-8 bg-white dark:bg-background-dark hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700">
+<span class="material-symbols-outlined text-3xl text-primary group-hover:-translate-x-1 transition-transform">arrow_back</span>
+<div>
+<p class="text-xs font-black uppercase tracking-[0.2em] text-gray-400 mb-1">Previous Project</p>
+<p class="text-lg font-black uppercase tracking-tighter text-gray-900 dark:text-white group-hover:text-primary transition-colors">Burks Falls Mid-Rise Renovation</p>
+</div>
+</a>
+<a href="adaptive-reuse.html" class="group flex items-center justify-end gap-4 p-8 bg-white dark:bg-background-dark hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700 text-right">
+<div>
+<p class="text-xs font-black uppercase tracking-[0.2em] text-gray-400 mb-1">Next Project</p>
+<p class="text-lg font-black uppercase tracking-tighter text-gray-900 dark:text-white group-hover:text-primary transition-colors">Adaptive Reuse: School Gym to Residential</p>
+</div>
+<span class="material-symbols-outlined text-3xl text-primary group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+
+<!-- ===== BOTTOM CTA ===== -->
+<section class="py-20 bg-primary overflow-hidden relative">
+<div class="max-w-7xl mx-auto px-6 relative z-10">
+<div class="flex flex-col items-center text-center gap-8">
+<div class="max-w-3xl">
+<h2 class="text-white text-3xl md:text-5xl font-black tracking-tight mb-6 leading-tight">Have a Similar Project in Mind?</h2>
+<p class="text-white/90 text-lg leading-relaxed">Share your project scope, timeline, and constraints. Our team will outline a clear plan of action.</p>
+</div>
+<a href="../contact.html" class="bg-white text-primary px-12 py-5 text-base font-black uppercase tracking-widest rounded-sm hover:scale-105 transition-transform shadow-2xl inline-block">
+Schedule a Call
+</a>
+</div>
+</div>
+</section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="bg-background-dark text-white pt-20 pb-12 border-t-4 border-accent-yellow">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+<!-- Company Info -->
+<div>
+<div class="flex items-center gap-3 mb-6">
+<div class="bg-white p-1 rounded-sm">
+<svg class="size-6 text-background-dark" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M39.5563 34.1455V13.8546C39.5563 15.708 36.8773 17.3437 32.7927 18.3189C30.2914 18.916 27.263 19.2655 24 19.2655C20.737 19.2655 17.7086 18.916 15.2073 18.3189C11.1227 17.3437 8.44365 15.708 8.44365 13.8546V34.1455C8.44365 35.9988 11.1227 37.6346 15.2073 38.6098C17.7086 39.2069 20.737 39.5564 24 39.5564C27.263 39.5564 30.2914 39.2069 32.7927 38.6098C36.8773 37.6346 39.5563 35.9988 39.5563 34.1455Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-xl font-extrabold tracking-tighter uppercase">Festbau</h2>
+</div>
+<p class="text-gray-400 text-sm leading-relaxed mb-6">
+Ontario-based Design-Build and General Contracting partner. Founded 2016.
+</p>
+</div>
+<!-- Contact Information -->
+<div>
+<h5 class="text-sm font-black uppercase tracking-[0.2em] text-accent-yellow mb-6">Contact</h5>
+<ul class="space-y-3 text-sm text-gray-400">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">call</span>
+<a href="tel:+15483331419" class="hover:text-white transition-colors">(548) 333-1419</a>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">mail</span>
+<div class="flex flex-col gap-1">
+<a href="mailto:Vugar@festbau.ca" class="hover:text-white transition-colors">Vugar@festbau.ca</a>
+<a href="mailto:Mashhod@festbau.ca" class="hover:text-white transition-colors">Mashhod@festbau.ca</a>
+</div>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">location_on</span>
+<span>Cambridge, Ontario</span>
+</li>
+</ul>
+</div>
+<!-- Quick Links -->
+<div>
+<h5 class="text-sm font-black uppercase tracking-[0.2em] text-accent-yellow mb-6">Resources</h5>
+<ul class="space-y-3 text-sm">
+<li><a class="text-gray-400 hover:text-white transition-colors flex items-center gap-2" href="../qualifications.html">
+<span class="material-symbols-outlined text-sm">download</span>
+Download Qualifications
+</a></li>
+<li><a class="text-gray-400 hover:text-white transition-colors flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-sm">policy</span>
+Privacy Policy
+</a></li>
+<li><a class="text-gray-400 hover:text-white transition-colors flex items-center gap-2" href="https://www.linkedin.com/company/festbau-construction" target="_blank">
+<span class="material-symbols-outlined text-sm">groups</span>
+LinkedIn
+</a></li>
+<li><a class="text-gray-400 hover:text-white transition-colors flex items-center gap-2" href="https://www.instagram.com/vugarconstruction" target="_blank">
+<span class="material-symbols-outlined text-sm">photo_camera</span>
+Instagram
+</a></li>
+</ul>
+</div>
+</div>
+<!-- Footer Bottom -->
+<div class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-xs text-gray-500 uppercase tracking-wider">&copy; 2026 Festbau. All rights reserved.</p>
+<div class="flex items-center gap-6">
+<a href="https://www.linkedin.com/company/festbau-construction" target="_blank" class="text-gray-500 hover:text-primary transition-colors">
+<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+</a>
+<a href="https://www.instagram.com/vugarconstruction" target="_blank" class="text-gray-500 hover:text-primary transition-colors">
+<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+// Mobile Menu Toggle
+document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('hidden');
+});
+
+// Mobile Services Accordion
+document.getElementById('mobile-services-btn').addEventListener('click', function() {
+    const submenu = document.getElementById('mobile-services-menu');
+    const chevron = document.getElementById('mobile-services-chevron');
+    submenu.classList.toggle('hidden');
+    if (submenu.classList.contains('hidden')) {
+        chevron.style.transform = 'rotate(0deg)';
+    } else {
+        chevron.style.transform = 'rotate(180deg)';
+    }
+});
+
+// Intersection Observer for scroll animations
+const fadeObserver = new IntersectionObserver(function(entries, observer) {
+    entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.animation = entry.target.style.animation || 'fadeInUp 0.8s ease-out forwards';
+            observer.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+});
+
+// Observe all animated elements on DOM load
+document.addEventListener('DOMContentLoaded', function() {
+    var animatedElements = document.querySelectorAll('.fade-in-up, .fade-in, .slide-in-left, .slide-in-right, .scale-in');
+    animatedElements.forEach(function(el) {
+        fadeObserver.observe(el);
+    });
+});
+</script>
+
+</body>
+</html>

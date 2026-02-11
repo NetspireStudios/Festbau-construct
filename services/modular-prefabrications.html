@@ -1,22 +1,123 @@
 <!DOCTYPE html>
-<html class="light" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Festbau | Modular &amp; Prefabrication</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<style type="text/tailwindcss">
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Festbau | Modular &amp; Prefabrication</title>
+    <meta name="description" content="Festbau Construction modular and prefabrication services. Procurement and set coordination to compress schedules and reduce on-site disruption."/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+
+    <style type="text/tailwindcss">
         @layer base {
-            body {
-                @apply font-display;
-            }
+            body { @apply font-display; }
         }
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
     </style>
-<script id="tailwind-config">
+
+    <style>
+        /* Scroll-reveal animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.7s cubic-bezier(.22,1,.36,1), transform 0.7s cubic-bezier(.22,1,.36,1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-60px);
+            transition: opacity 0.7s cubic-bezier(.22,1,.36,1), transform 0.7s cubic-bezier(.22,1,.36,1);
+        }
+        .reveal-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(60px);
+            transition: opacity 0.7s cubic-bezier(.22,1,.36,1), transform 0.7s cubic-bezier(.22,1,.36,1);
+        }
+        .reveal-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.92);
+            transition: opacity 0.7s cubic-bezier(.22,1,.36,1), transform 0.7s cubic-bezier(.22,1,.36,1);
+        }
+        .reveal-scale.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Stagger children */
+        .stagger-children > * {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.5s cubic-bezier(.22,1,.36,1), transform 0.5s cubic-bezier(.22,1,.36,1);
+        }
+        .stagger-children.visible > *:nth-child(1) { transition-delay: 0.05s; }
+        .stagger-children.visible > *:nth-child(2) { transition-delay: 0.12s; }
+        .stagger-children.visible > *:nth-child(3) { transition-delay: 0.19s; }
+        .stagger-children.visible > *:nth-child(4) { transition-delay: 0.26s; }
+        .stagger-children.visible > *:nth-child(5) { transition-delay: 0.33s; }
+        .stagger-children.visible > *:nth-child(6) { transition-delay: 0.40s; }
+        .stagger-children.visible > * {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        .stagger-children.visible > * {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Timeline bar animation */
+        .timeline-bar {
+            width: 0%;
+            transition: width 1.4s cubic-bezier(.22,1,.36,1);
+        }
+        .timeline-bar.animate {
+            width: var(--bar-width);
+        }
+
+        /* FAQ accordion */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(.22,1,.36,1), padding 0.3s ease;
+        }
+        .faq-answer.open {
+            max-height: 600px;
+        }
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+        .faq-icon.rotated {
+            transform: rotate(180deg);
+        }
+
+        /* Counter animation */
+        @keyframes countUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Pulse dot */
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.5); }
+        }
+        .pulse-dot { animation: pulse-dot 2s infinite; }
+    </style>
+
+    <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
@@ -42,272 +143,891 @@
         }
     </script>
 </head>
+
 <body class="bg-background-light dark:bg-background-dark text-gray-900 dark:text-gray-100 overflow-x-hidden">
+
+<!-- ═══════════════════════ HEADER / NAV ═══════════════════════ -->
 <header class="sticky top-0 z-50 w-full bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
-<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-<a href="../index.html" class="flex items-center gap-3">
-<div class="bg-primary p-1.5 rounded-sm">
-<svg class="size-6 text-white" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<path d="M39.5563 34.1455V13.8546C39.5563 15.708 36.8773 17.3437 32.7927 18.3189C30.2914 18.916 27.263 19.2655 24 19.2655C20.737 19.2655 17.7086 18.916 15.2073 18.3189C11.1227 17.3437 8.44365 15.708 8.44365 13.8546V34.1455C8.44365 35.9988 11.1227 37.6346 15.2073 38.6098C17.7086 39.2069 20.737 39.5564 24 39.5564C27.1288 39.5564 30.2914 39.2069 32.7927 38.6098C36.8773 37.6346 39.5563 35.9988 39.5563 34.1455Z" fill="currentColor"></path>
-<path clip-rule="evenodd" d="M10.4485 13.8519C10.4749 13.9271 10.6203 14.246 11.379 14.7361C12.298 15.3298 13.7492 15.9145 15.6717 16.3735C18.0007 16.9296 20.8712 17.2655 24 17.2655C27.1288 17.2655 29.9993 16.9296 32.3283 16.3735C34.2508 15.9145 35.702 15.3298 36.621 14.7361C37.3796 14.246 37.5251 13.9271 37.5515 13.8519C37.5287 13.7876 37.4333 13.5973 37.0635 13.2931C36.5266 12.8516 35.6288 12.3647 34.343 11.9175C31.79 11.0295 28.1333 10.4437 24 10.4437C19.8667 10.4437 16.2099 11.0295 13.657 11.9175C12.3712 12.3647 11.4734 12.8516 10.9365 13.2931C10.5667 13.5973 10.4713 13.7876 10.4485 13.8519ZM37.5563 18.7877C36.3176 19.3925 34.8502 19.8839 33.2571 20.2642C30.5836 20.9025 27.3973 21.2655 24 21.2655C20.6027 21.2655 17.4164 20.9025 14.7429 20.2642C13.1498 19.8839 11.6824 19.3925 10.4436 18.7877V34.1275C10.4515 34.1545 10.5427 34.4867 11.379 35.027C12.298 35.6207 13.7492 36.2054 15.6717 36.6644C18.0007 37.2205 20.8712 37.5564 24 37.5564C27.1288 37.5564 29.9993 37.2205 32.3283 36.6644C34.2508 36.2054 35.702 35.6207 36.621 35.027C37.4573 34.4867 37.5485 34.1546 37.5563 34.1275V18.7877ZM41.5563 13.8546V34.1455C41.5563 36.1078 40.158 37.5042 38.7915 38.3869C37.3498 39.3182 35.4192 40.0389 33.2571 40.5551C30.5836 41.1934 27.3973 41.5564 24 41.5564C20.6027 41.5564 17.4164 41.1934 14.7429 40.5551C12.5808 40.0389 10.6502 39.3182 9.20848 38.3869C7.84205 37.5042 6.44365 36.1078 6.44365 34.1455L6.44365 13.8546C6.44365 12.2684 7.37223 11.0454 8.39581 10.2036C9.43325 9.3505 10.8137 8.67141 12.343 8.13948C15.4203 7.06909 19.5418 6.44366 24 6.44366C28.4582 6.44366 32.5797 7.06909 35.657 8.13948C37.1863 8.67141 38.5667 9.3505 39.6042 10.2036C40.6278 11.0454 41.5563 12.2684 41.5563 13.8546Z" fill="white" fill-rule="evenodd"></path>
-</svg>
-</div>
-<h2 class="text-xl font-extrabold tracking-tighter uppercase">Festbau</h2>
-</a>
-<nav class="hidden md:flex items-center gap-8">
-<a class="text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors" href="../index.html">Home</a>
-<div class="relative group">
-<button class="text-sm font-semibold uppercase tracking-widest text-primary hover:text-primary transition-colors flex items-center gap-1">
-Services
-<span class="material-symbols-outlined text-sm">expand_more</span>
-</button>
-<div class="absolute top-full left-0 mt-2 w-64 bg-white dark:bg-industrial-gray shadow-xl border border-gray-200 dark:border-gray-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-<a href="design-build.html" class="block px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors border-b border-gray-100 dark:border-gray-700">Design Build</a>
-<a href="general-contracting.html" class="block px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors border-b border-gray-100 dark:border-gray-700">General Contracting</a>
-<a href="project-management.html" class="block px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors border-b border-gray-100 dark:border-gray-700">Project Management</a>
-<a href="modular-prefabrications.html" class="block px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors">Modular Prefabrications</a>
-</div>
-</div>
-<a class="text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors" href="../project-portfolio.html">Projects</a>
-<a class="text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors" href="../qualifications.html">Qualifications</a>
-<a class="text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors" href="../about-us.html">About Us</a>
-<a href="../contact.html" class="bg-primary text-white px-6 py-2 text-sm font-bold uppercase tracking-widest rounded-sm hover:brightness-110 transition-all">
-Contact
-</a>
-</nav>
-<button id="mobile-menu-btn" class="md:hidden text-gray-900 dark:text-white">
-<span class="material-symbols-outlined text-3xl">menu</span>
-</button>
-</div>
-<div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 right-0 bg-white dark:bg-industrial-gray border-b border-gray-200 dark:border-gray-700 shadow-xl">
-<div class="px-6 py-4 space-y-4">
-<a href="../index.html" class="block text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors">Home</a>
-<div>
-<button id="mobile-services-btn" class="w-full flex items-center justify-between text-sm font-semibold uppercase tracking-widest text-primary">
-Services
-<span class="material-symbols-outlined text-sm">expand_more</span>
-</button>
-<div id="mobile-services-menu" class="hidden mt-2 ml-4 space-y-2">
-<a href="design-build.html" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-primary py-2">Design Build</a>
-<a href="general-contracting.html" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-primary py-2">General Contracting</a>
-<a href="project-management.html" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-primary py-2">Project Management</a>
-<a href="modular-prefabrications.html" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-primary py-2">Modular Prefabrications</a>
-</div>
-</div>
-<a href="../project-portfolio.html" class="block text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors">Projects</a>
-<a href="../qualifications.html" class="block text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors">Qualifications</a>
-<a href="../about-us.html" class="block text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors">About Us</a>
-<a href="../contact.html" class="block bg-primary text-white px-6 py-3 text-sm font-bold uppercase tracking-widest rounded-sm hover:brightness-110 transition-all text-center">Contact</a>
-</div>
-</div>
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+
+        <!-- Logo -->
+        <a href="../index.html" class="flex items-center gap-3">
+            <div class="bg-primary p-1.5 rounded-sm">
+                <svg class="size-6 text-white" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M39.5563 34.1455V13.8546C39.5563 15.708 36.8773 17.3437 32.7927 18.3189C30.2914 18.916 27.263 19.2655 24 19.2655C20.737 19.2655 17.7086 18.916 15.2073 18.3189C11.1227 17.3437 8.44365 15.708 8.44365 13.8546V34.1455C8.44365 35.9988 11.1227 37.6346 15.2073 38.6098C17.7086 39.2069 20.737 39.5564 24 39.5564C27.1288 39.5564 30.2914 39.2069 32.7927 38.6098C36.8773 37.6346 39.5563 35.9988 39.5563 34.1455Z" fill="currentColor"></path>
+                    <path clip-rule="evenodd" d="M10.4485 13.8519C10.4749 13.9271 10.6203 14.246 11.379 14.7361C12.298 15.3298 13.7492 15.9145 15.6717 16.3735C18.0007 16.9296 20.8712 17.2655 24 17.2655C27.1288 17.2655 29.9993 16.9296 32.3283 16.3735C34.2508 15.9145 35.702 15.3298 36.621 14.7361C37.3796 14.246 37.5251 13.9271 37.5515 13.8519C37.5287 13.7876 37.4333 13.5973 37.0635 13.2931C36.5266 12.8516 35.6288 12.3647 34.343 11.9175C31.79 11.0295 28.1333 10.4437 24 10.4437C19.8667 10.4437 16.2099 11.0295 13.657 11.9175C12.3712 12.3647 11.4734 12.8516 10.9365 13.2931C10.5667 13.5973 10.4713 13.7876 10.4485 13.8519ZM37.5563 18.7877C36.3176 19.3925 34.8502 19.8839 33.2571 20.2642C30.5836 20.9025 27.3973 21.2655 24 21.2655C20.6027 21.2655 17.4164 20.9025 14.7429 20.2642C13.1498 19.8839 11.6824 19.3925 10.4436 18.7877V34.1275C10.4515 34.1545 10.5427 34.4867 11.379 35.027C12.298 35.6207 13.7492 36.2054 15.6717 36.6644C18.0007 37.2205 20.8712 37.5564 24 37.5564C27.1288 37.5564 29.9993 37.2205 32.3283 36.6644C34.2508 36.2054 35.702 35.6207 36.621 35.027C37.4573 34.4867 37.5485 34.1546 37.5563 34.1275V18.7877ZM41.5563 13.8546V34.1455C41.5563 36.1078 40.158 37.5042 38.7915 38.3869C37.3498 39.3182 35.4192 40.0389 33.2571 40.5551C30.5836 41.1934 27.3973 41.5564 24 41.5564C20.6027 41.5564 17.4164 41.1934 14.7429 40.5551C12.5808 40.0389 10.6502 39.3182 9.20848 38.3869C7.84205 37.5042 6.44365 36.1078 6.44365 34.1455L6.44365 13.8546C6.44365 12.2684 7.37223 11.0454 8.39581 10.2036C9.43325 9.3505 10.8137 8.67141 12.343 8.13948C15.4203 7.06909 19.5418 6.44366 24 6.44366C28.4582 6.44366 32.5797 7.06909 35.657 8.13948C37.1863 8.67141 38.5667 9.3505 39.6042 10.2036C40.6278 11.0454 41.5563 12.2684 41.5563 13.8546Z" fill="white" fill-rule="evenodd"></path>
+                </svg>
+            </div>
+            <h2 class="text-xl font-extrabold tracking-tighter uppercase">Festbau</h2>
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex items-center gap-8">
+            <a class="text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors" href="../index.html">Home</a>
+            <a class="text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors" href="../about-us.html">About Us</a>
+            <div class="relative group">
+                <button class="text-sm font-semibold uppercase tracking-widest text-primary hover:text-primary transition-colors flex items-center gap-1">
+                    Services
+                    <span class="material-symbols-outlined text-sm">expand_more</span>
+                </button>
+                <div class="absolute top-full left-0 mt-2 w-64 bg-white dark:bg-industrial-gray shadow-xl border border-gray-200 dark:border-gray-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                    <a href="design-build.html" class="block px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors border-b border-gray-100 dark:border-gray-700">Design Build</a>
+                    <a href="general-contracting.html" class="block px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors border-b border-gray-100 dark:border-gray-700">General Contracting</a>
+                    <a href="project-management.html" class="block px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors border-b border-gray-100 dark:border-gray-700">Project Management</a>
+                    <a href="modular-prefabrications.html" class="block px-6 py-3 text-sm font-semibold uppercase tracking-wider bg-primary text-white">Modular &amp; Prefabrication</a>
+                </div>
+            </div>
+            <a class="text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors" href="../project-portfolio.html">Projects</a>
+            <a class="text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors" href="../qualifications.html">Qualifications</a>
+            <a href="../contact.html" class="bg-primary text-white px-6 py-2 text-sm font-bold uppercase tracking-widest rounded-sm hover:brightness-110 transition-all">
+                Get a Consultation
+            </a>
+        </nav>
+
+        <!-- Mobile Burger -->
+        <button id="mobile-menu-btn" class="md:hidden text-gray-900 dark:text-white">
+            <span class="material-symbols-outlined text-3xl">menu</span>
+        </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 right-0 bg-white dark:bg-industrial-gray border-b border-gray-200 dark:border-gray-700 shadow-xl z-40">
+        <div class="px-6 py-4 space-y-4">
+            <a href="../index.html" class="block text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors">Home</a>
+            <a href="../about-us.html" class="block text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors">About Us</a>
+            <div>
+                <button id="mobile-services-btn" class="w-full flex items-center justify-between text-sm font-semibold uppercase tracking-widest text-primary">
+                    Services
+                    <span class="material-symbols-outlined text-sm transition-transform" id="mobile-services-icon">expand_more</span>
+                </button>
+                <div id="mobile-services-menu" class="hidden mt-2 ml-4 space-y-2">
+                    <a href="design-build.html" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-primary py-2">Design Build</a>
+                    <a href="general-contracting.html" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-primary py-2">General Contracting</a>
+                    <a href="project-management.html" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-primary py-2">Project Management</a>
+                    <a href="modular-prefabrications.html" class="block text-xs font-semibold uppercase tracking-wider text-primary font-bold py-2">Modular &amp; Prefabrication</a>
+                </div>
+            </div>
+            <a href="../project-portfolio.html" class="block text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors">Projects</a>
+            <a href="../qualifications.html" class="block text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors">Qualifications</a>
+            <a href="../contact.html" class="block bg-primary text-white px-6 py-3 text-sm font-bold uppercase tracking-widest rounded-sm hover:brightness-110 transition-all text-center">Get a Consultation</a>
+        </div>
+    </div>
 </header>
-<script src="../assets/js/navigation.js"></script>
+
+
 <main>
-</div>
-</header>
-<main>
-<section class="relative h-[85vh] flex items-center bg-background-dark overflow-hidden">
-<div class="absolute inset-0 z-0">
-<div class="absolute inset-0 bg-background-dark/40 z-10"></div>
-<img alt="Completed residential modular complex" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVozHJtzO2Yn0I94XOM0UBWBAs6aGjkzcPBPuKlUrR8cQnFhezuKqLXQ5DsqYg2bEr0SGX6dY2zs8j-ls5dakThLnIkBvMCUxrmDEG6gJbgz9GuP0MvwF2bMYEXptp9kWhiqECTkA3dqObyTysRDg6qWIaNKpvciVNVfX2VPtDcL2iIiFQhHiSZvKyU2Wzz3mngk9n6FS7MwsyRzDHIf5OISHQWenorpTaqIGNAURpuS4QB5qh4mn55r-1R7QkLdFtX5St-TqORPg"/>
-<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent"></div>
-</div>
-<div class="relative z-20 max-w-7xl mx-auto px-6 w-full">
-<div class="max-w-4xl">
-<div class="flex items-center gap-3 mb-6">
-<span class="h-[2px] w-12 bg-accent-yellow"></span>
-<span class="text-accent-yellow font-black uppercase tracking-[0.3em] text-sm">Affordable Housing Solutions</span>
-</div>
-<h1 class="text-6xl md:text-8xl font-black text-white leading-[0.9] tracking-tighter mb-8 uppercase">
-                        Modular &amp;<br/>
-<span class="text-primary italic">Prefabrication</span>
-</h1>
-<p class="text-xl text-gray-200 max-w-2xl mb-10 border-l-4 border-accent-yellow pl-6 leading-relaxed">
-                        Redefining urban living through high-quality, factory-precision modular construction. Scalable housing delivered at a fraction of traditional timelines.
-                    </p>
-<div class="flex flex-wrap gap-4">
-<a class="bg-primary text-white px-8 py-4 text-sm font-black uppercase tracking-widest hover:bg-white hover:text-primary transition-all shadow-xl" href="#excellence">Modular Excellence</a>
-<a class="bg-white/10 backdrop-blur-md text-white border border-white/30 px-8 py-4 text-sm font-black uppercase tracking-widest hover:bg-white/20 transition-all" href="#guide">Download Guide</a>
-</div>
-</div>
-</div>
+
+<!-- ═══════════════════════ HERO ═══════════════════════ -->
+<section class="relative min-h-[85vh] flex items-center bg-background-dark overflow-hidden">
+    <!-- Background Image -->
+    <div class="absolute inset-0 z-0">
+        <img alt="Crane setting modular units on a construction site" class="w-full h-full object-cover"
+             src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1920&q=80"/>
+        <!-- Left dark gradient -->
+        <div class="absolute inset-0 bg-gradient-to-r from-background-dark via-background-dark/80 to-transparent"></div>
+        <div class="absolute inset-0 bg-background-dark/30"></div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6 w-full py-20">
+        <div class="max-w-3xl">
+            <div class="flex items-center gap-3 mb-6 reveal">
+                <span class="h-[2px] w-12 bg-accent-yellow"></span>
+                <span class="text-accent-yellow font-black uppercase tracking-[0.3em] text-sm">Modular &amp; Prefabrication</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[0.9] tracking-tighter mb-8 uppercase reveal" style="transition-delay:0.1s">
+                Modular &amp;<br/>Prefabrication for<br/><span class="text-primary italic">Faster Delivery</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-200 max-w-2xl mb-10 border-l-4 border-accent-yellow pl-6 leading-relaxed reveal" style="transition-delay:0.2s">
+                Procurement and set coordination to compress schedules and reduce on-site disruption. Factory-precision construction delivered to your site, ready to assemble.
+            </p>
+            <div class="flex flex-wrap gap-4 reveal" style="transition-delay:0.3s">
+                <a class="bg-primary text-white px-8 py-4 text-sm font-black uppercase tracking-widest hover:bg-white hover:text-primary transition-all shadow-xl" href="../contact.html">
+                    Explore Modular Options
+                </a>
+                <a class="bg-white/10 backdrop-blur-md text-white border border-white/30 px-8 py-4 text-sm font-black uppercase tracking-widest hover:bg-white/20 transition-all" href="../qualifications.html">
+                    Download Capability Sheet
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Decorative bottom accent -->
+    <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-accent-yellow to-primary"></div>
 </section>
-<section class="bg-accent-yellow py-10">
-<div class="max-w-7xl mx-auto px-6">
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-center">
-<div class="flex items-center gap-6">
-<span class="text-5xl font-black text-background-dark tracking-tighter">40%</span>
-<div>
-<p class="font-black uppercase text-xs tracking-widest text-background-dark/60">Metric 01</p>
-<p class="text-lg font-bold text-background-dark leading-tight uppercase">Faster Delivery<br/>Timelines</p>
-</div>
-</div>
-<div class="flex items-center gap-6 border-l-0 md:border-l border-background-dark/10 md:pl-8">
-<span class="text-5xl font-black text-background-dark tracking-tighter">20%</span>
-<div>
-<p class="font-black uppercase text-xs tracking-widest text-background-dark/60">Metric 02</p>
-<p class="text-lg font-bold text-background-dark leading-tight uppercase">Waste Reduction<br/>On-Site</p>
-</div>
-</div>
-<div class="lg:flex hidden items-center gap-6 border-l border-background-dark/10 pl-8">
-<span class="text-5xl font-black text-background-dark tracking-tighter">100%</span>
-<div>
-<p class="font-black uppercase text-xs tracking-widest text-background-dark/60">Metric 03</p>
-<p class="text-lg font-bold text-background-dark leading-tight uppercase">Factory-Controlled<br/>Quality Assurance</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="py-24 bg-white dark:bg-background-dark" id="excellence">
-<div class="max-w-7xl mx-auto px-6">
-<div class="mb-16 text-center lg:text-left">
-<h2 class="text-primary font-black uppercase tracking-[0.4em] text-sm mb-4">Precision Housing</h2>
-<h3 class="text-4xl md:text-5xl font-black tracking-tighter text-gray-900 dark:text-white uppercase">Modular Excellence</h3>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-<div class="group relative aspect-[4/5] bg-industrial-gray overflow-hidden">
-<img alt="Modular residential unit" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVozHJtzO2Yn0I94XOM0UBWBAs6aGjkzcPBPuKlUrR8cQnFhezuKqLXQ5DsqYg2bEr0SGX6dY2zs8j-ls5dakThLnIkBvMCUxrmDEG6gJbgz9GuP0MvwF2bMYEXptp9kWhiqECTkA3dqObyTysRDg6qWIaNKpvciVNVfX2VPtDcL2iIiFQhHiSZvKyU2Wzz3mngk9n6FS7MwsyRzDHIf5OISHQWenorpTaqIGNAURpuS4QB5qh4mn55r-1R7QkLdFtX5St-TqORPg"/>
-<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/20 to-transparent"></div>
-<div class="absolute bottom-0 left-0 p-8 w-full translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-<div class="bg-accent-yellow text-black text-[10px] font-black uppercase px-2 py-0.5 inline-block mb-3">Residential</div>
-<h4 class="text-2xl font-black text-white uppercase tracking-tight mb-2 leading-none">Munich Urban Hive</h4>
-<p class="text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-500">120 modular units assembled in 8 weeks.</p>
-</div>
-</div>
-<div class="group relative aspect-[4/5] bg-industrial-gray overflow-hidden">
-<img alt="Public modular facility" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgAksz6v4SME5rV26SsOHfwFQyololFAwyniWUkVy2osv4qb7pxEK7B1b9rz1hGus0jjno_TCLHRSe7C9zGyxC_T3OSBN4Gx-2VYRAKpxoXaAmVilv0UPCOfjLF6783ysrXdyhFw6lvFAS1ee8fu9RtmpdD2_wA2a1zR59VdBTnQpyu06aXzEsAB3P06SuuQ1PaI56xQ74IYlN2eKS4EQUJTl4nEcerWs2zSEE1kdAPBsMusOIgGW1pxHLGvgckeQHIe20ZQbnx_g"/>
-<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/20 to-transparent"></div>
-<div class="absolute bottom-0 left-0 p-8 w-full translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-<div class="bg-primary text-white text-[10px] font-black uppercase px-2 py-0.5 inline-block mb-3">Public Facility</div>
-<h4 class="text-2xl font-black text-white uppercase tracking-tight mb-2 leading-none">Community Hub 04</h4>
-<p class="text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-500">Rapid deployment center for municipal services.</p>
-</div>
-</div>
-<div class="group relative aspect-[4/5] bg-industrial-gray overflow-hidden">
-<img alt="Modular affordable housing" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVozHJtzO2Yn0I94XOM0UBWBAs6aGjkzcPBPuKlUrR8cQnFhezuKqLXQ5DsqYg2bEr0SGX6dY2zs8j-ls5dakThLnIkBvMCUxrmDEG6gJbgz9GuP0MvwF2bMYEXptp9kWhiqECTkA3dqObyTysRDg6qWIaNKpvciVNVfX2VPtDcL2iIiFQhHiSZvKyU2Wzz3mngk9n6FS7MwsyRzDHIf5OISHQWenorpTaqIGNAURpuS4QB5qh4mn55r-1R7QkLdFtX5St-TqORPg"/>
-<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/20 to-transparent"></div>
-<div class="absolute bottom-0 left-0 p-8 w-full translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-<div class="bg-accent-yellow text-black text-[10px] font-black uppercase px-2 py-0.5 inline-block mb-3">Affordable Housing</div>
-<h4 class="text-2xl font-black text-white uppercase tracking-tight mb-2 leading-none">Berlin Prime Lofts</h4>
-<p class="text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-500">Sustainable modular living with net-zero features.</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="py-24 bg-industrial-gray text-white overflow-hidden relative" id="guide">
-<div class="absolute right-0 top-0 h-full w-1/3 bg-primary/20 -skew-x-12 translate-x-20"></div>
-<div class="max-w-7xl mx-auto px-6 relative z-10">
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-<div>
-<h2 class="text-accent-yellow font-black uppercase tracking-[0.4em] text-sm mb-4">Technical Resources</h2>
-<h3 class="text-4xl md:text-5xl font-black tracking-tighter uppercase mb-6 leading-tight">Understand the<br/>Modular Method</h3>
-<p class="text-gray-400 text-lg mb-8 max-w-lg leading-relaxed">
-                            Our comprehensive technical guide outlines the structural advantages, insulation standards, and assembly logistics of our prefabrication process.
-                        </p>
-<div class="space-y-4 mb-10">
-<div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-accent-yellow">description</span>
-<span class="text-sm font-bold uppercase tracking-wider">Modular Structural Integrity Report (PDF)</span>
-</div>
-<div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-accent-yellow">energy_savings_leaf</span>
-<span class="text-sm font-bold uppercase tracking-wider">Thermal Efficiency &amp; Sustainability Whitepaper</span>
-</div>
-</div>
-<button class="flex items-center gap-4 bg-primary text-white px-10 py-5 text-sm font-black uppercase tracking-widest hover:brightness-110 transition-all shadow-2xl">
-<span class="material-symbols-outlined">download</span>
-                            Download Technical Guide
-                        </button>
-</div>
-<div class="relative hidden lg:block">
-<div class="border-8 border-accent-yellow/20 p-4">
-<img alt="Prefabrication blueprints" class="w-full shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgAksz6v4SME5rV26SsOHfwFQyololFAwyniWUkVy2osv4qb7pxEK7B1b9rz1hGus0jjno_TCLHRSe7C9zGyxC_T3OSBN4Gx-2VYRAKpxoXaAmVilv0UPCOfjLF6783ysrXdyhFw6lvFAS1ee8fu9RtmpdD2_wA2a1zR59VdBTnQpyu06aXzEsAB3P06SuuQ1PaI56xQ74IYlN2eKS4EQUJTl4nEcerWs2zSEE1kdAPBsMusOIgGW1pxHLGvgckeQHIe20ZQbnx_g"/>
-</div>
-<div class="absolute -bottom-6 -left-6 bg-accent-yellow text-black p-6 font-black text-xl uppercase tracking-tighter">
-                            2024 V.2 Edition
+
+
+<!-- ═══════════════════════ SECTION 1: HOW MODULAR WORKS ═══════════════════════ -->
+<section class="py-24 bg-white dark:bg-background-dark overflow-hidden" id="how-it-works">
+    <div class="max-w-7xl mx-auto px-6">
+        <!-- Section Header -->
+        <div class="mb-16 text-center reveal">
+            <h2 class="text-primary font-black uppercase tracking-[0.4em] text-sm mb-4">Our Approach</h2>
+            <h3 class="text-4xl md:text-5xl font-black tracking-tighter text-gray-900 dark:text-white uppercase">How Modular Works</h3>
+            <p class="text-gray-500 dark:text-gray-400 mt-4 max-w-2xl mx-auto text-lg">Factory production and on-site assembly work in parallel, delivering buildings faster, cleaner, and with higher quality control.</p>
+        </div>
+
+        <!-- Factory vs Site Comparison -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-0">
+
+            <!-- Factory Production -->
+            <div class="bg-industrial-gray text-white p-10 md:p-14 relative overflow-hidden reveal-left">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-bl-[80px]"></div>
+                <div class="relative z-10">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="w-16 h-16 bg-primary/20 border-2 border-primary flex items-center justify-center rounded-sm">
+                            <span class="material-symbols-outlined text-3xl text-primary">factory</span>
                         </div>
-</div>
-</div>
-</div>
+                        <div>
+                            <p class="text-accent-yellow font-black text-xs uppercase tracking-[0.3em]">Phase 01</p>
+                            <h4 class="text-2xl font-black uppercase tracking-tight">Factory Production</h4>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-8 leading-relaxed">Modules are built in a controlled factory environment while site preparation happens simultaneously. This parallel workflow is the key to schedule compression.</p>
+
+                    <div class="space-y-5">
+                        <div class="flex items-start gap-4">
+                            <span class="material-symbols-outlined text-accent-yellow mt-0.5">precision_manufacturing</span>
+                            <div>
+                                <h5 class="font-bold text-sm uppercase tracking-wider mb-1">Precision Manufacturing</h5>
+                                <p class="text-gray-400 text-sm">CNC-cut components and jig-built assemblies ensure millimeter accuracy across every module.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <span class="material-symbols-outlined text-accent-yellow mt-0.5">wb_sunny</span>
+                            <div>
+                                <h5 class="font-bold text-sm uppercase tracking-wider mb-1">Weather-Independent</h5>
+                                <p class="text-gray-400 text-sm">No rain delays, no seasonal shutdowns. Production continues year-round in climate-controlled facilities.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <span class="material-symbols-outlined text-accent-yellow mt-0.5">verified</span>
+                            <div>
+                                <h5 class="font-bold text-sm uppercase tracking-wider mb-1">Integrated QA/QC</h5>
+                                <p class="text-gray-400 text-sm">Multi-point inspections at each production stage, with full traceability documentation.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <span class="material-symbols-outlined text-accent-yellow mt-0.5">recycling</span>
+                            <div>
+                                <h5 class="font-bold text-sm uppercase tracking-wider mb-1">Minimal Waste</h5>
+                                <p class="text-gray-400 text-sm">Factory production reduces material waste by up to 90% compared to traditional site-built methods.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- On-Site Assembly -->
+            <div class="bg-background-light dark:bg-background-dark border border-gray-200 dark:border-gray-700 p-10 md:p-14 relative overflow-hidden reveal-right">
+                <div class="absolute top-0 left-0 w-32 h-32 bg-accent-yellow/5 rounded-br-[80px]"></div>
+                <div class="relative z-10">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="w-16 h-16 bg-accent-yellow/10 border-2 border-accent-yellow flex items-center justify-center rounded-sm">
+                            <span class="material-symbols-outlined text-3xl text-accent-yellow">construction</span>
+                        </div>
+                        <div>
+                            <p class="text-primary font-black text-xs uppercase tracking-[0.3em]">Phase 02</p>
+                            <h4 class="text-2xl font-black uppercase tracking-tight text-gray-900 dark:text-white">On-Site Assembly</h4>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">Once modules arrive, crane-set operations position them with precision. Connections, utilities, and finishes are completed rapidly on site.</p>
+
+                    <div class="space-y-5">
+                        <div class="flex items-start gap-4">
+                            <span class="material-symbols-outlined text-primary mt-0.5">foundation</span>
+                            <div>
+                                <h5 class="font-bold text-sm uppercase tracking-wider mb-1 text-gray-900 dark:text-white">Site Preparation</h5>
+                                <p class="text-gray-500 dark:text-gray-400 text-sm">Foundations and utility connections are prepared concurrently with factory production.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <span class="material-symbols-outlined text-primary mt-0.5">crane</span>
+                            <div>
+                                <h5 class="font-bold text-sm uppercase tracking-wider mb-1 text-gray-900 dark:text-white">Crane Set Operations</h5>
+                                <p class="text-gray-500 dark:text-gray-400 text-sm">Modules are lifted and placed with surveyed precision, typically setting multiple modules per day.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <span class="material-symbols-outlined text-primary mt-0.5">plumbing</span>
+                            <div>
+                                <h5 class="font-bold text-sm uppercase tracking-wider mb-1 text-gray-900 dark:text-white">Utility Connections</h5>
+                                <p class="text-gray-500 dark:text-gray-400 text-sm">Pre-routed MEP systems snap together between modules, drastically reducing on-site trade hours.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <span class="material-symbols-outlined text-primary mt-0.5">home</span>
+                            <div>
+                                <h5 class="font-bold text-sm uppercase tracking-wider mb-1 text-gray-900 dark:text-white">Final Finishes</h5>
+                                <p class="text-gray-500 dark:text-gray-400 text-sm">Interior and exterior finishing touches complete the building envelope and prepare for occupancy.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
-<section class="py-32 bg-background-dark border-t-8 border-primary">
-<div class="max-w-7xl mx-auto px-6 text-center">
-<h2 class="text-white text-5xl md:text-7xl font-black tracking-tighter uppercase mb-8 leading-none">
-                    Build Faster.<br/><span class="text-accent-yellow italic">Build Smarter.</span>
-</h2>
-<p class="text-gray-400 text-xl max-w-2xl mx-auto mb-12">
-                    Consult with our modular specialists to discover how we can accelerate your next residential development project.
+
+
+<!-- ═══════════════════════ SECTION 2: TIMELINE COMPRESSION ═══════════════════════ -->
+<section class="py-24 bg-background-dark text-white overflow-hidden" id="timeline">
+    <div class="max-w-7xl mx-auto px-6">
+        <!-- Header -->
+        <div class="mb-16 reveal">
+            <h2 class="text-accent-yellow font-black uppercase tracking-[0.4em] text-sm mb-4">Schedule Advantage</h2>
+            <h3 class="text-4xl md:text-5xl font-black tracking-tighter uppercase">Timeline Compression</h3>
+            <p class="text-gray-400 mt-4 max-w-2xl text-lg">Modular construction overlaps factory production with site preparation, compressing your project schedule by 30&ndash;50% compared to traditional methods.</p>
+        </div>
+
+        <!-- Comparison Visual -->
+        <div class="space-y-12 reveal" id="timeline-section">
+            <!-- Traditional Build -->
+            <div>
+                <div class="flex items-center justify-between mb-3">
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-gray-500">apartment</span>
+                        <h4 class="font-black uppercase tracking-wider text-lg">Traditional Build</h4>
+                    </div>
+                    <span class="text-gray-400 font-bold text-sm uppercase tracking-widest">18&ndash;24 Months</span>
+                </div>
+                <div class="w-full bg-gray-800 h-14 rounded-sm overflow-hidden relative">
+                    <div class="timeline-bar h-full bg-gradient-to-r from-gray-600 to-gray-500 flex items-center relative" style="--bar-width:100%">
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="flex-1 h-full border-r border-gray-700 flex items-center justify-center">
+                                <span class="text-[10px] font-bold uppercase tracking-widest text-gray-300 px-2 text-center">Design</span>
+                            </div>
+                            <div class="flex-1 h-full border-r border-gray-700 flex items-center justify-center">
+                                <span class="text-[10px] font-bold uppercase tracking-widest text-gray-300 px-2 text-center">Permits</span>
+                            </div>
+                            <div class="flex-[2] h-full border-r border-gray-700 flex items-center justify-center">
+                                <span class="text-[10px] font-bold uppercase tracking-widest text-gray-300 px-2 text-center">Foundation &amp; Structure</span>
+                            </div>
+                            <div class="flex-[2] h-full border-r border-gray-700 flex items-center justify-center">
+                                <span class="text-[10px] font-bold uppercase tracking-widest text-gray-300 px-2 text-center">MEP &amp; Interior</span>
+                            </div>
+                            <div class="flex-1 h-full flex items-center justify-center">
+                                <span class="text-[10px] font-bold uppercase tracking-widest text-gray-300 px-2 text-center">Finish</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modular Build -->
+            <div>
+                <div class="flex items-center justify-between mb-3">
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-primary">view_in_ar</span>
+                        <h4 class="font-black uppercase tracking-wider text-lg text-primary">Modular Build</h4>
+                    </div>
+                    <span class="text-accent-yellow font-bold text-sm uppercase tracking-widest">9&ndash;14 Months</span>
+                </div>
+                <div class="w-full bg-gray-800 h-14 rounded-sm overflow-hidden relative">
+                    <div class="timeline-bar h-full bg-gradient-to-r from-primary to-blue-400 flex items-center relative" style="--bar-width:58%">
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="flex-1 h-full border-r border-blue-700 flex items-center justify-center">
+                                <span class="text-[10px] font-bold uppercase tracking-widest text-white px-1 text-center">Design</span>
+                            </div>
+                            <div class="flex-[2] h-full border-r border-blue-700 flex items-center justify-center">
+                                <span class="text-[10px] font-bold uppercase tracking-widest text-white px-1 text-center">Factory + Site Prep</span>
+                            </div>
+                            <div class="flex-1 h-full border-r border-blue-700 flex items-center justify-center">
+                                <span class="text-[10px] font-bold uppercase tracking-widest text-white px-1 text-center">Set</span>
+                            </div>
+                            <div class="flex-1 h-full flex items-center justify-center">
+                                <span class="text-[10px] font-bold uppercase tracking-widest text-white px-1 text-center">Finish</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Savings Stats -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 reveal">
+            <div class="border border-gray-700 p-8 text-center hover:border-primary transition-colors">
+                <p class="text-5xl font-black text-accent-yellow tracking-tighter mb-2">30&ndash;50%</p>
+                <p class="text-xs font-black uppercase tracking-[0.2em] text-gray-400">Faster Delivery</p>
+            </div>
+            <div class="border border-gray-700 p-8 text-center hover:border-primary transition-colors">
+                <p class="text-5xl font-black text-accent-yellow tracking-tighter mb-2">80%</p>
+                <p class="text-xs font-black uppercase tracking-[0.2em] text-gray-400">Less On-Site Labour</p>
+            </div>
+            <div class="border border-gray-700 p-8 text-center hover:border-primary transition-colors">
+                <p class="text-5xl font-black text-accent-yellow tracking-tighter mb-2">90%</p>
+                <p class="text-xs font-black uppercase tracking-[0.2em] text-gray-400">Waste Reduction</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════ SECTION 3: BEST FITS FOR MODULAR ═══════════════════════ -->
+<section class="py-24 bg-background-light dark:bg-black overflow-hidden" id="best-fits">
+    <div class="max-w-7xl mx-auto px-6">
+        <!-- Header -->
+        <div class="mb-16 text-center reveal">
+            <h2 class="text-primary font-black uppercase tracking-[0.4em] text-sm mb-4">Ideal Applications</h2>
+            <h3 class="text-4xl md:text-5xl font-black tracking-tighter text-gray-900 dark:text-white uppercase">Best Fits for Modular</h3>
+            <p class="text-gray-500 dark:text-gray-400 mt-4 max-w-2xl mx-auto text-lg">Modular construction excels in projects that demand speed, repeatability, and minimal site disruption.</p>
+        </div>
+
+        <!-- Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children" id="best-fits-grid">
+            <!-- Card 1 -->
+            <div class="group bg-white dark:bg-industrial-gray p-8 border border-gray-200 dark:border-gray-700 hover:border-primary transition-all duration-300 hover:shadow-xl relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
+                <div class="w-14 h-14 bg-primary/10 flex items-center justify-center rounded-sm mb-6 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                    <span class="material-symbols-outlined text-3xl text-primary group-hover:text-white transition-colors">apartment</span>
+                </div>
+                <h4 class="text-xl font-black uppercase tracking-tight mb-3 text-gray-900 dark:text-white">Multi-Unit Residential</h4>
+                <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Apartments, condominiums, and multi-family housing with repeatable unit layouts that maximize factory efficiency and minimize per-unit costs.</p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="group bg-white dark:bg-industrial-gray p-8 border border-gray-200 dark:border-gray-700 hover:border-primary transition-all duration-300 hover:shadow-xl relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
+                <div class="w-14 h-14 bg-primary/10 flex items-center justify-center rounded-sm mb-6 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                    <span class="material-symbols-outlined text-3xl text-primary group-hover:text-white transition-colors">house</span>
+                </div>
+                <h4 class="text-xl font-black uppercase tracking-tight mb-3 text-gray-900 dark:text-white">Affordable Housing</h4>
+                <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Cost-effective modular solutions for community and government housing initiatives. Faster occupancy timelines help address housing shortages at scale.</p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="group bg-white dark:bg-industrial-gray p-8 border border-gray-200 dark:border-gray-700 hover:border-primary transition-all duration-300 hover:shadow-xl relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
+                <div class="w-14 h-14 bg-primary/10 flex items-center justify-center rounded-sm mb-6 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                    <span class="material-symbols-outlined text-3xl text-primary group-hover:text-white transition-colors">hotel</span>
+                </div>
+                <h4 class="text-xl font-black uppercase tracking-tight mb-3 text-gray-900 dark:text-white">Hospitality</h4>
+                <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Hotels and short-stay accommodations benefit from modular&rsquo;s identical room configurations, fast deployment, and revenue-generating speed to market.</p>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="group bg-white dark:bg-industrial-gray p-8 border border-gray-200 dark:border-gray-700 hover:border-primary transition-all duration-300 hover:shadow-xl relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1 bg-accent-yellow scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
+                <div class="w-14 h-14 bg-accent-yellow/10 flex items-center justify-center rounded-sm mb-6 group-hover:bg-accent-yellow group-hover:text-black transition-all duration-300">
+                    <span class="material-symbols-outlined text-3xl text-accent-yellow group-hover:text-black transition-colors">local_hospital</span>
+                </div>
+                <h4 class="text-xl font-black uppercase tracking-tight mb-3 text-gray-900 dark:text-white">Healthcare</h4>
+                <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Clinics, patient rooms, and medical facilities that require stringent cleanliness during construction and rapid deployment for urgent community needs.</p>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="group bg-white dark:bg-industrial-gray p-8 border border-gray-200 dark:border-gray-700 hover:border-primary transition-all duration-300 hover:shadow-xl relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1 bg-accent-yellow scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
+                <div class="w-14 h-14 bg-accent-yellow/10 flex items-center justify-center rounded-sm mb-6 group-hover:bg-accent-yellow group-hover:text-black transition-all duration-300">
+                    <span class="material-symbols-outlined text-3xl text-accent-yellow group-hover:text-black transition-colors">school</span>
+                </div>
+                <h4 class="text-xl font-black uppercase tracking-tight mb-3 text-gray-900 dark:text-white">Educational Facilities</h4>
+                <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Classrooms, dormitories, and campus buildings that need to be operational before the next academic year without disrupting existing campus operations.</p>
+            </div>
+
+            <!-- Card 6 (bonus) -->
+            <div class="group bg-white dark:bg-industrial-gray p-8 border border-gray-200 dark:border-gray-700 hover:border-primary transition-all duration-300 hover:shadow-xl relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1 bg-accent-yellow scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
+                <div class="w-14 h-14 bg-accent-yellow/10 flex items-center justify-center rounded-sm mb-6 group-hover:bg-accent-yellow group-hover:text-black transition-all duration-300">
+                    <span class="material-symbols-outlined text-3xl text-accent-yellow group-hover:text-black transition-colors">corporate_fare</span>
+                </div>
+                <h4 class="text-xl font-black uppercase tracking-tight mb-3 text-gray-900 dark:text-white">Commercial &amp; Office</h4>
+                <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Office buildings, retail spaces, and mixed-use developments where reduced construction timelines translate directly into earlier revenue generation.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════ SECTION 4: QUALITY & COMPLIANCE ═══════════════════════ -->
+<section class="py-24 bg-white dark:bg-industrial-gray overflow-hidden" id="quality">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+            <!-- Image Side -->
+            <div class="relative reveal-left">
+                <div class="relative overflow-hidden">
+                    <img alt="Factory quality control inspection of modular construction" class="w-full h-[500px] object-cover shadow-2xl"
+                         src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=960&q=80"/>
+                    <div class="absolute inset-0 bg-primary/10 mix-blend-multiply"></div>
+                </div>
+                <div class="absolute -bottom-6 -right-6 bg-accent-yellow text-black p-6 font-black text-lg uppercase tracking-tighter shadow-xl hidden md:block">
+                    <span class="block text-3xl">100%</span>
+                    <span class="text-xs tracking-widest">Inspection Rate</span>
+                </div>
+            </div>
+
+            <!-- Content Side -->
+            <div class="reveal-right">
+                <h2 class="text-primary font-black uppercase tracking-[0.4em] text-sm mb-4">Standards &amp; Assurance</h2>
+                <h3 class="text-4xl md:text-5xl font-black tracking-tighter text-gray-900 dark:text-white uppercase mb-6">Quality &amp; Compliance</h3>
+                <p class="text-gray-600 dark:text-gray-300 text-lg mb-10 leading-relaxed">
+                    Factory-controlled construction environments enable a level of quality assurance impossible to achieve on a traditional job site. Every module undergoes rigorous inspection before leaving the factory floor.
                 </p>
-<div class="flex flex-col sm:flex-row gap-6 justify-center">
-<button class="bg-primary text-white px-12 py-5 text-sm font-black uppercase tracking-widest hover:scale-105 transition-transform shadow-2xl">
-                        Request Modular Proposal
-                    </button>
-<button class="bg-transparent text-white px-12 py-5 text-sm font-black uppercase tracking-widest border border-white/20 hover:bg-white/10 transition-colors">
-                        Tour Our Factory
-                    </button>
-</div>
-</div>
+
+                <div class="space-y-6">
+                    <!-- Item 1 -->
+                    <div class="flex items-start gap-5 group">
+                        <div class="w-12 h-12 min-w-[3rem] bg-primary/10 flex items-center justify-center rounded-sm group-hover:bg-primary transition-colors">
+                            <span class="material-symbols-outlined text-2xl text-primary group-hover:text-white transition-colors">verified</span>
+                        </div>
+                        <div>
+                            <h5 class="font-black text-sm uppercase tracking-wider mb-1 text-gray-900 dark:text-white">Factory QA/QC Protocols</h5>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Multi-stage quality gates at framing, MEP rough-in, insulation, and finish. Digital tracking ensures nothing is missed.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="flex items-start gap-5 group">
+                        <div class="w-12 h-12 min-w-[3rem] bg-primary/10 flex items-center justify-center rounded-sm group-hover:bg-primary transition-colors">
+                            <span class="material-symbols-outlined text-2xl text-primary group-hover:text-white transition-colors">gavel</span>
+                        </div>
+                        <div>
+                            <h5 class="font-black text-sm uppercase tracking-wider mb-1 text-gray-900 dark:text-white">Building Code Compliance</h5>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">All modules are designed and manufactured to meet Ontario Building Code (OBC) and National Building Code of Canada (NBC) requirements.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="flex items-start gap-5 group">
+                        <div class="w-12 h-12 min-w-[3rem] bg-primary/10 flex items-center justify-center rounded-sm group-hover:bg-primary transition-colors">
+                            <span class="material-symbols-outlined text-2xl text-primary group-hover:text-white transition-colors">search</span>
+                        </div>
+                        <div>
+                            <h5 class="font-black text-sm uppercase tracking-wider mb-1 text-gray-900 dark:text-white">Third-Party Inspections</h5>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Independent inspection agencies verify structural, electrical, plumbing, and fire-safety compliance before modules ship.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="flex items-start gap-5 group">
+                        <div class="w-12 h-12 min-w-[3rem] bg-primary/10 flex items-center justify-center rounded-sm group-hover:bg-primary transition-colors">
+                            <span class="material-symbols-outlined text-2xl text-primary group-hover:text-white transition-colors">local_shipping</span>
+                        </div>
+                        <div>
+                            <h5 class="font-black text-sm uppercase tracking-wider mb-1 text-gray-900 dark:text-white">Transport &amp; Set Coordination</h5>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Route planning, over-dimensional permitting, crane logistics, and precision placement coordinated as a turnkey service.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
+
+
+<!-- ═══════════════════════ SECTION 5: MINI GALLERY ═══════════════════════ -->
+<section class="py-24 bg-background-dark overflow-hidden" id="gallery">
+    <div class="max-w-7xl mx-auto px-6">
+        <!-- Header -->
+        <div class="mb-16 text-center reveal">
+            <h2 class="text-accent-yellow font-black uppercase tracking-[0.4em] text-sm mb-4">The Journey</h2>
+            <h3 class="text-4xl md:text-5xl font-black tracking-tighter text-white uppercase">Factory to Site to Finish</h3>
+            <p class="text-gray-400 mt-4 max-w-2xl mx-auto text-lg">Follow the modular construction process from controlled factory production through transportation and crane set to the completed building.</p>
+        </div>
+
+        <!-- 3-Column Gallery -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Image 1: Factory -->
+            <div class="group relative overflow-hidden reveal-scale" style="transition-delay:0.05s">
+                <div class="aspect-[4/5] overflow-hidden">
+                    <img alt="Modular units being assembled in a factory environment"
+                         src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=800&q=80"
+                         class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110"/>
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/20 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-8 w-full">
+                    <div class="flex items-center gap-2 mb-3">
+                        <div class="w-2 h-2 bg-accent-yellow rounded-full pulse-dot"></div>
+                        <span class="text-accent-yellow text-[10px] font-black uppercase tracking-[0.3em]">Step 01</span>
+                    </div>
+                    <h4 class="text-2xl font-black text-white uppercase tracking-tight mb-2 leading-none">Factory Production</h4>
+                    <p class="text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-500">Modules built under controlled conditions with integrated MEP, insulation, and interior finishes.</p>
+                </div>
+            </div>
+
+            <!-- Image 2: Transport & Set -->
+            <div class="group relative overflow-hidden reveal-scale" style="transition-delay:0.15s">
+                <div class="aspect-[4/5] overflow-hidden">
+                    <img alt="Crane lifting modular units into place on construction site"
+                         src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80"
+                         class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110"/>
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/20 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-8 w-full">
+                    <div class="flex items-center gap-2 mb-3">
+                        <div class="w-2 h-2 bg-primary rounded-full pulse-dot"></div>
+                        <span class="text-primary text-[10px] font-black uppercase tracking-[0.3em]">Step 02</span>
+                    </div>
+                    <h4 class="text-2xl font-black text-white uppercase tracking-tight mb-2 leading-none">Transportation &amp; Crane Set</h4>
+                    <p class="text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-500">Modules transported and precisely placed by crane, with multiple sets completed per day.</p>
+                </div>
+            </div>
+
+            <!-- Image 3: Finished Building -->
+            <div class="group relative overflow-hidden reveal-scale" style="transition-delay:0.25s">
+                <div class="aspect-[4/5] overflow-hidden">
+                    <img alt="Completed modern modular building exterior"
+                         src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80"
+                         class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110"/>
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/20 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-8 w-full">
+                    <div class="flex items-center gap-2 mb-3">
+                        <div class="w-2 h-2 bg-accent-yellow rounded-full pulse-dot"></div>
+                        <span class="text-accent-yellow text-[10px] font-black uppercase tracking-[0.3em]">Step 03</span>
+                    </div>
+                    <h4 class="text-2xl font-black text-white uppercase tracking-tight mb-2 leading-none">Finished Building</h4>
+                    <p class="text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-500">Indistinguishable from traditional construction. Modern, code-compliant, and ready for occupancy.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════ SECTION 6: MODULAR FAQ ═══════════════════════ -->
+<section class="py-24 bg-background-light dark:bg-background-dark overflow-hidden" id="faq">
+    <div class="max-w-4xl mx-auto px-6">
+        <!-- Header -->
+        <div class="mb-16 text-center reveal">
+            <h2 class="text-primary font-black uppercase tracking-[0.4em] text-sm mb-4">Common Questions</h2>
+            <h3 class="text-4xl md:text-5xl font-black tracking-tighter text-gray-900 dark:text-white uppercase">Modular FAQ</h3>
+        </div>
+
+        <!-- Accordion -->
+        <div class="space-y-4 reveal" id="faq-container">
+
+            <!-- FAQ 1 -->
+            <div class="faq-item border border-gray-200 dark:border-gray-700 bg-white dark:bg-industrial-gray overflow-hidden">
+                <button class="faq-trigger w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors" aria-expanded="false">
+                    <span class="font-bold text-lg text-gray-900 dark:text-white pr-4">What is the difference between modular and prefabricated construction?</span>
+                    <span class="material-symbols-outlined faq-icon text-primary flex-shrink-0">expand_more</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="px-6 pb-6 pt-0">
+                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                            <strong>Modular construction</strong> involves building complete volumetric units (rooms or sections) in a factory, then transporting and assembling them on site. <strong>Prefabrication</strong> is a broader term that includes any component manufactured off-site&mdash;wall panels, floor cassettes, roof trusses, and bathroom pods. At Festbau, we leverage both approaches depending on your project&rsquo;s scope and complexity, optimizing for schedule compression and cost efficiency.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="faq-item border border-gray-200 dark:border-gray-700 bg-white dark:bg-industrial-gray overflow-hidden">
+                <button class="faq-trigger w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors" aria-expanded="false">
+                    <span class="font-bold text-lg text-gray-900 dark:text-white pr-4">Are modular buildings as durable as traditional construction?</span>
+                    <span class="material-symbols-outlined faq-icon text-primary flex-shrink-0">expand_more</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="px-6 pb-6 pt-0">
+                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                            Absolutely. Modular buildings are designed to the same structural codes and standards as traditional construction&mdash;including the Ontario Building Code and National Building Code of Canada. In fact, modules must also withstand transportation stresses, which means they are often engineered to be <em>more</em> robust than site-built equivalents. The factory environment also ensures tighter quality control on connections, insulation, and weatherproofing.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="faq-item border border-gray-200 dark:border-gray-700 bg-white dark:bg-industrial-gray overflow-hidden">
+                <button class="faq-trigger w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors" aria-expanded="false">
+                    <span class="font-bold text-lg text-gray-900 dark:text-white pr-4">How much time can modular construction save on my project?</span>
+                    <span class="material-symbols-outlined faq-icon text-primary flex-shrink-0">expand_more</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="px-6 pb-6 pt-0">
+                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                            Most projects see a <strong>30&ndash;50% reduction</strong> in overall project duration compared to traditional construction. The primary savings come from overlapping factory production with on-site preparation work. While foundations and utilities are being installed on site, modules are simultaneously being built in the factory. This parallel-path approach can save months, depending on project scale.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="faq-item border border-gray-200 dark:border-gray-700 bg-white dark:bg-industrial-gray overflow-hidden">
+                <button class="faq-trigger w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors" aria-expanded="false">
+                    <span class="font-bold text-lg text-gray-900 dark:text-white pr-4">Can modular buildings be customized to our design requirements?</span>
+                    <span class="material-symbols-outlined faq-icon text-primary flex-shrink-0">expand_more</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="px-6 pb-6 pt-0">
+                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                            Yes. Modern modular construction is highly flexible. While modules follow standardized dimensional constraints for transport, the interior layouts, finishes, facade treatments, and building configurations are fully customizable. Festbau works closely with architects and designers to ensure the final product matches your vision. From luxury hotel rooms to clinical healthcare spaces, modular can accommodate a wide range of finishes and specifications.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ 5 -->
+            <div class="faq-item border border-gray-200 dark:border-gray-700 bg-white dark:bg-industrial-gray overflow-hidden">
+                <button class="faq-trigger w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors" aria-expanded="false">
+                    <span class="font-bold text-lg text-gray-900 dark:text-white pr-4">What happens during the transportation and crane set process?</span>
+                    <span class="material-symbols-outlined faq-icon text-primary flex-shrink-0">expand_more</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="px-6 pb-6 pt-0">
+                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                            Once factory production and inspection are complete, modules are wrapped and secured for transport. Our logistics team manages route planning, over-dimensional load permits, police escorts where required, and delivery sequencing. On site, a crane lifts each module onto prepared foundations using pre-surveyed coordinates. Typical set rates are 4&ndash;8 modules per day. After placement, our crews connect structural ties, MEP systems, and complete weatherproofing and finish work at module interfaces.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════ BOTTOM CTA ═══════════════════════ -->
+<section class="py-32 bg-primary relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
+    </div>
+    <div class="absolute -bottom-20 -right-20 text-[16rem] font-black text-white/5 select-none pointer-events-none uppercase hidden lg:block">Modular</div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10 text-center reveal">
+        <h2 class="text-white text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter uppercase mb-8 leading-none">
+            Ready to Explore<br/>Modular for<br/><span class="text-accent-yellow italic">Your Project?</span>
+        </h2>
+        <p class="text-white/80 text-lg md:text-xl max-w-2xl mx-auto mb-12">
+            Speak with our modular specialists to discover how prefabrication can compress your schedule, reduce costs, and deliver higher quality results.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-6 justify-center">
+            <a href="../contact.html" class="inline-block bg-white text-primary px-12 py-5 text-sm font-black uppercase tracking-widest rounded-sm hover:scale-105 transition-transform shadow-2xl">
+                Contact Modular Team
+            </a>
+            <a href="../qualifications.html" class="inline-block bg-background-dark text-white px-12 py-5 text-sm font-black uppercase tracking-widest rounded-sm hover:bg-industrial-gray transition-colors border border-white/20">
+                View Qualifications
+            </a>
+        </div>
+    </div>
+</section>
+
+
 </main>
-<footer class="bg-background-dark text-white pt-24 pb-12 border-t border-gray-800">
-<div class="max-w-7xl mx-auto px-6">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
-<div class="md:col-span-1">
-<div class="flex items-center gap-3 mb-8">
-<div class="bg-white p-1 rounded-sm">
-<svg class="size-6 text-background-dark" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<path d="M39.5563 34.1455V13.8546C39.5563 15.708 36.8773 17.3437 32.7927 18.3189C30.2914 18.916 27.263 19.2655 24 19.2655C20.737 19.2655 17.7086 18.916 15.2073 18.3189C11.1227 17.3437 8.44365 15.708 8.44365 13.8546V34.1455C8.44365 35.9988 11.1227 37.6346 15.2073 38.6098C17.7086 39.2069 20.737 39.5564 24 39.5564C27.1288 39.5564 30.2914 39.2069 32.7927 38.6098C36.8773 37.6346 39.5563 35.9988 39.5563 34.1455Z" fill="currentColor"></path>
-</svg>
-</div>
-<h2 class="text-xl font-extrabold tracking-tighter uppercase">Festbau</h2>
-</div>
-<p class="text-gray-400 text-sm leading-relaxed mb-8">
-                        Delivering the foundations of modern infrastructure since 1974. Factory precision, global delivery.
-                    </p>
-<div class="flex gap-4">
-<a class="w-10 h-10 border border-gray-700 flex items-center justify-center hover:bg-primary hover:border-primary transition-all rounded-sm" href="#"><span class="material-symbols-outlined text-sm">hub</span></a>
-<a class="w-10 h-10 border border-gray-700 flex items-center justify-center hover:bg-primary hover:border-primary transition-all rounded-sm" href="#"><span class="material-symbols-outlined text-sm">alternate_email</span></a>
-</div>
-</div>
-<div>
-<h5 class="text-sm font-black uppercase tracking-[0.2em] text-accent-yellow mb-8">Modular Services</h5>
-<ul class="space-y-4">
-<li><a class="text-sm text-gray-400 hover:text-white transition-colors" href="#">Affordable Housing</a></li>
-<li><a class="text-sm text-gray-400 hover:text-white transition-colors" href="#">Public Facilities</a></li>
-<li><a class="text-sm text-gray-400 hover:text-white transition-colors" href="#">Temporary Structures</a></li>
-<li><a class="text-sm text-gray-400 hover:text-white transition-colors" href="#">System Components</a></li>
-</ul>
-</div>
-<div>
-<h5 class="text-sm font-black uppercase tracking-[0.2em] text-accent-yellow mb-8">Headquarters</h5>
-<p class="text-sm text-gray-400 leading-relaxed">
-                        Bauallee 12-14<br/>
-                        80331 Munich, Germany<br/>
-                        T: +49 (0) 89 234 567 89<br/>
-                        E: modular@festbau.de
-                    </p>
-</div>
-<div>
-<h5 class="text-sm font-black uppercase tracking-[0.2em] text-accent-yellow mb-8">Newsletter</h5>
-<p class="text-xs text-gray-400 mb-6 uppercase tracking-widest">Housing insights &amp; news</p>
-<div class="flex">
-<input class="bg-gray-800 border-none px-4 py-3 text-sm focus:ring-1 focus:ring-primary w-full rounded-l-sm" placeholder="Your Email" type="email"/>
-<button class="bg-primary px-4 py-3 rounded-r-sm hover:brightness-110 transition-all">
-<span class="material-symbols-outlined">send</span>
-</button>
-</div>
-</div>
-</div>
-<div class="pt-12 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-6">
-<p class="text-xs text-gray-500 uppercase tracking-widest">© 2024 Festbau GmbH. Modular Division.</p>
-<div class="flex gap-8">
-<a class="text-[10px] text-gray-500 hover:text-white uppercase tracking-widest" href="#">Imprint</a>
-<a class="text-[10px] text-gray-500 hover:text-white uppercase tracking-widest" href="#">Privacy Policy</a>
-</div>
-</div>
-</div>
+
+
+<!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+<footer class="bg-background-dark text-white pt-24 pb-12 border-t-4 border-accent-yellow">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
+            <!-- Brand -->
+            <div class="md:col-span-1">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="bg-white p-1 rounded-sm">
+                        <svg class="size-6 text-background-dark" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M39.5563 34.1455V13.8546C39.5563 15.708 36.8773 17.3437 32.7927 18.3189C30.2914 18.916 27.263 19.2655 24 19.2655C20.737 19.2655 17.7086 18.916 15.2073 18.3189C11.1227 17.3437 8.44365 15.708 8.44365 13.8546V34.1455C8.44365 35.9988 11.1227 37.6346 15.2073 38.6098C17.7086 39.2069 20.737 39.5564 24 39.5564C27.1288 39.5564 30.2914 39.2069 32.7927 38.6098C36.8773 37.6346 39.5563 35.9988 39.5563 34.1455Z" fill="currentColor"></path>
+                        </svg>
+                    </div>
+                    <h2 class="text-xl font-extrabold tracking-tighter uppercase">Festbau</h2>
+                </div>
+                <p class="text-gray-400 text-sm leading-relaxed mb-8">
+                    Building the future with precision-engineered modular and prefabricated solutions. Faster delivery, higher quality, less disruption.
+                </p>
+                <div class="flex gap-4">
+                    <a class="w-10 h-10 border border-gray-700 flex items-center justify-center hover:bg-primary hover:border-primary transition-all rounded-sm" href="https://www.linkedin.com/company/festbau-construction" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    </a>
+                    <a class="w-10 h-10 border border-gray-700 flex items-center justify-center hover:bg-primary hover:border-primary transition-all rounded-sm" href="https://www.instagram.com/vugarconstruction" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div>
+                <h5 class="text-sm font-black uppercase tracking-[0.2em] text-accent-yellow mb-8">Navigation</h5>
+                <ul class="space-y-4">
+                    <li><a class="text-sm text-gray-400 hover:text-white transition-colors" href="../index.html">Home</a></li>
+                    <li><a class="text-sm text-gray-400 hover:text-white transition-colors" href="../about-us.html">About Us</a></li>
+                    <li><a class="text-sm text-gray-400 hover:text-white transition-colors" href="../project-portfolio.html">Projects</a></li>
+                    <li><a class="text-sm text-gray-400 hover:text-white transition-colors" href="../qualifications.html">Qualifications</a></li>
+                    <li><a class="text-sm text-gray-400 hover:text-white transition-colors" href="../contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Services -->
+            <div>
+                <h5 class="text-sm font-black uppercase tracking-[0.2em] text-accent-yellow mb-8">Services</h5>
+                <ul class="space-y-4">
+                    <li><a class="text-sm text-gray-400 hover:text-white transition-colors" href="design-build.html">Design Build</a></li>
+                    <li><a class="text-sm text-gray-400 hover:text-white transition-colors" href="general-contracting.html">General Contracting</a></li>
+                    <li><a class="text-sm text-gray-400 hover:text-white transition-colors" href="project-management.html">Project Management</a></li>
+                    <li><a class="text-sm text-white font-bold" href="modular-prefabrications.html">Modular &amp; Prefabrication</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact -->
+            <div>
+                <h5 class="text-sm font-black uppercase tracking-[0.2em] text-accent-yellow mb-8">Contact</h5>
+                <div class="space-y-4 text-sm text-gray-400">
+                    <div class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-primary text-lg mt-0.5">location_on</span>
+                        <p>Cambridge, ON<br/>Canada</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-primary text-lg">phone</span>
+                        <a href="tel:+15483331419" class="hover:text-white transition-colors">(548) 333-1419</a>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-primary text-lg">mail</span>
+                        <div>
+                            <a href="mailto:Vugar@festbau.ca" class="hover:text-white transition-colors block">Vugar@festbau.ca</a>
+                            <a href="mailto:Mashhod@festbau.ca" class="hover:text-white transition-colors block">Mashhod@festbau.ca</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="pt-12 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-6">
+            <p class="text-xs text-gray-500 uppercase tracking-widest">&copy; 2026 Festbau Construction. All rights reserved.</p>
+            <div class="flex gap-8">
+                <a class="text-[10px] text-gray-500 hover:text-white uppercase tracking-widest" href="#">Privacy Policy</a>
+                <a class="text-[10px] text-gray-500 hover:text-white uppercase tracking-widest" href="#">Terms of Service</a>
+            </div>
+        </div>
+    </div>
 </footer>
 
-</body></html>
+
+<!-- ═══════════════════════ JAVASCRIPT ═══════════════════════ -->
+<script>
+// ─── Mobile Menu Toggle ───
+(function() {
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const servicesBtn = document.getElementById('mobile-services-btn');
+    const servicesMenu = document.getElementById('mobile-services-menu');
+    const servicesIcon = document.getElementById('mobile-services-icon');
+
+    if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', function() {
+            const isOpen = !mobileMenu.classList.contains('hidden');
+            mobileMenu.classList.toggle('hidden');
+            menuBtn.querySelector('.material-symbols-outlined').textContent = isOpen ? 'menu' : 'close';
+        });
+    }
+
+    if (servicesBtn && servicesMenu) {
+        servicesBtn.addEventListener('click', function() {
+            servicesMenu.classList.toggle('hidden');
+            if (servicesIcon) {
+                servicesIcon.style.transform = servicesMenu.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+            }
+        });
+    }
+})();
+
+// ─── IntersectionObserver: Reveal Animations ───
+(function() {
+    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .stagger-children');
+
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.12,
+            rootMargin: '0px 0px -40px 0px'
+        });
+
+        revealElements.forEach(function(el) {
+            observer.observe(el);
+        });
+    } else {
+        // Fallback: show everything immediately
+        revealElements.forEach(function(el) {
+            el.classList.add('visible');
+        });
+    }
+})();
+
+// ─── IntersectionObserver: Timeline Bars ───
+(function() {
+    const timelineSection = document.getElementById('timeline-section');
+    if (!timelineSection) return;
+
+    const bars = timelineSection.querySelectorAll('.timeline-bar');
+
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    bars.forEach(function(bar) {
+                        bar.classList.add('animate');
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.3
+        });
+
+        observer.observe(timelineSection);
+    } else {
+        bars.forEach(function(bar) {
+            bar.classList.add('animate');
+        });
+    }
+})();
+
+// ─── FAQ Accordion ───
+(function() {
+    const faqContainer = document.getElementById('faq-container');
+    if (!faqContainer) return;
+
+    const triggers = faqContainer.querySelectorAll('.faq-trigger');
+
+    triggers.forEach(function(trigger) {
+        trigger.addEventListener('click', function() {
+            const item = this.closest('.faq-item');
+            const answer = item.querySelector('.faq-answer');
+            const icon = this.querySelector('.faq-icon');
+            const isOpen = answer.classList.contains('open');
+
+            // Close all others
+            faqContainer.querySelectorAll('.faq-item').forEach(function(otherItem) {
+                if (otherItem !== item) {
+                    otherItem.querySelector('.faq-answer').classList.remove('open');
+                    otherItem.querySelector('.faq-icon').classList.remove('rotated');
+                    otherItem.querySelector('.faq-trigger').setAttribute('aria-expanded', 'false');
+                }
+            });
+
+            // Toggle clicked
+            if (isOpen) {
+                answer.classList.remove('open');
+                icon.classList.remove('rotated');
+                this.setAttribute('aria-expanded', 'false');
+            } else {
+                answer.classList.add('open');
+                icon.classList.add('rotated');
+                this.setAttribute('aria-expanded', 'true');
+            }
+        });
+    });
+})();
+
+// ─── Smooth Scroll for Anchor Links ───
+(function() {
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+        anchor.addEventListener('click', function(e) {
+            var targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            var target = document.querySelector(targetId);
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+})();
+</script>
+
+</body>
+</html>

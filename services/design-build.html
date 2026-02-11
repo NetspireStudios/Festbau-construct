@@ -1,352 +1,754 @@
 <!DOCTYPE html>
-<html class="light" lang="en"><head>
+<html class="light" lang="en">
+<head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Festbau | Design-Build Solutions</title>
+<title>Design-Build Delivery | Festbau</title>
+<meta name="description" content="Festbau's Design-Build delivery method — one team, one contract, one timeline. Align scope, schedule, and budget early for complex, schedule-driven projects."/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style type="text/tailwindcss">
-        @layer base {
-            body {
-                @apply font-display;
-            }
+    @layer base {
+        body {
+            @apply font-display;
         }
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+
+    /* Fade in up animation */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
         }
-        .process-line::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 100%;
-            width: 100%;
-            height: 2px;
-            background: theme('colors.accent-yellow');
-            opacity: 0.3;
-            z-index: 0;
+        to {
+            opacity: 1;
+            transform: translateY(0);
         }
-    </style>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#1152d4",
-                        "accent-yellow": "#FFD700",
-                        "background-light": "#f6f6f8",
-                        "background-dark": "#101622",
-                        "industrial-gray": "#2d3442",
-                    },
-                    fontFamily: {
-                        "display": ["Manrope", "sans-serif"]
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.125rem",
-                        "lg": "0.25rem",
-                        "xl": "0.5rem",
-                        "full": "0.75rem"
-                    },
+    }
+
+    .fade-in-up {
+        opacity: 0;
+        animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    /* Fade in animation */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    .fade-in {
+        opacity: 0;
+        animation: fadeIn 0.8s ease-out forwards;
+    }
+
+    /* Slide in from left */
+    @keyframes slideInLeft {
+        from {
+            opacity: 0;
+            transform: translateX(-30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    .slide-in-left {
+        opacity: 0;
+        animation: slideInLeft 0.8s ease-out forwards;
+    }
+
+    /* Scale in animation */
+    @keyframes scaleIn {
+        from {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    .scale-in {
+        opacity: 0;
+        animation: scaleIn 0.6s ease-out forwards;
+    }
+</style>
+<script>
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    "primary": "#1152d4",
+                    "accent-yellow": "#FFD700",
+                    "background-light": "#f6f6f8",
+                    "background-dark": "#101622",
+                    "industrial-gray": "#2d3442",
+                },
+                fontFamily: {
+                    "display": ["Manrope", "sans-serif"]
+                },
+                borderRadius: {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
                 },
             },
-        }
-    </script>
+        },
+    }
+</script>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-gray-900 dark:text-gray-100 overflow-x-hidden">
+
+<!-- ===== HEADER / NAVIGATION ===== -->
 <header class="sticky top-0 z-50 w-full bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
 <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
 <a href="../index.html" class="flex items-center gap-3">
 <div class="bg-primary p-1.5 rounded-sm">
 <svg class="size-6 text-white" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<path d="M39.5563 34.1455V13.8546C39.5563 15.708 36.8773 17.3437 32.7927 18.3189C30.2914 18.916 27.263 19.2655 24 19.2655C20.737 19.2655 17.7086 18.916 15.2073 18.3189C11.1227 17.3437 8.44365 15.708 8.44365 13.8546V34.1455C8.44365 35.9988 11.1227 37.6346 15.2073 38.6098C17.7086 39.2069 20.737 39.5564 24 39.5564C27.1288 39.5564 30.2914 39.2069 32.7927 38.6098C36.8773 37.6346 39.5563 35.9988 39.5563 34.1455Z" fill="currentColor"></path>
+<path d="M39.5563 34.1455V13.8546C39.5563 15.708 36.8773 17.3437 32.7927 18.3189C30.2914 18.916 27.263 19.2655 24 19.2655C20.737 19.2655 17.7086 18.916 15.2073 18.3189C11.1227 17.3437 8.44365 15.708 8.44365 13.8546V34.1455C8.44365 35.9988 11.1227 37.6346 15.2073 38.6098C17.7086 39.2069 20.737 39.5564 24 39.5564C27.263 39.5564 30.2914 39.2069 32.7927 38.6098C36.8773 37.6346 39.5563 35.9988 39.5563 34.1455Z" fill="currentColor"></path>
 <path clip-rule="evenodd" d="M10.4485 13.8519C10.4749 13.9271 10.6203 14.246 11.379 14.7361C12.298 15.3298 13.7492 15.9145 15.6717 16.3735C18.0007 16.9296 20.8712 17.2655 24 17.2655C27.1288 17.2655 29.9993 16.9296 32.3283 16.3735C34.2508 15.9145 35.702 15.3298 36.621 14.7361C37.3796 14.246 37.5251 13.9271 37.5515 13.8519C37.5287 13.7876 37.4333 13.5973 37.0635 13.2931C36.5266 12.8516 35.6288 12.3647 34.343 11.9175C31.79 11.0295 28.1333 10.4437 24 10.4437C19.8667 10.4437 16.2099 11.0295 13.657 11.9175C12.3712 12.3647 11.4734 12.8516 10.9365 13.2931C10.5667 13.5973 10.4713 13.7876 10.4485 13.8519ZM37.5563 18.7877C36.3176 19.3925 34.8502 19.8839 33.2571 20.2642C30.5836 20.9025 27.3973 21.2655 24 21.2655C20.6027 21.2655 17.4164 20.9025 14.7429 20.2642C13.1498 19.8839 11.6824 19.3925 10.4436 18.7877V34.1275C10.4515 34.1545 10.5427 34.4867 11.379 35.027C12.298 35.6207 13.7492 36.2054 15.6717 36.6644C18.0007 37.2205 20.8712 37.5564 24 37.5564C27.1288 37.5564 29.9993 37.2205 32.3283 36.6644C34.2508 36.2054 35.702 35.6207 36.621 35.027C37.4573 34.4867 37.5485 34.1546 37.5563 34.1275V18.7877ZM41.5563 13.8546V34.1455C41.5563 36.1078 40.158 37.5042 38.7915 38.3869C37.3498 39.3182 35.4192 40.0389 33.2571 40.5551C30.5836 41.1934 27.3973 41.5564 24 41.5564C20.6027 41.5564 17.4164 41.1934 14.7429 40.5551C12.5808 40.0389 10.6502 39.3182 9.20848 38.3869C7.84205 37.5042 6.44365 36.1078 6.44365 34.1455L6.44365 13.8546C6.44365 12.2684 7.37223 11.0454 8.39581 10.2036C9.43325 9.3505 10.8137 8.67141 12.343 8.13948C15.4203 7.06909 19.5418 6.44366 24 6.44366C28.4582 6.44366 32.5797 7.06909 35.657 8.13948C37.1863 8.67141 38.5667 9.3505 39.6042 10.2036C40.6278 11.0454 41.5563 12.2684 41.5563 13.8546Z" fill="white" fill-rule="evenodd"></path>
 </svg>
 </div>
 <h2 class="text-xl font-extrabold tracking-tighter uppercase">Festbau</h2>
 </a>
+<!-- Desktop Nav -->
 <nav class="hidden md:flex items-center gap-8">
 <a class="text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors" href="../index.html">Home</a>
+<a class="text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors" href="../about-us.html">About</a>
 <div class="relative group">
-<button class="text-sm font-semibold uppercase tracking-widest text-primary hover:text-primary transition-colors flex items-center gap-1">
+<button class="text-sm font-semibold uppercase tracking-widest text-primary border-b-2 border-primary flex items-center gap-1">
 Services
 <span class="material-symbols-outlined text-sm">expand_more</span>
 </button>
 <div class="absolute top-full left-0 mt-2 w-64 bg-white dark:bg-industrial-gray shadow-xl border border-gray-200 dark:border-gray-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-<a href="design-build.html" class="block px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors border-b border-gray-100 dark:border-gray-700">Design Build</a>
+<a href="design-build.html" class="block px-6 py-3 text-sm font-semibold uppercase tracking-wider bg-primary text-white border-b border-gray-100 dark:border-gray-700">Design-Build</a>
 <a href="general-contracting.html" class="block px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors border-b border-gray-100 dark:border-gray-700">General Contracting</a>
 <a href="project-management.html" class="block px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors border-b border-gray-100 dark:border-gray-700">Project Management</a>
-<a href="modular-prefabrications.html" class="block px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors">Modular Prefabrications</a>
+<a href="modular-prefabrications.html" class="block px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors">Modular &amp; Prefabrication</a>
 </div>
 </div>
 <a class="text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors" href="../project-portfolio.html">Projects</a>
 <a class="text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors" href="../qualifications.html">Qualifications</a>
-<a class="text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors" href="../about-us.html">About Us</a>
 <a href="../contact.html" class="bg-primary text-white px-6 py-2 text-sm font-bold uppercase tracking-widest rounded-sm hover:brightness-110 transition-all">
-Contact
+Get a Consultation
 </a>
 </nav>
+<!-- Mobile Menu Button -->
 <button id="mobile-menu-btn" class="md:hidden text-gray-900 dark:text-white">
 <span class="material-symbols-outlined text-3xl">menu</span>
 </button>
 </div>
+<!-- Mobile Menu -->
 <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 right-0 bg-white dark:bg-industrial-gray border-b border-gray-200 dark:border-gray-700 shadow-xl">
 <div class="px-6 py-4 space-y-4">
 <a href="../index.html" class="block text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors">Home</a>
+<a href="../about-us.html" class="block text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors">About</a>
 <div>
 <button id="mobile-services-btn" class="w-full flex items-center justify-between text-sm font-semibold uppercase tracking-widest text-primary">
 Services
-<span class="material-symbols-outlined text-sm">expand_more</span>
+<span class="material-symbols-outlined text-sm transition-transform duration-200" id="mobile-services-chevron">expand_more</span>
 </button>
 <div id="mobile-services-menu" class="hidden mt-2 ml-4 space-y-2">
-<a href="design-build.html" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-primary py-2">Design Build</a>
+<a href="design-build.html" class="block text-xs font-semibold uppercase tracking-wider text-primary py-2">Design-Build</a>
 <a href="general-contracting.html" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-primary py-2">General Contracting</a>
 <a href="project-management.html" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-primary py-2">Project Management</a>
-<a href="modular-prefabrications.html" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-primary py-2">Modular Prefabrications</a>
+<a href="modular-prefabrications.html" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-primary py-2">Modular &amp; Prefabrication</a>
 </div>
 </div>
 <a href="../project-portfolio.html" class="block text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors">Projects</a>
 <a href="../qualifications.html" class="block text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors">Qualifications</a>
-<a href="../about-us.html" class="block text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors">About Us</a>
-<a href="../contact.html" class="block bg-primary text-white px-6 py-3 text-sm font-bold uppercase tracking-widest rounded-sm hover:brightness-110 transition-all text-center">Contact</a>
+<a href="../contact.html" class="block bg-primary text-white px-6 py-3 text-sm font-bold uppercase tracking-widest rounded-sm hover:brightness-110 transition-all text-center">Get a Consultation</a>
 </div>
 </div>
 </header>
-<script src="../assets/js/navigation.js"></script>
+
 <main>
-</div>
-</header>
-<main>
-<section class="relative h-[70vh] flex items-center bg-background-dark overflow-hidden">
+
+<!-- ===== HERO SECTION ===== -->
+<section class="relative min-h-[85vh] flex items-center overflow-hidden">
+<!-- Background Image -->
 <div class="absolute inset-0 z-0">
-<div class="absolute inset-0 bg-primary/20 mix-blend-overlay z-10"></div>
-<img alt="Engineering blueprint over construction site" class="w-full h-full object-cover opacity-40 grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgAksz6v4SME5rV26SsOHfwFQyololFAwyniWUkVy2osv4qb7pxEK7B1b9rz1hGus0jjno_TCLHRSe7C9zGyxC_T3OSBN4Gx-2VYRAKpxoXaAmVilv0UPCOfjLF6783ysrXdyhFw6lvFAS1ee8fu9RtmpdD2_wA2a1zR59VdBTnQpyu06aXzEsAB3P06SuuQ1PaI56xQ74IYlN2eKS4EQUJTl4nEcerWs2zSEE1kdAPBsMusOIgGW1pxHLGvgckeQHIe20ZQbnx_g"/>
-<div class="absolute inset-0 bg-gradient-to-r from-background-dark via-background-dark/80 to-transparent"></div>
+<img alt="Team reviewing architectural drawings on a construction site" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2000&auto=format&fit=crop"/>
+<div class="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/40"></div>
 </div>
-<div class="relative z-20 max-w-7xl mx-auto px-6 w-full">
+<!-- Hero Content -->
+<div class="max-w-7xl mx-auto px-6 relative z-10 w-full py-20">
 <div class="max-w-3xl">
-<div class="flex items-center gap-3 mb-6">
-<span class="h-[2px] w-12 bg-accent-yellow"></span>
-<span class="text-accent-yellow font-black uppercase tracking-[0.3em] text-sm">Industrial Expertise</span>
-</div>
-<h1 class="text-6xl md:text-8xl font-black text-white leading-[0.9] tracking-tighter mb-8 uppercase">
-                    Design-Build<br/>
-<span class="text-primary italic">Solutions</span>
+<p class="text-accent-yellow font-black uppercase tracking-[0.3em] text-sm mb-4 fade-in-up">Design-Build Services</p>
+<h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-[1.1] tracking-tight mb-8 fade-in-up" style="animation-delay: 0.05s">
+Design-Build Delivery, Under One <span class="text-primary">Contract.</span>
 </h1>
-<p class="text-xl text-gray-300 max-w-xl mb-10 border-l-4 border-primary pl-6 leading-relaxed">
-                    A unified approach to construction. We integrate architectural vision with engineering precision under one roof to deliver accelerated project timelines.
-                </p>
-<div class="flex flex-wrap gap-4">
-<a class="bg-primary text-white px-8 py-4 text-sm font-black uppercase tracking-widest hover:bg-white hover:text-primary transition-all" href="#process">Our Process</a>
-<a class="border border-white/30 text-white px-8 py-4 text-sm font-black uppercase tracking-widest hover:bg-white/10 transition-all" href="#case-study">View Case Study</a>
-</div>
-</div>
-</div>
-</section>
-<section class="py-24 bg-white dark:bg-background-dark border-b border-gray-200 dark:border-gray-800">
-<div class="max-w-7xl mx-auto px-6">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
-<div>
-<h2 class="text-accent-yellow font-black uppercase tracking-[0.4em] text-sm mb-4">The Unified Advantage</h2>
-<h3 class="text-4xl md:text-6xl font-black tracking-tighter text-gray-900 dark:text-white mb-8 uppercase leading-tight">
-                        One Contract,<br/>One Team.
-                    </h3>
-<p class="text-lg text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
-                        Traditional construction creates silos. Our Design-Build model eliminates friction by making Festbau your single point of accountability. We manage the entire lifecycle from the first sketch to the final inspection.
-                    </p>
-<ul class="space-y-6">
-<li class="flex items-start gap-4">
-<span class="material-symbols-outlined text-primary font-bold">check_circle</span>
-<div>
-<h4 class="font-bold uppercase text-gray-900 dark:text-white">Reduced Risk</h4>
-<p class="text-sm text-gray-500">Total accountability means we manage all design and construction risks internally.</p>
-</div>
-</li>
-<li class="flex items-start gap-4">
-<span class="material-symbols-outlined text-primary font-bold">check_circle</span>
-<div>
-<h4 class="font-bold uppercase text-gray-900 dark:text-white">Faster Delivery</h4>
-<p class="text-sm text-gray-500">Concurrent design and construction phases typically reduce project time by 30%.</p>
-</div>
-</li>
-<li class="flex items-start gap-4">
-<span class="material-symbols-outlined text-primary font-bold">check_circle</span>
-<div>
-<h4 class="font-bold uppercase text-gray-900 dark:text-white">Cost Certainty</h4>
-<p class="text-sm text-gray-500">Early-stage budget alignment prevents mid-project surprises and change orders.</p>
-</div>
-</li>
-</ul>
-</div>
-<div class="relative">
-<div class="aspect-square bg-industrial-gray relative overflow-hidden">
-<img alt="Team of engineers and architects reviewing plans together" class="w-full h-full object-cover grayscale brightness-75" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVozHJtzO2Yn0I94XOM0UBWBAs6aGjkzcPBPuKlUrR8cQnFhezuKqLXQ5DsqYg2bEr0SGX6dY2zs8j-ls5dakThLnIkBvMCUxrmDEG6gJbgz9GuP0MvwF2bMYEXptp9kWhiqECTkA3dqObyTysRDg6qWIaNKpvciVNVfX2VPtDcL2iIiFQhHiSZvKyU2Wzz3mngk9n6FS7MwsyRzDHIf5OISHQWenorpTaqIGNAURpuS4QB5qh4mn55r-1R7QkLdFtX5St-TqORPg"/>
-<div class="absolute inset-0 border-[20px] border-white/10 pointer-events-none"></div>
-</div>
-<div class="absolute -bottom-10 -left-10 bg-primary p-12 hidden lg:block">
-<div class="text-white text-6xl font-black mb-2 tracking-tighter">33%</div>
-<div class="text-white/80 text-xs font-bold uppercase tracking-widest">Average faster<br/>delivery time</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="py-32 bg-industrial-gray text-white border-y-8 border-accent-yellow relative overflow-hidden" id="process">
-<div class="max-w-7xl mx-auto px-6 relative z-10">
-<div class="text-center mb-20">
-<h2 class="text-accent-yellow font-black uppercase tracking-[0.4em] text-sm mb-4">Integrated Workflow</h2>
-<h3 class="text-4xl md:text-5xl font-black tracking-tighter uppercase">Our Design-Build Process</h3>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-4 gap-12 relative">
-<div class="flex flex-col items-center text-center group">
-<div class="w-24 h-24 rounded-full border-2 border-accent-yellow flex items-center justify-center mb-8 bg-background-dark group-hover:bg-accent-yellow group-hover:text-black transition-all duration-300 relative z-10">
-<span class="material-symbols-outlined text-4xl">forum</span>
-</div>
-<h4 class="text-xl font-black uppercase tracking-tight mb-4 text-accent-yellow">01. Consultation</h4>
-<p class="text-gray-400 text-sm leading-relaxed">Discovery phase to align project goals, feasibility, and initial budgetary parameters.</p>
-</div>
-<div class="flex flex-col items-center text-center group">
-<div class="w-24 h-24 rounded-full border-2 border-accent-yellow flex items-center justify-center mb-8 bg-background-dark group-hover:bg-accent-yellow group-hover:text-black transition-all duration-300 relative z-10">
-<span class="material-symbols-outlined text-4xl">architecture</span>
-</div>
-<h4 class="text-xl font-black uppercase tracking-tight mb-4 text-accent-yellow">02. Design</h4>
-<p class="text-gray-400 text-sm leading-relaxed">In-house architects and engineers develop optimized blueprints focused on constructability.</p>
-</div>
-<div class="flex flex-col items-center text-center group">
-<div class="w-24 h-24 rounded-full border-2 border-accent-yellow flex items-center justify-center mb-8 bg-background-dark group-hover:bg-accent-yellow group-hover:text-black transition-all duration-300 relative z-10">
-<span class="material-symbols-outlined text-4xl">precision_manufacturing</span>
-</div>
-<h4 class="text-xl font-black uppercase tracking-tight mb-4 text-accent-yellow">03. Construction</h4>
-<p class="text-gray-400 text-sm leading-relaxed">Project execution begins as designs finalize, enabling early procurement and site preparation.</p>
-</div>
-<div class="flex flex-col items-center text-center group">
-<div class="w-24 h-24 rounded-full border-2 border-accent-yellow flex items-center justify-center mb-8 bg-background-dark group-hover:bg-accent-yellow group-hover:text-black transition-all duration-300 relative z-10">
-<span class="material-symbols-outlined text-4xl">verified</span>
-</div>
-<h4 class="text-xl font-black uppercase tracking-tight mb-4 text-accent-yellow">04. Handover</h4>
-<p class="text-gray-400 text-sm leading-relaxed">Rigorous QA, final inspections, and seamless transition to operations with full documentation.</p>
-</div>
-</div>
-</div>
-<div class="absolute -bottom-20 -left-20 text-[20rem] font-black text-white/5 select-none pointer-events-none uppercase">Workflow</div>
-</section>
-<section class="py-24 bg-background-light dark:bg-black overflow-hidden" id="case-study">
-<div class="max-w-7xl mx-auto px-6">
-<div class="mb-16">
-<h2 class="text-primary font-black uppercase tracking-[0.4em] text-sm mb-4">Featured Excellence</h2>
-<h3 class="text-4xl md:text-5xl font-black tracking-tight text-gray-900 dark:text-white uppercase">Government Infrastructure Project</h3>
-</div>
-<div class="flex flex-col lg:flex-row bg-white dark:bg-industrial-gray shadow-2xl">
-<div class="lg:w-1/2 relative overflow-hidden group h-[500px]">
-<img alt="Massive government infrastructure project" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVozHJtzO2Yn0I94XOM0UBWBAs6aGjkzcPBPuKlUrR8cQnFhezuKqLXQ5DsqYg2bEr0SGX6dY2zs8j-ls5dakThLnIkBvMCUxrmDEG6gJbgz9GuP0MvwF2bMYEXptp9kWhiqECTkA3dqObyTysRDg6qWIaNKpvciVNVfX2VPtDcL2iIiFQhHiSZvKyU2Wzz3mngk9n6FS7MwsyRzDHIf5OISHQWenorpTaqIGNAURpuS4QB5qh4mn55r-1R7QkLdFtX5St-TqORPg"/>
-<div class="absolute inset-0 bg-primary/20 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity"></div>
-</div>
-<div class="lg:w-1/2 p-12 lg:p-20 flex flex-col justify-center">
-<div class="inline-block bg-accent-yellow text-black text-[10px] font-black uppercase tracking-widest px-3 py-1 mb-6">Case Study: 042</div>
-<h4 class="text-3xl font-black mb-6 uppercase tracking-tight text-gray-900 dark:text-white">Federal Logistics Nexus</h4>
-<p class="text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-                        A high-security, 45,000 sqm facility delivered for the National Infrastructure Agency. By utilizing our Design-Build approach, we identified structural optimizations during the design phase that saved €2.4M in material costs while completing the project 4 months ahead of the client's aggressive deadline.
-                    </p>
-<div class="grid grid-cols-2 gap-8 mb-10">
-<div>
-<p class="text-primary font-black text-2xl mb-1">16 Months</p>
-<p class="text-[10px] text-gray-400 uppercase tracking-widest font-bold">Project Duration</p>
-</div>
-<div>
-<p class="text-primary font-black text-2xl mb-1">€142M</p>
-<p class="text-[10px] text-gray-400 uppercase tracking-widest font-bold">Total Valuation</p>
-</div>
-</div>
-<a class="flex items-center gap-4 text-xs font-black uppercase tracking-[0.3em] text-primary group" href="#">
-                        Read Full Technical Paper
-                        <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
+<p class="text-lg md:text-xl text-gray-300 mb-12 leading-relaxed fade-in-up" style="animation-delay: 0.1s">
+Align scope, schedule, and budget early&mdash;one team, one contract, one timeline.
+</p>
+<div class="flex flex-wrap gap-4 fade-in-up" style="animation-delay: 0.2s">
+<a href="../contact.html" class="bg-primary text-white px-10 py-5 text-base font-black uppercase tracking-widest rounded-sm hover:scale-105 transition-transform shadow-2xl">
+Request Consultation
+</a>
+<a href="../qualifications.html" class="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 px-10 py-5 text-base font-black uppercase tracking-widest rounded-sm hover:bg-white/20 transition-all">
+Download Overview
 </a>
 </div>
 </div>
 </div>
 </section>
-<section class="py-32 bg-primary relative overflow-hidden">
-<div class="absolute inset-0 opacity-10">
-<div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
+
+<!-- ===== SECTION 1: IS DESIGN-BUILD RIGHT FOR YOU? ===== -->
+<section class="py-24 bg-white dark:bg-background-dark">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-16 fade-in-up">
+<h2 class="text-primary font-black uppercase tracking-[0.4em] text-sm mb-4">Delivery Method Fit</h2>
+<h3 class="text-4xl md:text-5xl font-black tracking-tight text-gray-900 dark:text-white mb-6 leading-tight">Is Design-Build Right for You?</h3>
+<p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl mx-auto">
+Design-build consolidates design and construction under a single contract. It works best when you need speed, cost certainty, and a single point of accountability from day one.
+</p>
 </div>
-<div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
-<h2 class="text-white text-5xl md:text-7xl font-black tracking-tighter uppercase mb-8 leading-none">
-                Start Your<br/><span class="text-accent-yellow">Project</span> Today
-            </h2>
-<p class="text-white/80 text-xl max-w-2xl mx-auto mb-12">
-                Consult with our expert engineers and architects to see how our Design-Build method can optimize your next industrial venture.
-            </p>
-<div class="flex flex-col sm:flex-row gap-6 justify-center">
-<button class="bg-white text-primary px-12 py-5 text-sm font-black uppercase tracking-widest rounded-sm hover:scale-105 transition-transform shadow-2xl">
-                    Request Consultation
-                </button>
-<button class="bg-background-dark text-white px-12 py-5 text-sm font-black uppercase tracking-widest rounded-sm hover:bg-industrial-gray transition-colors border border-white/20">
-                    Our Full Capability
-                </button>
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Scenario 1: Tight Timeline -->
+<div class="group p-8 bg-background-light dark:bg-industrial-gray border-l-4 border-primary hover:shadow-xl transition-all duration-300 fade-in-up" style="animation-delay: 0.1s">
+<span class="material-symbols-outlined text-5xl text-primary mb-6">schedule</span>
+<h4 class="text-xl font-black mb-3 uppercase tracking-tighter">Tight Timeline</h4>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Your project has a hard occupancy date or funding deadline. Design-build overlaps design and construction phases to compress the overall schedule.</p>
+</div>
+<!-- Scenario 2: Single-Point Accountability -->
+<div class="group p-8 bg-background-light dark:bg-industrial-gray border-l-4 border-primary hover:shadow-xl transition-all duration-300 fade-in-up" style="animation-delay: 0.15s">
+<span class="material-symbols-outlined text-5xl text-primary mb-6">verified_user</span>
+<h4 class="text-xl font-black mb-3 uppercase tracking-tighter">Single-Point Accountability</h4>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">You want one team responsible for design and construction&mdash;eliminating finger-pointing between separate architects and contractors.</p>
+</div>
+<!-- Scenario 3: Budget Certainty -->
+<div class="group p-8 bg-background-light dark:bg-industrial-gray border-l-4 border-primary hover:shadow-xl transition-all duration-300 fade-in-up" style="animation-delay: 0.2s">
+<span class="material-symbols-outlined text-5xl text-primary mb-6">account_balance_wallet</span>
+<h4 class="text-xl font-black mb-3 uppercase tracking-tighter">Budget Certainty</h4>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">You need locked-in pricing early. Design-build enables Guaranteed Maximum Price commitments before construction documents are fully complete.</p>
+</div>
+<!-- Scenario 4: Complex Coordination -->
+<div class="group p-8 bg-background-light dark:bg-industrial-gray border-l-4 border-primary hover:shadow-xl transition-all duration-300 fade-in-up" style="animation-delay: 0.25s">
+<span class="material-symbols-outlined text-5xl text-primary mb-6">hub</span>
+<h4 class="text-xl font-black mb-3 uppercase tracking-tighter">Complex Coordination</h4>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Your project involves multiple trades, long-lead equipment, or phased occupancy. An integrated team resolves conflicts faster than fragmented contracts.</p>
+</div>
 </div>
 </div>
 </section>
-</main>
-<footer class="bg-background-dark text-white pt-24 pb-12 border-t-4 border-accent-yellow">
+
+<!-- ===== SECTION 2: 5-STEP DESIGN-BUILD ROADMAP ===== -->
+<section class="py-24 bg-background-light dark:bg-industrial-gray">
 <div class="max-w-7xl mx-auto px-6">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
-<div class="md:col-span-1">
-<div class="flex items-center gap-3 mb-8">
+<div class="text-center mb-16 fade-in-up">
+<h2 class="text-primary font-black uppercase tracking-[0.4em] text-sm mb-4">Our Process</h2>
+<h3 class="text-4xl md:text-5xl font-black tracking-tight text-gray-900 dark:text-white mb-6 leading-tight">5-Step Design-Build Roadmap</h3>
+<p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl mx-auto">
+From initial programming through construction closeout, every phase is planned, priced, and coordinated by one integrated team.
+</p>
+</div>
+
+<div class="relative">
+<!-- Connecting Line (desktop only) -->
+<div class="hidden lg:block absolute top-24 left-[10%] right-[10%] h-0.5 bg-primary/20"></div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+<!-- Step 1 -->
+<div class="relative text-center fade-in-up" style="animation-delay: 0.1s">
+<div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-black mx-auto mb-6 relative z-10 shadow-lg">1</div>
+<span class="material-symbols-outlined text-4xl text-primary mb-4 block">draw</span>
+<h4 class="text-base font-black uppercase tracking-tighter mb-3">Programming &amp; Schematic Design</h4>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Define project goals, space requirements, site constraints, and establish the conceptual design direction with stakeholder alignment.</p>
+</div>
+<!-- Step 2 -->
+<div class="relative text-center fade-in-up" style="animation-delay: 0.15s">
+<div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-black mx-auto mb-6 relative z-10 shadow-lg">2</div>
+<span class="material-symbols-outlined text-4xl text-primary mb-4 block">architecture</span>
+<h4 class="text-base font-black uppercase tracking-tighter mb-3">Design Development</h4>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Refine materials, systems, and layouts. Integrate structural, mechanical, and electrical engineering with constructability input.</p>
+</div>
+<!-- Step 3 -->
+<div class="relative text-center fade-in-up" style="animation-delay: 0.2s">
+<div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-black mx-auto mb-6 relative z-10 shadow-lg">3</div>
+<span class="material-symbols-outlined text-4xl text-primary mb-4 block">description</span>
+<h4 class="text-base font-black uppercase tracking-tighter mb-3">Construction Documentation</h4>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Produce permit-ready drawings and specifications. Finalize details for trade procurement and regulatory submissions.</p>
+</div>
+<!-- Step 4 -->
+<div class="relative text-center fade-in-up" style="animation-delay: 0.25s">
+<div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-black mx-auto mb-6 relative z-10 shadow-lg">4</div>
+<span class="material-symbols-outlined text-4xl text-primary mb-4 block">shopping_cart</span>
+<h4 class="text-base font-black uppercase tracking-tighter mb-3">Preconstruction &amp; Buyout</h4>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Finalize the GMP, execute trade contracts, order long-lead materials, and lock the construction schedule.</p>
+</div>
+<!-- Step 5 -->
+<div class="relative text-center fade-in-up" style="animation-delay: 0.3s">
+<div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-black mx-auto mb-6 relative z-10 shadow-lg">5</div>
+<span class="material-symbols-outlined text-4xl text-primary mb-4 block">construction</span>
+<h4 class="text-base font-black uppercase tracking-tighter mb-3">Construction &amp; Closeout</h4>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Execute the work with rigorous schedule tracking, quality control, and stakeholder reporting through to final turnover.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== SECTION 3: COST & SCOPE CONTROL ===== -->
+<section class="py-24 bg-white dark:bg-background-dark">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-16 fade-in-up">
+<h2 class="text-primary font-black uppercase tracking-[0.4em] text-sm mb-4">Cost Discipline</h2>
+<h3 class="text-4xl md:text-5xl font-black tracking-tight text-gray-900 dark:text-white mb-6 leading-tight">30 / 60 / 90 Checkpoint System</h3>
+<p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl mx-auto">
+At three critical milestones during design, we lock scope, validate budget, and confirm schedule&mdash;so there are no surprises when construction begins.
+</p>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- 30% Milestone -->
+<div class="bg-background-light dark:bg-industrial-gray p-10 border-t-4 border-accent-yellow hover:shadow-xl transition-all duration-300 fade-in-up" style="animation-delay: 0.1s">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-16 h-16 bg-accent-yellow text-black rounded-full flex items-center justify-center text-xl font-black flex-shrink-0">30%</div>
+<h4 class="text-xl font-black uppercase tracking-tighter">Schematic Lock</h4>
+</div>
+<ul class="space-y-3 text-sm text-gray-600 dark:text-gray-400">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-lg mt-0.5 flex-shrink-0">check_circle</span>
+<span>Program requirements confirmed and signed off</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-lg mt-0.5 flex-shrink-0">check_circle</span>
+<span>Conceptual budget range established</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-lg mt-0.5 flex-shrink-0">check_circle</span>
+<span>Site and zoning constraints identified</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-lg mt-0.5 flex-shrink-0">check_circle</span>
+<span>Preliminary schedule milestone targets set</span>
+</li>
+</ul>
+</div>
+
+<!-- 60% Milestone -->
+<div class="bg-background-light dark:bg-industrial-gray p-10 border-t-4 border-primary hover:shadow-xl transition-all duration-300 fade-in-up" style="animation-delay: 0.15s">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-xl font-black flex-shrink-0">60%</div>
+<h4 class="text-xl font-black uppercase tracking-tighter">Design Development Lock</h4>
+</div>
+<ul class="space-y-3 text-sm text-gray-600 dark:text-gray-400">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-lg mt-0.5 flex-shrink-0">check_circle</span>
+<span>Major building systems and materials selected</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-lg mt-0.5 flex-shrink-0">check_circle</span>
+<span>Preliminary GMP estimate validated</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-lg mt-0.5 flex-shrink-0">check_circle</span>
+<span>Long-lead procurement items identified and ordered</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-lg mt-0.5 flex-shrink-0">check_circle</span>
+<span>Construction schedule baseline drafted</span>
+</li>
+</ul>
+</div>
+
+<!-- 90% Milestone -->
+<div class="bg-background-light dark:bg-industrial-gray p-10 border-t-4 border-green-500 hover:shadow-xl transition-all duration-300 fade-in-up" style="animation-delay: 0.2s">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-16 h-16 bg-green-500 text-white rounded-full flex items-center justify-center text-xl font-black flex-shrink-0">90%</div>
+<h4 class="text-xl font-black uppercase tracking-tighter">Pre-Construction Lock</h4>
+</div>
+<ul class="space-y-3 text-sm text-gray-600 dark:text-gray-400">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-green-500 text-lg mt-0.5 flex-shrink-0">check_circle</span>
+<span>Final GMP executed with full trade coverage</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-green-500 text-lg mt-0.5 flex-shrink-0">check_circle</span>
+<span>Permit-ready documents submitted</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-green-500 text-lg mt-0.5 flex-shrink-0">check_circle</span>
+<span>All trade contracts awarded and buyout complete</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-green-500 text-lg mt-0.5 flex-shrink-0">check_circle</span>
+<span>Construction schedule locked and communicated</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== SECTION 4: SPEED ADVANTAGE COMPARISON ===== -->
+<section class="py-24 bg-background-dark text-white">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-16 fade-in-up">
+<h2 class="text-accent-yellow font-black uppercase tracking-[0.4em] text-sm mb-4">Timeline Advantage</h2>
+<h3 class="text-4xl md:text-5xl font-black tracking-tight text-white mb-6 leading-tight">Design-Build vs. Traditional Delivery</h3>
+<p class="text-lg text-gray-300 leading-relaxed max-w-3xl mx-auto">
+Design-build compresses project timelines by overlapping design and construction phases. Here is how the two methods compare on a typical 18-month project.
+</p>
+</div>
+
+<div class="max-w-5xl mx-auto space-y-16">
+<!-- Traditional Design-Bid-Build -->
+<div class="fade-in-up" style="animation-delay: 0.1s">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-3xl text-gray-400">linear_scale</span>
+<h4 class="text-xl font-black uppercase tracking-tighter text-gray-300">Traditional Design-Bid-Build</h4>
+<span class="ml-auto text-sm font-bold text-gray-500 uppercase tracking-wider">~24 Months</span>
+</div>
+<div class="flex flex-col sm:flex-row gap-1">
+<div class="bg-gray-600 p-4 sm:w-[35%] rounded-sm">
+<p class="text-xs font-black uppercase tracking-wider text-gray-300 mb-1">Design</p>
+<p class="text-xs text-gray-400">8 months</p>
+</div>
+<div class="bg-gray-500 p-4 sm:w-[15%] rounded-sm">
+<p class="text-xs font-black uppercase tracking-wider text-gray-300 mb-1">Bid</p>
+<p class="text-xs text-gray-400">3 months</p>
+</div>
+<div class="bg-gray-700 p-4 sm:w-[50%] rounded-sm">
+<p class="text-xs font-black uppercase tracking-wider text-gray-300 mb-1">Construction</p>
+<p class="text-xs text-gray-400">13 months</p>
+</div>
+</div>
+<p class="text-xs text-gray-500 mt-3 italic">Sequential phases. Construction cannot begin until design is 100% complete and bidding is finished.</p>
+</div>
+
+<!-- Design-Build -->
+<div class="fade-in-up" style="animation-delay: 0.15s">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-3xl text-primary">rocket_launch</span>
+<h4 class="text-xl font-black uppercase tracking-tighter text-white">Festbau Design-Build</h4>
+<span class="ml-auto text-sm font-bold text-accent-yellow uppercase tracking-wider">~16 Months</span>
+</div>
+<div class="flex flex-col sm:flex-row gap-1">
+<div class="bg-primary p-4 sm:w-[25%] rounded-sm">
+<p class="text-xs font-black uppercase tracking-wider text-white mb-1">Design</p>
+<p class="text-xs text-blue-200">6 months</p>
+</div>
+<div class="bg-primary/70 p-4 sm:w-[15%] rounded-sm border-2 border-dashed border-accent-yellow">
+<p class="text-xs font-black uppercase tracking-wider text-white mb-1">Overlap</p>
+<p class="text-xs text-blue-200">Early work</p>
+</div>
+<div class="bg-primary/50 p-4 sm:w-[45%] rounded-sm">
+<p class="text-xs font-black uppercase tracking-wider text-white mb-1">Construction</p>
+<p class="text-xs text-blue-200">10 months</p>
+</div>
+<div class="bg-green-600 p-4 sm:w-[15%] rounded-sm flex items-center justify-center">
+<p class="text-xs font-black uppercase tracking-wider text-white text-center">Saved</p>
+</div>
+</div>
+<p class="text-xs text-gray-400 mt-3 italic">Overlapping phases. Early construction packages begin while design details are finalized.</p>
+</div>
+
+<!-- Key Stats -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 border-t border-gray-700 fade-in-up" style="animation-delay: 0.2s">
+<div class="text-center">
+<p class="text-4xl font-black text-accent-yellow mb-2">33%</p>
+<p class="text-sm text-gray-400 uppercase tracking-wider font-semibold">Faster Delivery</p>
+</div>
+<div class="text-center">
+<p class="text-4xl font-black text-accent-yellow mb-2">1</p>
+<p class="text-sm text-gray-400 uppercase tracking-wider font-semibold">Single Contract</p>
+</div>
+<div class="text-center">
+<p class="text-4xl font-black text-accent-yellow mb-2">0</p>
+<p class="text-sm text-gray-400 uppercase tracking-wider font-semibold">Bid Phase Delays</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== SECTION 5: FEATURED CASE STUDY ===== -->
+<section class="py-24 bg-white dark:bg-background-dark">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-16 fade-in-up">
+<h2 class="text-primary font-black uppercase tracking-[0.4em] text-sm mb-4">Case Study</h2>
+<h3 class="text-4xl md:text-5xl font-black tracking-tight text-gray-900 dark:text-white mb-6 leading-tight">Featured Design-Build Project</h3>
+</div>
+
+<div class="max-w-4xl mx-auto fade-in-up" style="animation-delay: 0.1s">
+<a href="../case-studies/burks-falls.html" class="group block bg-background-light dark:bg-industrial-gray overflow-hidden hover:shadow-2xl transition-all duration-300">
+<div class="grid grid-cols-1 md:grid-cols-2">
+<div class="aspect-video md:aspect-auto overflow-hidden">
+<img alt="Burks Falls Mid-Rise Renovation project by Festbau" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2000&auto=format&fit=crop"/>
+</div>
+<div class="p-10 flex flex-col justify-center">
+<div class="flex items-center gap-2 mb-4">
+<span class="bg-primary/10 text-primary text-xs font-black uppercase px-3 py-1 rounded-sm">Design-Build</span>
+<span class="bg-accent-yellow/20 text-accent-yellow text-xs font-black uppercase px-3 py-1 rounded-sm">Completed</span>
+</div>
+<h4 class="text-2xl font-black uppercase tracking-tighter mb-3 text-gray-900 dark:text-white group-hover:text-primary transition-colors">Burks Falls Mid-Rise Renovation</h4>
+<p class="text-sm text-gray-500 uppercase tracking-wider mb-2">Burk's Falls, Ontario</p>
+<p class="text-2xl font-black text-primary mb-4">$5.0M</p>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-6">Major mid-rise renovation delivered under a single design-build contract. Festbau managed the full scope from schematic design through closeout, coordinating multiple trades on a compressed schedule with disciplined cost controls.</p>
+<span class="text-primary text-xs font-semibold uppercase tracking-wider flex items-center gap-1 group-hover:gap-3 transition-all">
+View Case Study <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</span>
+</div>
+</div>
+</a>
+</div>
+</div>
+</section>
+
+<!-- ===== SECTION 6: FAQ ===== -->
+<section class="py-24 bg-background-light dark:bg-industrial-gray">
+<div class="max-w-4xl mx-auto px-6">
+<div class="text-center mb-16 fade-in-up">
+<h2 class="text-primary font-black uppercase tracking-[0.4em] text-sm mb-4">Common Questions</h2>
+<h3 class="text-4xl md:text-5xl font-black tracking-tight text-gray-900 dark:text-white mb-6 leading-tight">Design-Build FAQ</h3>
+</div>
+
+<div class="space-y-4 fade-in-up" style="animation-delay: 0.1s">
+<!-- FAQ 1 -->
+<div class="faq-item bg-white dark:bg-background-dark border border-gray-200 dark:border-gray-700 overflow-hidden">
+<button class="faq-toggle w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 dark:hover:bg-industrial-gray transition-colors" aria-expanded="false">
+<span class="text-base font-bold text-gray-900 dark:text-white pr-4">What is the difference between design-build and traditional design-bid-build?</span>
+<span class="material-symbols-outlined text-primary flex-shrink-0 faq-icon transition-transform duration-200">expand_more</span>
+</button>
+<div class="faq-content hidden px-6 pb-6">
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">In traditional design-bid-build, the owner hires an architect separately from the contractor. Design is completed first, then put out to bid, and then a contractor is selected to build it. In design-build, one entity (Festbau) holds both the design and construction contracts. This means decisions happen faster, coordination is seamless, and the owner has a single point of accountability for budget, schedule, and quality.</p>
+</div>
+</div>
+
+<!-- FAQ 2 -->
+<div class="faq-item bg-white dark:bg-background-dark border border-gray-200 dark:border-gray-700 overflow-hidden">
+<button class="faq-toggle w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 dark:hover:bg-industrial-gray transition-colors" aria-expanded="false">
+<span class="text-base font-bold text-gray-900 dark:text-white pr-4">How does pricing work in a design-build contract?</span>
+<span class="material-symbols-outlined text-primary flex-shrink-0 faq-icon transition-transform duration-200">expand_more</span>
+</button>
+<div class="faq-content hidden px-6 pb-6">
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Design-build contracts typically use a Guaranteed Maximum Price (GMP) structure. As design progresses through our 30/60/90 checkpoints, the budget is refined and validated at each stage. By the 90% milestone, the GMP is locked in, meaning the owner knows the maximum project cost before construction begins. Any savings below the GMP can be shared with the owner depending on the contract terms.</p>
+</div>
+</div>
+
+<!-- FAQ 3 -->
+<div class="faq-item bg-white dark:bg-background-dark border border-gray-200 dark:border-gray-700 overflow-hidden">
+<button class="faq-toggle w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 dark:hover:bg-industrial-gray transition-colors" aria-expanded="false">
+<span class="text-base font-bold text-gray-900 dark:text-white pr-4">Do I lose control over the design if I use design-build?</span>
+<span class="material-symbols-outlined text-primary flex-shrink-0 faq-icon transition-transform duration-200">expand_more</span>
+</button>
+<div class="faq-content hidden px-6 pb-6">
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">No. You retain full approval authority at every design milestone. The advantage of design-build is that you receive constructability and cost feedback during the design phase&mdash;not after. This means fewer redesigns, fewer surprises, and a final product that aligns with both your vision and your budget. You approve the schematic design, design development, and construction documents before any work proceeds.</p>
+</div>
+</div>
+
+<!-- FAQ 4 -->
+<div class="faq-item bg-white dark:bg-background-dark border border-gray-200 dark:border-gray-700 overflow-hidden">
+<button class="faq-toggle w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 dark:hover:bg-industrial-gray transition-colors" aria-expanded="false">
+<span class="text-base font-bold text-gray-900 dark:text-white pr-4">What types of projects are best suited for design-build?</span>
+<span class="material-symbols-outlined text-primary flex-shrink-0 faq-icon transition-transform duration-200">expand_more</span>
+</button>
+<div class="faq-content hidden px-6 pb-6">
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Design-build is ideal for projects where speed, cost certainty, and coordination are priorities. This includes mid-rise residential, mixed-use commercial, institutional renovations, industrial facilities, and any project with a hard deadline or complex stakeholder requirements. If your project has tight timelines, multiple funding sources, or regulatory complexity, design-build is typically the most efficient delivery method.</p>
+</div>
+</div>
+
+<!-- FAQ 5 -->
+<div class="faq-item bg-white dark:bg-background-dark border border-gray-200 dark:border-gray-700 overflow-hidden">
+<button class="faq-toggle w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 dark:hover:bg-industrial-gray transition-colors" aria-expanded="false">
+<span class="text-base font-bold text-gray-900 dark:text-white pr-4">How does Festbau handle changes during the design-build process?</span>
+<span class="material-symbols-outlined text-primary flex-shrink-0 faq-icon transition-transform duration-200">expand_more</span>
+</button>
+<div class="faq-content hidden px-6 pb-6">
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Changes are managed through a formal change management process. Every proposed change is evaluated for its impact on cost, schedule, and scope before being approved. Because design and construction are under one contract, the turnaround on change evaluations is significantly faster than in traditional delivery. Our 30/60/90 checkpoint system is designed to catch and resolve most design issues early, minimizing changes during construction.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== BOTTOM CTA BANNER ===== -->
+<section class="py-24 bg-primary overflow-hidden relative">
+<div class="max-w-7xl mx-auto px-6 relative z-10">
+<div class="flex flex-col items-center text-center gap-8">
+<div class="max-w-3xl">
+<h2 class="text-white text-4xl md:text-5xl font-black tracking-tight mb-6 leading-tight">Ready to Explore Design-Build for Your Next Project?</h2>
+<p class="text-white/90 text-xl leading-relaxed">Share your project scope, timeline, and constraints. Our team will outline a clear plan of action.</p>
+</div>
+<div>
+<a href="../contact.html" class="bg-white text-primary px-12 py-5 text-base font-black uppercase tracking-widest rounded-sm hover:scale-105 transition-transform shadow-2xl inline-block">
+Schedule a Call
+</a>
+</div>
+</div>
+</div>
+</section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="bg-background-dark text-white pt-20 pb-12 border-t-4 border-accent-yellow">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+<!-- Company Info -->
+<div>
+<div class="flex items-center gap-3 mb-6">
 <div class="bg-white p-1 rounded-sm">
 <svg class="size-6 text-background-dark" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<path d="M39.5563 34.1455V13.8546C39.5563 15.708 36.8773 17.3437 32.7927 18.3189C30.2914 18.916 27.263 19.2655 24 19.2655C20.737 19.2655 17.7086 18.916 15.2073 18.3189C11.1227 17.3437 8.44365 15.708 8.44365 13.8546V34.1455C8.44365 35.9988 11.1227 37.6346 15.2073 38.6098C17.7086 39.2069 20.737 39.5564 24 39.5564C27.1288 39.5564 30.2914 39.2069 32.7927 38.6098C36.8773 37.6346 39.5563 35.9988 39.5563 34.1455Z" fill="currentColor"></path>
+<path d="M39.5563 34.1455V13.8546C39.5563 15.708 36.8773 17.3437 32.7927 18.3189C30.2914 18.916 27.263 19.2655 24 19.2655C20.737 19.2655 17.7086 18.916 15.2073 18.3189C11.1227 17.3437 8.44365 15.708 8.44365 13.8546V34.1455C8.44365 35.9988 11.1227 37.6346 15.2073 38.6098C17.7086 39.2069 20.737 39.5564 24 39.5564C27.263 39.5564 30.2914 39.2069 32.7927 38.6098C36.8773 37.6346 39.5563 35.9988 39.5563 34.1455Z" fill="currentColor"></path>
 </svg>
 </div>
 <h2 class="text-xl font-extrabold tracking-tighter uppercase">Festbau</h2>
 </div>
-<p class="text-gray-400 text-sm leading-relaxed mb-8">
-                    Delivering the foundations of modern infrastructure since 1974. Precision engineering, absolute reliability.
-                </p>
-<div class="flex gap-4">
-<a class="w-10 h-10 border border-gray-700 flex items-center justify-center hover:bg-primary hover:border-primary transition-all rounded-sm" href="#"><span class="material-symbols-outlined text-sm">hub</span></a>
-<a class="w-10 h-10 border border-gray-700 flex items-center justify-center hover:bg-primary hover:border-primary transition-all rounded-sm" href="#"><span class="material-symbols-outlined text-sm">alternate_email</span></a>
-<a class="w-10 h-10 border border-gray-700 flex items-center justify-center hover:bg-primary hover:border-primary transition-all rounded-sm" href="#"><span class="material-symbols-outlined text-sm">groups</span></a>
+<p class="text-gray-400 text-sm leading-relaxed mb-6">
+Ontario-based Design-Build and General Contracting partner. Founded 2016.
+</p>
 </div>
-</div>
+
+<!-- Contact Information -->
 <div>
-<h5 class="text-sm font-black uppercase tracking-[0.2em] text-accent-yellow mb-8">Navigation</h5>
-<ul class="space-y-4">
-<li><a class="text-sm text-gray-400 hover:text-white transition-colors" href="#">Our Services</a></li>
-<li><a class="text-sm text-gray-400 hover:text-white transition-colors" href="#">Project Portfolio</a></li>
-<li><a class="text-sm text-gray-400 hover:text-white transition-colors" href="#">Safety Standards</a></li>
-<li><a class="text-sm text-gray-400 hover:text-white transition-colors" href="#">Careers</a></li>
-<li><a class="text-sm text-gray-400 hover:text-white transition-colors" href="#">Sustainability</a></li>
+<h5 class="text-sm font-black uppercase tracking-[0.2em] text-accent-yellow mb-6">Contact</h5>
+<ul class="space-y-3 text-sm text-gray-400">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">call</span>
+<a href="tel:+15483331419" class="hover:text-white transition-colors">(548) 333-1419</a>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">mail</span>
+<div class="flex flex-col gap-1">
+<a href="mailto:Vugar@festbau.ca" class="hover:text-white transition-colors">Vugar@festbau.ca</a>
+<a href="mailto:Mashhod@festbau.ca" class="hover:text-white transition-colors">Mashhod@festbau.ca</a>
+</div>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">location_on</span>
+<span>Cambridge, Ontario</span>
+</li>
 </ul>
 </div>
+
+<!-- Quick Links -->
 <div>
-<h5 class="text-sm font-black uppercase tracking-[0.2em] text-accent-yellow mb-8">Headquarters</h5>
-<p class="text-sm text-gray-400 leading-relaxed">
-                    Bauallee 12-14<br/>
-                    80331 Munich, Germany<br/>
-                    T: +49 (0) 89 234 567 89<br/>
-                    E: contact@festbau.de
-                </p>
+<h5 class="text-sm font-black uppercase tracking-[0.2em] text-accent-yellow mb-6">Resources</h5>
+<ul class="space-y-3 text-sm">
+<li><a class="text-gray-400 hover:text-white transition-colors flex items-center gap-2" href="../qualifications.html">
+<span class="material-symbols-outlined text-sm">download</span>
+Download Qualifications
+</a></li>
+<li><a class="text-gray-400 hover:text-white transition-colors flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-sm">policy</span>
+Privacy Policy
+</a></li>
+<li><a class="text-gray-400 hover:text-white transition-colors flex items-center gap-2" href="https://www.linkedin.com/company/festbau-construction" target="_blank">
+<span class="material-symbols-outlined text-sm">groups</span>
+LinkedIn
+</a></li>
+<li><a class="text-gray-400 hover:text-white transition-colors flex items-center gap-2" href="https://www.instagram.com/vugarconstruction" target="_blank">
+<span class="material-symbols-outlined text-sm">photo_camera</span>
+Instagram
+</a></li>
+</ul>
 </div>
-<div>
-<h5 class="text-sm font-black uppercase tracking-[0.2em] text-accent-yellow mb-8">Newsletter</h5>
-<p class="text-xs text-gray-400 mb-6 uppercase tracking-widest">Industry insights &amp; news</p>
-<div class="flex">
-<input class="bg-gray-800 border-none px-4 py-3 text-sm focus:ring-1 focus:ring-primary w-full rounded-l-sm" placeholder="Your Email" type="email"/>
-<button class="bg-primary px-4 py-3 rounded-r-sm hover:brightness-110 transition-all">
-<span class="material-symbols-outlined">send</span>
-</button>
 </div>
-</div>
-</div>
-<div class="pt-12 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-6">
-<p class="text-xs text-gray-500 uppercase tracking-widest">© 2024 Festbau GmbH. All rights reserved.</p>
-<div class="flex gap-8">
-<a class="text-[10px] text-gray-500 hover:text-white uppercase tracking-widest" href="#">Imprint</a>
-<a class="text-[10px] text-gray-500 hover:text-white uppercase tracking-widest" href="#">Privacy Policy</a>
-<a class="text-[10px] text-gray-500 hover:text-white uppercase tracking-widest" href="#">Terms of Service</a>
+
+<!-- Footer Bottom -->
+<div class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-xs text-gray-500 uppercase tracking-wider">&copy; 2026 Festbau. All rights reserved.</p>
+<div class="flex items-center gap-6">
+<a href="https://www.linkedin.com/company/festbau-construction" target="_blank" class="text-gray-500 hover:text-primary transition-colors">
+<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+</a>
+<a href="https://www.instagram.com/vugarconstruction" target="_blank" class="text-gray-500 hover:text-primary transition-colors">
+<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+</a>
 </div>
 </div>
 </div>
 </footer>
 
-</body></html>
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+// Mobile Menu Toggle
+document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('hidden');
+});
+
+// Mobile Services Accordion
+document.getElementById('mobile-services-btn').addEventListener('click', function() {
+    const submenu = document.getElementById('mobile-services-menu');
+    const chevron = document.getElementById('mobile-services-chevron');
+    submenu.classList.toggle('hidden');
+    if (submenu.classList.contains('hidden')) {
+        chevron.style.transform = 'rotate(0deg)';
+    } else {
+        chevron.style.transform = 'rotate(180deg)';
+    }
+});
+
+// FAQ Accordion
+document.querySelectorAll('.faq-toggle').forEach(function(button) {
+    button.addEventListener('click', function() {
+        const item = this.closest('.faq-item');
+        const content = item.querySelector('.faq-content');
+        const icon = item.querySelector('.faq-icon');
+        const isOpen = !content.classList.contains('hidden');
+
+        // Close all other FAQ items
+        document.querySelectorAll('.faq-item').forEach(function(otherItem) {
+            if (otherItem !== item) {
+                otherItem.querySelector('.faq-content').classList.add('hidden');
+                otherItem.querySelector('.faq-icon').style.transform = 'rotate(0deg)';
+                otherItem.querySelector('.faq-toggle').setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Toggle current item
+        if (isOpen) {
+            content.classList.add('hidden');
+            icon.style.transform = 'rotate(0deg)';
+            this.setAttribute('aria-expanded', 'false');
+        } else {
+            content.classList.remove('hidden');
+            icon.style.transform = 'rotate(180deg)';
+            this.setAttribute('aria-expanded', 'true');
+        }
+    });
+});
+
+// Intersection Observer for scroll animations
+const fadeObserver = new IntersectionObserver(function(entries, observer) {
+    entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.animation = entry.target.style.animation || 'fadeInUp 0.8s ease-out forwards';
+            observer.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+});
+
+// Observe all animated elements on DOM load
+document.addEventListener('DOMContentLoaded', function() {
+    var animatedElements = document.querySelectorAll('.fade-in-up, .fade-in, .slide-in-left, .scale-in');
+    animatedElements.forEach(function(el) {
+        fadeObserver.observe(el);
+    });
+});
+</script>
+
+</body>
+</html>
