@@ -331,8 +331,16 @@ $<span class="counter" data-target="100">0</span>M+
 </div>
 </section>
 <!-- D) Featured Projects (3 cards + "View All") -->
-<section class="py-24 bg-primary">
-<div class="max-w-7xl mx-auto px-6">
+<section class="py-24 bg-black relative overflow-hidden">
+<!-- Checkered pattern background -->
+<div class="absolute inset-0 opacity-10">
+<div class="w-full h-full bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:30px_30px]"></div>
+</div>
+<!-- Diagonal accent lines -->
+<div class="absolute top-0 right-0 w-1/3 h-full opacity-5">
+<div class="w-full h-full transform rotate-12 bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+</div>
+<div class="max-w-7xl mx-auto px-6 relative z-10">
 <div class="mb-16 fade-in-up text-center">
 <h2 class="text-accent-yellow font-black uppercase tracking-[0.4em] text-sm mb-4">Track Record</h2>
 <h3 class="text-4xl md:text-5xl font-black tracking-tight text-white">Featured Projects</h3>
