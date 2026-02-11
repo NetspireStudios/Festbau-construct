@@ -9,28 +9,28 @@
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style type="text/tailwindcss">
-    @layer base {
-        body {
-            @apply font-display;
+        @layer base {
+            body {
+                @apply font-display;
+            }
         }
-    }
-    .material-symbols-outlined {
-        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-    }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
 
     /* Filmstrip scrollbar */
-    .filmstrip-scroll::-webkit-scrollbar {
-        height: 4px;
-    }
-    .filmstrip-scroll::-webkit-scrollbar-track {
+        .filmstrip-scroll::-webkit-scrollbar {
+            height: 4px;
+        }
+        .filmstrip-scroll::-webkit-scrollbar-track {
         background: #e5e7eb;
-    }
-    .filmstrip-scroll::-webkit-scrollbar-thumb {
-        background: #FFD700;
+        }
+        .filmstrip-scroll::-webkit-scrollbar-thumb {
+            background: #FFD700;
         border-radius: 4px;
-    }
-    .filmstrip-scroll {
-        scrollbar-width: thin;
+        }
+        .filmstrip-scroll {
+            scrollbar-width: thin;
         scrollbar-color: #FFD700 #e5e7eb;
     }
 
@@ -57,33 +57,33 @@
     /* Modal overlay */
     .modal-overlay {
         backdrop-filter: blur(8px);
-    }
-</style>
+        }
+    </style>
 <script>
-    tailwind.config = {
-        darkMode: "class",
-        theme: {
-            extend: {
-                colors: {
-                    "primary": "#1152d4",
-                    "accent-yellow": "#FFD700",
-                    "background-light": "#f6f6f8",
-                    "background-dark": "#101622",
-                    "industrial-gray": "#2d3442",
-                },
-                fontFamily: {
-                    "display": ["Manrope", "sans-serif"]
-                },
-                borderRadius: {
-                    "DEFAULT": "0.125rem",
-                    "lg": "0.25rem",
-                    "xl": "0.5rem",
-                    "full": "0.75rem"
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1152d4",
+                        "accent-yellow": "#FFD700",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                        "industrial-gray": "#2d3442",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
                 },
             },
-        },
-    }
-</script>
+        }
+    </script>
 </head>
 <body class="bg-white dark:bg-background-dark text-gray-900 dark:text-gray-100 overflow-x-hidden">
 
@@ -200,7 +200,7 @@ Our Project<br/>
 </h1>
 <p class="text-lg text-gray-300 mb-8 border-l-4 border-accent-yellow pl-6 leading-relaxed max-w-xl">
 Turnkey commercial construction across Ontario. From QSR franchise rollouts to institutional renovations, delivered on time and on budget.
-</p>
+                </p>
 <div class="flex flex-wrap items-center gap-3 text-gray-400 text-sm font-semibold">
 <span class="bg-white/10 px-4 py-2 rounded-sm">9+ Completed Projects</span>
 <span class="bg-white/10 px-4 py-2 rounded-sm">100% Turnkey Delivery</span>
@@ -305,12 +305,12 @@ View Project Details
 <!-- ═══════════════════════════════════════════════════════════ -->
 <!-- SECTOR 02: FRANCHISE ROLLOUT PROGRAM                       -->
 <!-- ═══════════════════════════════════════════════════════════ -->
-<section class="py-24 bg-background-light dark:bg-background-dark/30 border-b border-gray-100 dark:border-gray-800">
+<section class="py-24 bg-industrial-gray dark:bg-background-dark border-b border-gray-800">
 <div class="max-w-7xl mx-auto px-6 mb-12">
 <div class="flex items-end justify-between">
 <div>
 <span class="text-accent-yellow font-black uppercase tracking-[0.3em] text-[10px] block mb-2">Sector 02</span>
-<h2 class="text-4xl font-black uppercase tracking-tighter text-industrial-gray dark:text-white">Franchise Rollout Program</h2>
+<h2 class="text-4xl font-black uppercase tracking-tighter text-white">Franchise Rollout Program</h2>
 </div>
 <span class="text-xs font-bold uppercase tracking-widest text-gray-400 pb-2">4 Locations</span>
 </div>
@@ -346,8 +346,8 @@ View Project Details
 </div>
 </div>
 <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Belleville, ON</p>
-<h4 class="text-lg font-bold uppercase tracking-tight group-hover:text-primary transition-colors">BarBurrito</h4>
-<p class="text-xs text-gray-500 mt-1">Turnkey Project</p>
+<h4 class="text-lg font-bold uppercase tracking-tight text-white group-hover:text-accent-yellow transition-colors">BarBurrito</h4>
+<p class="text-xs text-gray-400 mt-1">Turnkey Project</p>
 </div>
 
 <!-- BarBurrito Fort Erie -->
@@ -359,8 +359,8 @@ View Project Details
 </div>
 </div>
 <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Fort Erie, ON</p>
-<h4 class="text-lg font-bold uppercase tracking-tight group-hover:text-primary transition-colors">BarBurrito</h4>
-<p class="text-xs text-gray-500 mt-1">Turnkey Project</p>
+<h4 class="text-lg font-bold uppercase tracking-tight text-white group-hover:text-accent-yellow transition-colors">BarBurrito</h4>
+<p class="text-xs text-gray-400 mt-1">Turnkey Project</p>
 </div>
 
 <!-- BarBurrito Shelburne -->
@@ -372,8 +372,8 @@ View Project Details
 </div>
 </div>
 <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Shelburne, ON</p>
-<h4 class="text-lg font-bold uppercase tracking-tight group-hover:text-primary transition-colors">BarBurrito</h4>
-<p class="text-xs text-gray-500 mt-1">Turnkey Project</p>
+<h4 class="text-lg font-bold uppercase tracking-tight text-white group-hover:text-accent-yellow transition-colors">BarBurrito</h4>
+<p class="text-xs text-gray-400 mt-1">Turnkey Project</p>
 </div>
 </div>
 </div>
@@ -483,10 +483,10 @@ Ready to build<br/>your <span class="text-primary">project?</span>
 </h2>
 <p class="text-lg text-gray-500 dark:text-gray-400 max-w-xl mx-auto mb-12">
 Let's discuss how our turnkey commercial construction services can deliver your next project on time and on budget.
-</p>
+            </p>
 <div class="flex flex-col sm:flex-row gap-6 justify-center">
 <a href="contact.html" class="bg-primary text-white px-12 py-5 text-sm font-black uppercase tracking-widest hover:brightness-110 transition-all rounded-sm inline-block">
-Start a Consultation
+                    Start a Consultation
 </a>
 <a href="qualifications.html" class="bg-white dark:bg-industrial-gray border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white px-12 py-5 text-sm font-black uppercase tracking-widest hover:bg-gray-50 dark:hover:bg-gray-700 transition-all rounded-sm inline-block">
 View Qualifications
@@ -559,7 +559,7 @@ Inquire About Similar Project
 </div>
 <p class="text-gray-400 text-sm leading-relaxed mb-6">
 Ontario-based Design-Build and General Contracting partner. Founded 2016.
-</p>
+                </p>
 </div>
 <!-- Contact Information -->
 <div>
