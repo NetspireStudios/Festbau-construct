@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Exclude utility files
+Disallow: /code.html
+Disallow: /code2.html
+Disallow: /hero_section.html
+
+# Sitemap location
+Sitemap: https://festbau.ca/sitemap.xml
