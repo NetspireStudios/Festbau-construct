@@ -1,17 +1,22 @@
-# Enable URL rewriting
-RewriteEngine On
+# Optional: Enable clean URLs if Apache mod_rewrite is available
+# The site will work with or without these rules
 
-# Remove trailing slashes
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_URI} (.+)/$
-RewriteRule ^ %1 [R=301,L]
-
-# Remove .html extension from URLs (301 redirect)
-RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.html [NC]
-RewriteRule ^ %1 [R=301,L]
-
-# Add .html extension if file exists (internal rewrite)
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}.html -f
-RewriteRule ^(.+)$ $1.html [L,QSA]
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Remove trailing slashes
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [R=301,L]
+    
+    # Optional: Redirect .html URLs to clean URLs (disabled by default for compatibility)
+    # Uncomment the next 2 lines to enable clean URL redirects:
+    # RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.html [NC]
+    # RewriteRule ^ %1 [R=301,L]
+    
+    # Add .html extension if clean URL is accessed and file exists
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}.html -f
+    RewriteRule ^(.+)$ $1.html [L,QSA]
+</IfModule>
