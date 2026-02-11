@@ -434,90 +434,180 @@ From initial programming through construction closeout, every phase is planned, 
 <section class="py-24 bg-white dark:bg-background-dark">
 <div class="max-w-7xl mx-auto px-6">
 <div class="text-center mb-16 fade-in-up">
-<h2 class="text-primary font-black uppercase tracking-[0.4em] text-sm mb-4">Cost Discipline</h2>
-<h3 class="text-4xl md:text-5xl font-black tracking-tight text-gray-900 dark:text-white mb-6 leading-tight">30 / 60 / 90 Checkpoint System</h3>
+<h2 class="text-primary font-black uppercase tracking-[0.4em] text-sm mb-4">Cost & Scope Control</h2>
+<h3 class="text-4xl md:text-5xl font-black tracking-tight text-gray-900 dark:text-white mb-6 leading-tight">How We Prevent Change Orders</h3>
 <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl mx-auto">
-At three critical milestones during design, we lock scope, validate budget, and confirm schedule&mdash;so there are no surprises when construction begins.
+Pricing checkpoints at 30/60/90% design ensure scope alignment, budget validation, and schedule certainty before construction begins.
 </p>
 </div>
 
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-<!-- 30% Milestone -->
-<div class="bg-background-light dark:bg-industrial-gray p-10 border-t-4 border-accent-yellow hover:shadow-xl transition-all duration-300 fade-in-up" style="animation-delay: 0.1s">
+<!-- Checkpoint Bar Graphic -->
+<div class="max-w-5xl mx-auto mb-16 fade-in-up" style="animation-delay: 0.1s">
+<div class="relative bg-background-light dark:bg-industrial-gray p-8 rounded-sm">
+<div class="flex items-center justify-between relative">
+<!-- Progress Line -->
+<div class="absolute top-1/2 left-0 right-0 h-1 bg-gray-300 dark:bg-gray-600 -translate-y-1/2"></div>
+<div class="absolute top-1/2 left-0 h-1 bg-gradient-to-r from-accent-yellow via-primary to-green-500 -translate-y-1/2" style="width: 100%;"></div>
+
+<!-- 30% -->
+<div class="relative z-10 flex flex-col items-center">
+<div class="w-16 h-16 bg-accent-yellow text-black rounded-full flex items-center justify-center text-lg font-black shadow-lg mb-3">30%</div>
+<span class="text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 text-center">Scope Intent</span>
+</div>
+
+<!-- 60% -->
+<div class="relative z-10 flex flex-col items-center">
+<div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-lg font-black shadow-lg mb-3">60%</div>
+<span class="text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 text-center">Lock Assemblies</span>
+</div>
+
+<!-- 90% -->
+<div class="relative z-10 flex flex-col items-center">
+<div class="w-16 h-16 bg-green-500 text-white rounded-full flex items-center justify-center text-lg font-black shadow-lg mb-3">90%</div>
+<span class="text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 text-center">Procurement Ready</span>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Checkpoint Details -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+<!-- 30% Checkpoint -->
+<div class="bg-background-light dark:bg-industrial-gray p-10 border-t-4 border-accent-yellow hover:shadow-xl transition-all duration-300 fade-in-up" style="animation-delay: 0.15s">
 <div class="flex items-center gap-4 mb-6">
 <div class="w-16 h-16 bg-accent-yellow text-black rounded-full flex items-center justify-center text-xl font-black flex-shrink-0">30%</div>
-<h4 class="text-xl font-black uppercase tracking-tighter">Schematic Lock</h4>
+<h4 class="text-xl font-black uppercase tracking-tighter">Scope Intent</h4>
 </div>
 <ul class="space-y-3 text-sm text-gray-600 dark:text-gray-400">
 <li class="flex items-start gap-3">
 <span class="material-symbols-outlined text-primary text-lg mt-0.5 flex-shrink-0">check_circle</span>
-<span>Program requirements confirmed and signed off</span>
+<span>Confirm scope intent and system assumptions</span>
 </li>
 <li class="flex items-start gap-3">
 <span class="material-symbols-outlined text-primary text-lg mt-0.5 flex-shrink-0">check_circle</span>
-<span>Conceptual budget range established</span>
+<span>Establish budget guardrails</span>
 </li>
 <li class="flex items-start gap-3">
 <span class="material-symbols-outlined text-primary text-lg mt-0.5 flex-shrink-0">check_circle</span>
-<span>Site and zoning constraints identified</span>
-</li>
-<li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-primary text-lg mt-0.5 flex-shrink-0">check_circle</span>
-<span>Preliminary schedule milestone targets set</span>
+<span>Identify critical design decisions</span>
 </li>
 </ul>
 </div>
 
-<!-- 60% Milestone -->
-<div class="bg-background-light dark:bg-industrial-gray p-10 border-t-4 border-primary hover:shadow-xl transition-all duration-300 fade-in-up" style="animation-delay: 0.15s">
+<!-- 60% Checkpoint -->
+<div class="bg-background-light dark:bg-industrial-gray p-10 border-t-4 border-primary hover:shadow-xl transition-all duration-300 fade-in-up" style="animation-delay: 0.2s">
 <div class="flex items-center gap-4 mb-6">
 <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-xl font-black flex-shrink-0">60%</div>
-<h4 class="text-xl font-black uppercase tracking-tighter">Design Development Lock</h4>
+<h4 class="text-xl font-black uppercase tracking-tighter">Lock Major Assemblies</h4>
 </div>
 <ul class="space-y-3 text-sm text-gray-600 dark:text-gray-400">
 <li class="flex items-start gap-3">
 <span class="material-symbols-outlined text-primary text-lg mt-0.5 flex-shrink-0">check_circle</span>
-<span>Major building systems and materials selected</span>
+<span>Lock major assemblies and systems</span>
 </li>
 <li class="flex items-start gap-3">
 <span class="material-symbols-outlined text-primary text-lg mt-0.5 flex-shrink-0">check_circle</span>
-<span>Preliminary GMP estimate validated</span>
+<span>Reduce unknowns in trade scopes</span>
 </li>
 <li class="flex items-start gap-3">
 <span class="material-symbols-outlined text-primary text-lg mt-0.5 flex-shrink-0">check_circle</span>
-<span>Long-lead procurement items identified and ordered</span>
-</li>
-<li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-primary text-lg mt-0.5 flex-shrink-0">check_circle</span>
-<span>Construction schedule baseline drafted</span>
+<span>Refine trade scopes for accuracy</span>
 </li>
 </ul>
 </div>
 
-<!-- 90% Milestone -->
-<div class="bg-background-light dark:bg-industrial-gray p-10 border-t-4 border-green-500 hover:shadow-xl transition-all duration-300 fade-in-up" style="animation-delay: 0.2s">
+<!-- 90% Checkpoint -->
+<div class="bg-background-light dark:bg-industrial-gray p-10 border-t-4 border-green-500 hover:shadow-xl transition-all duration-300 fade-in-up" style="animation-delay: 0.25s">
 <div class="flex items-center gap-4 mb-6">
 <div class="w-16 h-16 bg-green-500 text-white rounded-full flex items-center justify-center text-xl font-black flex-shrink-0">90%</div>
-<h4 class="text-xl font-black uppercase tracking-tighter">Pre-Construction Lock</h4>
+<h4 class="text-xl font-black uppercase tracking-tighter">Procurement Ready</h4>
 </div>
 <ul class="space-y-3 text-sm text-gray-600 dark:text-gray-400">
 <li class="flex items-start gap-3">
 <span class="material-symbols-outlined text-green-500 text-lg mt-0.5 flex-shrink-0">check_circle</span>
-<span>Final GMP executed with full trade coverage</span>
+<span>Finalize selections and coordination</span>
 </li>
 <li class="flex items-start gap-3">
 <span class="material-symbols-outlined text-green-500 text-lg mt-0.5 flex-shrink-0">check_circle</span>
-<span>Permit-ready documents submitted</span>
+<span>Confirm procurement readiness</span>
 </li>
 <li class="flex items-start gap-3">
 <span class="material-symbols-outlined text-green-500 text-lg mt-0.5 flex-shrink-0">check_circle</span>
-<span>All trade contracts awarded and buyout complete</span>
-</li>
-<li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-green-500 text-lg mt-0.5 flex-shrink-0">check_circle</span>
-<span>Construction schedule locked and communicated</span>
+<span>Lock schedule and trade commitments</span>
 </li>
 </ul>
+</div>
+</div>
+
+<!-- Allowances vs Fixed Selections -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+<!-- Allowances -->
+<div class="fade-in-up" style="animation-delay: 0.3s">
+<div class="bg-accent-yellow/10 dark:bg-accent-yellow/5 p-10 rounded-sm border-l-4 border-accent-yellow">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-accent-yellow text-3xl">receipt_long</span>
+<h4 class="text-2xl font-black uppercase tracking-tight text-gray-900 dark:text-white">Allowances</h4>
+</div>
+<p class="text-base text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+Defined placeholders with a clear basis and decision date. These are temporary budget allocations that will be replaced with fixed selections as design progresses.
+</p>
+<ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-accent-yellow text-sm mt-1">arrow_right</span>
+<span>Clear basis of estimate</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-accent-yellow text-sm mt-1">arrow_right</span>
+<span>Decision deadline documented</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-accent-yellow text-sm mt-1">arrow_right</span>
+<span>Reconciled before GMP execution</span>
+</li>
+</ul>
+</div>
+</div>
+
+<!-- Fixed Selections -->
+<div class="fade-in-up" style="animation-delay: 0.35s">
+<div class="bg-primary/10 dark:bg-primary/5 p-10 rounded-sm border-l-4 border-primary">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary text-3xl">lock</span>
+<h4 class="text-2xl font-black uppercase tracking-tight text-gray-900 dark:text-white">Fixed Selections</h4>
+</div>
+<p class="text-base text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+Locked items that reduce variability and protect total exposure. These selections are finalized, priced, and committed, eliminating scope creep and change order risk.
+</p>
+<ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-sm mt-1">arrow_right</span>
+<span>Firm pricing secured</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-sm mt-1">arrow_right</span>
+<span>Trade commitments in place</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-sm mt-1">arrow_right</span>
+<span>Schedule impact confirmed</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- Value Engineering -->
+<div class="fade-in-up" style="animation-delay: 0.4s">
+<div class="bg-background-light dark:bg-industrial-gray p-12 rounded-sm">
+<div class="max-w-4xl mx-auto text-center">
+<div class="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-6">
+<span class="material-symbols-outlined text-primary text-3xl">engineering</span>
+</div>
+<h4 class="text-2xl font-black uppercase tracking-tight text-gray-900 dark:text-white mb-4">Value Engineering (Without Degrading Performance)</h4>
+<p class="text-base text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl mx-auto">
+We document options that protect lifecycle outcomes—simplifying constructability, reducing schedule risk, and aligning specs to durability and operations. Value engineering is about smarter delivery, not cutting corners.
+</p>
+</div>
 </div>
 </div>
 </div>
