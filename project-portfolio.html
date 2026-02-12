@@ -428,7 +428,7 @@ View Project Details
 <div class="aspect-[3/4] overflow-hidden bg-gray-100 mb-4 relative">
 <img alt="Adaptive Reuse: School Gym to Residential" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://images.unsplash.com/photo-1590274853856-f22d5ee3d228?q=80&w=800&auto=format&fit=crop"/>
 <div class="absolute top-3 left-3">
-<span class="bg-accent-yellow text-black text-[9px] font-bold uppercase tracking-widest px-2 py-1 rounded-sm">Under Construction</span>
+<span class="bg-orange-500 text-white text-[9px] font-bold uppercase tracking-widest px-2 py-1 rounded-sm">Under Construction</span>
 </div>
 </div>
 <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Cambridge, ON</p>
@@ -911,7 +911,7 @@ function openModal(projectId) {
     // Status badge
     var badgeEl = document.getElementById('modal-status-badge');
     if (project.status === 'Under Construction') {
-        badgeEl.innerHTML = '<span class="bg-accent-yellow text-black text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-sm">Under Construction</span>';
+        badgeEl.innerHTML = '<span class="bg-orange-500 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-sm">Under Construction</span>';
     } else {
         badgeEl.innerHTML = '<span class="bg-accent-yellow text-black text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-sm">Completed</span>';
     }
