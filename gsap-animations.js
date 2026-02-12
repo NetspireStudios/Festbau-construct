@@ -33,50 +33,51 @@
     var hero = document.querySelector("main > section:first-child");
     if (!hero) return;
 
-    var tl = gsap.timeline({
-      defaults: { ease: "power3.out", duration: 0.8 * speed },
-    });
-
     // a) Background image — cinematic settle
     var bgImg = hero.querySelector("img.object-cover") ||
                 hero.querySelector("img[class*='object-cover']");
     if (bgImg) {
       gsap.fromTo(
         bgImg,
-        { scale: 1.06, opacity: 0.6 },
-        { scale: 1, opacity: 1, duration: 2 * speed, ease: "power2.out" }
+        { scale: 1.05, opacity: 0.7 },
+        { scale: 1, opacity: 1, duration: 1.8 * speed, ease: "power2.out" }
       );
     }
 
-    // b) Hero content — staggered entrance
+    // b) Hero content — smooth staggered entrance with proper timing
     var contentWrap = hero.querySelector("[data-gsap='hero-content']");
     if (contentWrap) {
       var children = Array.from(contentWrap.querySelectorAll(":scope > *"));
-      tl.fromTo(
-        children,
-        { opacity: 0, y: 40 * dist },
-        {
-          opacity: 1, y: 0,
-          stagger: 0.12,
-          clearProps: "transform",
-        },
-        0.3
-      );
+      
+      // Initial state - hide all children
+      gsap.set(children, { opacity: 0, y: 50 * dist });
+      
+      // Animate with timeline for better control
+      var tl = gsap.timeline({ delay: 0.2 });
+      children.forEach(function(child, i) {
+        tl.to(child, {
+          opacity: 1,
+          y: 0,
+          duration: 0.8 * speed,
+          ease: "power3.out",
+          clearProps: "transform"
+        }, i * 0.15); // 0.15s between each element
+      });
     }
 
     // c) Floating badge (ISO, etc.) — slide from right
     var badge = hero.querySelector("[data-gsap='hero-badge']");
     if (badge) {
-      tl.fromTo(
+      gsap.fromTo(
         badge,
         { opacity: 0, x: 50 * dist, y: 10 * dist },
         {
           opacity: 1, x: 0, y: 0,
-          duration: 0.9 * speed,
-          ease: "back.out(1.3)",
+          duration: 1.0 * speed,
+          ease: "power3.out",
+          delay: 0.8,
           clearProps: "transform",
-        },
-        0.7
+        }
       );
     }
   })();
@@ -85,84 +86,108 @@
   gsap.utils
     .toArray(".fade-in-up, .reveal, .animate-on-scroll, [data-gsap='fade-up']")
     .forEach(function (el) {
-      gsap.fromTo(
-        el,
-        { opacity: 0, y: 30 * dist },
-        {
-          opacity: 1, y: 0,
-          duration: 0.7 * speed,
-          ease: "power2.out",
-          clearProps: "transform",
-          scrollTrigger: { trigger: el, start: "top 88%", once: true },
+      gsap.set(el, { opacity: 0, y: 40 * dist });
+      
+      ScrollTrigger.create({
+        trigger: el,
+        start: "top 88%",
+        once: true,
+        onEnter: function() {
+          gsap.to(el, {
+            opacity: 1,
+            y: 0,
+            duration: 0.8 * speed,
+            ease: "power3.out",
+            clearProps: "transform"
+          });
         }
-      );
+      });
     });
 
   // ── 3  Scroll-triggered fade-in (no movement) ───────────
   gsap.utils
     .toArray(".fade-in, [data-gsap='fade-in']")
     .forEach(function (el) {
-      gsap.fromTo(
-        el,
-        { opacity: 0 },
-        {
-          opacity: 1,
-          duration: 0.8 * speed,
-          ease: "power2.out",
-          scrollTrigger: { trigger: el, start: "top 88%", once: true },
+      gsap.set(el, { opacity: 0 });
+      
+      ScrollTrigger.create({
+        trigger: el,
+        start: "top 88%",
+        once: true,
+        onEnter: function() {
+          gsap.to(el, {
+            opacity: 1,
+            duration: 0.9 * speed,
+            ease: "power2.out"
+          });
         }
-      );
+      });
     });
 
   // ── 4  Slide from left ───────────────────────────────────
   gsap.utils
     .toArray(".slide-in-left, .reveal-left, [data-gsap='slide-left']")
     .forEach(function (el) {
-      gsap.fromTo(
-        el,
-        { opacity: 0, x: -40 * dist },
-        {
-          opacity: 1, x: 0,
-          duration: 0.8 * speed,
-          ease: "power3.out",
-          clearProps: "transform",
-          scrollTrigger: { trigger: el, start: "top 85%", once: true },
+      gsap.set(el, { opacity: 0, x: -50 * dist });
+      
+      ScrollTrigger.create({
+        trigger: el,
+        start: "top 85%",
+        once: true,
+        onEnter: function() {
+          gsap.to(el, {
+            opacity: 1,
+            x: 0,
+            duration: 0.9 * speed,
+            ease: "power3.out",
+            clearProps: "transform"
+          });
         }
-      );
+      });
     });
 
   // ── 5  Slide from right ──────────────────────────────────
   gsap.utils
     .toArray(".slide-in-right, .reveal-right, [data-gsap='slide-right']")
     .forEach(function (el) {
-      gsap.fromTo(
-        el,
-        { opacity: 0, x: 40 * dist },
-        {
-          opacity: 1, x: 0,
-          duration: 0.8 * speed,
-          ease: "power3.out",
-          clearProps: "transform",
-          scrollTrigger: { trigger: el, start: "top 85%", once: true },
+      gsap.set(el, { opacity: 0, x: 50 * dist });
+      
+      ScrollTrigger.create({
+        trigger: el,
+        start: "top 85%",
+        once: true,
+        onEnter: function() {
+          gsap.to(el, {
+            opacity: 1,
+            x: 0,
+            duration: 0.9 * speed,
+            ease: "power3.out",
+            clearProps: "transform"
+          });
         }
-      );
+      });
     });
 
   // ── 6  Scale in ──────────────────────────────────────────
   gsap.utils
     .toArray(".scale-in, .reveal-scale, [data-gsap='scale-in']")
     .forEach(function (el) {
-      gsap.fromTo(
-        el,
-        { opacity: 0, scale: 0.92 },
-        {
-          opacity: 1, scale: 1,
-          duration: 0.6 * speed,
-          ease: "power2.out",
-          clearProps: "transform",
-          scrollTrigger: { trigger: el, start: "top 85%", once: true },
+      gsap.set(el, { opacity: 0, scale: 0.93 });
+      
+      ScrollTrigger.create({
+        trigger: el,
+        start: "top 85%",
+        once: true,
+        onEnter: function() {
+          gsap.to(el, {
+            opacity: 1,
+            scale: 1,
+            duration: 0.7 * speed,
+            ease: "power2.out",
+            clearProps: "transform"
+          });
         }
-      );
+      });
     });
 
   // ── 7  Stagger grids ────────────────────────────────────
@@ -170,54 +195,62 @@
     .toArray("[data-gsap='stagger'], .stagger-children")
     .forEach(function (container) {
       var items = container.children;
-      gsap.set(items, { opacity: 0 });
-      gsap.fromTo(
-        items,
-        { opacity: 0, y: 35 * dist },
-        {
-          opacity: 1, y: 0,
-          duration: 0.55 * speed,
-          stagger: 0.1,
-          ease: "power2.out",
-          clearProps: "transform",
-          scrollTrigger: { trigger: container, start: "top 85%", once: true },
+      
+      // Set initial state
+      gsap.set(items, { opacity: 0, y: 40 * dist });
+      
+      // Create smooth staggered animation
+      ScrollTrigger.create({
+        trigger: container,
+        start: "top 85%",
+        once: true,
+        onEnter: function() {
+          gsap.to(items, {
+            opacity: 1,
+            y: 0,
+            duration: 0.7 * speed,
+            stagger: 0.12,
+            ease: "power3.out",
+            clearProps: "transform"
+          });
         }
-      );
+      });
     });
 
   // ── 8  Split content (text + image side by side) ────────
   gsap.utils.toArray("[data-gsap='split']").forEach(function (container) {
     var left = container.querySelector("[data-gsap='split-left']");
     var right = container.querySelector("[data-gsap='split-right']");
-    var tl = gsap.timeline({
-      scrollTrigger: { trigger: container, start: "top 82%", once: true },
-    });
-
-    if (left) {
-      tl.fromTo(
-        left,
-        { opacity: 0, x: -30 * dist },
-        {
-          opacity: 1, x: 0,
-          duration: 0.8 * speed,
-          ease: "power3.out",
-          clearProps: "transform",
+    
+    if (left) gsap.set(left, { opacity: 0, x: -40 * dist });
+    if (right) gsap.set(right, { opacity: 0, x: 40 * dist });
+    
+    ScrollTrigger.create({
+      trigger: container,
+      start: "top 82%",
+      once: true,
+      onEnter: function() {
+        if (left) {
+          gsap.to(left, {
+            opacity: 1,
+            x: 0,
+            duration: 0.9 * speed,
+            ease: "power3.out",
+            clearProps: "transform"
+          });
         }
-      );
-    }
-    if (right) {
-      tl.fromTo(
-        right,
-        { opacity: 0, x: 30 * dist },
-        {
-          opacity: 1, x: 0,
-          duration: 0.8 * speed,
-          ease: "power3.out",
-          clearProps: "transform",
-        },
-        left ? "-=0.5" : 0
-      );
-    }
+        if (right) {
+          gsap.to(right, {
+            opacity: 1,
+            x: 0,
+            duration: 0.9 * speed,
+            delay: 0.2,
+            ease: "power3.out",
+            clearProps: "transform"
+          });
+        }
+      }
+    });
   });
 
   // ── 9  Counter animation ─────────────────────────────────
@@ -251,21 +284,27 @@
   // ── 10  CTA sections ────────────────────────────────────
   gsap.utils.toArray("[data-gsap='cta']").forEach(function (section) {
     var els = section.querySelectorAll(
-      "h2, h3, p, a.bg-white, a.bg-primary, a.bg-accent-yellow, .text-5xl, .text-4xl, .text-3xl"
+      "h2, h3, p, a.bg-white, a.bg-primary, a.bg-accent-yellow, .text-5xl, .text-4xl, .text-3xl, span.material-symbols-outlined"
     );
     if (!els.length) return;
-    gsap.fromTo(
-      els,
-      { opacity: 0, y: 25 * dist },
-      {
-        opacity: 1, y: 0,
-        duration: 0.7 * speed,
-        stagger: 0.1,
-        ease: "power2.out",
-        clearProps: "transform",
-        scrollTrigger: { trigger: section, start: "top 85%", once: true },
+    
+    gsap.set(els, { opacity: 0, y: 30 * dist });
+    
+    ScrollTrigger.create({
+      trigger: section,
+      start: "top 85%",
+      once: true,
+      onEnter: function() {
+        gsap.to(els, {
+          opacity: 1,
+          y: 0,
+          duration: 0.8 * speed,
+          stagger: 0.12,
+          ease: "power3.out",
+          clearProps: "transform"
+        });
       }
-    );
+    });
   });
 
   // ── 11  Footer columns stagger ──────────────────────────
@@ -277,31 +316,40 @@
     var bottomBar = footer.querySelector(".pt-12.border-t");
 
     if (columns.length) {
-      gsap.fromTo(
-        columns,
-        { opacity: 0, y: 25 * dist },
-        {
-          opacity: 1, y: 0,
-          duration: 0.6 * speed,
-          stagger: 0.12,
-          ease: "power2.out",
-          clearProps: "transform",
-          scrollTrigger: { trigger: footer, start: "top 92%", once: true },
+      gsap.set(columns, { opacity: 0, y: 30 * dist });
+      
+      ScrollTrigger.create({
+        trigger: footer,
+        start: "top 92%",
+        once: true,
+        onEnter: function() {
+          gsap.to(columns, {
+            opacity: 1,
+            y: 0,
+            duration: 0.7 * speed,
+            stagger: 0.15,
+            ease: "power3.out",
+            clearProps: "transform"
+          });
         }
-      );
+      });
     }
 
     if (bottomBar) {
-      gsap.fromTo(
-        bottomBar,
-        { opacity: 0 },
-        {
-          opacity: 1,
-          duration: 0.5 * speed,
-          ease: "power2.out",
-          scrollTrigger: { trigger: bottomBar, start: "top 96%", once: true },
+      gsap.set(bottomBar, { opacity: 0 });
+      
+      ScrollTrigger.create({
+        trigger: bottomBar,
+        start: "top 96%",
+        once: true,
+        onEnter: function() {
+          gsap.to(bottomBar, {
+            opacity: 1,
+            duration: 0.6 * speed,
+            ease: "power2.out"
+          });
         }
-      );
+      });
     }
   })();
 
