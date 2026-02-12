@@ -221,7 +221,7 @@ submenu.classList.toggle('hidden');
         <div class="absolute inset-0 bg-gradient-to-r from-background-dark via-background-dark/90 to-background-dark/40"></div>
     </div>
     <div class="relative z-10 max-w-7xl mx-auto px-6 w-full">
-        <div class="max-w-3xl fade-in-up">
+        <div class="max-w-3xl fade-in-up" data-gsap="hero-content">
             <div class="flex items-center gap-3 mb-6">
                 <span class="h-[2px] w-12 bg-accent-yellow flex-shrink-0"></span>
                 <span class="text-accent-yellow font-black uppercase tracking-[0.3em] text-sm">General Contracting</span>
@@ -250,9 +250,9 @@ submenu.classList.toggle('hidden');
         <p class="mt-6 text-gray-500 dark:text-gray-400 max-w-2xl mx-auto text-lg">Every Festbau project is governed by four operational pillars that ensure predictable outcomes, accountable teams, and zero surprises at close-out.</p>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" data-gsap="stagger">
         <!-- Pillar 1 -->
-        <div class="bg-background-light dark:bg-industrial-gray p-10 border border-gray-200 dark:border-gray-700 group hover:border-primary transition-all duration-300 fade-in-up" style="animation-delay:.1s">
+        <div class="bg-background-light dark:bg-industrial-gray p-10 border border-gray-200 dark:border-gray-700 group hover:border-primary transition-all duration-300 fade-in-up">
             <div class="w-16 h-16 bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary transition-all duration-300">
                 <span class="material-symbols-outlined text-3xl text-primary group-hover:text-white transition-colors duration-300">handshake</span>
             </div>
@@ -260,7 +260,7 @@ submenu.classList.toggle('hidden');
             <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">We sequence, manage, and hold every sub-trade accountable. From structural steel to finish carpentry, Festbau orchestrates the full trade stack to eliminate conflicts and maintain flow.</p>
         </div>
         <!-- Pillar 2 -->
-        <div class="bg-background-light dark:bg-industrial-gray p-10 border border-gray-200 dark:border-gray-700 group hover:border-primary transition-all duration-300 fade-in-up" style="animation-delay:.2s">
+        <div class="bg-background-light dark:bg-industrial-gray p-10 border border-gray-200 dark:border-gray-700 group hover:border-primary transition-all duration-300 fade-in-up">
             <div class="w-16 h-16 bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary transition-all duration-300">
                 <span class="material-symbols-outlined text-3xl text-primary group-hover:text-white transition-colors duration-300">schedule</span>
             </div>
@@ -268,7 +268,7 @@ submenu.classList.toggle('hidden');
             <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">CPM-based scheduling with weekly look-aheads and daily pull-planning. We identify float, protect critical paths, and recover slippage before it compounds.</p>
         </div>
         <!-- Pillar 3 -->
-        <div class="bg-background-light dark:bg-industrial-gray p-10 border border-gray-200 dark:border-gray-700 group hover:border-primary transition-all duration-300 fade-in-up" style="animation-delay:.3s">
+        <div class="bg-background-light dark:bg-industrial-gray p-10 border border-gray-200 dark:border-gray-700 group hover:border-primary transition-all duration-300 fade-in-up">
             <div class="w-16 h-16 bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary transition-all duration-300">
                 <span class="material-symbols-outlined text-3xl text-primary group-hover:text-white transition-colors duration-300">account_balance</span>
             </div>
@@ -276,7 +276,7 @@ submenu.classList.toggle('hidden');
             <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">Transparent cost tracking with monthly cost-to-complete forecasts. We manage allowances, control change orders, and protect your contingency from erosion.</p>
         </div>
         <!-- Pillar 4 -->
-        <div class="bg-background-light dark:bg-industrial-gray p-10 border border-gray-200 dark:border-gray-700 group hover:border-primary transition-all duration-300 fade-in-up" style="animation-delay:.4s">
+        <div class="bg-background-light dark:bg-industrial-gray p-10 border border-gray-200 dark:border-gray-700 group hover:border-primary transition-all duration-300 fade-in-up">
             <div class="w-16 h-16 bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary transition-all duration-300">
                 <span class="material-symbols-outlined text-3xl text-primary group-hover:text-white transition-colors duration-300">health_and_safety</span>
             </div>
@@ -297,9 +297,9 @@ submenu.classList.toggle('hidden');
         <p class="mt-6 text-gray-400 max-w-2xl mx-auto text-lg">Every stakeholder gets real-time visibility into the metrics that matter. No opaque spreadsheets&mdash;structured data, clear status, actionable insight.</p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" data-gsap="stagger">
         <!-- Card 1 -->
-        <div class="bg-background-dark/60 backdrop-blur-sm border border-gray-700 p-8 group hover:border-accent-yellow transition-all duration-300 fade-in-up" style="animation-delay:.1s">
+        <div class="bg-background-dark/60 backdrop-blur-sm border border-gray-700 p-8 group hover:border-accent-yellow transition-all duration-300 fade-in-up">
             <div class="flex items-center gap-4 mb-6">
                 <div class="w-12 h-12 rounded-full border-2 border-accent-yellow flex items-center justify-center group-hover:bg-accent-yellow group-hover:text-black transition-all duration-300">
                     <span class="material-symbols-outlined text-2xl">event_note</span>
@@ -313,7 +313,7 @@ submenu.classList.toggle('hidden');
             </div>
         </div>
         <!-- Card 2 -->
-        <div class="bg-background-dark/60 backdrop-blur-sm border border-gray-700 p-8 group hover:border-accent-yellow transition-all duration-300 fade-in-up" style="animation-delay:.2s">
+        <div class="bg-background-dark/60 backdrop-blur-sm border border-gray-700 p-8 group hover:border-accent-yellow transition-all duration-300 fade-in-up">
             <div class="flex items-center gap-4 mb-6">
                 <div class="w-12 h-12 rounded-full border-2 border-accent-yellow flex items-center justify-center group-hover:bg-accent-yellow group-hover:text-black transition-all duration-300">
                     <span class="material-symbols-outlined text-2xl">payments</span>
@@ -327,7 +327,7 @@ submenu.classList.toggle('hidden');
             </div>
         </div>
         <!-- Card 3 -->
-        <div class="bg-background-dark/60 backdrop-blur-sm border border-gray-700 p-8 group hover:border-accent-yellow transition-all duration-300 fade-in-up" style="animation-delay:.3s">
+        <div class="bg-background-dark/60 backdrop-blur-sm border border-gray-700 p-8 group hover:border-accent-yellow transition-all duration-300 fade-in-up">
             <div class="flex items-center gap-4 mb-6">
                 <div class="w-12 h-12 rounded-full border-2 border-accent-yellow flex items-center justify-center group-hover:bg-accent-yellow group-hover:text-black transition-all duration-300">
                     <span class="material-symbols-outlined text-2xl">description</span>
@@ -341,7 +341,7 @@ submenu.classList.toggle('hidden');
             </div>
         </div>
         <!-- Card 4 -->
-        <div class="bg-background-dark/60 backdrop-blur-sm border border-gray-700 p-8 group hover:border-accent-yellow transition-all duration-300 fade-in-up" style="animation-delay:.4s">
+        <div class="bg-background-dark/60 backdrop-blur-sm border border-gray-700 p-8 group hover:border-accent-yellow transition-all duration-300 fade-in-up">
             <div class="flex items-center gap-4 mb-6">
                 <div class="w-12 h-12 rounded-full border-2 border-accent-yellow flex items-center justify-center group-hover:bg-accent-yellow group-hover:text-black transition-all duration-300">
                     <span class="material-symbols-outlined text-2xl">swap_horiz</span>
@@ -418,38 +418,38 @@ submenu.classList.toggle('hidden');
     </div>
 
     <!-- Metrics Row -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-        <div class="bg-white dark:bg-industrial-gray p-8 text-center border border-gray-200 dark:border-gray-700 fade-in-up" style="animation-delay:.1s">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16" data-gsap="stagger">
+        <div class="bg-white dark:bg-industrial-gray p-8 text-center border border-gray-200 dark:border-gray-700 fade-in-up">
             <div class="text-primary text-4xl md:text-5xl font-black tracking-tighter mb-2 count-up">98%</div>
             <p class="text-[10px] text-gray-500 uppercase tracking-widest font-bold">First-Pass Inspection<br/>Approval Rate</p>
         </div>
-        <div class="bg-white dark:bg-industrial-gray p-8 text-center border border-gray-200 dark:border-gray-700 fade-in-up" style="animation-delay:.2s">
+        <div class="bg-white dark:bg-industrial-gray p-8 text-center border border-gray-200 dark:border-gray-700 fade-in-up">
             <div class="text-primary text-4xl md:text-5xl font-black tracking-tighter mb-2 count-up">0.4</div>
             <p class="text-[10px] text-gray-500 uppercase tracking-widest font-bold">TRIR<br/>(Total Recordable Incident Rate)</p>
         </div>
-        <div class="bg-white dark:bg-industrial-gray p-8 text-center border border-gray-200 dark:border-gray-700 fade-in-up" style="animation-delay:.3s">
+        <div class="bg-white dark:bg-industrial-gray p-8 text-center border border-gray-200 dark:border-gray-700 fade-in-up">
             <div class="text-primary text-4xl md:text-5xl font-black tracking-tighter mb-2 count-up">COR</div>
             <p class="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Certificate of<br/>Recognition Certified</p>
         </div>
-        <div class="bg-white dark:bg-industrial-gray p-8 text-center border border-gray-200 dark:border-gray-700 fade-in-up" style="animation-delay:.4s">
+        <div class="bg-white dark:bg-industrial-gray p-8 text-center border border-gray-200 dark:border-gray-700 fade-in-up">
             <div class="text-primary text-4xl md:text-5xl font-black tracking-tighter mb-2 count-up">100%</div>
             <p class="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Close-Out Documentation<br/>Delivery Rate</p>
         </div>
     </div>
 
     <!-- QA Process Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-white dark:bg-industrial-gray p-10 border border-gray-200 dark:border-gray-700 fade-in-up" style="animation-delay:.15s">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8" data-gsap="stagger">
+        <div class="bg-white dark:bg-industrial-gray p-10 border border-gray-200 dark:border-gray-700 fade-in-up">
             <span class="material-symbols-outlined text-4xl text-primary mb-6 block">assignment_turned_in</span>
             <h4 class="text-lg font-black uppercase tracking-tight text-gray-900 dark:text-white mb-3">Pre-Pour &amp; Pre-Cover Inspections</h4>
             <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">Documented inspections at every hold-point&mdash;before concrete pours, behind-wall close-ups, and above-ceiling sign-offs. Nothing gets covered without approval.</p>
         </div>
-        <div class="bg-white dark:bg-industrial-gray p-10 border border-gray-200 dark:border-gray-700 fade-in-up" style="animation-delay:.25s">
+        <div class="bg-white dark:bg-industrial-gray p-10 border border-gray-200 dark:border-gray-700 fade-in-up">
             <span class="material-symbols-outlined text-4xl text-primary mb-6 block">construction</span>
             <h4 class="text-lg font-black uppercase tracking-tight text-gray-900 dark:text-white mb-3">Deficiency Tracking &amp; Resolution</h4>
             <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">Deficiencies are logged with photos, assigned to responsible trades, and tracked to resolution with timestamped evidence of corrective action.</p>
         </div>
-        <div class="bg-white dark:bg-industrial-gray p-10 border border-gray-200 dark:border-gray-700 fade-in-up" style="animation-delay:.35s">
+        <div class="bg-white dark:bg-industrial-gray p-10 border border-gray-200 dark:border-gray-700 fade-in-up">
             <span class="material-symbols-outlined text-4xl text-primary mb-6 block">workspace_premium</span>
             <h4 class="text-lg font-black uppercase tracking-tight text-gray-900 dark:text-white mb-3">Commissioning &amp; Turnover</h4>
             <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">Systematic commissioning of MEP systems, warranty packages, O&amp;M manuals, and as-built drawings delivered in structured close-out binders.</p>
@@ -466,9 +466,9 @@ submenu.classList.toggle('hidden');
         <h3 class="text-4xl md:text-5xl font-black tracking-tight text-gray-900 dark:text-white uppercase">Relevant Projects</h3>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8" data-gsap="stagger">
         <!-- Project 1 -->
-        <a href="/case-studies/burks-falls" class="group block fade-in-up" style="animation-delay:.1s">
+        <a href="/case-studies/burks-falls" class="group block fade-in-up">
             <div class="relative overflow-hidden aspect-[4/3] bg-industrial-gray mb-6">
                 <img alt="Burks Falls mid-rise building renovation" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80"/>
                 <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition-colors duration-300"></div>
@@ -487,7 +487,7 @@ submenu.classList.toggle('hidden');
             </span>
         </a>
         <!-- Project 2 -->
-        <a href="/case-studies/dairy-queen" class="group block fade-in-up" style="animation-delay:.2s">
+        <a href="/case-studies/dairy-queen" class="group block fade-in-up">
             <div class="relative overflow-hidden aspect-[4/3] bg-industrial-gray mb-6">
                 <img alt="Dairy Queen new commercial building construction" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80"/>
                 <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition-colors duration-300"></div>
@@ -506,7 +506,7 @@ submenu.classList.toggle('hidden');
             </span>
         </a>
         <!-- Project 3 -->
-        <a href="/case-studies/adaptive-reuse" class="group block fade-in-up" style="animation-delay:.3s">
+        <a href="/case-studies/adaptive-reuse" class="group block fade-in-up">
             <div class="relative overflow-hidden aspect-[4/3] bg-industrial-gray mb-6">
                 <img alt="Adaptive reuse residential conversion project" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=800&q=80"/>
                 <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition-colors duration-300"></div>
@@ -529,7 +529,7 @@ submenu.classList.toggle('hidden');
 </section>
 
 <!-- ═══════════════════ BOTTOM CTA ═══════════════════ -->
-<section class="py-32 bg-primary relative overflow-hidden">
+<section class="py-32 bg-primary relative overflow-hidden" data-gsap="cta">
 <div class="absolute inset-0 opacity-10">
     <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
 </div>
@@ -633,48 +633,9 @@ submenu.classList.toggle('hidden');
 </footer>
 
 <!-- ═══════════════════ SCRIPTS ═══════════════════ -->
-<script>
-// Intersection Observer for scroll-triggered animations
-const fadeObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const el = entry.target;
-            // Read animation delay from inline style if present
-            const delay = el.style.animationDelay || '0s';
-            el.style.animationDelay = delay;
-            el.style.opacity = '1';
-
-            // Determine which animation class to apply
-            if (el.classList.contains('fade-in-up')) {
-                el.style.animation = 'fadeInUp 0.8s ease-out ' + delay + ' forwards';
-            } else if (el.classList.contains('fade-in')) {
-                el.style.animation = 'fadeIn 0.8s ease-out ' + delay + ' forwards';
-            } else if (el.classList.contains('slide-in-left')) {
-                el.style.animation = 'slideInLeft 0.8s ease-out ' + delay + ' forwards';
-            } else if (el.classList.contains('scale-in')) {
-                el.style.animation = 'scaleIn 0.6s ease-out ' + delay + ' forwards';
-            } else if (el.classList.contains('count-up')) {
-                el.style.animation = 'countUp 0.6s ease-out ' + delay + ' forwards';
-            }
-
-            observer.unobserve(el);
-        }
-    });
-}, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-});
-
-// Observe all animated elements on load
-document.addEventListener('DOMContentLoaded', () => {
-    const animatedElements = document.querySelectorAll('.fade-in-up, .fade-in, .slide-in-left, .scale-in, .count-up');
-    animatedElements.forEach(el => {
-        // Reset opacity so observer can trigger it
-        el.style.opacity = '0';
-        fadeObserver.observe(el);
-    });
-});
-</script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="../gsap-animations.js"></script>
 
 </body>
 </html>

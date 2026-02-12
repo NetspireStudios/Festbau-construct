@@ -233,10 +233,10 @@ submenu.classList.toggle('hidden');
             <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-[0.95] tracking-tighter mb-8 uppercase fade-in-up" style="animation-delay:0.05s">
                 Project Management That Protects Your <span class="text-primary">Budget</span> and <span class="text-accent-yellow">Timeline</span>
             </h1>
-            <p class="text-lg md:text-xl text-gray-300 mb-10 border-l-4 border-primary pl-6 leading-relaxed fade-in-up" style="animation-delay:0.1s">
+            <p class="text-lg md:text-xl text-gray-300 mb-10 border-l-4 border-primary pl-6 leading-relaxed fade-in-up">
                 Planning, risk control, and stakeholder coordination with clear objectives and timelines. We keep complex builds on track so you can focus on outcomes.
             </p>
-            <div class="flex flex-wrap gap-4 fade-in-up" style="animation-delay:0.2s">
+            <div class="flex flex-wrap gap-4 fade-in-up">
                 <a class="bg-primary text-white px-10 py-4 text-sm font-black uppercase tracking-widest hover:bg-white hover:text-primary transition-all" href="/contact">Request PM Support</a>
                 <a class="border border-white/30 text-white px-10 py-4 text-sm font-black uppercase tracking-widest hover:bg-white/10 transition-all" href="/qualifications">Download Sample Report</a>
             </div>
@@ -258,7 +258,7 @@ submenu.classList.toggle('hidden');
             <p class="text-lg text-gray-600 dark:text-gray-400">Every project dimension is monitored, controlled, and reported — ensuring nothing falls through the cracks from preconstruction to handover.</p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" data-gsap="stagger">
             <!-- Schedule -->
             <div class="animate-on-scroll group bg-background-light dark:bg-industrial-gray p-10 border-l-4 border-primary hover:shadow-xl transition-all duration-300">
                 <span class="material-symbols-outlined text-5xl text-primary mb-6 group-hover:scale-110 transition-transform">schedule</span>
@@ -465,7 +465,7 @@ submenu.classList.toggle('hidden');
             </div>
 
             <!-- Surrounding stakeholders -->
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-6" data-gsap="stagger">
                 <!-- Owner -->
                 <div class="group bg-background-light dark:bg-industrial-gray p-6 text-center hover:shadow-xl transition-all duration-300 border-t-4 border-primary">
                     <span class="material-symbols-outlined text-3xl text-primary mb-3">person</span>
@@ -784,26 +784,6 @@ submenu.classList.toggle('hidden');
      JAVASCRIPT
      ════════════════════════════════════════════════════════════════════ -->
 <script>
-// ── IntersectionObserver for scroll animations ──
-(function() {
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-            if (entry.isIntersecting) {
-                // Stagger children if they have transition-delay
-                entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, {
-        threshold: 0.12,
-        rootMargin: '0px 0px -40px 0px'
-    });
-
-    document.querySelectorAll('.animate-on-scroll').forEach(function(el) {
-        observer.observe(el);
-    });
-})();
-
 // ── Smooth scroll for anchor links ──
 document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
     anchor.addEventListener('click', function(e) {
@@ -817,6 +797,8 @@ document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
     });
 });
 </script>
-
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="../gsap-animations.js"></script>
 </body>
 </html>

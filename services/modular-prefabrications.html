@@ -276,7 +276,7 @@ submenu.classList.toggle('hidden');
     </div>
 
     <div class="relative z-10 max-w-7xl mx-auto px-6 w-full py-20">
-        <div class="max-w-3xl">
+        <div class="max-w-3xl" data-gsap="hero-content">
             <div class="flex items-center gap-3 mb-6 reveal">
                 <span class="h-[2px] w-12 bg-accent-yellow"></span>
                 <span class="text-accent-yellow font-black uppercase tracking-[0.3em] text-sm">Modular &amp; Prefabrication</span>
@@ -311,7 +311,7 @@ submenu.classList.toggle('hidden');
         </div>
 
         <!-- Factory vs Site Comparison -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-0">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-0" data-gsap="stagger">
 
             <!-- Factory Production -->
             <div class="bg-industrial-gray text-white p-10 md:p-14 relative overflow-hidden reveal-left">
@@ -516,7 +516,7 @@ submenu.classList.toggle('hidden');
         </div>
 
         <!-- Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children" id="best-fits-grid">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children" id="best-fits-grid" data-gsap="stagger">
             <!-- Card 1 -->
             <div class="group bg-white dark:bg-industrial-gray p-8 border border-gray-200 dark:border-gray-700 hover:border-primary transition-all duration-300 hover:shadow-xl relative overflow-hidden">
                 <div class="absolute top-0 left-0 w-full h-1 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
@@ -669,7 +669,7 @@ submenu.classList.toggle('hidden');
         </div>
 
         <!-- 3-Column Gallery -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6" data-gsap="stagger">
             <!-- Image 1: Factory -->
             <div class="group relative overflow-hidden reveal-scale" style="transition-delay:0.05s">
                 <div class="aspect-[4/5] overflow-hidden">
@@ -821,7 +821,7 @@ submenu.classList.toggle('hidden');
 
 
 <!-- ═══════════════════════ BOTTOM CTA ═══════════════════════ -->
-<section class="py-32 bg-primary relative overflow-hidden">
+<section class="py-32 bg-primary relative overflow-hidden" data-gsap="cta">
     <div class="absolute inset-0 opacity-10">
         <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
     </div>
@@ -931,34 +931,6 @@ submenu.classList.toggle('hidden');
 
 <!-- ═══════════════════════ JAVASCRIPT ═══════════════════════ -->
 <script>
-// ─── IntersectionObserver: Reveal Animations ───
-(function() {
-    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .stagger-children');
-
-    if ('IntersectionObserver' in window) {
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.12,
-            rootMargin: '0px 0px -40px 0px'
-        });
-
-        revealElements.forEach(function(el) {
-            observer.observe(el);
-        });
-    } else {
-        // Fallback: show everything immediately
-        revealElements.forEach(function(el) {
-            el.classList.add('visible');
-        });
-    }
-})();
-
 // ─── IntersectionObserver: Timeline Bars ───
 (function() {
     const timelineSection = document.getElementById('timeline-section');
@@ -1040,6 +1012,8 @@ submenu.classList.toggle('hidden');
     });
 })();
 </script>
-
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="../gsap-animations.js"></script>
 </body>
 </html>

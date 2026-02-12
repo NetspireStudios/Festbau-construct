@@ -294,7 +294,7 @@ submenu.classList.toggle('hidden');
 </div>
 <!-- Content Container -->
 <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-24 flex flex-col justify-center h-full">
-<div class="max-w-3xl">
+<div class="max-w-3xl" data-gsap="hero-content">
 <!-- Tagline -->
 <div class="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md border border-white/10 rounded-full px-4 py-1.5 mb-8">
 <span class="flex h-2 w-2 relative">
@@ -361,7 +361,7 @@ View Portfolio
 </div>
 </div>
 <!-- Decorative UI Element (Right Side overlay hint) -->
-<div class="absolute bottom-0 right-0 z-10 hidden lg:block p-12">
+<div class="absolute bottom-0 right-0 z-10 hidden lg:block p-12" data-gsap="hero-badge">
 <div class="bg-white/10 backdrop-blur-md border border-white/10 p-6 rounded-sm max-w-xs transform translate-y-4 hover:translate-y-0 transition-transform duration-500">
 <div class="flex items-start gap-4">
 <div class="bg-primary/20 p-3 rounded-sm">
@@ -378,22 +378,22 @@ View Portfolio
 <!-- B) Trust Strip (Numbers + positioning) -->
 <section class="bg-primary text-white py-12" id="stats-section">
 <div class="max-w-7xl mx-auto px-6">
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-<div class="flex flex-col items-center text-center gap-1 fade-in-up" style="animation-delay: 0.1s">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8" data-gsap="stagger">
+<div class="flex flex-col items-center text-center gap-1">
 <span class="text-white text-4xl font-black tracking-tighter">
-<span class="counter" data-target="10">0</span>+
+<span data-gsap="counter" data-target="10" data-suffix="+">0</span>
 </span>
 <span class="text-xs font-bold uppercase tracking-widest text-white/80">Years of Building</span>
 </div>
-<div class="flex flex-col items-center text-center gap-1 fade-in-up" style="animation-delay: 0.2s">
+<div class="flex flex-col items-center text-center gap-1">
 <span class="text-white text-4xl font-black tracking-tighter">
-$<span class="counter" data-target="100">0</span>M+
+<span data-gsap="counter" data-target="100" data-prefix="$" data-suffix="M+">0</span>
 </span>
 <span class="text-xs font-bold uppercase tracking-widest text-white/80">In Project Value</span>
 </div>
-<div class="flex flex-col items-center text-center gap-1 fade-in-up" style="animation-delay: 0.3s">
+<div class="flex flex-col items-center text-center gap-1">
 <span class="text-white text-4xl font-black tracking-tighter">
-<span class="counter" data-target="200">0</span>+
+<span data-gsap="counter" data-target="200" data-suffix="+">0</span>
 </span>
 <span class="text-xs font-bold uppercase tracking-widest text-white/80">Workers Employed</span>
 </div>
@@ -403,9 +403,9 @@ $<span class="counter" data-target="100">0</span>M+
 <!-- C) Services Snapshot (2×2 grid, icons only) -->
 <section class="py-24 bg-white dark:bg-background-dark">
 <div class="max-w-7xl mx-auto px-6">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8" data-gsap="stagger">
 <!-- Design-Build -->
-<div class="group p-10 bg-background-light dark:bg-industrial-gray border-l-4 border-primary hover:shadow-xl transition-all duration-300 fade-in-up" style="animation-delay: 0.1s">
+<div class="group p-10 bg-background-light dark:bg-industrial-gray border-l-4 border-primary hover:shadow-xl transition-all duration-300" data-gsap="hover-lift">
 <span class="material-symbols-outlined text-5xl text-primary mb-6">architecture</span>
 <h4 class="text-2xl font-black mb-4 uppercase tracking-tighter">Design-Build</h4>
 <p class="text-base text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">Single-team accountability—fewer handoffs, faster decisions, tighter cost and schedule control.</p>
@@ -413,7 +413,7 @@ $<span class="counter" data-target="100">0</span>M+
 </div>
 
 <!-- General Contracting -->
-<div class="group p-10 bg-background-light dark:bg-industrial-gray border-l-4 border-primary hover:shadow-xl transition-all duration-300 fade-in-up" style="animation-delay: 0.2s">
+<div class="group p-10 bg-background-light dark:bg-industrial-gray border-l-4 border-primary hover:shadow-xl transition-all duration-300" data-gsap="hover-lift">
 <span class="material-symbols-outlined text-5xl text-primary mb-6">engineering</span>
 <h4 class="text-2xl font-black mb-4 uppercase tracking-tighter">General Contracting</h4>
 <p class="text-base text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">Trade coordination and site leadership that keeps critical paths moving and quality consistent.</p>
@@ -421,7 +421,7 @@ $<span class="counter" data-target="100">0</span>M+
 </div>
 
 <!-- Project Management -->
-<div class="group p-10 bg-background-light dark:bg-industrial-gray border-l-4 border-primary hover:shadow-xl transition-all duration-300 fade-in-up" style="animation-delay: 0.3s">
+<div class="group p-10 bg-background-light dark:bg-industrial-gray border-l-4 border-primary hover:shadow-xl transition-all duration-300" data-gsap="hover-lift">
 <span class="material-symbols-outlined text-5xl text-primary mb-6">assignment</span>
 <h4 class="text-2xl font-black mb-4 uppercase tracking-tighter">Project Management</h4>
 <p class="text-base text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">Planning, risk control, and stakeholder coordination with clear objectives and timelines.</p>
@@ -429,7 +429,7 @@ $<span class="counter" data-target="100">0</span>M+
 </div>
 
 <!-- Modular / Prefab -->
-<div class="group p-10 bg-background-light dark:bg-industrial-gray border-l-4 border-primary hover:shadow-xl transition-all duration-300 fade-in-up" style="animation-delay: 0.4s">
+<div class="group p-10 bg-background-light dark:bg-industrial-gray border-l-4 border-primary hover:shadow-xl transition-all duration-300" data-gsap="hover-lift">
 <span class="material-symbols-outlined text-5xl text-primary mb-6">factory</span>
 <h4 class="text-2xl font-black mb-4 uppercase tracking-tighter">Modular / Prefab</h4>
 <p class="text-base text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">Procurement and set coordination to compress schedules and reduce on-site disruption.</p>
@@ -772,10 +772,10 @@ View All Projects
 <!-- E) Delivery System (this is what sells $10M+ readiness) -->
 <section class="py-24 bg-white">
 <div class="max-w-7xl mx-auto px-6">
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center" data-gsap="split">
 <!-- Left: Content Section -->
-<div>
-<div class="mb-12 fade-in-up">
+<div data-gsap="split-left">
+<div class="mb-12">
 <h2 class="text-primary font-black uppercase tracking-[0.4em] text-sm mb-4">Competitive Advantage</h2>
 <h3 class="text-4xl md:text-5xl font-black tracking-tight text-gray-900 mb-8 leading-tight">Delivery System Built for Institutional & Investor Standards</h3>
 <p class="text-lg text-gray-600 leading-relaxed">
@@ -783,44 +783,44 @@ Large projects aren't won by hype - they're won by controls. Festbau runs a disc
 </p>
 </div>
 
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6" data-gsap="stagger">
 <!-- 1. Preconstruction diligence -->
-<div class="group bg-gray-50 p-6 border-l-4 border-primary hover:bg-gray-100 hover:shadow-lg transition-all fade-in-up" style="animation-delay: 0.1s">
+<div class="group bg-gray-50 p-6 border-l-4 border-primary hover:bg-gray-100 hover:shadow-lg transition-all" data-gsap="hover-lift">
 <span class="material-symbols-outlined text-3xl text-primary mb-4 block">checklist</span>
 <h4 class="text-base font-black uppercase tracking-tighter mb-2 text-gray-900">Preconstruction Diligence</h4>
 <p class="text-sm text-gray-600 leading-relaxed">Constructability, scope clarity, procurement plan</p>
 </div>
 
 <!-- 2. Schedule control -->
-<div class="group bg-gray-50 p-6 border-l-4 border-primary hover:bg-gray-100 hover:shadow-lg transition-all fade-in-up" style="animation-delay: 0.15s">
+<div class="group bg-gray-50 p-6 border-l-4 border-primary hover:bg-gray-100 hover:shadow-lg transition-all">
 <span class="material-symbols-outlined text-3xl text-primary mb-4 block">schedule</span>
 <h4 class="text-base font-black uppercase tracking-tighter mb-2 text-gray-900">Schedule Control</h4>
 <p class="text-sm text-gray-600 leading-relaxed">Critical path focus, lookaheads, constraint removal</p>
 </div>
 
 <!-- 3. Cost control -->
-<div class="group bg-gray-50 p-6 border-l-4 border-primary hover:bg-gray-100 hover:shadow-lg transition-all fade-in-up" style="animation-delay: 0.2s">
+<div class="group bg-gray-50 p-6 border-l-4 border-primary hover:bg-gray-100 hover:shadow-lg transition-all">
 <span class="material-symbols-outlined text-3xl text-primary mb-4 block">account_balance_wallet</span>
 <h4 class="text-base font-black uppercase tracking-tighter mb-2 text-gray-900">Cost Control</h4>
 <p class="text-sm text-gray-600 leading-relaxed">Change management discipline, budget tracking, cost-to-complete thinking</p>
 </div>
 
 <!-- 4. Procurement + buyout -->
-<div class="group bg-gray-50 p-6 border-l-4 border-primary hover:bg-gray-100 hover:shadow-lg transition-all fade-in-up" style="animation-delay: 0.25s">
+<div class="group bg-gray-50 p-6 border-l-4 border-primary hover:bg-gray-100 hover:shadow-lg transition-all">
 <span class="material-symbols-outlined text-3xl text-primary mb-4 block">shopping_cart</span>
 <h4 class="text-base font-black uppercase tracking-tighter mb-2 text-gray-900">Procurement + Buyout</h4>
 <p class="text-sm text-gray-600 leading-relaxed">Long-lead planning, trade coverage, accountable scopes</p>
 </div>
 
 <!-- 5. Quality assurance -->
-<div class="group bg-gray-50 p-6 border-l-4 border-primary hover:bg-gray-100 hover:shadow-lg transition-all fade-in-up" style="animation-delay: 0.3s">
+<div class="group bg-gray-50 p-6 border-l-4 border-primary hover:bg-gray-100 hover:shadow-lg transition-all">
 <span class="material-symbols-outlined text-3xl text-primary mb-4 block">verified</span>
 <h4 class="text-base font-black uppercase tracking-tighter mb-2 text-gray-900">Quality Assurance</h4>
 <p class="text-sm text-gray-600 leading-relaxed">Inspection checkpoints, deficiency prevention, clean closeout</p>
 </div>
 
 <!-- 6. Owner/investor reporting -->
-<div class="group bg-gray-50 p-6 border-l-4 border-primary hover:bg-gray-100 hover:shadow-lg transition-all fade-in-up" style="animation-delay: 0.35s">
+<div class="group bg-gray-50 p-6 border-l-4 border-primary hover:bg-gray-100 hover:shadow-lg transition-all">
 <span class="material-symbols-outlined text-3xl text-primary mb-4 block">bar_chart</span>
 <h4 class="text-base font-black uppercase tracking-tighter mb-2 text-gray-900">Owner/Investor Reporting</h4>
 <p class="text-sm text-gray-600 leading-relaxed">Clear updates built for decision-makers</p>
@@ -829,24 +829,24 @@ Large projects aren't won by hype - they're won by controls. Festbau runs a disc
 </div>
 
 <!-- Right: Multi-Photo Section with Overlapping Layout -->
-<div class="relative fade-in-up" style="animation-delay: 0.2s">
+<div class="relative" data-gsap="split-right">
 <!-- Background/Main Image -->
 <div class="relative z-10 rounded-sm overflow-hidden shadow-2xl">
 <img alt="Construction professional reviewing plans on site" class="w-full h-auto object-cover" src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?q=80&w=1200&auto=format&fit=crop" loading="lazy"/>
 </div>
 
 <!-- Floating Overlapping Image 1 - Top Right -->
-<div class="absolute -top-6 -right-6 w-48 h-48 rounded-sm overflow-hidden shadow-xl z-20 border-4 border-white hidden lg:block fade-in" style="animation-delay: 0.4s">
+<div class="absolute -top-6 -right-6 w-48 h-48 rounded-sm overflow-hidden shadow-xl z-20 border-4 border-white hidden lg:block">
 <img alt="Construction site coordination" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=400&auto=format&fit=crop" loading="lazy"/>
 </div>
 
 <!-- Floating Overlapping Image 2 - Bottom Left -->
-<div class="absolute -bottom-8 -left-8 w-56 h-40 rounded-sm overflow-hidden shadow-xl z-20 border-4 border-white hidden lg:block fade-in" style="animation-delay: 0.6s">
+<div class="absolute -bottom-8 -left-8 w-56 h-40 rounded-sm overflow-hidden shadow-xl z-20 border-4 border-white hidden lg:block">
 <img alt="Blueprint planning and design" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" src="https://images.unsplash.com/photo-1503387837-b154d5074bd2?q=80&w=500&auto=format&fit=crop" loading="lazy"/>
 </div>
 
 <!-- Accent Badge -->
-<div class="absolute top-4 left-4 bg-primary text-white px-4 py-2 rounded-sm shadow-lg z-30 fade-in" style="animation-delay: 0.5s">
+<div class="absolute top-4 left-4 bg-primary text-white px-4 py-2 rounded-sm shadow-lg z-30">
 <p class="text-xs font-black uppercase tracking-wider">Investor Grade</p>
 </div>
 </div>
@@ -860,7 +860,7 @@ Large projects aren't won by hype - they're won by controls. Festbau runs a disc
 </div>
 <div class="max-w-7xl mx-auto px-6 relative">
 <!-- Header -->
-<div class="text-center mb-20 fade-in-up">
+<div class="text-center mb-20">
 <h2 class="text-accent-yellow font-black uppercase tracking-[0.4em] text-sm mb-4">Transparency</h2>
 <h3 class="text-4xl md:text-6xl font-black tracking-tight text-white mb-6 leading-tight">Investor-Ready Communication & Reporting</h3>
 <p class="text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
@@ -871,7 +871,7 @@ Every stakeholder gets the clarity they need. Festbau delivers structured report
 <!-- Main Content Grid -->
 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
 <!-- Large Featured Image -->
-<div class="lg:col-span-2 fade-in-up">
+<div class="lg:col-span-2">
 <div class="relative rounded-sm overflow-hidden shadow-2xl h-full min-h-[400px] lg:min-h-[600px] group">
 <img alt="Festbau team in coordination meeting reviewing project plans" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1400&auto=format&fit=crop" loading="lazy"/>
 <div class="absolute inset-0 bg-gradient-to-t from-background-dark/90 via-background-dark/40 to-transparent"></div>
@@ -884,7 +884,7 @@ Every stakeholder gets the clarity they need. Festbau delivers structured report
 </div>
 
 <!-- Side Images Stack -->
-<div class="space-y-8 fade-in-up" style="animation-delay: 0.1s">
+<div class="space-y-8">
 <div class="relative rounded-sm overflow-hidden shadow-xl h-64 group">
 <img alt="Financial reports and project documentation review" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=600&auto=format&fit=crop" loading="lazy"/>
 <div class="absolute inset-0 bg-gradient-to-t from-background-dark/90 via-background-dark/50 to-transparent"></div>
@@ -903,8 +903,8 @@ Every stakeholder gets the clarity they need. Festbau delivers structured report
 </div>
 
 <!-- Reports List - Full Width Cards -->
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-<div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-sm border border-gray-700 hover:border-primary transition-all hover:shadow-2xl hover:-translate-y-1 fade-in-up" style="animation-delay: 0.1s">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" data-gsap="stagger">
+<div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-sm border border-gray-700 hover:border-primary transition-all hover:shadow-2xl hover:-translate-y-1">
 <div class="bg-primary/10 w-14 h-14 rounded-sm flex items-center justify-center mb-6">
 <span class="material-symbols-outlined text-3xl text-primary">summarize</span>
 </div>
@@ -912,7 +912,7 @@ Every stakeholder gets the clarity they need. Festbau delivers structured report
 <p class="text-sm text-gray-300 leading-relaxed">Clear, concise updates on milestones, progress, and upcoming work</p>
 </div>
 
-<div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-sm border border-gray-700 hover:border-primary transition-all hover:shadow-2xl hover:-translate-y-1 fade-in-up" style="animation-delay: 0.15s">
+<div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-sm border border-gray-700 hover:border-primary transition-all hover:shadow-2xl hover:-translate-y-1">
 <div class="bg-primary/10 w-14 h-14 rounded-sm flex items-center justify-center mb-6">
 <span class="material-symbols-outlined text-3xl text-primary">warning</span>
 </div>
@@ -920,7 +920,7 @@ Every stakeholder gets the clarity they need. Festbau delivers structured report
 <p class="text-sm text-gray-300 leading-relaxed">Active tracking of risks, constraints, and mitigation actions</p>
 </div>
 
-<div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-sm border border-gray-700 hover:border-primary transition-all hover:shadow-2xl hover:-translate-y-1 fade-in-up" style="animation-delay: 0.2s">
+<div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-sm border border-gray-700 hover:border-primary transition-all hover:shadow-2xl hover:-translate-y-1">
 <div class="bg-primary/10 w-14 h-14 rounded-sm flex items-center justify-center mb-6">
 <span class="material-symbols-outlined text-3xl text-primary">edit_note</span>
 </div>
@@ -928,7 +928,7 @@ Every stakeholder gets the clarity they need. Festbau delivers structured report
 <p class="text-sm text-gray-300 leading-relaxed">Documented scope changes with cost and schedule impact analysis</p>
 </div>
 
-<div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-sm border border-gray-700 hover:border-primary transition-all hover:shadow-2xl hover:-translate-y-1 fade-in-up" style="animation-delay: 0.25s">
+<div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-sm border border-gray-700 hover:border-primary transition-all hover:shadow-2xl hover:-translate-y-1">
 <div class="bg-primary/10 w-14 h-14 rounded-sm flex items-center justify-center mb-6">
 <span class="material-symbols-outlined text-3xl text-primary">event_upcoming</span>
 </div>
@@ -936,7 +936,7 @@ Every stakeholder gets the clarity they need. Festbau delivers structured report
 <p class="text-sm text-gray-300 leading-relaxed">2-week and 6-week lookahead schedules for proactive coordination</p>
 </div>
 
-<div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-sm border border-gray-700 hover:border-primary transition-all hover:shadow-2xl hover:-translate-y-1 fade-in-up" style="animation-delay: 0.3s">
+<div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-sm border border-gray-700 hover:border-primary transition-all hover:shadow-2xl hover:-translate-y-1">
 <div class="bg-primary/10 w-14 h-14 rounded-sm flex items-center justify-center mb-6">
 <span class="material-symbols-outlined text-3xl text-primary">task_alt</span>
 </div>
@@ -945,14 +945,14 @@ Every stakeholder gets the clarity they need. Festbau delivers structured report
 </div>
 
 <!-- Reference Note Card -->
-<div class="bg-gray-900/50 dark:bg-gray-900/50 p-8 rounded-sm border border-gray-700 flex items-center justify-center fade-in-up" style="animation-delay: 0.35s">
+<div class="bg-gray-900/50 dark:bg-gray-900/50 p-8 rounded-sm border border-gray-700 flex items-center justify-center">
 <p class="text-sm text-gray-400 italic text-center">References available upon request.</p>
 </div>
 </div>
 </div>
 </section>
 <!-- G) Bottom CTA Banner (conversion-focused) -->
-<section class="py-24 bg-primary overflow-hidden relative">
+<section class="py-24 bg-primary overflow-hidden relative" data-gsap="cta">
 <div class="max-w-7xl mx-auto px-6 relative z-10">
 <div class="flex flex-col items-center text-center gap-8">
 <div class="max-w-3xl">
@@ -1048,78 +1048,6 @@ Get a Consultation
 </footer>
 
 <script>
-// Counter Animation
-function animateCounter(element, target, duration = 2000) {
-    const isDecimal = element.dataset.decimal === 'true';
-    const start = 0;
-    const increment = target / (duration / 16);
-    let current = start;
-    
-    const timer = setInterval(() => {
-        current += increment;
-        if (current >= target) {
-            element.textContent = isDecimal ? target.toFixed(1) : Math.ceil(target);
-            clearInterval(timer);
-        } else {
-            element.textContent = isDecimal ? current.toFixed(1) : Math.ceil(current);
-        }
-    }, 16);
-}
-
-// Intersection Observer for counter animation
-const observerOptions = {
-    threshold: 0.5,
-    rootMargin: '0px'
-};
-
-let countersAnimated = false;
-
-const counterObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting && !countersAnimated) {
-            countersAnimated = true;
-            const counters = entry.target.querySelectorAll('.counter');
-            counters.forEach(counter => {
-                const target = parseFloat(counter.dataset.target);
-                animateCounter(counter, target);
-            });
-            // Stop observing after animation triggered (won't repeat)
-            observer.unobserve(entry.target);
-        }
-    });
-}, observerOptions);
-
-// Observe stats section
-const statsSection = document.getElementById('stats-section');
-if (statsSection) {
-    counterObserver.observe(statsSection);
-}
-
-// Intersection Observer for fade-in animations
-const fadeObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            // Trigger animation
-            entry.target.style.opacity = '1';
-            entry.target.style.animation = entry.target.style.animation || 'fadeInUp 0.8s ease-out forwards';
-            
-            // Stop observing this element (animation will only happen once)
-            observer.unobserve(entry.target);
-        }
-    });
-}, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-});
-
-// Observe all animated elements
-document.addEventListener('DOMContentLoaded', () => {
-    const animatedElements = document.querySelectorAll('.fade-in-up, .fade-in, .slide-in-left, .scale-in');
-    animatedElements.forEach(el => {
-        fadeObserver.observe(el);
-    });
-});
-
 // Project Modal Data
 const projectData = {
     'burks-falls': {
@@ -1219,5 +1147,9 @@ document.addEventListener('keydown', (e) => {
     }
 });
 </script>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="gsap-animations.js"></script>
 
 </body></html>
