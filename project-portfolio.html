@@ -12,6 +12,8 @@
 <meta property="og:url" content="https://festbau.ca/project-portfolio">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://festbau.ca/project-portfolio">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
@@ -65,6 +67,119 @@
     .modal-overlay {
         backdrop-filter: blur(8px);
         }
+
+    /* ===== Leaflet Map Styles ===== */
+    .leaflet-popup-content-wrapper {
+        background: #101622 !important;
+        color: #fff !important;
+        border-radius: 4px !important;
+        font-family: 'Manrope', sans-serif !important;
+        padding: 0 !important;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.4) !important;
+        border: 1px solid rgba(255,255,255,0.1) !important;
+        min-width: 260px;
+    }
+    .leaflet-popup-content {
+        margin: 0 !important;
+        font-size: 13px !important;
+        line-height: 1.5 !important;
+    }
+    .leaflet-popup-tip {
+        background: #101622 !important;
+        border: 1px solid rgba(255,255,255,0.1) !important;
+        border-top: none !important;
+        border-left: none !important;
+    }
+    .leaflet-popup-close-button {
+        color: #9ca3af !important;
+        font-size: 18px !important;
+        padding: 6px 8px !important;
+        z-index: 10 !important;
+    }
+    .leaflet-popup-close-button:hover {
+        color: #FFD700 !important;
+    }
+    .map-popup-inner {
+        padding: 16px 20px;
+    }
+    .map-popup-title {
+        font-size: 15px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: -0.02em;
+        margin-bottom: 4px;
+        color: #fff;
+    }
+    .map-popup-location {
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: #9ca3af;
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+    .map-popup-type {
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: #1152d4;
+        margin-bottom: 6px;
+    }
+    .map-popup-badge-completed {
+        display: inline-block;
+        background: #FFD700;
+        color: #000;
+        font-size: 9px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        padding: 3px 8px;
+        border-radius: 2px;
+        margin-bottom: 10px;
+    }
+    .map-popup-badge-construction {
+        display: inline-block;
+        background: #f97316;
+        color: #fff;
+        font-size: 9px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        padding: 3px 8px;
+        border-radius: 2px;
+        margin-bottom: 10px;
+    }
+    .map-popup-value {
+        font-size: 18px;
+        font-weight: 900;
+        color: #1152d4;
+        margin-bottom: 8px;
+    }
+    .map-popup-desc {
+        font-size: 12px;
+        color: #9ca3af;
+        line-height: 1.6;
+    }
+    /* Custom pin marker */
+    .festbau-pin {
+        filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
+        transition: transform 0.2s ease;
+    }
+    .festbau-pin:hover {
+        transform: scale(1.15);
+    }
+    /* Fix leaflet container z-index */
+    #project-map {
+        z-index: 1;
+    }
+    .leaflet-control-attribution {
+        font-size: 9px !important;
+        background: rgba(255,255,255,0.7) !important;
+    }
     </style>
 <script>
         tailwind.config = {
@@ -481,6 +596,36 @@ View Project Details
 
 
 <!-- ═══════════════════════════════════════════════════════════ -->
+<!-- PROJECT LOCATION MAP                                       -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<section class="py-24 bg-white dark:bg-background-dark border-b border-gray-100 dark:border-gray-800">
+<div class="max-w-7xl mx-auto px-6">
+<div class="mb-12 fade-in-up">
+<div class="flex items-center gap-3 mb-4">
+<span class="h-[2px] w-12 bg-accent-yellow"></span>
+<span class="text-accent-yellow font-black uppercase tracking-[0.3em] text-[10px]">Project Locations</span>
+</div>
+<h2 class="text-4xl md:text-5xl font-black uppercase tracking-tighter text-industrial-gray dark:text-white mb-4">Where We've Built</h2>
+<p class="text-lg text-gray-500 dark:text-gray-400 max-w-2xl leading-relaxed">Explore our completed and active project sites across Ontario. Click any pin for project details.</p>
+</div>
+<div class="rounded-sm overflow-hidden shadow-2xl border border-gray-200 dark:border-gray-700 fade-in-up" style="animation-delay: 0.15s">
+<div id="project-map" style="height: 500px; width: 100%;"></div>
+</div>
+<div class="flex flex-wrap items-center gap-6 mt-6 text-xs font-bold uppercase tracking-widest text-gray-500">
+<div class="flex items-center gap-2">
+<svg width="14" height="18" viewBox="0 0 30 40"><path d="M15 0C6.7 0 0 6.7 0 15c0 11.25 15 25 15 25s15-13.75 15-25C30 6.7 23.3 0 15 0z" fill="#1152d4"/><circle cx="15" cy="14" r="5" fill="#fff"/></svg>
+<span>Completed</span>
+</div>
+<div class="flex items-center gap-2">
+<svg width="14" height="18" viewBox="0 0 30 40"><path d="M15 0C6.7 0 0 6.7 0 15c0 11.25 15 25 15 25s15-13.75 15-25C30 6.7 23.3 0 15 0z" fill="#f97316"/><circle cx="15" cy="14" r="5" fill="#fff"/></svg>
+<span>Under Construction</span>
+</div>
+</div>
+</div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════ -->
 <!-- BOTTOM CTA                                                 -->
 <!-- ═══════════════════════════════════════════════════════════ -->
 <section class="py-32 bg-background-light dark:bg-background-dark/50 border-t border-gray-100 dark:border-gray-800">
@@ -638,6 +783,7 @@ var projects = {
         type: 'Turnkey Commercial Build',
         status: 'Completed',
         value: '',
+        lat: 43.0896, lng: -79.0849,
         description: 'Complete turnkey construction of a new Dairy Queen franchise location in Niagara Falls. This project involved full site development, foundation work, steel and wood framing, interior fit-out to DQ corporate standards, kitchen equipment installation, HVAC, electrical, plumbing, and final finishing. Delivered on schedule with full compliance to franchise design specifications and municipal building codes.',
         scope: [
             'Complete site preparation and foundation',
@@ -659,6 +805,7 @@ var projects = {
         type: 'Turnkey Retail Build',
         status: 'Completed',
         value: '',
+        lat: 44.4373, lng: -81.3929,
         description: 'Turnkey construction of a Tokyo Smoke retail cannabis store in Port Elgin. This specialized project required strict adherence to AGCO (Alcohol and Gaming Commission of Ontario) regulations, including security infrastructure, controlled access areas, and compliant display systems. Full interior build-out with custom millwork, specialty lighting, and branded design elements.',
         scope: [
             'Regulatory-compliant retail build-out',
@@ -680,6 +827,7 @@ var projects = {
         type: 'Turnkey Restaurant Build',
         status: 'Completed',
         value: '',
+        lat: 43.6532, lng: -79.3832,
         description: 'Full turnkey construction of the Eggmania restaurant concept. This project encompassed complete interior build-out including commercial kitchen design and installation, dining area finishing, custom branding elements, and all mechanical, electrical, and plumbing systems. Delivered as a move-in ready restaurant operation.',
         scope: [
             'Complete restaurant interior build-out',
@@ -701,6 +849,7 @@ var projects = {
         type: 'Turnkey Commercial Build',
         status: 'Completed',
         value: '',
+        lat: 43.6700, lng: -79.3900,
         description: 'Turnkey construction for Brewing Brokers, a specialty craft brewing and taproom establishment. The project included full facility build-out with brewing equipment foundations, specialized plumbing and drainage for brewing operations, taproom and bar area construction, cold storage installation, and all finishing work. Built to meet both commercial building codes and AGCO licensing requirements.',
         scope: [
             'Brewing facility and taproom build-out',
@@ -722,6 +871,7 @@ var projects = {
         type: 'Ground-Up QSR Build',
         status: 'Completed',
         value: '~$3.0M',
+        lat: 42.9849, lng: -81.2453,
         description: 'New ground-up Dairy Queen QSR build in London, Ontario. This was one of our largest QSR projects, delivered with fast-track scheduling, comprehensive long-lead procurement planning, full trade buyout, and clean owner-ready turnover. The project included complete site development, structural construction, full interior fit-out, drive-through infrastructure, and all site works.',
         scope: [
             'Ground-up site development and construction',
@@ -743,6 +893,7 @@ var projects = {
         type: 'Turnkey Franchise Build',
         status: 'Completed',
         value: '',
+        lat: 43.9702, lng: -79.2483,
         description: 'Turnkey franchise build for BarBurrito in Stoufville as part of our multi-location franchise rollout program. This project followed the standardized BarBurrito franchise design package with localized adaptations for the specific unit. Scope included demolition of existing space, full interior build-out, food service line installation, customer-facing finishes, and all M/E/P systems.',
         scope: [
             'Franchise-standard interior build-out',
@@ -764,6 +915,7 @@ var projects = {
         type: 'Turnkey Franchise Build',
         status: 'Completed',
         value: '',
+        lat: 44.1628, lng: -77.3832,
         description: 'Turnkey franchise construction for BarBurrito in Belleville, Ontario. Part of the multi-location rollout program, this project was delivered using standardized construction packages that ensure brand consistency while meeting local building requirements. Complete interior renovation from shell to fully operational restaurant.',
         scope: [
             'Shell-to-finish restaurant conversion',
@@ -785,6 +937,7 @@ var projects = {
         type: 'Turnkey Franchise Build',
         status: 'Completed',
         value: '',
+        lat: 42.9061, lng: -78.9319,
         description: 'Turnkey franchise build-out for BarBurrito in Fort Erie. Delivered as part of a multi-location rollout with standardized scheduling and procurement. Full scope from site preparation through to final franchise inspection and handover, ensuring consistent quality and brand compliance across all locations.',
         scope: [
             'Franchise-compliant construction',
@@ -806,6 +959,7 @@ var projects = {
         type: 'Turnkey Franchise Build',
         status: 'Completed',
         value: '',
+        lat: 44.0771, lng: -80.2035,
         description: 'Turnkey franchise construction for BarBurrito in Shelburne, Ontario. This location was part of the broader franchise expansion program, leveraging our standardized delivery system for consistent, efficient rollouts. Full interior build-out to BarBurrito corporate specifications with all required M/E/P systems and finishes.',
         scope: [
             'Complete franchise interior build-out',
@@ -827,6 +981,7 @@ var projects = {
         type: 'Design-Build',
         status: 'Completed',
         value: '$5.0M',
+        lat: 45.6178, lng: -79.4063,
         description: 'Major mid-rise renovation delivered with disciplined sequencing, tight trade coordination, and closeout documentation to institutional standards. This flagship project involved comprehensive structural rehabilitation, full MEP system upgrades, building envelope restoration, and interior renovations across multiple floors while maintaining partial occupancy.',
         scope: [
             'Structural rehabilitation and reinforcement',
@@ -848,6 +1003,7 @@ var projects = {
         type: 'Project Management',
         status: 'Under Construction',
         value: '$2.5M',
+        lat: 43.3616, lng: -80.3144,
         description: 'Repurposing an existing institutional asset into multi-unit residential with careful life-safety planning, MEP coordination, and phased sequencing. This complex adaptive reuse project transforms a former school gymnasium into modern residential units while preserving the structural character of the original building.',
         scope: [
             'Institutional-to-residential conversion',
@@ -869,6 +1025,7 @@ var projects = {
         type: 'Turnkey Infrastructure',
         status: 'Completed',
         value: '',
+        lat: 43.1594, lng: -79.2469,
         description: 'Turnkey fencing and site security infrastructure project for the Niagara Region. This municipal-level project included comprehensive site surveying, engineered fence system design, installation of commercial-grade fencing across multiple locations, and all associated site work. Delivered to regional government specifications with full documentation.',
         scope: [
             'Site surveying and engineering',
@@ -995,6 +1152,97 @@ document.addEventListener('DOMContentLoaded', function() {
         fadeObserver.observe(el);
     });
 });
+
+// ===== INTERACTIVE PROJECT MAP =====
+(function() {
+    var mapContainer = document.getElementById('project-map');
+    if (!mapContainer || typeof L === 'undefined') return;
+
+    // Initialize map centered on Ontario, zoom 7 to show all pins
+    var map = L.map('project-map', {
+        center: [43.7, -79.8],
+        zoom: 7,
+        scrollWheelZoom: false,
+        zoomControl: true
+    });
+
+    // Enable scroll zoom after user clicks the map
+    map.on('click', function() {
+        map.scrollWheelZoom.enable();
+    });
+
+    // CartoDB Positron tiles — clean, muted style
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>',
+        subdomains: 'abcd',
+        maxZoom: 19
+    }).addTo(map);
+
+    // SVG pin icon factory
+    function createPinSVG(color) {
+        return '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="40" viewBox="0 0 30 40" class="festbau-pin">' +
+            '<path d="M15 0C6.7 0 0 6.7 0 15c0 11.25 15 25 15 25s15-13.75 15-25C30 6.7 23.3 0 15 0z" fill="' + color + '" stroke="#fff" stroke-width="1.5"/>' +
+            '<circle cx="15" cy="14" r="5.5" fill="#fff"/>' +
+        '</svg>';
+    }
+
+    var bluePinSVG = createPinSVG('#1152d4');
+    var orangePinSVG = createPinSVG('#f97316');
+
+    function createPinIcon(status) {
+        var svg = status === 'Under Construction' ? orangePinSVG : bluePinSVG;
+        return L.divIcon({
+            html: svg,
+            className: '',
+            iconSize: [30, 40],
+            iconAnchor: [15, 40],
+            popupAnchor: [0, -38]
+        });
+    }
+
+    // Build popup HTML
+    function buildPopup(project) {
+        var badgeClass = project.status === 'Under Construction' ? 'map-popup-badge-construction' : 'map-popup-badge-completed';
+        var badgeText = project.status;
+        var valueHTML = project.value ? '<div class="map-popup-value">' + project.value + '</div>' : '';
+        // Truncate description to ~120 chars
+        var shortDesc = project.description.length > 120 ? project.description.substring(0, 120) + '...' : project.description;
+
+        return '<div class="map-popup-inner">' +
+            '<div class="map-popup-title">' + project.title + '</div>' +
+            '<div class="map-popup-location"><svg width="10" height="12" viewBox="0 0 30 40" style="flex-shrink:0"><path d="M15 0C6.7 0 0 6.7 0 15c0 11.25 15 25 15 25s15-13.75 15-25C30 6.7 23.3 0 15 0z" fill="#1152d4"/></svg>' + project.location + '</div>' +
+            '<div class="map-popup-type">' + project.type + '</div>' +
+            '<span class="' + badgeClass + '">' + badgeText + '</span>' +
+            valueHTML +
+            '<div class="map-popup-desc">' + shortDesc + '</div>' +
+        '</div>';
+    }
+
+    // Add markers for all projects
+    var markers = [];
+    Object.keys(projects).forEach(function(key) {
+        var p = projects[key];
+        if (typeof p.lat !== 'number' || typeof p.lng !== 'number') return;
+
+        var marker = L.marker([p.lat, p.lng], {
+            icon: createPinIcon(p.status)
+        }).addTo(map);
+
+        marker.bindPopup(buildPopup(p), {
+            maxWidth: 300,
+            minWidth: 260,
+            closeButton: true
+        });
+
+        markers.push(marker);
+    });
+
+    // Fit map bounds to show all markers with padding
+    if (markers.length > 0) {
+        var group = L.featureGroup(markers);
+        map.fitBounds(group.getBounds().pad(0.1));
+    }
+})();
 </script>
 
 </body>
