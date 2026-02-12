@@ -1,0 +1,87 @@
+{
+  "hosting": {
+    "public": ".",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**",
+      "**/*.md",
+      "code.html",
+      "code2.html",
+      "hero_section.html",
+      "herosection.html"
+    ],
+    "rewrites": [
+      {
+        "source": "/about-us",
+        "destination": "/about-us.html"
+      },
+      {
+        "source": "/contact",
+        "destination": "/contact.html"
+      },
+      {
+        "source": "/privacy-policy",
+        "destination": "/privacy-policy.html"
+      },
+      {
+        "source": "/project-portfolio",
+        "destination": "/project-portfolio.html"
+      },
+      {
+        "source": "/qualifications",
+        "destination": "/qualifications.html"
+      },
+      {
+        "source": "/services/design-build",
+        "destination": "/services/design-build.html"
+      },
+      {
+        "source": "/services/general-contracting",
+        "destination": "/services/general-contracting.html"
+      },
+      {
+        "source": "/services/project-management",
+        "destination": "/services/project-management.html"
+      },
+      {
+        "source": "/services/modular-prefabrications",
+        "destination": "/services/modular-prefabrications.html"
+      },
+      {
+        "source": "/case-studies/burks-falls",
+        "destination": "/case-studies/burks-falls.html"
+      },
+      {
+        "source": "/case-studies/dairy-queen",
+        "destination": "/case-studies/dairy-queen.html"
+      },
+      {
+        "source": "/case-studies/adaptive-reuse",
+        "destination": "/case-studies/adaptive-reuse.html"
+      }
+    ],
+    "headers": [
+      {
+        "source": "**",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=3600"
+          }
+        ]
+      },
+      {
+        "source": "**/*.@(jpg|jpeg|gif|png|svg|webp)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=604800"
+          }
+        ]
+      }
+    ],
+    "cleanUrls": true,
+    "trailingSlash": false
+  }
+}
