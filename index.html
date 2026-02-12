@@ -271,47 +271,71 @@ submenu.classList.toggle('hidden');
 })();
 </script>
 <main>
-<!-- A) Hero Section -->
-<section class="relative min-h-[90vh] flex flex-col md:flex-row overflow-hidden">
-<!-- Left Side: Image -->
-<div class="w-full md:w-1/2 relative bg-slate-900">
-<img alt="Festbau construction site with scale and modern housing" class="absolute inset-0 w-full h-full object-cover opacity-80" src="assets/images/hero-housing.png"/>
-<!-- Dark to light gradient overlay (bottom to top) -->
-<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-<div class="absolute bottom-12 left-12 border-l-4 border-accent-yellow pl-6 z-10">
-<p class="text-accent-yellow text-xs font-bold tracking-[0.2em] uppercase mb-2">Live Project</p>
-<h3 class="text-white text-2xl font-bold">Ontario Construction Excellence</h3>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+<!-- Background Image with Overlay -->
+<div class="absolute inset-0 z-0">
+<img alt="Modern construction site showing structural framework and materials" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGhbFAwzN4d6voMAIiSKLu039Sv1Ua6YotAGGp1p6ddsT_sAuBr0Iv-ulVwj7j-2bRTkUu55g5CLLwaH8ToSSeXCxW10VjbGOJgil7bVwFMXTlKHkSi6RjtxdAKXoWKWHk4Tn3bOsgyinvn5xeDOwcQy5nhxJcawBtaH0pLdRloaQfvoQ_jVsM6RC9r0_4OSfzFl2wR7yARKuwDTJdn2cl5xrnELfjW-M-6iJle4ZzHlXpJsMUDOff0jM2qcO08NQ7Wdsjb9a7lBSz"/>
+<!-- Gradient Overlay: Uses primary color mixed with black for depth and text readability -->
+<div class="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-primary/80 to-primary/40 mix-blend-multiply"></div>
+<div class="absolute inset-0 bg-black/30"></div>
 </div>
+<!-- Content Container -->
+<div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 flex flex-col justify-center h-full">
+<div class="max-w-3xl">
+<!-- Tagline -->
+<div class="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md border border-white/10 rounded-full px-4 py-1.5 mb-8">
+<span class="flex h-2 w-2 relative">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-yellow opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-accent-yellow"></span>
+</span>
+<span class="text-white/90 text-sm font-medium tracking-wide uppercase">Founded 2016</span>
 </div>
-
-<!-- Right Side: Content -->
-<div class="w-full md:w-1/2 bg-white dark:bg-background-dark flex flex-col justify-center px-12 md:px-24 py-20">
-<div class="space-y-6">
-<div class="flex items-center space-x-4">
-<div class="h-[2px] w-12 bg-accent-yellow"></div>
-<p class="text-accent-yellow font-bold tracking-widest text-xs uppercase">Since 2016</p>
-</div>
-<h1 class="text-6xl md:text-8xl font-black leading-[0.9] tracking-tighter uppercase text-gray-900 dark:text-white">
-Shaping <br/>
-<span class="text-gray-900 dark:text-white">futures.</span> <br/>
-<span class="text-primary">Responsibly</span>
+<!-- Main Headline -->
+<h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.1] mb-6 tracking-tight">
+Institutional-Grade <br/>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/70">Construction</span> <br/>
+For Ontario.
 </h1>
-<p class="max-w-md text-slate-500 dark:text-slate-400 text-lg leading-relaxed">
-Industrial-grade construction with transparent reporting. We deliver robust solutions for Ontario's most complex projects.
+<!-- Subheadline -->
+<p class="text-lg md:text-xl text-slate-200 mb-10 max-w-xl font-light leading-relaxed">
+Design-Build, General Contracting, and Project Management with transparent reporting and REIT-focused delivery standards. Building trust through accountability.
 </p>
-<div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 pt-4">
-<a class="bg-primary text-white px-10 py-4 font-bold uppercase tracking-widest hover:bg-blue-700 transition-all text-center" href="/contact">Get a Consultation</a>
-<a class="border border-slate-300 dark:border-slate-700 px-10 py-4 font-bold uppercase tracking-widest hover:bg-slate-50 dark:hover:bg-slate-800 transition-all text-center" href="/about-us">Our Methodology</a>
+<!-- CTA Actions -->
+<div class="flex flex-col sm:flex-row gap-4 mb-16">
+<a href="/contact" class="bg-accent-yellow hover:bg-accent-yellow/90 text-black text-base font-bold py-4 px-8 rounded-sm shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center gap-2 group uppercase tracking-widest">
+Get a Consultation
+<span class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+<a href="/project-portfolio" class="bg-white/5 hover:bg-white/10 backdrop-blur-sm border border-white/20 text-white text-base font-semibold py-4 px-8 rounded-sm transition-all duration-300 flex items-center justify-center gap-2 uppercase tracking-widest">
+<span class="material-symbols-outlined text-lg">folder_open</span>
+View Portfolio
+</a>
 </div>
-<!-- Services strip -->
-<div class="flex flex-wrap items-center gap-3 text-gray-500 dark:text-gray-400 text-sm font-semibold pt-4">
-<span>Design-Build</span>
-<span class="text-accent-yellow">•</span>
-<span>General Contracting</span>
-<span class="text-accent-yellow">•</span>
-<span>Project Management</span>
-<span class="text-accent-yellow">•</span>
-<span>Modular/Prefab Delivery</span>
+<!-- Social Proof Badge -->
+<div class="flex items-center gap-6 pt-8 border-t border-white/10">
+<div class="flex items-center gap-3 text-white/80 text-sm font-semibold">
+<span class="material-symbols-outlined text-accent-yellow text-xl">verified</span>
+<span>Construction Act 2026 Compliant</span>
+</div>
+<div class="flex items-center gap-3 text-white/80 text-sm font-semibold">
+<span class="material-symbols-outlined text-accent-yellow text-xl">location_on</span>
+<span>Province-Wide Coverage</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Decorative UI Element (Right Side overlay hint) -->
+<div class="absolute bottom-0 right-0 z-10 hidden lg:block p-12">
+<div class="bg-white/10 backdrop-blur-md border border-white/10 p-6 rounded-sm max-w-xs transform translate-y-4 hover:translate-y-0 transition-transform duration-500">
+<div class="flex items-start gap-4">
+<div class="bg-accent-yellow/20 p-3 rounded-sm">
+<span class="material-symbols-outlined text-accent-yellow text-2xl">apartment</span>
+</div>
+<div>
+<h3 class="text-white font-bold text-lg">12+ Projects Delivered</h3>
+<p class="text-slate-300 text-sm mt-1">Turnkey delivery across QSR, institutional, and multi-family sectors with 100% on-time completion.</p>
+</div>
 </div>
 </div>
 </div>
