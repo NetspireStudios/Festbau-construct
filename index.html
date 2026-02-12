@@ -177,7 +177,7 @@
 </script>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-gray-900 dark:text-gray-100 overflow-x-hidden">
-<header id="main-header" class="sticky top-0 z-50 w-full bg-primary shadow-lg transition-transform duration-300">
+<header id="main-header" class="fixed top-0 z-50 w-full transition-all duration-300" style="background: transparent;">
 <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
 <a href="/" class="flex items-center">
 <img src="logo.png" alt="Festbau Construction" class="w-auto py-2" style="height: 88px;"/>
@@ -207,7 +207,7 @@ Get a Consultation
 <span class="material-symbols-outlined text-3xl">menu</span>
 </button>
 </div>
-<div id="mobile-menu" class="hidden md:hidden absolute top-24 left-0 right-0 bg-primary border-b border-white/20 shadow-xl">
+<div id="mobile-menu" class="hidden md:hidden absolute top-24 left-0 right-0 bg-primary/95 backdrop-blur-md border-b border-white/20 shadow-xl">
 <div class="px-6 py-4 space-y-4">
 <a href="/" class="block text-sm font-semibold uppercase tracking-widest text-accent-yellow">Home</a>
 <a href="/about-us" class="block text-sm font-semibold uppercase tracking-widest text-white hover:text-accent-yellow transition-colors">About</a>
@@ -241,38 +241,50 @@ const submenu = document.getElementById('mobile-services-menu');
 submenu.classList.toggle('hidden');
 });
 
-// Header scroll behavior - hide on scroll down, show on scroll up or stop
+// Header scroll behavior - transparent at top, solid blue when scrolled
 (function() {
-    let lastScrollTop = 0;
-    let scrollTimeout;
-    const header = document.getElementById('main-header');
+    var header = document.getElementById('main-header');
+    var heroSection = document.querySelector('main > section:first-child');
+    var lastScrollTop = 0;
+    var scrollTimeout;
     
-    window.addEventListener('scroll', function() {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    function updateHeader() {
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        var heroBottom = heroSection ? heroSection.offsetHeight - 100 : 300;
         
-        // Clear existing timeout
+        if (scrollTop > heroBottom) {
+            // Past the hero — solid blue background
+            header.style.background = '#1152d4';
+            header.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
+        } else {
+            // Within the hero — transparent
+            header.style.background = 'transparent';
+            header.style.boxShadow = 'none';
+        }
+        
+        // Hide on scroll down, show on scroll up (only when past hero)
         clearTimeout(scrollTimeout);
         
-        if (scrollTop > lastScrollTop && scrollTop > 100) {
-            // Scrolling down - hide header
+        if (scrollTop > lastScrollTop && scrollTop > 150) {
             header.style.transform = 'translateY(-100%)';
         } else {
-            // Scrolling up - show header immediately
             header.style.transform = 'translateY(0)';
         }
         
-        // Show header when user stops scrolling (1 second delay)
         scrollTimeout = setTimeout(function() {
             header.style.transform = 'translateY(0)';
         }, 1000);
         
         lastScrollTop = scrollTop;
-    });
+    }
+    
+    window.addEventListener('scroll', updateHeader);
+    updateHeader();
 })();
 </script>
 <main>
 <!-- Hero Section -->
-<section class="relative flex items-center justify-center overflow-hidden" style="min-height: 85vh">
+<section class="relative flex items-center justify-center overflow-hidden" style="min-height: 100vh">
 <!-- Background Image with Overlay -->
 <div class="absolute inset-0 z-0">
 <img alt="Modern construction site showing structural framework and materials" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGhbFAwzN4d6voMAIiSKLu039Sv1Ua6YotAGGp1p6ddsT_sAuBr0Iv-ulVwj7j-2bRTkUu55g5CLLwaH8ToSSeXCxW10VjbGOJgil7bVwFMXTlKHkSi6RjtxdAKXoWKWHk4Tn3bOsgyinvn5xeDOwcQy5nhxJcawBtaH0pLdRloaQfvoQ_jVsM6RC9r0_4OSfzFl2wR7yARKuwDTJdn2cl5xrnELfjW-M-6iJle4ZzHlXpJsMUDOff0jM2qcO08NQ7Wdsjb9a7lBSz"/>
@@ -281,7 +293,7 @@ submenu.classList.toggle('hidden');
 <div class="absolute inset-0 bg-black/30"></div>
 </div>
 <!-- Content Container -->
-<div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 flex flex-col justify-center h-full">
+<div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-24 flex flex-col justify-center h-full">
 <div class="max-w-3xl">
 <!-- Tagline -->
 <div class="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md border border-white/10 rounded-full px-4 py-1.5 mb-8">
