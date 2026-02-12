@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Modern Construction Hero - Variant 1</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b5bee",
+                        "primary-dark": "#1e40af", // Calculated darker shade for hover
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101522",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased text-slate-800 dark:text-slate-100">
+<!-- Navigation Bar -->
+<nav class="absolute top-0 w-full z-50 transition-all duration-300">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-24">
+<!-- Logo -->
+<div class="flex-shrink-0 flex items-center gap-2">
+<div class="w-10 h-10 bg-primary rounded flex items-center justify-center">
+<span class="material-icons-round text-white text-2xl">apartment</span>
+</div>
+<span class="font-bold text-2xl text-white tracking-tight">Structura</span>
+</div>
+<!-- Desktop Menu -->
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-white hover:text-primary-200 transition-colors text-sm font-medium" href="#">Projects</a>
+<a class="text-white hover:text-primary-200 transition-colors text-sm font-medium" href="#">Services</a>
+<a class="text-white hover:text-primary-200 transition-colors text-sm font-medium" href="#">About Us</a>
+<a class="text-white hover:text-primary-200 transition-colors text-sm font-medium" href="#">Careers</a>
+<a class="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-5 py-2.5 rounded font-medium text-sm transition-all border border-white/20" href="#">
+                        Contact Sales
+                    </a>
+</div>
+<!-- Mobile menu button -->
+<div class="md:hidden flex items-center">
+<button class="text-white hover:text-primary-200 focus:outline-none">
+<span class="material-icons-round text-3xl">menu</span>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+<!-- Background Image with Overlay -->
+<div class="absolute inset-0 z-0">
+<img alt="Construction site of a modern high-rise building under blue sky" class="w-full h-full object-cover" data-alt="Low angle view of modern steel and glass skyscraper under construction" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGhbFAwzN4d6voMAIiSKLu039Sv1Ua6YotAGGp1p6ddsT_sAuBr0Iv-ulVwj7j-2bRTkUu55g5CLLwaH8ToSSeXCxW10VjbGOJgil7bVwFMXTlKHkSi6RjtxdAKXoWKWHk4Tn3bOsgyinvn5xeDOwcQy5nhxJcawBtaH0pLdRloaQfvoQ_jVsM6RC9r0_4OSfzFl2wR7yARKuwDTJdn2cl5xrnELfjW-M-6iJle4ZzHlXpJsMUDOff0jM2qcO08NQ7Wdsjb9a7lBSz"/>
+<!-- Gradient Overlay: Uses primary color mixed with black for depth and text readability -->
+<div class="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-primary/80 to-primary/40 mix-blend-multiply"></div>
+<div class="absolute inset-0 bg-black/30"></div> <!-- Additional darken for contrast -->
+</div>
+<!-- Content Container -->
+<div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 flex flex-col justify-center h-full">
+<div class="max-w-3xl animate-fade-in-up">
+<!-- Tagline -->
+<div class="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md border border-white/10 rounded-full px-4 py-1.5 mb-8">
+<span class="flex h-2 w-2 relative">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+<span class="text-white/90 text-sm font-medium tracking-wide uppercase">Leading Since 1998</span>
+</div>
+<!-- Main Headline -->
+<h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.1] mb-6 tracking-tight">
+                    Precision <br/>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/70">Construction</span> <br/>
+                    &amp; Engineering.
+                </h1>
+<!-- Subheadline -->
+<p class="text-lg md:text-xl text-slate-200 mb-10 max-w-xl font-light leading-relaxed">
+                    We deliver top-tier commercial and residential projects with uncompromising safety standards and architectural excellence. Building the future, one foundation at a time.
+                </p>
+<!-- CTA Actions -->
+<div class="flex flex-col sm:flex-row gap-4 mb-16">
+<button class="bg-primary hover:bg-primary-dark text-white text-base font-semibold py-4 px-8 rounded shadow-lg shadow-primary/30 transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center gap-2 group">
+                        Get a Free Quote
+                        <span class="material-icons-round text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<button class="bg-white/5 hover:bg-white/10 backdrop-blur-sm border border-white/20 text-white text-base font-medium py-4 px-8 rounded transition-all duration-300 flex items-center justify-center gap-2">
+<span class="material-icons-round text-lg">play_circle</span>
+                        View Our Portfolio
+                    </button>
+</div>
+<!-- Social Proof Badge -->
+<div class="flex items-center gap-4 pt-8 border-t border-white/10">
+<div class="flex -space-x-3">
+<img alt="Client portrait smiling" class="w-10 h-10 rounded-full border-2 border-primary object-cover" data-alt="Portrait of a smiling female client" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxZ2zdEbLhGI7ASVdhpWsqMZFVw1lNSYoFOSQKNayisanB9coXMfIq9fCK7Tof3r0TBfetP8ptJ_v6lpZXXtf0roTOntw2wwfNyXuShOQKQYuWYnOyWG7OIaiRE8XG2ul4vqTS7co99nF_vOPU2F7RMVnisjyCDXRx-imzeVAOQIFc9WjwqThpPNJZduSXuyWSrnpMSAK2WqHH5VWfhGgS755OMW5S0OzSjtnxSujIVMXHMXMDZJLYzfMuUhJLv59yskkzl2aGuHZK"/>
+<img alt="Male client portrait" class="w-10 h-10 rounded-full border-2 border-primary object-cover" data-alt="Portrait of a male client in a suit" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7JXOX0jFJ6UZQMkTo7Y6XA-exZ0Q-txqLEC9dyJaKDdIuyDVJrowymeijYBR-AsWC96X2WbqcHxYNOLTTo05CDqinRF1O2oYiuilvWFLIrW20uMqYAmppwDQizYunu1Kj1XQNWym-WQWoK3__wJHF1Cm6sZ5RYWzzR4V3UsqG9rrwg60Gi2I1bucno6Xe5qMRHa6Qb36gKqqNDPVQ4aSbPldau70kUHsUzuy4yQjuXfmzDR-mU8lGwNUpXhbvmrEFDm6gwd7bQuxQ"/>
+<img alt="Client portrait" class="w-10 h-10 rounded-full border-2 border-primary object-cover" data-alt="Portrait of a male client smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdwqHRUbpmsuzpVVn5NNyXR6HTlMYwGSrfGOmYlsVpLhsmZzYdYB0iwJ0XkvfZIy-HCfCrRKhvHC336vKQwZ-CfDV-rdvZHJ9gTOfns3cjDZ9M-gJP4QXoTvOpdS7_96qHD44uRTXlXZtqG9imndMbKaDPiPhqgi_36oFjLYeDG6HuvwQkcqhvr9Bkatwz5udOxWOEaccQdtsVYWBK4N_mVsD5ShLNn27hO3xIaUGy2Nl2XjT5u0QRXUL_4GXY3DDk7X1yUc1YWLCJ"/>
+<div class="w-10 h-10 rounded-full border-2 border-primary bg-slate-800 flex items-center justify-center text-xs text-white font-bold">
+                            +500
+                        </div>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center text-amber-400">
+<span class="material-icons-round text-sm">star</span>
+<span class="material-icons-round text-sm">star</span>
+<span class="material-icons-round text-sm">star</span>
+<span class="material-icons-round text-sm">star</span>
+<span class="material-icons-round text-sm">star</span>
+</div>
+<span class="text-white/80 text-sm font-medium">Trusted by 500+ clients</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Decorative UI Element (Right Side overlay hint) -->
+<div class="absolute bottom-0 right-0 z-10 hidden lg:block p-12">
+<div class="bg-white/10 backdrop-blur-md border border-white/10 p-6 rounded-xl max-w-xs transform translate-y-4 hover:translate-y-0 transition-transform duration-500">
+<div class="flex items-start gap-4">
+<div class="bg-primary/20 p-3 rounded-lg">
+<span class="material-icons-round text-primary text-2xl">verified</span>
+</div>
+<div>
+<h3 class="text-white font-bold text-lg">ISO 9001 Certified</h3>
+<p class="text-slate-300 text-sm mt-1">Our commitment to quality management systems ensures excellence in every build.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</body></html>

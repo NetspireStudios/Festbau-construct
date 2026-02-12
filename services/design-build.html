@@ -150,12 +150,12 @@
 <body class="bg-background-light dark:bg-background-dark text-gray-900 dark:text-gray-100 overflow-x-hidden">
 
 <!-- ===== HEADER / NAVIGATION ===== -->
-<header id="main-header" class="sticky top-0 z-50 w-full bg-primary shadow-lg transition-transform duration-300">
+<header id="main-header" class="fixed top-0 z-50 w-full transition-all duration-300 backdrop-blur-sm" style="background: rgba(0,0,0,0);">
 <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
 <a href="/" class="flex items-center">
 <img src="../logo.png" alt="Festbau Construction" class="w-auto py-2" style="height: 88px;"/>
 </a>
-<nav class="hidden md:flex items-center gap-8">
+<nav class="hidden md:flex items-center gap-8 ml-auto">
 <a class="text-sm font-semibold uppercase tracking-widest text-white hover:text-accent-yellow transition-colors" href="/">Home</a>
 <a class="text-sm font-semibold uppercase tracking-widest text-white hover:text-accent-yellow transition-colors" href="/about-us">About</a>
 <div class="relative group">
@@ -215,33 +215,45 @@ const submenu = document.getElementById('mobile-services-menu');
 submenu.classList.toggle('hidden');
 });
 
-// Header scroll behavior - hide on scroll down, show on scroll up or stop
+// Adaptive transparent header
 (function() {
-    let lastScrollTop = 0;
-    let scrollTimeout;
-    const header = document.getElementById('main-header');
-    
-    window.addEventListener('scroll', function() {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-        // Clear existing timeout
+    var header = document.getElementById('main-header');
+    var lastScrollTop = 0;
+    var scrollTimeout;
+
+    function updateHeader() {
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop < 50) {
+            // At the very top — fully transparent, minimal blur
+            header.style.background = 'rgba(0,0,0,0)';
+            header.style.backdropFilter = 'blur(2px)';
+            header.style.webkitBackdropFilter = 'blur(2px)';
+            header.style.borderBottom = '1px solid rgba(255,255,255,0.05)';
+        } else {
+            // Universal — same subtle dark glass everywhere
+            header.style.background = 'rgba(0, 0, 0, 0.2)';
+            header.style.backdropFilter = 'blur(12px)';
+            header.style.webkitBackdropFilter = 'blur(12px)';
+            header.style.borderBottom = '1px solid rgba(255,255,255,0.06)';
+        }
+
+        // Hide on scroll down, show on scroll up or stop
         clearTimeout(scrollTimeout);
-        
-        if (scrollTop > lastScrollTop && scrollTop > 100) {
-            // Scrolling down - hide header
+        if (scrollTop > lastScrollTop && scrollTop > 150) {
             header.style.transform = 'translateY(-100%)';
         } else {
-            // Scrolling up - show header immediately
             header.style.transform = 'translateY(0)';
         }
-        
-        // Show header when user stops scrolling (1 second delay)
         scrollTimeout = setTimeout(function() {
             header.style.transform = 'translateY(0)';
         }, 1000);
-        
+
         lastScrollTop = scrollTop;
-    });
+    }
+
+    window.addEventListener('scroll', updateHeader);
+    updateHeader();
 })();
 </script>
 
