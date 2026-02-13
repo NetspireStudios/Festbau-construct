@@ -2,6 +2,7 @@
 //  Festbau — GSAP Animation Engine
 //  Smooth, professional scroll-driven animations
 //  Built for performance: only transforms & opacity (GPU)
+//  Single source of truth — no CSS @keyframes conflicts
 // =========================================================
 
 (function () {
@@ -17,16 +18,26 @@
   var dist = prefersReduced ? 0 : 1;
   var speed = prefersReduced ? 0.01 : 1;
 
-  // ── 0  Override existing CSS animations ──────────────────
-  var animSelectors =
-    ".fade-in-up, .fade-in, .slide-in-left, .slide-in-right, " +
-    ".scale-in, .reveal, .reveal-left, .reveal-right, " +
-    ".reveal-scale, .animate-on-scroll";
+  // ── Mobile detection ─────────────────────────────────────
+  var isMobile = window.innerWidth < 768;
 
-  document.querySelectorAll(animSelectors).forEach(function (el) {
-    el.style.animation = "none";
-    el.style.animationDelay = "0s";
-  });
+  // Reduced motion values for mobile to prevent overflow
+  var xDist = isMobile ? 20 : 50;   // horizontal slide distance
+  var xDistSm = isMobile ? 15 : 40; // smaller horizontal slide
+  var yDist = isMobile ? 25 : 40;   // vertical reveal distance
+  var yDistHero = isMobile ? 20 : 50; // hero vertical distance
+
+  // ── Helper: check if element is visible ──────────────────
+  function isVisible(el) {
+    return !!(el.offsetWidth || el.offsetHeight || el.getClientRects().length);
+  }
+
+  // ── Helper: filter to visible elements only ──────────────
+  function filterVisible(els) {
+    return Array.prototype.filter.call(els, function (el) {
+      return isVisible(el);
+    });
+  }
 
   // ── 1  Hero Section (runs on page load) ──────────────────
   (function heroAnimation() {
@@ -44,33 +55,31 @@
       );
     }
 
-    // b) Hero content — smooth staggered entrance with proper timing
+    // b) Hero content — smooth staggered entrance
     var contentWrap = hero.querySelector("[data-gsap='hero-content']");
     if (contentWrap) {
-      var children = Array.from(contentWrap.querySelectorAll(":scope > *"));
-      
-      // Initial state - hide all children
-      gsap.set(children, { opacity: 0, y: 50 * dist });
-      
-      // Animate with timeline for better control
+      var children = filterVisible(contentWrap.querySelectorAll(":scope > *"));
+
+      gsap.set(children, { opacity: 0, y: yDistHero * dist });
+
       var tl = gsap.timeline({ delay: 0.2 });
-      children.forEach(function(child, i) {
+      children.forEach(function (child, i) {
         tl.to(child, {
           opacity: 1,
           y: 0,
           duration: 0.8 * speed,
           ease: "power3.out",
           clearProps: "transform"
-        }, i * 0.15); // 0.15s between each element
+        }, i * 0.15);
       });
     }
 
-    // c) Floating badge (ISO, etc.) — slide from right
+    // c) Floating badge (ISO, etc.) — only on desktop
     var badge = hero.querySelector("[data-gsap='hero-badge']");
-    if (badge) {
+    if (badge && isVisible(badge)) {
       gsap.fromTo(
         badge,
-        { opacity: 0, x: 50 * dist, y: 10 * dist },
+        { opacity: 0, x: xDist * dist, y: 10 * dist },
         {
           opacity: 1, x: 0, y: 0,
           duration: 1.0 * speed,
@@ -86,13 +95,16 @@
   gsap.utils
     .toArray(".fade-in-up, .reveal, .animate-on-scroll, [data-gsap='fade-up']")
     .forEach(function (el) {
-      gsap.set(el, { opacity: 0, y: 40 * dist });
-      
+      // Skip elements inside hero (already animated by hero timeline)
+      if (el.closest("main > section:first-child [data-gsap='hero-content']")) return;
+
+      gsap.set(el, { opacity: 0, y: yDist * dist });
+
       ScrollTrigger.create({
         trigger: el,
         start: "top 88%",
         once: true,
-        onEnter: function() {
+        onEnter: function () {
           gsap.to(el, {
             opacity: 1,
             y: 0,
@@ -109,12 +121,12 @@
     .toArray(".fade-in, [data-gsap='fade-in']")
     .forEach(function (el) {
       gsap.set(el, { opacity: 0 });
-      
+
       ScrollTrigger.create({
         trigger: el,
         start: "top 88%",
         once: true,
-        onEnter: function() {
+        onEnter: function () {
           gsap.to(el, {
             opacity: 1,
             duration: 0.9 * speed,
@@ -128,13 +140,13 @@
   gsap.utils
     .toArray(".slide-in-left, .reveal-left, [data-gsap='slide-left']")
     .forEach(function (el) {
-      gsap.set(el, { opacity: 0, x: -50 * dist });
-      
+      gsap.set(el, { opacity: 0, x: -xDist * dist });
+
       ScrollTrigger.create({
         trigger: el,
         start: "top 85%",
         once: true,
-        onEnter: function() {
+        onEnter: function () {
           gsap.to(el, {
             opacity: 1,
             x: 0,
@@ -150,13 +162,13 @@
   gsap.utils
     .toArray(".slide-in-right, .reveal-right, [data-gsap='slide-right']")
     .forEach(function (el) {
-      gsap.set(el, { opacity: 0, x: 50 * dist });
-      
+      gsap.set(el, { opacity: 0, x: xDist * dist });
+
       ScrollTrigger.create({
         trigger: el,
         start: "top 85%",
         once: true,
-        onEnter: function() {
+        onEnter: function () {
           gsap.to(el, {
             opacity: 1,
             x: 0,
@@ -173,12 +185,12 @@
     .toArray(".scale-in, .reveal-scale, [data-gsap='scale-in']")
     .forEach(function (el) {
       gsap.set(el, { opacity: 0, scale: 0.93 });
-      
+
       ScrollTrigger.create({
         trigger: el,
         start: "top 85%",
         once: true,
-        onEnter: function() {
+        onEnter: function () {
           gsap.to(el, {
             opacity: 1,
             scale: 1,
@@ -194,17 +206,16 @@
   gsap.utils
     .toArray("[data-gsap='stagger'], .stagger-children")
     .forEach(function (container) {
-      var items = container.children;
-      
-      // Set initial state
-      gsap.set(items, { opacity: 0, y: 40 * dist });
-      
-      // Create smooth staggered animation
+      var items = filterVisible(container.children);
+      if (!items.length) return;
+
+      gsap.set(items, { opacity: 0, y: yDist * dist });
+
       ScrollTrigger.create({
         trigger: container,
         start: "top 85%",
         once: true,
-        onEnter: function() {
+        onEnter: function () {
           gsap.to(items, {
             opacity: 1,
             y: 0,
@@ -221,15 +232,15 @@
   gsap.utils.toArray("[data-gsap='split']").forEach(function (container) {
     var left = container.querySelector("[data-gsap='split-left']");
     var right = container.querySelector("[data-gsap='split-right']");
-    
-    if (left) gsap.set(left, { opacity: 0, x: -40 * dist });
-    if (right) gsap.set(right, { opacity: 0, x: 40 * dist });
-    
+
+    if (left) gsap.set(left, { opacity: 0, x: -xDistSm * dist });
+    if (right) gsap.set(right, { opacity: 0, x: xDistSm * dist });
+
     ScrollTrigger.create({
       trigger: container,
       start: "top 82%",
       once: true,
-      onEnter: function() {
+      onEnter: function () {
         if (left) {
           gsap.to(left, {
             opacity: 1,
@@ -287,14 +298,14 @@
       "h2, h3, p, a.bg-white, a.bg-primary, a.bg-accent-yellow, .text-5xl, .text-4xl, .text-3xl, span.material-symbols-outlined"
     );
     if (!els.length) return;
-    
-    gsap.set(els, { opacity: 0, y: 30 * dist });
-    
+
+    gsap.set(els, { opacity: 0, y: (isMobile ? 20 : 30) * dist });
+
     ScrollTrigger.create({
       trigger: section,
       start: "top 85%",
       once: true,
-      onEnter: function() {
+      onEnter: function () {
         gsap.to(els, {
           opacity: 1,
           y: 0,
@@ -316,13 +327,13 @@
     var bottomBar = footer.querySelector(".pt-12.border-t");
 
     if (columns.length) {
-      gsap.set(columns, { opacity: 0, y: 30 * dist });
-      
+      gsap.set(columns, { opacity: 0, y: (isMobile ? 15 : 30) * dist });
+
       ScrollTrigger.create({
         trigger: footer,
         start: "top 92%",
         once: true,
-        onEnter: function() {
+        onEnter: function () {
           gsap.to(columns, {
             opacity: 1,
             y: 0,
@@ -337,12 +348,12 @@
 
     if (bottomBar) {
       gsap.set(bottomBar, { opacity: 0 });
-      
+
       ScrollTrigger.create({
         trigger: bottomBar,
         start: "top 96%",
         once: true,
-        onEnter: function() {
+        onEnter: function () {
           gsap.to(bottomBar, {
             opacity: 1,
             duration: 0.6 * speed,
@@ -367,32 +378,56 @@
     );
   });
 
-  // ── 13  Hover lift micro-interaction ────────────────────
-  document
-    .querySelectorAll("[data-gsap='hover-lift']")
-    .forEach(function (el) {
-      el.addEventListener("mouseenter", function () {
-        gsap.to(el, { y: -5, duration: 0.3, ease: "power2.out" });
+  // ── 13  Hover lift micro-interaction (desktop only) ─────
+  if (!isMobile) {
+    document
+      .querySelectorAll("[data-gsap='hover-lift']")
+      .forEach(function (el) {
+        el.addEventListener("mouseenter", function () {
+          gsap.to(el, { y: -5, duration: 0.3, ease: "power2.out" });
+        });
+        el.addEventListener("mouseleave", function () {
+          gsap.to(el, { y: 0, duration: 0.3, ease: "power2.out" });
+        });
       });
-      el.addEventListener("mouseleave", function () {
-        gsap.to(el, { y: 0, duration: 0.3, ease: "power2.out" });
-      });
-    });
+  }
 
-  // ── 14  Parallax backgrounds ────────────────────────────
-  gsap.utils.toArray("[data-gsap='parallax']").forEach(function (el) {
-    var sp = parseFloat(el.getAttribute("data-speed")) || 0.15;
-    gsap.to(el, {
-      yPercent: sp * 30,
-      ease: "none",
-      scrollTrigger: {
-        trigger: el.closest("section") || el.parentElement,
-        start: "top bottom",
-        end: "bottom top",
-        scrub: true,
-      },
+  // ── 14  Parallax backgrounds (desktop only) ─────────────
+  if (!isMobile) {
+    gsap.utils.toArray("[data-gsap='parallax']").forEach(function (el) {
+      var sp = parseFloat(el.getAttribute("data-speed")) || 0.15;
+      gsap.to(el, {
+        yPercent: sp * 30,
+        ease: "none",
+        scrollTrigger: {
+          trigger: el.closest("section") || el.parentElement,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
     });
-  });
+  }
+
+  // ── 15  Timeline bars (modular-prefabrications) ─────────
+  (function timelineBars() {
+    var section = document.getElementById("timeline-section");
+    if (!section) return;
+
+    var bars = section.querySelectorAll(".timeline-bar");
+    if (!bars.length) return;
+
+    ScrollTrigger.create({
+      trigger: section,
+      start: "top 75%",
+      once: true,
+      onEnter: function () {
+        bars.forEach(function (bar) {
+          bar.classList.add("animate");
+        });
+      }
+    });
+  })();
 
   // ── Refresh ScrollTrigger after all images load ─────────
   window.addEventListener("load", function () {

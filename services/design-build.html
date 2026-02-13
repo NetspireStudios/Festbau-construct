@@ -25,72 +25,6 @@
         font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
     }
 
-    /* Fade in up animation */
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    .fade-in-up {
-        opacity: 0;
-        animation: fadeInUp 0.8s ease-out forwards;
-    }
-
-    /* Fade in animation */
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-        }
-        to {
-            opacity: 1;
-        }
-    }
-
-    .fade-in {
-        opacity: 0;
-        animation: fadeIn 0.8s ease-out forwards;
-    }
-
-    /* Slide in from left */
-    @keyframes slideInLeft {
-        from {
-            opacity: 0;
-            transform: translateX(-30px);
-        }
-        to {
-            opacity: 1;
-            transform: translateX(0);
-        }
-    }
-
-    .slide-in-left {
-        opacity: 0;
-        animation: slideInLeft 0.8s ease-out forwards;
-    }
-
-    /* Scale in animation */
-    @keyframes scaleIn {
-        from {
-            opacity: 0;
-            transform: scale(0.95);
-        }
-        to {
-            opacity: 1;
-            transform: scale(1);
-        }
-    }
-
-    .scale-in {
-        opacity: 0;
-        animation: scaleIn 0.6s ease-out forwards;
-    }
-
     /* Roadmap path animation */
     .roadmap-path-svg {
         position: absolute;
@@ -268,7 +202,7 @@ submenu.classList.toggle('hidden');
 <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/40"></div>
 </div>
 <!-- Hero Content -->
-<div class="max-w-7xl mx-auto px-6 relative z-10 w-full pt-40 pb-20">
+<div class="max-w-7xl mx-auto px-6 relative z-10 w-full pt-28 md:pt-40 pb-20">
 <div class="max-w-3xl" data-gsap="hero-content">
 <p class="text-accent-yellow font-black uppercase tracking-[0.3em] text-sm mb-4 fade-in-up">Design-Build Services</p>
 <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-[1.1] tracking-tight mb-8 fade-in-up">
@@ -302,7 +236,7 @@ Design-build consolidates design and construction under a single contract. It wo
 
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 <!-- Scenario 1: Tight Timeline -->
-<div class="group p-8 bg-background-light dark:bg-industrial-gray border-l-4 border-primary hover:shadow-xl transition-all duration-300 fade-in-up" style="animation-delay: 0.1s">
+<div class="group p-8 bg-background-light dark:bg-industrial-gray border-l-4 border-primary hover:shadow-xl transition-all duration-300 fade-in-up">
 <span class="material-symbols-outlined text-5xl text-primary mb-6">schedule</span>
 <h4 class="text-xl font-black mb-3 uppercase tracking-tighter">Tight Timeline</h4>
 <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Your project has a hard occupancy date or funding deadline. Design-build overlaps design and construction phases to compress the overall schedule.</p>

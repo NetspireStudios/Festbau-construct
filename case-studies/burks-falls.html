@@ -25,55 +25,6 @@
         font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
     }
 
-    /* Fade in up animation */
-    @keyframes fadeInUp {
-        from { opacity: 0; transform: translateY(30px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-    .fade-in-up {
-        opacity: 0;
-        animation: fadeInUp 0.8s ease-out forwards;
-    }
-
-    /* Fade in animation */
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
-    .fade-in {
-        opacity: 0;
-        animation: fadeIn 0.8s ease-out forwards;
-    }
-
-    /* Slide in from left */
-    @keyframes slideInLeft {
-        from { opacity: 0; transform: translateX(-30px); }
-        to { opacity: 1; transform: translateX(0); }
-    }
-    .slide-in-left {
-        opacity: 0;
-        animation: slideInLeft 0.8s ease-out forwards;
-    }
-
-    /* Scale in animation */
-    @keyframes scaleIn {
-        from { opacity: 0; transform: scale(0.95); }
-        to { opacity: 1; transform: scale(1); }
-    }
-    .scale-in {
-        opacity: 0;
-        animation: scaleIn 0.6s ease-out forwards;
-    }
-
-    /* Slide in from right */
-    @keyframes slideInRight {
-        from { opacity: 0; transform: translateX(30px); }
-        to { opacity: 1; transform: translateX(0); }
-    }
-    .slide-in-right {
-        opacity: 0;
-        animation: slideInRight 0.8s ease-out forwards;
-    }
 </style>
 <script>
     tailwind.config = {
@@ -220,7 +171,7 @@ submenu.classList.toggle('hidden');
 <img alt="Mid-rise building renovation project" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2000&auto=format&fit=crop"/>
 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/20"></div>
 </div>
-<div class="max-w-7xl mx-auto px-6 relative z-10 w-full pb-16 pt-32">
+<div class="max-w-7xl mx-auto px-6 relative z-10 w-full pb-16 pt-24 md:pt-32">
 <div class="max-w-4xl" data-gsap="hero-content">
 <div class="flex flex-wrap items-center gap-3 mb-6 fade-in-up">
 <span class="bg-primary text-white text-xs font-black uppercase px-4 py-1.5 rounded-sm tracking-wider">Design-Build</span>

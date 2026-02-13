@@ -26,65 +26,6 @@
     </style>
 
     <style>
-        /* Scroll-reveal animations */
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.7s cubic-bezier(.22,1,.36,1), transform 0.7s cubic-bezier(.22,1,.36,1);
-        }
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .reveal-left {
-            opacity: 0;
-            transform: translateX(-60px);
-            transition: opacity 0.7s cubic-bezier(.22,1,.36,1), transform 0.7s cubic-bezier(.22,1,.36,1);
-        }
-        .reveal-left.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        .reveal-right {
-            opacity: 0;
-            transform: translateX(60px);
-            transition: opacity 0.7s cubic-bezier(.22,1,.36,1), transform 0.7s cubic-bezier(.22,1,.36,1);
-        }
-        .reveal-right.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        .reveal-scale {
-            opacity: 0;
-            transform: scale(0.92);
-            transition: opacity 0.7s cubic-bezier(.22,1,.36,1), transform 0.7s cubic-bezier(.22,1,.36,1);
-        }
-        .reveal-scale.visible {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        /* Stagger children */
-        .stagger-children > * {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.5s cubic-bezier(.22,1,.36,1), transform 0.5s cubic-bezier(.22,1,.36,1);
-        }
-        .stagger-children.visible > *:nth-child(1) { transition-delay: 0.05s; }
-        .stagger-children.visible > *:nth-child(2) { transition-delay: 0.12s; }
-        .stagger-children.visible > *:nth-child(3) { transition-delay: 0.19s; }
-        .stagger-children.visible > *:nth-child(4) { transition-delay: 0.26s; }
-        .stagger-children.visible > *:nth-child(5) { transition-delay: 0.33s; }
-        .stagger-children.visible > *:nth-child(6) { transition-delay: 0.40s; }
-        .stagger-children.visible > * {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        .stagger-children.visible > * {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
         /* Timeline bar animation */
         .timeline-bar {
             width: 0%;
@@ -108,12 +49,6 @@
         }
         .faq-icon.rotated {
             transform: rotate(180deg);
-        }
-
-        /* Counter animation */
-        @keyframes countUp {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         /* Pulse dot */
@@ -275,7 +210,7 @@ submenu.classList.toggle('hidden');
         <div class="absolute inset-0 bg-background-dark/30"></div>
     </div>
 
-    <div class="relative z-10 max-w-7xl mx-auto px-6 w-full pt-32 pb-20">
+    <div class="relative z-10 max-w-7xl mx-auto px-6 w-full pt-24 md:pt-32 pb-20">
         <div class="max-w-3xl" data-gsap="hero-content">
             <div class="flex items-center gap-3 mb-6 fade-in-up">
                 <span class="h-[2px] w-12 bg-accent-yellow"></span>
@@ -671,7 +606,7 @@ submenu.classList.toggle('hidden');
         <!-- 3-Column Gallery -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6" data-gsap="stagger">
             <!-- Image 1: Factory -->
-            <div class="group relative overflow-hidden reveal-scale" style="transition-delay:0.05s">
+            <div class="group relative overflow-hidden reveal-scale">
                 <div class="aspect-[4/5] overflow-hidden">
                     <img alt="Modular units being assembled in a factory environment"
                          src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=800&q=80"
@@ -689,7 +624,7 @@ submenu.classList.toggle('hidden');
             </div>
 
             <!-- Image 2: Transport & Set -->
-            <div class="group relative overflow-hidden reveal-scale" style="transition-delay:0.15s">
+            <div class="group relative overflow-hidden reveal-scale">
                 <div class="aspect-[4/5] overflow-hidden">
                     <img alt="Crane lifting modular units into place on construction site"
                          src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80"
@@ -707,7 +642,7 @@ submenu.classList.toggle('hidden');
             </div>
 
             <!-- Image 3: Finished Building -->
-            <div class="group relative overflow-hidden reveal-scale" style="transition-delay:0.25s">
+            <div class="group relative overflow-hidden reveal-scale">
                 <div class="aspect-[4/5] overflow-hidden">
                     <img alt="Completed modern modular building exterior"
                          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80"
@@ -931,35 +866,6 @@ submenu.classList.toggle('hidden');
 
 <!-- ═══════════════════════ JAVASCRIPT ═══════════════════════ -->
 <script>
-// ─── IntersectionObserver: Timeline Bars ───
-(function() {
-    const timelineSection = document.getElementById('timeline-section');
-    if (!timelineSection) return;
-
-    const bars = timelineSection.querySelectorAll('.timeline-bar');
-
-    if ('IntersectionObserver' in window) {
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    bars.forEach(function(bar) {
-                        bar.classList.add('animate');
-                    });
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.3
-        });
-
-        observer.observe(timelineSection);
-    } else {
-        bars.forEach(function(bar) {
-            bar.classList.add('animate');
-        });
-    }
-})();
-
 // ─── FAQ Accordion ───
 (function() {
     const faqContainer = document.getElementById('faq-container');

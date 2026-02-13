@@ -49,71 +49,6 @@
             }
         }
         
-        /* Fade in up animation */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .fade-in-up {
-            opacity: 0;
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-        
-        /* Fade in animation */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-        
-        .fade-in {
-            opacity: 0;
-            animation: fadeIn 0.8s ease-out forwards;
-        }
-        
-        /* Slide in from left */
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        .slide-in-left {
-            opacity: 0;
-            animation: slideInLeft 0.8s ease-out forwards;
-        }
-        
-        /* Scale in animation */
-        @keyframes scaleIn {
-            from {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-        
-        .scale-in {
-            opacity: 0;
-            animation: scaleIn 0.6s ease-out forwards;
-        }
     </style>
 <script id="tailwind-config">
         tailwind.config = {
@@ -731,7 +666,7 @@ startAutoPlay();
 </script>
 
 <!-- CTA under cards -->
-<div class="flex justify-center fade-in-up" style="animation-delay: 0.4s">
+<div class="flex justify-center fade-in-up">
 <a href="/project-portfolio" class="bg-primary text-white border-2 border-primary px-12 py-4 text-sm font-black uppercase tracking-widest hover:bg-white hover:text-primary transition-all rounded-sm">
 View All Projects
 </a>
