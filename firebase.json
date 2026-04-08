@@ -49,6 +49,10 @@
         "destination": "/services/modular-prefabrications.html"
       },
       {
+        "source": "/services/premium-kitchens",
+        "destination": "/services/premium-kitchens.html"
+      },
+      {
         "source": "/case-studies/burks-falls",
         "destination": "/case-studies/burks-falls.html"
       },
